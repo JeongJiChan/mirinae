@@ -69,7 +69,7 @@
 	<nav role="navigation">
 		<ul id="main-menu">
 			<li><a href="home.do">로고</a></li>
-			<li><a href="/mirinae/views/project/p_upload.do">프로젝트 등록</a></li>
+			<li><a href="/mirinae/views/project/p_uploadForm.do">프로젝트 등록</a></li>
 			<li><a href="/mirinae/views/project/p_list.do">프로젝트 목록</a>
 				<ul id="sub-menu">
 					<li><a href="/mirinae/views/project/p_list.do?cate=1">카테고리1</a></li>
