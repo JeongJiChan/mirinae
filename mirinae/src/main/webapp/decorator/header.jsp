@@ -13,7 +13,7 @@
 		display: flex;
 		justify-content: center;
 		position: relative;
-		min-width: 600px;
+		min-width: 800px;
 	}
 	
 	ul, li {

@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Mirinae</title>
 <style type="text/css">
+	hr { width: 100%; }
 </style>
 </head>
 <body>
