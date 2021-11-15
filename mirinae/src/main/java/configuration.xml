@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!-- db.properties라는 파일을 읽어와서 이 파일에서 사용 -->
+	<properties resource="db.properties" />
+	<typeAliases>
+<!-- 	ch17.model.Member의 이름을 간단하게 member라고 설정 -->
+		<typeAlias alias="member" type="ch17.model.Member" />
+	</typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+<!-- 	CRUD를 member.xml이 처리 -->
+		<mapper resource="member.xml" />
+	</mappers>
+</configuration>
