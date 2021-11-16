@@ -17,7 +17,7 @@
 		// id가 err인 곳에 html 형식으로 보여줘라
 		$.post('confirmId.do', "m_id=" + frm.m_id.value, function(data) {
 			$('#err_id').html(data);
-		});
+		}); //아이디는 완료된듯?
 	}
 	function chk() {
 		if (frm.m_pass.value != frm.m_pass2.value) {
