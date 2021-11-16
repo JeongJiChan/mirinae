@@ -6,10 +6,8 @@ views/member/login.do=service.member.Login
 views/member/logout.do=service.member.Logout
 views/member/my_page.do=service.member.MyPage
 views/admin/admin_page.do=service.admin.AdminPage
-
-
 views/member/joinForm.do=service.member.JoinForm
 views/member/join.do=service.member.Join
 views/member/confirm.do=service.member.Confirm
-views/notice/notice_list.do=service.notice.NoticeAction
-views/notice/notice_view.do=service.notice.NoticeView
+views/notice/notice_list.la=service.notice.NoticeAction
+views/notice/notice_view.la=service.notice.NoticeView

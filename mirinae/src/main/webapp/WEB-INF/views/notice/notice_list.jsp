@@ -21,7 +21,7 @@
 		<c:forEach var="notice" items="${list }">
 			<tr>
 			<td>${notice.no_no }</td>
-			<td><input type="button" onclick="location.href='notice_view.do?no_no=${notice.no_no}'" value="${notice.no_title }"></td>
+			<td><input type="button" onclick="location.href='notice_view.la?no_no=${notice.no_no}'" value="${notice.no_title }"></td>
 			<td>${notice.no_date}</td>
 			<td>${notice.no_view }</td></tr>
 		</c:forEach>
@@ -34,29 +34,29 @@
 	<!-- 이전 페이지 버튼 -->
 		<div class="prev_btn">
 			<c:if test="${startPage > PAGE_PER_BLOCK}">
-				<button class="first" onclick="location.href='notice_list.do?pageNum=${startPage - 1}'">
+				<button class="first" onclick="location.href='notice_list.la?pageNum=${startPage - 1}'">
 					이전
 				</button> 
 			</c:if>
 			<c:if test="${pageNum > 1}">
-				<button class="prev" onclick="location.href='notice_list.do?pageNum=${currentPage - 1}'">
+				<button class="prev" onclick="location.href='notice_list.la?pageNum=${currentPage - 1}'">
 					이전
 				</button>
 			</c:if>
 		</div>
 	<!-- 페이지 버튼 -->	
 			<c:forEach var="i" begin="${startPage }" end="${endPage }">
-				<button id="page${i}" class="page_num" onclick="location.href='notice_list.do?pageNum=${i}'">${i}</button>
+				<button id="page${i}" class="page_num" onclick="location.href='notice_list.la?pageNum=${i}'">${i}</button>
 			</c:forEach>
 	<!-- 다음 페이지 버튼 -->
 		<div class="next_btn">
 			<c:if test="${currentPage < totalPage}">
-				<button class="next" onclick="location.href='notice_list.do?pageNum=${currentPage + 1}'">
+				<button class="next" onclick="location.href='notice_list.la?pageNum=${currentPage + 1}'">
 					다음
 				</button>
 			</c:if>
 			<c:if test="${endPage < totalPage}">
-				<button class=last onclick="location.href='notice_list.do?pageNum=${endPage + 1}'">
+				<button class=last onclick="location.href='notice_list.la?pageNum=${endPage + 1}'">
 					다음
 				</button> 
 			</c:if>
