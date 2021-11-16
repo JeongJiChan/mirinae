@@ -7,14 +7,6 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="/mirinae/js/jquery.js"></script>
 <script type="text/javascript">
-	function chk() {
-		if (frm.m_pass.value != frm.m_pass2.value) {
-			alert("비밀번호 재확인이 일치하지 않습니다");
-			frm.m_pass.focus();
-			frm.m_pass.value = "";
-			return false;
-		}
-	}
 	function id_chk() {
 		if (!frm.m_id.value) {
 			alert("아이디를 입력하고 체크하시오");
@@ -23,10 +15,26 @@
 		}
 		// 변수 id에 입력한 id를 담아서 post방식으로 confirm.do를 실행하고, 그 결과를 받아서
 		// id가 err인 곳에 html 형식으로 보여줘라
-		$.post('confirm.do', "m_id=" + frm.m_id.value, function(data) {
-			$('#err_id').html(data);
+		$.ajax({ type:"get",
+				 url:"confirm.do?m_id="+ frm.m_id.value, 
+				 success:function(data) {
+					   alert(data);
+					   $('#err_id').html(data);
+				    },
+				error: function(a,b,c) {
+			           alert(a+b+c);
+		            }
 		});
 	}
+	function chk() {
+		if (frm.m_pass.value != frm.m_pass2.value) {
+			alert("비밀번호 재확인이 일치하지 않습니다");
+			frm.m_pass.focus();
+			frm.m_pass.value = "";
+			return false;
+		}
+	}
+
 	function nick_chk() {
 		if (!frm.m_nick.value) {
 			alert("닉네임을 입력하고 체크하시오");

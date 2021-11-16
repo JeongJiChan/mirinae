@@ -15,7 +15,8 @@ public class Confirm implements CommandProcess {
 		if(member == null) msg = "사용가능한 아이디입니다";
 		else msg = "이미 사용중인 아이디입니다";
 		request.setAttribute("msg", msg);
-		return "confirm";
+		System.out.println("msg = "+msg);
+		return "/member/confirm";
 	}
 
 }
