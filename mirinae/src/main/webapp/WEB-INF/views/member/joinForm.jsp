@@ -22,7 +22,7 @@
 		// id가 err인 곳에 html 형식으로 보여줘라
 		$.post('confirm.do', "m_id="+frm.m_id.value, function(data)	{
 			$('#err').html(data);
-		});
+		}); // 이거수정해야돼 안돌아가는데,,,,
 	}
 </script>
 </head><body>
