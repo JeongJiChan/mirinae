@@ -1,4 +1,6 @@
 drop table member;
+select * from member;
+alter table member rename column e_name to m_name;
 
 create table Member ( — 회원
     m_no number primary key, — 회원번호
@@ -6,7 +8,7 @@ create table Member ( — 회원
     m_pass varchar2(20), — 회원비밀번호
     m_nick varchar2(20), — 회원닉네임
     m_email varchar2(20), — 회원이메일
-    e_name varchar2(20), — 회원이름
+    m_name varchar2(20), — 회원이름
     tel varchar2(20), — 회원전화번호
     birth date, — 회원생년월일
     address varchar2(20), — 회원주소

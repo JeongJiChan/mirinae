@@ -5,7 +5,7 @@
 	<properties resource="db.properties" />
 	<typeAliases>
 <!-- 	ch17.model.Member의 이름을 간단하게 member라고 설정 -->
-		<typeAlias alias="member" type="ch17.model.Member" />
+		<typeAlias alias="member" type="model.Member" />
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
