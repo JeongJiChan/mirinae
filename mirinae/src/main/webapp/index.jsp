@@ -8,7 +8,8 @@
 </head>
 <body>
 <script type="text/javascript">
-	location.href="views/main/home.do"
+//	location.href="views/main/home.do"
+	location.href="views/main/notice_list.do"
 </script>
 </body>
 </html>
