@@ -20,10 +20,10 @@
 		<tr><th>글번호</th><th>제목</th><th>작성일</th><th>조회수</th></tr>
 		<c:forEach var="notice" items="${list }">
 			<tr>
-			<td width="50px">${notice.no_no }</td>
-			<td width="150px"><input type="button" onclick="location.href='notice_view.do?no_no=${notice.no_no}'" value="${notice.no_title }"></td>
-			<td width="50px">${notice.no_date}</td>
-			<td width="50px">${notice.no_view }</td></tr>
+			<td>${notice.no_no }</td>
+			<td><input type="button" onclick="location.href='notice_view.do?no_no=${notice.no_no}'" value="${notice.no_title }"></td>
+			<td>${notice.no_date}</td>
+			<td>${notice.no_view }</td></tr>
 		</c:forEach>
 	</table>
 </div>
