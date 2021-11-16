@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<!-- 공지사항 리스트 -->
+<!-- 공지사항 리스트 --> 
 <div id="" class="" data-testid="">
 	<h1 class="n_title">Notice</h1>
 </div>
