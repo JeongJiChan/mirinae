@@ -2,5 +2,6 @@
 <decorators defaultdir="/decorator">
 	<decorator name="decorator" page="deco.jsp">
 		<pattern>/views/main/*</pattern>
+		<pattern>/views/project/*</pattern>
 	</decorator>
 </decorators>
