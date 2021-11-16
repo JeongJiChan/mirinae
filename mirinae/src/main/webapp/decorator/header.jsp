@@ -85,8 +85,8 @@
 </head>
 <body>
 	<nav role="navigation">
+		<a href="/mirinae/views/main/home.chan"><img alt="" src="/mirinae/images/milkyway.png" width="100px"></a><p>Mirinae</p>
 		<ul id="main-menu">
-			<li><a href="home.chan">로고</a></li>
 			<li><a href="/mirinae/views/project/p_uploadForm.kim">프로젝트 등록</a></li>
 			<li><a href="/mirinae/views/project/p_list.chan">프로젝트 목록</a>
 				<ul id="sub-menu">
@@ -99,7 +99,7 @@
 			<li><a>게시판</a>
 				<ul id="sub-menu">			<!-- notice/notice_list.do -->
 					<li><a href="/mirinae/views/notice/notice_list.la">공지사항</a></li>
-					<li><a href="/mirinae/views/admin/customor_service.do">고객문의</a></li>
+					<li><a href="/mirinae/views/admin/customor_service.chan">고객문의</a></li>
 				</ul></li>
 			<c:if test="${empty id}">
 				<li><a href="/mirinae/views/member/loginForm.chan">로그인</a></li>

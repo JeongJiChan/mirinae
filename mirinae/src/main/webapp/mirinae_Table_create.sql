@@ -9,7 +9,7 @@ create table Member ( — 회원
     m_name varchar2(20), — 회원이름
     tel varchar2(20), — 회원전화번호
     birth date, — 회원생년월일
-    address varchar2(20), — 회원주소
+    address varchar2(200), — 회원주소
     reg_date date, — 회원가입일
     del char(1) — 회원삭제여부
 );
