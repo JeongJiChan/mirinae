@@ -1,6 +1,8 @@
 drop table member;
 select * from member;
 alter table member rename column e_name to m_name;
+ALTER TABLE member MODIFY(address VARCHAR2(200));
+delete from member where m_no=5;
 
 create table Member ( — 회원
     m_no number primary key, — 회원번호
@@ -105,3 +107,11 @@ create table support_detail( — 후원내역
     opt_code varchar2(10) references options(opt_code), — 후원내역의 옵션코드
     sup_no number references support(sup_no) — 후원내역의 후원번호
 );
+
+create sequence seq_member
+	start with 1
+	increment by 1
+	nomaxvalue
+	nominvalue
+	nocycle
+	nocache;
