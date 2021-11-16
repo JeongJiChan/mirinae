@@ -85,7 +85,7 @@
 				</ul></li>
 			<c:if test="${empty id}">
 				<li><a href="/mirinae/views/member/loginForm.do">로그인</a></li>
-				<li><a href="/mirinae/views/member/joinForm.do">회원가입</a></li>
+				<li><a href="/mirinae/views/member/joinForm.sun">회원가입</a></li>
 			</c:if>
 			<c:if test="${not empty id}">
 				<c:if test="${id != master }">

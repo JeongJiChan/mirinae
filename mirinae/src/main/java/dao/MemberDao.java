@@ -27,10 +27,14 @@ public class MemberDao {
 		}
 	}
 	public Member select(String id) {
-		System.out.println("id:"+id);
 		// selectOne는 데이터 한건 조회, selectList는 여러건 조회
 		return (Member)session.selectOne("memberns.select",id);
 	}
+	public Member select2(String nick) {
+		// selectOne는 데이터 한건 조회, selectList는 여러건 조회
+		return (Member)session.selectOne("memberns.select2",nick);
+	}
+	
 //	public int insert(Member member) {
 //		return session.insert("memberns.insert", member);
 //	}
