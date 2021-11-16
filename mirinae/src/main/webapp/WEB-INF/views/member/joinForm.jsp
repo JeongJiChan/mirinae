@@ -9,21 +9,14 @@
 <script type="text/javascript">
 	function id_chk() {
 		if (!frm.m_id.value) {
-			alert("아이디를 입력하고 체크하시오");
+			alert("아이디 입력하고 체크해주세요");
 			frm.m_id.focus();
 			return false;
 		}
 		// 변수 id에 입력한 id를 담아서 post방식으로 confirm.do를 실행하고, 그 결과를 받아서
 		// id가 err인 곳에 html 형식으로 보여줘라
-		$.ajax({ type:"get",
-				 url:"confirm.do?m_id="+ frm.m_id.value, 
-				 success:function(data) {
-					   alert(data);
-					   $('#err_id').html(data);
-				    },
-				error: function(a,b,c) {
-			           alert(a+b+c);
-		            }
+		$.post('confirmId.do', "m_id=" + frm.m_id.value, function(data) {
+			$('#err_id').html(data);
 		});
 	}
 	function chk() {
@@ -34,7 +27,6 @@
 			return false;
 		}
 	}
-
 	function nick_chk() {
 		if (!frm.m_nick.value) {
 			alert("닉네임을 입력하고 체크하시오");
@@ -58,7 +50,7 @@
 				<td><input type="text" name="m_id" required="required"
 					autofocus="autofocus"> <input type="button" value="중복체크"
 					onclick="id_chk()">
-				<div id="err_id"></div></td>
+					<div id="err_id"></div></td>
 			</tr>
 			<tr>
 				<th><span style="color: red">*</span>비밀번호</th>
@@ -72,7 +64,7 @@
 				<th><span style="color: red">*</span>닉네임</th>
 				<td><input type="text" name="m_nick" required="required">
 					<input type="button" value="중복체크" onclick="nick_chk()">
-				<div id="err_nick"></div></td>
+					<div id="err_nick"></div></td>
 			</tr>
 			<tr>
 				<th><span style="color: red">*</span>이메일</th>
