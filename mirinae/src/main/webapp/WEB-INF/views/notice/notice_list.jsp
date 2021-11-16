@@ -16,7 +16,7 @@
 	<h1 class="n_title">Notice</h1>
 </div>
 <div>
-	<table width>
+	<table>
 		<tr><th>글번호</th><th>제목</th><th>작성일</th><th>조회수</th></tr>
 		<c:forEach var="notice" items="${list }">
 			<tr>
