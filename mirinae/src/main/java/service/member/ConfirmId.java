@@ -6,7 +6,7 @@ import dao.MemberDao;
 import model.Member;
 import service.main.CommandProcess;
 
-public class Confirm implements CommandProcess {
+public class ConfirmId implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		String m_id = request.getParameter("m_id");
 		String msg = "";
