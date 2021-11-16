@@ -26,10 +26,15 @@ public class MemberDao {
 			System.out.println("연결에러 : " + e.getMessage());
 		}
 	}
-	public Member select(String m_id) {
+	public Member select(String id) {
 		// selectOne는 데이터 한건 조회, selectList는 여러건 조회
-		return (Member)session.selectOne("memberns.select",m_id);
+		return (Member)session.selectOne("memberns.select",id);
 	}
+	public Member select2(String nick) {
+		// selectOne는 데이터 한건 조회, selectList는 여러건 조회
+		return (Member)session.selectOne("memberns.select2",nick);
+	}
+	
 //	public int insert(Member member) {
 //		return session.insert("memberns.insert", member);
 //	}

@@ -7,35 +7,46 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="/mirinae/js/jquery.js"></script>
 <script type="text/javascript">
-	function chk() {
-		if (frm.m_pass.value != frm.m_pass2.value) {
-			alert("비밀번호 재확인이 일치하지 않습니다");
-			frm.m_pass.focus();
-			frm.m_pass.value = "";
-			return false;
-		}
-	}
 	function id_chk() {
 		if (!frm.m_id.value) {
-			alert("아이디를 입력하고 체크하시오");
+			alert("아이디를 입력하고 체크해주세요");
 			frm.m_id.focus();
 			return false;
 		}
 		// 변수 id에 입력한 id를 담아서 post방식으로 confirm.do를 실행하고, 그 결과를 받아서
 		// id가 err인 곳에 html 형식으로 보여줘라
-		$.post('confirm.do', "m_id=" + frm.m_id.value, function(data) {
+		$.post('confirmId.sun', "m_id=" + frm.m_id.value, function(data) {
 			$('#err_id').html(data);
-		});
+		}); //아이디는 완료된듯?
 	}
+	function pass_chk() {
+/* 		if (frm.m_pass.value != frm.m_pass2.value) {
+			alert("비밀번호 재확인이 일치하지 않습니다");
+			frm.m_pass.focus();
+			frm.m_pass.value = "";
+			return false;
+		} */
+		if(frm.m_pass.value!='' && frm.m_pass2.value!='') {
+	        if(frm.m_pass.value == frm.m_pass2.value) {
+	            document.getElementById('same').innerHTML='비밀번호가 일치합니다.';
+	            document.getElementById('same').style.color='blue';
+	        }
+	        else {
+	            document.getElementById('same').innerHTML='비밀번호가 일치하지 않습니다.';
+	            document.getElementById('same').style.color='red';
+	        }
+	    }
+	}
+
 	function nick_chk() {
 		if (!frm.m_nick.value) {
-			alert("닉네임을 입력하고 체크하시오");
+			alert("닉네임을 입력하고 체크해주세요");
 			frm.m_nick.focus();
 			return false;
 		}
 		// 변수 id에 입력한 id를 담아서 post방식으로 confirm.do를 실행하고, 그 결과를 받아서
 		// id가 err인 곳에 html 형식으로 보여줘라
-		$.post('confirm.do', "m_nick=" + frm.m_nick.value, function(data) {
+		$.post('confirmNick.do', "m_nick=" + frm.m_nick.value, function(data) {
 			$('#err_nick').html(data);
 		});
 	}
@@ -50,7 +61,7 @@
 				<td><input type="text" name="m_id" required="required"
 					autofocus="autofocus"> <input type="button" value="중복체크"
 					onclick="id_chk()">
-				<div id="err_id"></div></td>
+					<div id="err_id"></div></td>
 			</tr>
 			<tr>
 				<th><span style="color: red">*</span>비밀번호</th>
@@ -58,13 +69,14 @@
 			</tr>
 			<tr>
 				<th><span style="color: red">*</span>비밀번호 재확인</th>
-				<td><input type="password" name="m_pass2" required="required"></td>
+				<td><input type="password" name="m_pass2" required="required" onchange="pass_chk()">
+				<div id="same"></div></td>
 			</tr>
 			<tr>
 				<th><span style="color: red">*</span>닉네임</th>
 				<td><input type="text" name="m_nick" required="required">
 					<input type="button" value="중복체크" onclick="nick_chk()">
-				<div id="err_nick"></div></td>
+					<div id="err_nick"></div></td>
 			</tr>
 			<tr>
 				<th><span style="color: red">*</span>이메일</th>

@@ -4,6 +4,9 @@
 	<select id="select" parameterType="string" resultType="member">
 		select * from member where m_id=#{m_id}
 	</select>
+	<select id="select2" parameterType="string" resultType="member">
+		select * from member where m_nick=#{m_nick}
+	</select>
 	
 <!-- 	<insert id="insert" parameterType="member">
 		insert into member2 values (#{id},#{password},#{name},#{address},#{tel},sysdate,'n')

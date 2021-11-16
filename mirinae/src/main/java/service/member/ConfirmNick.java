@@ -6,16 +6,16 @@ import dao.MemberDao;
 import model.Member;
 import service.main.CommandProcess;
 
-public class Confirm implements CommandProcess {
+public class ConfirmNick implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
-		String m_id = request.getParameter("m_id");
+		String m_nick = request.getParameter("m_nick");
 		String msg = "";
 		MemberDao md = MemberDao.getInstance();
-		Member member = md.select(m_id);
-		if(member == null) msg = "사용가능한 아이디입니다";
-		else msg = "이미 사용중인 아이디입니다";
+		Member member = md.select(m_nick);
+		if(member == null) msg = "사용 가능한 닉네임입니다";
+		else msg = "닉네임 중복";
 		request.setAttribute("msg", msg);
-		return "confirm";
+		return "/member/confirm";
 	}
 
 }

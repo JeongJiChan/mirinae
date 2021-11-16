@@ -63,13 +63,31 @@
 	#sub-menu>li>a:hover {
 		text-decoration: underline;
 	}
+	
+/* 	uploadForm.jsp css ---------------------------------------------------- */
+		th { border: 1px solid black;}
+		td { border: 1px solid black;}
+		#picture_table { width: 35%; float: left; table-layout: fixed; }
+		#picture { border: 1px solid black; width: 100%; height: 300px; }
+		#project_table { width: 60%;  float: left; }
+		#option_table {  border: 1px solid black; width: 59.8%;  float: left; overflow: hidden; table-layout: fixed; }
+		#button { clear: both; }
+		.title { height: 35px; }
+		.option_list { border: 0px; }
+		.option_list1 { width:70%; border-bottom: 1px solid black; border-right: 1px solid black; }
+		.option_list2 { border-bottom: 1px solid black; border-left: 1px solid black; }
+		.option_list3 { height: 95px; }
+		#opt_divN { height: 95px; overflow: auto; }
+		#opt_divP { height: 95px; overflow: auto; }
+/*--------------------------------------------------------------------  */
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 	<nav role="navigation">
 		<ul id="main-menu">
 			<li><a href="home.do">로고</a></li>
-			<li><a href="/mirinae/views/project/p_uploadForm.do">프로젝트 등록</a></li>
+			<li><a href="/mirinae/views/project/p_uploadForm.kim">프로젝트 등록</a></li>
 			<li><a href="/mirinae/views/project/p_list.do">프로젝트 목록</a>
 				<ul id="sub-menu">
 					<li><a href="/mirinae/views/project/p_list.do?cate=1">카테고리1</a></li>
@@ -85,7 +103,7 @@
 				</ul></li>
 			<c:if test="${empty id}">
 				<li><a href="/mirinae/views/member/loginForm.do">로그인</a></li>
-				<li><a href="/mirinae/views/member/joinForm.do">회원가입</a></li>
+				<li><a href="/mirinae/views/member/joinForm.sun">회원가입</a></li>
 			</c:if>
 			<c:if test="${not empty id}">
 				<c:if test="${id != master }">
