@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="projectns">
 	<update id="update" parameterType="project">
-		update project set password=#{password},name=#{name},address=#{address},tel=#{tel}
+		update project set password=#{password},address=#{address},tel=#{tel}
 			where id=#{id}
 	</update>
 
