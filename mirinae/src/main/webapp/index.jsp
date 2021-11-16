@@ -8,7 +8,7 @@
 </head>
 <body>
 <script type="text/javascript">
-	location.href="views/main/home.do"
+	location.href="views/main/home.chan"
 </script>
 </body>
 </html>
