@@ -79,8 +79,8 @@
 					<li><a href="/mirinae/views/admin/notice.do?cate=5">카테고리5</a></li>
 				</ul></li>
 			<li><a>게시판</a>
-				<ul id="sub-menu">
-					<li><a href="/mirinae/views/admin/notice.do">공지사항</a></li>
+				<ul id="sub-menu">			<!-- notice/notice_list.do -->
+					<li><a href="/mirinae/views/notice/notice_list.do">공지사항</a></li>
 					<li><a href="/mirinae/views/admin/customor_service.do">고객문의</a></li>
 				</ul></li>
 			<c:if test="${empty id}">
