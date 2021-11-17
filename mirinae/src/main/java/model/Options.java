@@ -1,6 +1,6 @@
 package model;
 
-public class options {
+public class Options {
     private String opt_code;
     private String opt_name;
     private int opt_price;
