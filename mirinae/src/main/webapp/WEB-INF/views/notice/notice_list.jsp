@@ -5,29 +5,33 @@
 <html>
 <head>
 <style type="text/css">
-	.n_title {style="font-size:56px; line-height:1.4em; text-align:center"}
+	#n_list { width: 100%; cursor: pointer; }
+	.n_title {style="font-size:56px; line-height:1.4em; align: center;}
+	button.writeBtn { margin-left: 1400px; }
+	div.item { display : flex;   justify-content: flex-start; margin:auto; float: left;}
 </style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<!-- 글쓰기 -->
-<div class="n_btn"> <!-- 미구현 -->
-	<c:if test="${!empty amdin_no }">
-		<button onclick="notice_write.la">공지사항 작성</button>
-	</c:if>
+<div id="n_list">
+	<h1 class="n_title" style="text-align:center" onclick="location.href='notice_list.la'">Notice</h1>
 </div>
 <!-- 공지사항 리스트 -->
-<div id="n_list">
-	<h1 class="n_title">Notice</h1>
-</div>
 <div>
-	<table>
+	<table width="60%" align= "center">
 		<tr><th>글번호</th><th>제목</th><th>작성일</th><th>조회수</th></tr>
 		<c:forEach var="notice" items="${list }">
+		<c:set var="number" value="${number}"/>
+
+		<c:url value="notice_view.la" var="nl_title">
+			<c:param name="no_no" value="${notice.no_no }"/>
+			<c:param name="pageNum" value="${currentPage }"/>
+		</c:url>
+		
 			<tr>
-			<td>${notice.no_no }</td>
-			<td><input type="button" onclick="location.href='notice_view.la?no_no=${notice.no_no}&pageNum=${currentPage }'" value="${notice.no_title }"></td>
+			<td align="center">${number }<c:set var="number" value="${number-1 }"/> </td>
+			<td width="70%" style="padding-left :70px"><input type="button" onclick="location.href='${nl_title}'" value="${notice.no_title }"></td>
 			<td>${notice.no_date}</td>
 			<td>${notice.no_view }</td></tr>
 		</c:forEach>
@@ -35,39 +39,26 @@
 </div>
 
 
-<div class="paging" align="center">
-	<div class="items">
+<div class="item" align="center">
 	<!-- 이전 페이지 버튼 -->
-		<div class="prev_btn">
 			<c:if test="${startPage > PAGE_PER_BLOCK}">
-				<button class="first" onclick="location.href='notice_list.la?pageNum=${startPage - 1}'">
-					이전
-				</button> 
+				<button class="first" onclick="location.href='notice_list.la?pageNum=${startPage - 1}'">이전</button> 
 			</c:if>
 			<c:if test="${pageNum > 1}">
-				<button class="prev" onclick="location.href='notice_list.la?pageNum=${currentPage - 1}'">
-					이전
-				</button>
+				<button class="prev" onclick="location.href='notice_list.la?pageNum=${currentPage - 1}'">이전	</button>
 			</c:if>
-		</div>
 	<!-- 페이지 버튼 -->	
 			<c:forEach var="i" begin="${startPage }" end="${endPage }">
 				<button id="page${i}" class="page_num" onclick="location.href='notice_list.la?pageNum=${i}'">${i}</button>
 			</c:forEach>
 	<!-- 다음 페이지 버튼 -->
-		<div class="next_btn">
 			<c:if test="${currentPage < totalPage}">
-				<button class="next" onclick="location.href='notice_list.la?pageNum=${currentPage + 1}'">
-					다음
-				</button>
+				<button class="next" onclick="location.href='notice_list.la?pageNum=${currentPage + 1}'">다음	</button>
 			</c:if>
 			<c:if test="${endPage < totalPage}">
-				<button class=last onclick="location.href='notice_list.la?pageNum=${endPage + 1}'">
-					다음
-				</button> 
+				<button class=last onclick="location.href='notice_list.la?pageNum=${endPage + 1}'">다음</button> 
 			</c:if>
-		</div>
-	</div>
 </div>
+<!-- <button class="writeBtn" onclick="notice_write.la">글쓰기</button> -->
 </body>
 </html>
