@@ -63,23 +63,6 @@
 	#sub-menu>li>a:hover {
 		text-decoration: underline;
 	}
-	
-/* 	uploadForm.jsp css ---------------------------------------------------- */
-		th { border: 1px solid black;}
-		td { border: 1px solid black;}
-		#picture_table { width: 35%; float: left; table-layout: fixed; }
-		#picture { border: 1px solid black; width: 100%; height: 300px; }
-		#project_table { width: 60%;  float: left; }
-		#option_table {  border: 1px solid black; width: 59.8%;  float: left; overflow: hidden; table-layout: fixed; }
-		#button { clear: both; }
-		.title { height: 35px; }
-		.option_list { border: 0px; }
-		.option_list1 { width:70%; border-bottom: 1px solid black; border-right: 1px solid black; }
-		.option_list2 { border-bottom: 1px solid black; border-left: 1px solid black; }
-		.option_list3 { height: 95px; }
-		#opt_divN { height: 95px; overflow: auto; }
-		#opt_divP { height: 95px; overflow: auto; }
-/*--------------------------------------------------------------------  */
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
