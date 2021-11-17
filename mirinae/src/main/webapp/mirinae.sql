@@ -12,7 +12,7 @@ create table Member ( — 회원
     m_name varchar2(20), — 회원이름
     tel varchar2(20), — 회원전화번호
     birth date, — 회원생년월일
-    address varchar2(20), — 회원주소
+    address varchar2(200), — 회원주소
     reg_date date, — 회원가입일
     del char(1) — 회원삭제여부
 );
@@ -56,7 +56,7 @@ create table project( — 프로젝트
     p_content varchar2(4000), — 프로젝트 내용
     p_writer varchar2(20), — 프로젝트 작성자
     s_date date, — 프로젝트 시작일자
-    d_date date, — 프로젝트 종료일자
+    e_date date, — 프로젝트 종료일자
     goal_money number, — 프로젝트 목표금액
     p_view number, — 프로젝트 조회수
     p_del varchar2(5), — 프로젝트 삭제여부
@@ -102,7 +102,7 @@ create table options( — 옵션
 
 create table support_detail( — 후원내역
     supd_no number primary key, — 후원내역번호
-    count number, — 후원내역 수량
+    supd_cnt number, — 후원내역 수량
     opt_code varchar2(10) references options(opt_code), — 후원내역의 옵션코드
     sup_no number references support(sup_no) — 후원내역의 후원번호
 );
