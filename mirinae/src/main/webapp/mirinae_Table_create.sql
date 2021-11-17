@@ -61,6 +61,7 @@ create table project( — 프로젝트
     cur_money number — 프로젝트 현재달성금액
 );
 
+select * from PROJECT;
 create table category( — 카테고리
     cate_code number primary key, — 카테고리 코드
     cate_name varchar(20) — 카테고리 이름

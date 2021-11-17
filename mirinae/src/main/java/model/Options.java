@@ -1,14 +1,14 @@
 package model;
 
-public class options {
-    private String opt_code;
+public class Options {
+    private int opt_code;
     private String opt_name;
     private int opt_price;
     private int p_no;
-	public String getOpt_code() {
+	public int getOpt_code() {
 		return opt_code;
 	}
-	public void setOpt_code(String opt_code) {
+	public void setOpt_code(int opt_code) {
 		this.opt_code = opt_code;
 	}
 	public String getOpt_name() {
@@ -29,5 +29,7 @@ public class options {
 	public void setP_no(int p_no) {
 		this.p_no = p_no;
 	}
+    
+
     
 }

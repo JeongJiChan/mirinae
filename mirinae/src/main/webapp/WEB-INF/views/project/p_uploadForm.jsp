@@ -5,9 +5,30 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	th { border: 1px solid black;}
+	td { border: 1px solid black;}
+	#picture_table { width: 35%; float: left; table-layout: fixed;}
+	#picture { border: 1px solid black; width: 100%; height: 310px; }
+	#project_table { width: 60%;  float: left; }
+	#option_table {  border: 1px solid black; width: 59.8%;  float: left; overflow: hidden; table-layout: fixed; }
+	#button { clear: both; }
+	.title { height: 35px; }
+	.option_list { border: 0px; }
+	.option_list1 { width:70%; border-bottom: 1px solid black; border-right: 1px solid black; }
+	.option_list2 { border-bottom: 1px solid black; border-left: 1px solid black; }
+	.option_list3 { height: 95px; }
+	#opt_divN { height: 95px; overflow: auto; }
+	#opt_divP { height: 95px; overflow: auto; }
+</style>
+
 </head>
 <body>
 <script type="text/javascript">
+	
+	var name_arr = [];
+	var price_arr = [];
+
 	//카테고리 미선택시 화면 안넘어감
 	function chk() {
 		if(frm.category.value == "카테고리를 선택하세요"){
@@ -18,6 +39,11 @@
 			alert("시작일이 종료일보다 나중일 수 없습니다.");
 			return false;
 		}
+		//값 넘어가는지 확인
+// 		alert(name_arr);
+// 		alert(price_arr);
+		frm.name_arr.value = name_arr;
+		frm.price_arr.value = price_arr;
 	}
 	//이미지 미리보기
 	function preview(event) {
@@ -42,16 +68,36 @@
 		}else if(price <= 0){
 			alert("옵션 가격이 0보다 작을 수 없습니다.")
 		}else{
-			$('#opt_divN').append(name+"<hr>");
-			$('#opt_divP').append(price+"<hr>");
+			name_arr.push(name);
+			price_arr.push(price);
 			document.getElementById("opt_name").value = "";
 			document.getElementById("price").value = "";
+			var name_str = "";
+			var price_str ="";
+			for(var i = 0; i < name_arr.length; i++){
+				name_str += name_arr[i]+"<hr>";
+				price_str += price_arr[i]+"<hr>";
+			}
+			$('#opt_divN').html(name_str);
+			$('#opt_divP').html(price_str);
 		}
 	}
 	//옵션 목록을 비운다
 	function optiondelete() {
-		$('#opt_divN').text("");
-		$('#opt_divP').text("");
+		var name = document.getElementById("opt_name").value;
+		var del_num = name_arr.indexOf(name);
+		name_arr.splice(del_num,1);
+		price_arr.splice(del_num,1);
+		document.getElementById("opt_name").value = "";
+		var name_str = "";
+		var price_str ="";
+		for(var i = 0; i < name_arr.length; i++){
+			name_str += name_arr[i]+"<hr>";
+			price_str += price_arr[i]+"<hr>";
+		}
+		$('#opt_divN').html(name_str);
+		$('#opt_divP').html(price_str);
+
 	}
 	//옵션 이름과 가격의 스크롤바를 동시에 내린다.
 	$(function() {			
@@ -66,7 +112,9 @@
 	});	
 
 </script>
-<form action="p_upload.do" method="post" name="frm" onsubmit=" return chk()">
+<form action="p_upload.kim" method="post" name="frm" onsubmit=" return chk()">
+	<input type="hidden" name="name_arr">
+	<input type="hidden" name="price_arr">
 <table id="picture_table">
 	<tr><th id="picture"><div id="image_container"></div></th></tr>
 	<tr><td><input type="file" name="file" id="image" accept="image/*"	onchange="preview(event);">
@@ -89,7 +137,8 @@
 		
 	<tr><th class="title">옵션</th><td><input type="text" name="opt_name" id="opt_name" placeholder="옵션 이름">
 								 <input type="number" name="price" id="price" placeholder="옵션 가격"><input type="button" value="옵션추가" onclick="optionplus()">
-								 <input type="button" value="옵션제거" onclick="optiondelete()"></td></tr>
+								 <input type="button" value="옵션제거" onclick="optiondelete()"><br>
+								 	<div style="color:red">옵션삭제는 최근부터 삭제됩니다. 원하는 이름을 입력 후 삭제버튼을 눌러주세요</div></td></tr>
 </table>
 <table id="option_table">
 	<tr><th class="option_list option_list1">옵션이름</th><th class="option_list option_list2">옵션 가격</th></tr>
