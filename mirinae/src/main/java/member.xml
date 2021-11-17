@@ -7,11 +7,11 @@
 	<select id="select2" parameterType="string" resultType="member">
 		select * from member where m_nick=#{m_nick}
 	</select>
-	
-<!-- 	<insert id="insert" parameterType="member">
-		insert into member2 values (#{id},#{password},#{name},#{address},#{tel},sysdate,'n')
+	<insert id="insert" parameterType="member">
+		insert into member values (seq_member.nextval,#{m_id},#{m_pass},#{m_nick},#{m_email},#{m_name},#{tel},#{birth},#{address},sysdate,'n')
 	</insert>
-	<update id="update" parameterType="member">
+	
+<!-- 	<update id="update" parameterType="member">
 		update member2 set password=#{password},name=#{name},address=#{address},tel=#{tel}
 			where id=#{id}
 	</update>
