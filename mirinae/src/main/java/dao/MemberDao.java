@@ -34,10 +34,11 @@ public class MemberDao {
 		// selectOne는 데이터 한건 조회, selectList는 여러건 조회
 		return (Member)session.selectOne("memberns.select2",nick);
 	}
+	public int insert(Member member) {
+		return session.insert("memberns.insert", member);
+	}
 	
-//	public int insert(Member member) {
-//		return session.insert("memberns.insert", member);
-//	}
+
 //	public int update(Member member) {
 //		return session.update("memberns.update", member);
 //	}

@@ -12,10 +12,10 @@ public class ConfirmId implements CommandProcess {
 		String msg = "";
 		MemberDao md = MemberDao.getInstance();
 		Member member = md.select(m_id);
-		if(member == null) msg = "사용 가능한 아이디입니다";
-		else msg = "이미 사용중인 아이디입니다";
+		if(member == null) msg = "0";
+		else msg = "1";
 		request.setAttribute("msg", msg);
-		return "/member/confirm";
+		return "/member/confirmId";
 	}
 
 }
