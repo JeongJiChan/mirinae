@@ -32,15 +32,18 @@ public class NoticeAction implements CommandProcess {
 		
 		if (endPage > totalPage) endPage = totalPage; // 마지막 페이지가 총 페이지 수 보다 클 경우
 		
-		List<Notice> list = nd.list(startRow, endRow); 
+		int number = total - startRow+1;
+		List<Notice> list = nd.list(startRow, endRow);
 		
+		request.setAttribute("total", total);
+		request.setAttribute("number", number);
 		request.setAttribute("list", list);
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("currentPage", currentPage);
 		request.setAttribute("totalPage", totalPage);
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
-		request.setAttribute("PAGE_PER_BLOCK", PAGE_PER_BLOCK);
+		request.setAttribute("PAGE_PER_BLOCK", PAGE_PER_BLOCK);	
 		
 		return "/notice/notice_list";
 	}

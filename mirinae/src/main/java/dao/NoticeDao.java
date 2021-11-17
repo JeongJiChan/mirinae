@@ -1,7 +1,6 @@
 package dao;
 
 import java.io.Reader;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -41,7 +40,7 @@ public class NoticeDao {
 		HashMap<String, Integer> nl = new HashMap<>();
 		nl.put("startRow", startRow);
 		nl.put("endRow", endRow);
-	    return session.selectList("noticens.list", nl);	
+	    return (List<Notice>)session.selectList("noticens.list", nl);	
 	}
 
 	public int getTotalN() {
