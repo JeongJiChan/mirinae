@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import service.main.CommandProcess;
 @WebServlet(urlPatterns="*.la",	
-	initParams={@WebInitParam(name="config",value="/WEB-INF/command.properties_la")})
+	initParams={@WebInitParam(name="config",value="/WEB-INF/command_la.properties")})
 public class Controller_La extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Map<String, Object> commandMap = new HashMap<>();

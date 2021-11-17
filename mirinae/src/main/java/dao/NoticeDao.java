@@ -1,6 +1,7 @@
 package dao;
 
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -54,4 +55,9 @@ public class NoticeDao {
 	public Notice select(int no_no) {
 		return (Notice)session.selectOne("noticens.selectOne",no_no);
 	}
+
+	public String preview(int no_no) {
+		return (String)session.selectOne("noticens.preview");
+	}	
+	
 }

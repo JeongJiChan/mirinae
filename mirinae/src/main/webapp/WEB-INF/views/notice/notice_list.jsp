@@ -11,8 +11,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+<!-- 글쓰기 -->
+<div class="n_btn"> <!-- 미구현 -->
+	<c:if test="${!empty amdin_no }">
+		<button onclick="notice_write.la">공지사항 작성</button>
+	</c:if>
+</div>
 <!-- 공지사항 리스트 -->
-<div id="" class="" data-testid="">
+<div id="n_list">
 	<h1 class="n_title">Notice</h1>
 </div>
 <div>
@@ -21,7 +27,7 @@
 		<c:forEach var="notice" items="${list }">
 			<tr>
 			<td>${notice.no_no }</td>
-			<td><input type="button" onclick="location.href='notice_view.la?no_no=${notice.no_no}'" value="${notice.no_title }"></td>
+			<td><input type="button" onclick="location.href='notice_view.la?no_no=${notice.no_no}&pageNum=${currentPage }'" value="${notice.no_title }"></td>
 			<td>${notice.no_date}</td>
 			<td>${notice.no_view }</td></tr>
 		</c:forEach>
