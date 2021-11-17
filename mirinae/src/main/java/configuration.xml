@@ -7,6 +7,7 @@
 <!-- 	ch17.model.Member의 이름을 간단하게 member라고 설정 -->
 		<typeAlias alias="member" type="model.Member" />
 		<typeAlias alias="notice" type="model.Notice" />
+		<typeAlias alias="cs" type="model.Cs" />
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -23,5 +24,6 @@
 <!-- 	CRUD를 member.xml이 처리 -->
 		<mapper resource="member.xml" />
 		<mapper resource="notice.xml" />
+		<mapper resource="cs.xml" />
 	</mappers>
 </configuration>

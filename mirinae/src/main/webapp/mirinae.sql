@@ -39,7 +39,7 @@ create table cs( — 고객문의
     cs_title varchar2(20), — 고객문의 제목
     cs_content varchar2(2000), — 고객문의 내용
     cs_writer varchar2(20), — 고객문의 작성자
-    cs_date date, — 고객문의 작성일
+    csdate date, — 고객문의 작성일
     cs_view number, — 고객문의 조회수
     cs_del char(1), — 고객문의 삭제여부
     ref number, — 고객문의 참조번호
@@ -48,7 +48,7 @@ create table cs( — 고객문의
     m_no number references member(m_no), — 고객문의 회원번호
     admin_no number references admin(admin_no) — 고객문의 관리자 번호
 );
-
+alter table cs rename column cs_date to cs_reg_date;
 create table project( — 프로젝트
     p_no number primary key, — 프로젝트 번호
     cate_code number, — 카테고리 코드

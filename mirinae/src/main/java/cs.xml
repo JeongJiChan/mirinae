@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="csns">
+	
+	<!-- cs - 게시글 목록 최신순 -->
+	<select id="list" resultType="cs">
+		select * from
+		(select rowNum rn , a.* from
+		(select * from cs order by cs_no desc) a)
+		where rn between #{startRow} and #{endRow}
+
+	</select>
+	
+	<!-- 게시글 조회수 증가 -->
+	<update id="readcountUpdate" parameterType="integer">
+		update cs set cs_view = cs_view + 1 where cs_no = #{cs_no}
+	</update>
+	
+	<!-- 게시글 삭제 -->
+	<update id="delete" parameterType="integer">
+		update cs set cs_del = 'y' where cs_no = #{cs_no}
+	</update>
+	
+	<!-- 상세페이지 - 데이터 조회 -->
+	<select id="selectOne" resultType="cs">
+		select * from cs where cs_no=#{cs_no}
+	</select>
+	
+	<!-- 메인페이지 - 게시글 수 -->
+	<select id="getTotalB" resultType="integer">
+		select count(*) from cs where cs_del='n'
+	</select>
+	
+</mapper>
