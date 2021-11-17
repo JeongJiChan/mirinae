@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,22 +28,26 @@
 </head>
 <body>
 	<form action="sup_action.chan" method="post">
+		<input type="hidden" value="${p_no }">
+		<input type="hidden" value="${m_no }">
+		<input type="hidden" value="${p_name }">
+		<input type="hidden" value="${opt_name }">
+		<input type="hidden" value="${supd_cnt }">
+		<input type="hidden" value="${total_price }">
 		<div align="center">
 			<table>
 				<tr>
 					<td colspan="2" width="100%"><div id="img_area"></div></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="text" name="p_name" placeholder="프로젝트명" size="100%" readonly="readonly"></td>
+				${item.price }
+					<td colspan="2">${p_name }</td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="text" name="opt_name" placeholder="옵션명" size="100%" readonly="readonly"></td>
+					<td colspan="2">${result }</td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="text" name="sup_cnt" placeholder="수량" size="100%" readonly="readonly"></td>
-				</tr>
-				<tr>
-					<td colspan="2"><input type="text" name="opt_price" placeholder="총 금액" size="100%" readonly="readonly"></td>
+					<td colspan="2">총 금액 : ${total_price }</td>
 				</tr>
 				<tr>
 					<td colspan="2"><input type="text" name="m_name" placeholder="프로젝트 받는 분" required="required" size="100%"></td>
