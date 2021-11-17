@@ -37,6 +37,12 @@ window.onload = function(){
 		    alert("닉네임 중복체크를 해주세요.");
 		    return false;
 		}
+		if (frm.m_id.value == "master" || "admin") {
+			alert("관리자 아이디로는 가입 불가능");
+			frm.m_id.focus();
+			frm.m_id.value = "";
+			return false;
+		}
 	};
 	
 	function id_chk() {
