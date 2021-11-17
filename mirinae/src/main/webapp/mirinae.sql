@@ -114,4 +114,3 @@ create sequence seq_member
 	nomaxvalue
 	nominvalue
 	nocycle
-	nocache;

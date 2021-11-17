@@ -64,24 +64,25 @@
 		text-decoration: underline;
 	}
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 	<nav role="navigation">
+		<a href="/mirinae/views/main/home.chan"><img alt="" src="/mirinae/images/milkyway.png" width="100px"></a><p>Mirinae</p>
 		<ul id="main-menu">
-			<li><a href="home.do">로고</a></li>
-			<li><a href="/mirinae/views/project/p_uploadForm.do">프로젝트 등록</a></li>
-			<li><a href="/mirinae/views/project/p_list.do">프로젝트 목록</a>
+			<li><a href="/mirinae/views/project/p_uploadForm.kim">프로젝트 등록</a></li>
+			<li><a href="/mirinae/views/project/p_list.chan">프로젝트 목록</a>
 				<ul id="sub-menu">
-					<li><a href="/mirinae/views/project/p_list.do?cate=1">카테고리1</a></li>
-					<li><a href="/mirinae/views/admin/notice.do?cate=2">카테고리2</a></li>
-					<li><a href="/mirinae/views/admin/notice.do?cate=3">카테고리3</a></li>
-					<li><a href="/mirinae/views/admin/notice.do?cate=4">카테고리5</a></li>
-					<li><a href="/mirinae/views/admin/notice.do?cate=5">카테고리5</a></li>
+					<li><a href="/mirinae/views/project/p_list.chan?cate=1">카테고리1</a></li>
+					<li><a href="/mirinae/views/admin/notice.chan?cate=2">카테고리2</a></li>
+					<li><a href="/mirinae/views/admin/notice.chan?cate=3">카테고리3</a></li>
+					<li><a href="/mirinae/views/admin/notice.chan?cate=4">카테고리5</a></li>
+					<li><a href="/mirinae/views/admin/notice.chan?cate=5">카테고리5</a></li>
 				</ul></li>
 			<li><a>게시판</a>
-				<ul id="sub-menu">
-					<li><a href="/mirinae/views/admin/notice.do">공지사항</a></li>
-					<li><a href="/mirinae/views/admin/customor_service.do">고객문의</a></li>
+				<ul id="sub-menu">			<!-- notice/notice_list.do -->
+					<li><a href="/mirinae/views/notice/notice_list.la">공지사항</a></li>
+					<li><a href="/mirinae/views/admin/customor_service.chan">고객문의</a></li>
 				</ul></li>
 			<c:if test="${empty id}">
 				<li><a href="/mirinae/views/member/loginForm.sun">로그인</a></li>
@@ -90,11 +91,19 @@
 			<c:if test="${not empty id}">
 				<c:if test="${id != master }">
 					<li><a href="/mirinae/views/member/logout.sun">로그아웃</a></li>
+<<<<<<< HEAD
 					<li><a href="/mirinae/views/member/my_page.do">마이페이지</a></li>
+=======
+					<li><a href="/mirinae/views/member/my_page.chan">마이페이지</a></li>
+>>>>>>> branch 'develop' of https://github.com/JeongJiChan/mirinae.git
 				</c:if>
 				<c:if test="${id = master }">
 					<li><a href="/mirinae/views/member/logout.sun">로그아웃</a></li>
+<<<<<<< HEAD
 					<li><a href="/mirinam/views/admin/admin_page.do">관리자페이지</a></li>
+=======
+					<li><a href="/mirinam/views/admin/admin_page.chan">관리자페이지</a></li>
+>>>>>>> branch 'develop' of https://github.com/JeongJiChan/mirinae.git
 				</c:if>
 			</c:if>
 		</ul>

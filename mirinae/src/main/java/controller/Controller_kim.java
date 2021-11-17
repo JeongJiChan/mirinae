@@ -15,9 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import service.main.CommandProcess;
-@WebServlet(urlPatterns="*.do",	
-	initParams={@WebInitParam(name="config",value="/WEB-INF/command.properties")})
-public class Controller extends HttpServlet {
+@WebServlet(urlPatterns="*.kim",	
+	initParams={@WebInitParam(name="config",value="/WEB-INF/command_kim.properties")})
+public class Controller_kim extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Map<String, Object> commandMap = new HashMap<>();
 	public void init(ServletConfig config) throws ServletException { 
