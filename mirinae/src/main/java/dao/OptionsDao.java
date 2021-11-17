@@ -7,12 +7,12 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import model.Project;
+import model.Options;
 
-public class ProjectDao {
-	private static ProjectDao instance = new ProjectDao();
-	private ProjectDao () {}
-	public static ProjectDao getInstance() {
+public class OptionsDao {
+	private static OptionsDao instance = new OptionsDao();
+	private OptionsDao () {}
+	public static OptionsDao getInstance() {
 		return instance;
 	}
 	
@@ -26,14 +26,11 @@ public class ProjectDao {
 			System.out.println("연결에러 : " + e.getMessage());
 		}
 	}
-
-	public int insert(Project project) {
-		return session.insert("projectns.insert",project);
+	public int insert(Options options) {		
+		return session.insert("optionsns.insert",options);
 	}
-	public int find_p_no() {
-		return (int) session.selectOne("projectns.select");
+	public int find_opt_code() {
+		
+		return (int) session.selectOne("optionsns.select");
 	}
-
-	
-	
 }
