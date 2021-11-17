@@ -2,7 +2,7 @@ drop table member;
 select * from member;
 alter table member rename column e_name to m_name;
 ALTER TABLE member MODIFY(address VARCHAR2(200));
-delete from member where m_no=8;
+delete from member where m_no=19;
 
 create table Member ( — 회원
     m_no number primary key, — 회원번호
@@ -94,18 +94,19 @@ create table support( — 후원
     sup_date date — 후원날짜
 );
 
-create table options( — 옵션
-    opt_code varchar2(10) primary key, — 옵션코드
-    opt_name varchar2(20), — 옵션명
-    opt_price number, — 옵션 가격
-    p_no number references project(p_no) — 프로젝트번호
+drop table support_detail;
+drop table options;
+create table options( -- 옵션
+    opt_code number primary key, -- 옵션코드
+    opt_name varchar2(20), -- 옵션명
+    opt_price number, -- 옵션 가격
+    p_no number references project(p_no) -- 프로젝트번호
 );
-
-create table support_detail( — 후원내역
-    supd_no number primary key, — 후원내역번호
-    count number, — 후원내역 수량
-    opt_code varchar2(10) references options(opt_code), — 후원내역의 옵션코드
-    sup_no number references support(sup_no) — 후원내역의 후원번호
+create table support_detail( -- 후원내역
+    supd_no number primary key, -- 후원내역번호
+    count number, -- 후원내역 수량
+    opt_code number references options(opt_code), -- 후원내역의 옵션코드
+    sup_no number references support(sup_no) -- 후원내역의 후원번호
 );
 
 create sequence seq_member

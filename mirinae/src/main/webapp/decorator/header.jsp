@@ -91,19 +91,11 @@
 			<c:if test="${not empty id}">
 				<c:if test="${id != master }">
 					<li><a href="/mirinae/views/member/logout.sun">로그아웃</a></li>
-<<<<<<< HEAD
-					<li><a href="/mirinae/views/member/my_page.do">마이페이지</a></li>
-=======
 					<li><a href="/mirinae/views/member/my_page.chan">마이페이지</a></li>
->>>>>>> branch 'develop' of https://github.com/JeongJiChan/mirinae.git
 				</c:if>
 				<c:if test="${id = master }">
 					<li><a href="/mirinae/views/member/logout.sun">로그아웃</a></li>
-<<<<<<< HEAD
-					<li><a href="/mirinam/views/admin/admin_page.do">관리자페이지</a></li>
-=======
 					<li><a href="/mirinam/views/admin/admin_page.chan">관리자페이지</a></li>
->>>>>>> branch 'develop' of https://github.com/JeongJiChan/mirinae.git
 				</c:if>
 			</c:if>
 		</ul>
