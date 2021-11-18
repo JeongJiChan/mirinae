@@ -21,7 +21,7 @@
 	#opt_divN { height: 95px; overflow: auto; }
 	#opt_divP { height: 95px; overflow-x:hidden; overflow-y: auto; }
 	.box::-webkit-scrollbar {    display:none;	}
-	#content {clear: both; }
+	#preImage { width: 100%; height: 310px; }
 </style>
 
 </head>
@@ -50,20 +50,6 @@
 		frm.name_arr.value = name_arr;
 		frm.price_arr.value = price_arr;
 	}
-	//이미지 미리보기
-	function preview(event) {
-		var reader = new FileReader();
-		reader.onload = function(event) {
-			var img = document.createElement("img");
-			img.setAttribute("src", event.target.result);
-			document.querySelector("div#image_container").appendChild(img);
-		};
-		reader.readAsDataURL(event.target.files[0]);
-	}
-	//이미지 삭제
-	function picturedelete() {
-		$('#image_container').text(""); //임시방편 
-	};
 	//옵션 추가하기
 	function optionplus() {
 		var name = document.getElementById("opt_name").value;
@@ -117,15 +103,29 @@
 			$('#opt_divN').scrollLeft($('#opt_divP').scrollLeft());
 		});
 	});	
+	//이미지 미리보기
+	$(function() {
+        $("#filename").on('change', function(){
+            readURL(this);
+        });
+    });
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+           var reader = new FileReader();
+           reader.onload = function (e) {
+              $('#preImage').attr('src', e.target.result);
+           }
+           reader.readAsDataURL(input.files[0]);
+        }
+    }
 
 </script>
 <form action="p_upload.kim" method="post" name="frm" onsubmit=" return chk()">
 	<input type="hidden" name="name_arr">
 	<input type="hidden" name="price_arr">
 <table id="picture_table">
-	<tr><th id="picture"><div id="image_container"></div></th></tr>
-	<tr><td><input type="file" name="file" id="image" accept="image/*"	onchange="preview(event);">
-			 <input type="button" value="그림제거" onclick="picturedelete()"></td></tr>
+	<tr><th id="picture"><img id="preImage" src="/mirinae/p_images/imgcho.jpg"></th></tr>
+	<tr><td><input type='file' id="filename" name="filename"></td></tr>
 </table>
 <table id="project_table">
 	<tr><th class="title">카테고리</th><td><select id="category" name="category">
