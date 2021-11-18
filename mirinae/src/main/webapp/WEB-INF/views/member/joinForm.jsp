@@ -142,73 +142,75 @@ window.onload = function(){
 <body>
 <div>
 	<form action="join.sun" method="post" name="frm" onsubmit="return chk()">
-		<input type="hidden" name="idchk" value="unChk">
-    	<input type="hidden" name="nickchk" value="unChk">
-    	
-		<h2>회 원 가 입</h2>
-		<pre>*는 반드시 입력항목입니다</pre>
-		<div> <!-- 아이디 -->
-            <label for="m_id"><span style="color: red">*</span></label>
-            	<input type="text" name="m_id" id="m_id" placeholder="아이디" required="required" autofocus="autofocus">
-				<input type="button" value="중복체크" onclick="id_chk()">
-				<div id="err_id"></div>
-        </div>
-        
-        <div> <!-- 비밀번호 -->
-            <label for="m_pass"><span style="color: red">*</span></label>
-            	<input type="password" name="m_pass" id="m_pass" placeholder="비밀번호" required="required">
-        </div>
-        
-		<div> <!-- 비밀번호 재확인 -->
-            <label for="m_pass2"><span style="color: red">*</span></label>
-            	<input type="password" name="m_pass2" placeholder="비밀번호 재확인" required="required" onchange="pass_chk()">
-				<div id="same"></div>
-        </div>
-        
-        <div> <!-- 닉네임 -->
-            <label for="m_nick"><span style="color: red">*</span></label>
-            	<input type="text" name="m_nick" id="m_nick" placeholder="닉네임" required="required">
-				<input type="button" value="중복체크" onclick="nick_chk()">
-				<div id="err_nick"></div>
-        </div>
-        
-        <div> <!-- 이메일 -->
-            <label for="m_email"><span style="color: red">*</span></label>
-            	<input type="email" name="m_email" id="m_email" placeholder="이메일" required="required">
-        </div>
-        
-        <div> <!-- 이름 -->
-            <label for="m_name"><span style="color: red">*</span></label>
-            	<input type="text" name="m_name" id="m_name" placeholder="이름" required="required">
-        </div>
-        
-		<div> <!-- 휴대전화 -->
-            <label for="tel"><span style="color: red">*</span></label>
-            	<input type="tel" name="tel" required="required"
-					pattern="010-\d{3,4}-\d{4}" placeholder="010-0000-0000"
-					title="010-숫자3/4-숫자4">
-        </div>
-        
-        <div> <!-- 생년월일 -->
-            <label for="birth"><span style="color: red">*</span></label>
-            	<input type="date" name="birth" required="required">
-        </div>
-        
-        <div> <!-- 주소 -->
-            <label for="address"><span style="color: red">*</span></label>
-            	<input type="text" id="address_kakao" name="address" placeholder="주소"
-            	required="required" readonly />
-        </div>
-        
-        <div> <!-- 상세주소 -->
-            <label for="address_detail"><span style="color: red">*</span></label>
-            	<input type="text" name="address_detail" placeholder="상세주소" required="required">
-        </div>
-        
-        <div> <!-- 가입하기 -->
-            <input type="submit" value="가입하기">
-        </div>
+		<fieldset><legend>회 원 가 입</legend>
+			<input type="hidden" name="idchk" value="unChk">
+	    	<input type="hidden" name="nickchk" value="unChk">
+	
+			<pre>*는 반드시 입력항목입니다</pre>
+			<div> <!-- 아이디 -->
+	            <label for="m_id"><span style="color: red">*</span></label>
+	            	<input type="text" name="m_id" id="m_id" placeholder="아이디" required="required" autofocus="autofocus">
+					<input type="button" value="중복체크" onclick="id_chk()">
+					<div id="err_id"></div>
+	        </div>
+	        
+	        <div> <!-- 비밀번호 -->
+	            <label for="m_pass"><span style="color: red">*</span></label>
+	            	<input type="password" name="m_pass" id="m_pass" placeholder="비밀번호" required="required">
+	        </div>
+	        
+			<div> <!-- 비밀번호 재확인 -->
+	            <label for="m_pass2"><span style="color: red">*</span></label>
+	            	<input type="password" name="m_pass2" placeholder="비밀번호 재확인" required="required" onchange="pass_chk()">
+					<div id="same"></div>
+	        </div>
+	        
+	        <div> <!-- 닉네임 -->
+	            <label for="m_nick"><span style="color: red">*</span></label>
+	            	<input type="text" name="m_nick" id="m_nick" placeholder="닉네임" required="required">
+					<input type="button" value="중복체크" onclick="nick_chk()">
+					<div id="err_nick"></div>
+	        </div>
+	        
+	        <div> <!-- 이메일 -->
+	            <label for="m_email"><span style="color: red">*</span></label>
+	            	<input type="email" name="m_email" id="m_email" placeholder="이메일" required="required">
+	        </div>
+	        
+	        <div> <!-- 이름 -->
+	            <label for="m_name"><span style="color: red">*</span></label>
+	            	<input type="text" name="m_name" id="m_name" placeholder="이름" required="required">
+	        </div>
+	        
+			<div> <!-- 휴대전화 -->
+	            <label for="tel"><span style="color: red">*</span></label>
+	            	<input type="tel" name="tel" required="required"
+						pattern="010-\d{3,4}-\d{4}" placeholder="010-0000-0000"
+						title="010-숫자3/4-숫자4">
+	        </div>
+	        
+	        <div> <!-- 생년월일 -->
+	            <label for="birth"><span style="color: red">*</span></label>
+	            	<input type="date" name="birth" required="required">
+	        </div>
+	        
+	        <div> <!-- 주소 -->
+	            <label for="address"><span style="color: red">*</span></label>
+	            	<input type="text" id="address_kakao" name="address" placeholder="주소"
+	            	required="required" readonly />
+	        </div>
+	        
+	        <div> <!-- 상세주소 -->
+	            <label for="address_detail"><span style="color: red">*</span></label>
+	            	<input type="text" name="address_detail" placeholder="상세주소" required="required">
+	        </div>
+	        
+	        <div> <!-- 가입하기 -->
+	            <input type="submit" value="가입하기">
+	        </div>
+		</fieldset>
 	</form>
+
 </div>
 </body>
 </html>

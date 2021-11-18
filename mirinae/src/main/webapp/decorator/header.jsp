@@ -91,7 +91,7 @@
 			<c:if test="${not empty id}">
 				<c:if test="${id != master }">
 					<li><a href="/mirinae/views/member/logout.sun">로그아웃</a></li>
-					<li><a href="/mirinae/views/member/my_page.chan">마이페이지</a></li>
+					<li><a href="/mirinae/views/member/my_page.sun">마이페이지</a></li>
 				</c:if>
 				<c:if test="${id = master }">
 					<li><a href="/mirinae/views/member/logout.sun">로그아웃</a></li>

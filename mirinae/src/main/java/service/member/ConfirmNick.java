@@ -12,8 +12,10 @@ public class ConfirmNick implements CommandProcess {
 		String msg = "";
 		MemberDao md = MemberDao.getInstance();
 		Member member = md.select2(m_nick);
+
 		if(member == null) msg = "0";
 		else msg = "1";
+
 		request.setAttribute("msg", msg);
 		return "/member/confirmNick";
 	}

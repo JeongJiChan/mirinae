@@ -10,6 +10,7 @@ public class Member {
 	private String tel;
 	private Date birth;
 	private String address;
+	private String address_d;
 	private Date reg_date;
 	private String del;
 	
@@ -66,6 +67,12 @@ public class Member {
 	}
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	public String getAddress_d() {
+		return address_d;
+	}
+	public void setAddress_d(String address_d) {
+		this.address_d = address_d;
 	}
 	public Date getReg_date() {
 		return reg_date;
