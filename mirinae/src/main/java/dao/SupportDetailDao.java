@@ -7,12 +7,12 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import model.Support;
+import model.SupportDetail;
 
-public class SupportDao {
-	private static SupportDao instance = new SupportDao();
-	private SupportDao() {}
-	public static SupportDao getInstance() {
+public class SupportDetailDao {
+	private static SupportDetailDao instance = new SupportDetailDao();
+	private SupportDetailDao() {}
+	public static SupportDetailDao getInstance() {
 		return instance;
 	}
 	private static SqlSession session;
@@ -25,10 +25,10 @@ public class SupportDao {
 			System.out.println("연결에러 : " + e.getMessage());
 		}
 	}
-	public int setSup_no() {
-		return (int) session.selectOne("supportns.select");
+	public int setSupd_no() {
+		return (int) session.selectOne("support_detailns.select");
 	}
-	public int insert(Support support) {
-		return session.insert("supportns.insert", support);
+	public int insert(SupportDetail detail) {
+		return session.insert("supportns.insert", detail);		
 	}
 }
