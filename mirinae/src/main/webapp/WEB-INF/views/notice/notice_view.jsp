@@ -12,6 +12,7 @@
 	#n_list { width: 100%; cursor: pointer; }
 	div.nv_btn {width:60px; float: left; margin:25px; text-align: center;
 		font-style: Sans-Serif}
+	nv_del { color: red}
 	textarea {width: 80%; height:300px; resize:none;}
 	a:link { color: red; text-decoration: none;}
 	a:visited { color: black; text-decoration: none;}
@@ -57,6 +58,11 @@
 		</c:if>
 		<c:if test="${no_no==total }">
 			<div class="nv_btn"></div>
+		</c:if>
+				<c:if test="${result == 0 && no_del=='n'}">
+			<div class="nv_btn"><a href="notice_del.la?no_no=${notice.no_no}&no_no=${notice.no_no}" class="nv_del">
+			Delete</a>
+			</div>
 		</c:if>
 	</div>
 </div>

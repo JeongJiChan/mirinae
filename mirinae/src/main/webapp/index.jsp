@@ -12,4 +12,4 @@
 // location.href="views/support/sup_form.chan"
 </script>
 </body>
-</html>
+</html> 

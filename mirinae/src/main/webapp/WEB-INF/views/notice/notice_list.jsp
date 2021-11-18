@@ -22,18 +22,19 @@
 	<table width="60%" align= "center">
 		<tr><th>글번호</th><th>제목</th><th>작성일</th><th>조회수</th></tr>
 		<c:forEach var="notice" items="${list }">
+		<c:if test="${notice.no_del == 'n'}"> 
 		<c:set var="number" value="${number}"/>
 
 		<c:url value="notice_view.la" var="nl_title">
 			<c:param name="no_no" value="${notice.no_no }"/>
 			<c:param name="pageNum" value="${currentPage }"/>
 		</c:url>
-		
 			<tr>
 			<td align="center">${number }<c:set var="number" value="${number-1 }"/> </td>
 			<td width="70%" style="padding-left :70px"><input type="button" onclick="location.href='${nl_title}'" value="${notice.no_title }"></td>
 			<td>${notice.no_date}</td>
 			<td>${notice.no_view }</td></tr>
+		</c:if>
 		</c:forEach>
 	</table>
 </div>
@@ -59,6 +60,6 @@
 				<button class=last onclick="location.href='notice_list.la?pageNum=${endPage + 1}'">다음</button> 
 			</c:if>
 </div>
-<!-- <button class="writeBtn" onclick="notice_write.la">글쓰기</button> -->
+<button class="writeBtn" onclick="location.href='notice_writeForm.la'">글쓰기</button>
 </body>
 </html>
