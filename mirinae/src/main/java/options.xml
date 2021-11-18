@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="optionsns">
+	<insert id="insert" parameterType="options"> <!-- 입력, 수정, 삭제는 resultType이 필요없다 -->
+		insert into project values( #{opt_code},#{opt_name},#{opt_price},#{p_no});
+	</insert>
+<select id="select"  resultType="int">
+	select count(*)+1 from options
+</select>
+</mapper>

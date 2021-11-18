@@ -6,6 +6,7 @@
 		<pattern>/views/notice/*</pattern>
 		<pattern>/views/member/*</pattern>
 		<pattern>/views/support/*</pattern>
+		<pattern>/views/cs/*</pattern>
 	</decorator>
 		<excludes>
 		<pattern>/views/member/confirmId.*</pattern>
