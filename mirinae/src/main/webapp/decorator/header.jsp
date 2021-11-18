@@ -82,7 +82,7 @@
 			<li><a>게시판</a>
 				<ul id="sub-menu">			<!-- notice/notice_list.do -->
 					<li><a href="/mirinae/views/notice/notice_list.la">공지사항</a></li>
-					<li><a href="/mirinae/views/admin/customor_service.chan">고객문의</a></li>
+					<li><a href="/mirinae/views/cs/cs_list.kwon">고객문의</a></li>
 				</ul></li>
 			<c:if test="${empty id}">
 				<li><a href="/mirinae/views/member/loginForm.sun">로그인</a></li>
