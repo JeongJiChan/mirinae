@@ -8,6 +8,7 @@
 		<typeAlias alias="notice" type="model.Notice" />
 		<typeAlias alias="project" type="model.Project" />
 		<typeAlias alias="options" type="model.Options" />
+		<typeAlias alias="cs" type="model.Cs" />
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -26,5 +27,6 @@
 		<mapper resource="notice.xml" />
 		<mapper resource="project.xml" />
 		<mapper resource="options.xml" />
+		<mapper resource="cs.xml" />
 	</mappers>
 </configuration>

@@ -3,6 +3,23 @@ select * from member;
 alter table member rename column e_name to m_name;
 ALTER TABLE member MODIFY(address VARCHAR2(200));
 delete from member where m_no=19;
+alter table cs rename column cs_date to cs_reg_date;
+insert into cs values (2, 'test','test', 'test', '210506', 1, 'n', 1, 1);
+insert into member values (1, 'test', 'test', 'test', 'test', 'test', 'test', sysdate, 'test', sysdate, 'n');
+insert into admin values (1, 'test', 'test', 'test');
+select * from cs;
+
+create table cs(
+    cs_no number primary key,
+    cs_title varchar2(20),
+    cs_content varchar2(2000),
+    cs_writer varchar2(20),
+    cs_date date,
+    cs_view number,
+    cs_del char(1),
+    m_no number references member(m_no),
+    admin_no number references admin(admin_no)
+);
 
 create table Member ( — 회원
     m_no number primary key, — 회원번호
@@ -40,7 +57,7 @@ create table cs( — 고객문의
     cs_title varchar2(20), — 고객문의 제목
     cs_content varchar2(2000), — 고객문의 내용
     cs_writer varchar2(20), — 고객문의 작성자
-    cs_date date, — 고객문의 작성일
+    cs_reg_date date, — 고객문의 작성일
     cs_view number, — 고객문의 조회수
     cs_del char(1), — 고객문의 삭제여부
     ref number, — 고객문의 참조번호

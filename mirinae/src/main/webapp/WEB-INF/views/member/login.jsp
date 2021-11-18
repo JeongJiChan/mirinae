@@ -7,7 +7,7 @@
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
 		alert("로그인 성공");
-		location.href="../../views/main/home.do";
+		location.href="../../views/main/home.chan";
 	</script>
 </c:if>
 <c:if test="${result == 0 }">

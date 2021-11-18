@@ -9,7 +9,7 @@
 <body>
 	<script type="text/javascript">
 		alert("로그아웃 되었습니다");
-		location.href = "../../views/main/home.do";
+		location.href = "../../views/main/home.chan";
 	</script>
 </body>
 </html>
