@@ -72,7 +72,7 @@ public class ProjectUpload implements CommandProcess {
 			options.setOpt_name(opt_name[i]);
 			options.setOpt_price(opt_price[i]);
 			options.setP_no(p_no);
-		//	resultopt = od.insert(options); 
+			resultopt = od.insert(options); 
 			opt_code++;
 		}
 		

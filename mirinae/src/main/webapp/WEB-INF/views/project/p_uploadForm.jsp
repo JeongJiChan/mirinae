@@ -19,7 +19,9 @@
 	.option_list2 { border-bottom: 1px solid black; border-left: 1px solid black; }
 	.option_list3 { height: 95px; }
 	#opt_divN { height: 95px; overflow: auto; }
-	#opt_divP { height: 95px; overflow: auto; }
+	#opt_divP { height: 95px; overflow-x:hidden; overflow-y: auto; }
+	.box::-webkit-scrollbar {    display:none;	}
+	#content {clear: both; }
 </style>
 
 </head>
@@ -36,8 +38,11 @@
 			return false;
 		}
 		if(frm.s_date.value > frm.e_date.value){
-			alert("시작일이 종료일보다 나중일 수 없습니다.");
+			alert("시작일보다 종료일이 더 빠릅니다.");
 			return false;
+		}
+		if(frm.goal_money.value < 0 ){
+			alert("목표금액을 0원 이상으로 입력해주세요.")
 		}
 		//값 넘어가는지 확인
 // 		alert(name_arr);
@@ -76,10 +81,12 @@
 			var price_str ="";
 			for(var i = 0; i < name_arr.length; i++){
 				name_str += name_arr[i]+"<hr>";
-				price_str += price_arr[i]+"<hr>";
+				price_str += price_arr[i]+" 원<hr>";
 			}
 			$('#opt_divN').html(name_str);
 			$('#opt_divP').html(price_str);
+			$('#opt_divN').scrollTop($('#opt_divN')[0].scrollHeight);
+			$('#opt_divP').scrollTop($('#opt_divP')[0].scrollHeight);
 		}
 	}
 	//옵션 목록을 비운다
@@ -137,14 +144,14 @@
 		
 	<tr><th class="title">옵션</th><td><input type="text" name="opt_name" id="opt_name" placeholder="옵션 이름">
 								 <input type="number" name="price" id="price" placeholder="옵션 가격"><input type="button" value="옵션추가" onclick="optionplus()">
-								 <input type="button" value="옵션제거" onclick="optiondelete()"><br>
+								 <input type="button" value="옵션삭제" onclick="optiondelete()"><br>
 								 	<div style="color:red">옵션삭제는 최근부터 삭제됩니다. 원하는 이름을 입력 후 삭제버튼을 눌러주세요</div></td></tr>
 </table>
 <table id="option_table">
 	<tr><th class="option_list option_list1">옵션이름</th><th class="option_list option_list2">옵션 가격</th></tr>
-	<tr><th class="option_list option_list3"><div id="opt_divN"></div></th><th class="option_list"><div id="opt_divP"></div></th></tr>
+	<tr><th class="option_list option_list3"><div id="opt_divN" class="box"></div></th><th class="option_list"><div id="opt_divP"></div></th></tr>
 </table>
-<textarea  rows="40" style="width:94%" placeholder="내용을 입력하세요" name="content"></textarea>
+<textarea id="content" rows="40" style="width:94%" placeholder="내용을 입력하세요" name="content"></textarea>
 <div align="center" id="button"><input type="submit" value="등록"><input type="button" value="취소" onclick="history.back()"></div>
 </form>
 </body>
