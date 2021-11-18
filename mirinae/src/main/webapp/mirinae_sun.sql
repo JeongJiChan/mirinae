@@ -2,7 +2,7 @@ drop table member;
 select * from member;
 alter table member rename column e_name to m_name;
 ALTER TABLE member MODIFY(address VARCHAR2(200));
-delete from member where m_no=19;
+delete from member where m_no=7;
 
 alter table cs rename column cs_date to cs_reg_date;
 insert into cs values (2, 'test','test', 'test', '210506', 1, 'n', 1, 1);
@@ -22,6 +22,12 @@ create table cs(
     admin_no number references admin(admin_no)
 );
 
+ALTER TABLE member DROP COLUMN reg_date;
+ALTER TABLE member DROP COLUMN del;
+alter table member add address_d varchar2(20);
+alter table member add reg_date date;
+alter table member add del char(1);
+
 create table Member ( — 회원
     m_no number primary key, — 회원번호
     m_id varchar2(20), — 회원아이디
@@ -32,6 +38,7 @@ create table Member ( — 회원
     tel varchar2(20), — 회원전화번호
     birth date, — 회원생년월일
     address varchar2(20), — 회원주소
+    address_d varchar2(20), -- 회원상세주소
     reg_date date, — 회원가입일
     del char(1) — 회원삭제여부
 );

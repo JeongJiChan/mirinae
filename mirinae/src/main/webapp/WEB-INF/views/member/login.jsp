@@ -7,11 +7,7 @@
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
 		alert("로그인 성공");
-<<<<<<< HEAD
 		location.href="/mirinae/views/main/home.chan";
-=======
-		location.href="../../views/main/home.chan";
->>>>>>> branch 'develop' of https://github.com/JeongJiChan/mirinae.git
 	</script>
 </c:if>
 <c:if test="${result == 0 }">

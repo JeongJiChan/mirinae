@@ -18,7 +18,8 @@ public class Join implements CommandProcess {
 		String m_name = request.getParameter("m_name");
 		String tel = request.getParameter("tel");
 		Date birth = Date.valueOf(request.getParameter("birth"));
-		String address = request.getParameter("address") +", "+request.getParameter("address_detail");
+		String address = request.getParameter("address");
+		String address_d = request.getParameter("address_detail");
 		
 		Member member = new Member();
 		member.setM_id(m_id);
@@ -29,6 +30,7 @@ public class Join implements CommandProcess {
 		member.setTel(tel);
 		member.setBirth(birth);
 		member.setAddress(address);
+		member.setAddress_d(address_d);
 		
 		MemberDao md = MemberDao.getInstance();
 		Member member2 = md.select(m_id);
