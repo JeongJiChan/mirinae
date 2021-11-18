@@ -27,20 +27,16 @@
 </script>
 </head>
 <body>
-	<form action="sup_action.chan" method="post">
-		<input type="hidden" value="${p_no }">
+	<form action="sup_result.chan" method="post">
 		<input type="hidden" value="${m_no }">
-		<input type="hidden" value="${p_name }">
-		<input type="hidden" value="${opt_name }">
+		<input type="hidden" value="${opt_code }">
 		<input type="hidden" value="${supd_cnt }">
-		<input type="hidden" value="${total_price }">
 		<div align="center">
 			<table>
 				<tr>
 					<td colspan="2" width="100%"><div id="img_area"></div></td>
 				</tr>
 				<tr>
-				${item.price }
 					<td colspan="2">${p_name }</td>
 				</tr>
 				<tr>
@@ -50,10 +46,10 @@
 					<td colspan="2">총 금액 : ${total_price }</td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="text" name="m_name" placeholder="프로젝트 받는 분" required="required" size="100%"></td>
+					<td colspan="2"><input type="text" name="sup_name" placeholder="프로젝트 받는 분" required="required" size="100%"></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="tel" name="m_tel"  placeholder="프로젝트 받는 분 전화번호" required="required" size="100%"></td>
+					<td colspan="2"><input type="tel" name="sup_tel"  placeholder="프로젝트 받는 분 전화번호" required="required" size="100%"></td>
 				</tr>
 				<tr>
 					<td colspan="2"><input type="text" id="address_kakao" name="address" required="required" readonly="readonly" placeholder="프로젝트 받는 분 주소" size="100%"></td>
