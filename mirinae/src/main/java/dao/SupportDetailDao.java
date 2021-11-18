@@ -29,6 +29,6 @@ public class SupportDetailDao {
 		return (int) session.selectOne("support_detailns.select");
 	}
 	public int insert(SupportDetail detail) {
-		return session.insert("supportns.insert", detail);		
+		return session.insert("support_detailns.insert", detail);		
 	}
 }

@@ -4,7 +4,7 @@
 	<select id="select" resultType="integer">
 		select count(*) + 1 from support_detail
 	</select>
-	<insert id="insert" parameterType="support">
+	<insert id="insert" parameterType="detail">
 		insert into support_detail values(#{supd_no }, #{supd_cnt }, #{opt_code }, #{sup_no })
 	</insert>
 </mapper>
