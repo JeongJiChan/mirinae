@@ -26,7 +26,6 @@ public class ProjectDao {
 			System.out.println("연결에러 : " + e.getMessage());
 		}
 	}
-
 	public int insert(Project project) {
 		return session.insert("projectns.insert",project);
 	}
