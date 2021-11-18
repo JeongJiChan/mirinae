@@ -1,3 +1,5 @@
+
+
 package service.project;
 
 import java.sql.Date;
@@ -7,8 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.ProjectDao;
+import dao.MemberDao;
 import dao.OptionsDao;
 import model.Project;
+import model.Member;
 import model.Options;
 import service.main.CommandProcess;
 
@@ -22,8 +26,10 @@ public class ProjectUpload implements CommandProcess {
 		int cate_code = Integer.parseInt(request.getParameter("category"));
 		String p_name = request.getParameter("name");
 		String p_content = request.getParameter("content");
-//		String p_writer 작성자 정보
-//		String p_writer = (String)session.getAttribute("m_nick");
+	//	String m_id = (String)session.getAttribute("id");
+	//	MemberDao memberDao = MemberDao.getInstance();
+	//  Member member = memberDao.select(m_id);
+	//	String p_writer = member.getM_name();
 		Date s_date = Date.valueOf(request.getParameter("s_date"));
 		Date e_date = Date.valueOf(request.getParameter("e_date"));
 		int goal_money = Integer.parseInt(request.getParameter("goal_money"));
