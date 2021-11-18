@@ -57,6 +57,19 @@ public class NoticeDao {
 
 	public String preview(int no_no) {
 		return (String)session.selectOne("noticens.preview");
-	}	
+	}
+
+	public int insert(Notice notice) {
+		return session.insert("noticens.insert", notice);
+	}
+
+	public int adminChk(String id) {
+		return (int) session.selectOne("noticens.adminChk", id);
+	}
+
+	public int del(int no_no) {
+		return (int) session.update("noticens.noticeDel", no_no);
+	}
+
 	
 }
