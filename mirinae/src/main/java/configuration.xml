@@ -30,7 +30,9 @@
 		<mapper resource="project.xml" />
 		<mapper resource="options.xml" />
 		<mapper resource="cs.xml" />
+		<!-- 
 		<mapper resource="support.xml" />
 		<mapper resource="support_detail.xml" />
+		 -->
 	</mappers>
 </configuration>

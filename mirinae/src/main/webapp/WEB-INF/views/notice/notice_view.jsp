@@ -12,7 +12,7 @@
 	#n_list { width: 100%; cursor: pointer; }
 	div.nv_btn {width:60px; float: left; margin:25px; text-align: center;
 		font-style: Sans-Serif}
-	nv_del { color: red}
+	#nv_del #nv_update{ color: red; margin-right: auto; }
 	textarea {width: 80%; height:300px; resize:none;}
 	a:link { color: red; text-decoration: none;}
 	a:visited { color: black; text-decoration: none;}
@@ -30,11 +30,21 @@
 </div>
 <c:if test="${no_del == 'n'}">
 	<div id="n_view">
-		<table width="60%" align= "center" >
-			<tr><th>제목</th><td colspan="2">${notice.no_title }</td></tr>
- 			<tr><th>작성자</th><td>${notice.admin_no }</td><td>조회수 ${notice.no_view }</td></tr>
-			<tr><th>내용</th><td colspan="2"><textarea cols="5" rows="" readonly="readonly">${notice.no_content }</textarea></td></tr>
-		</table>
+		<form action="notice_updateForm.la" method="post">
+			<input type="hidden" name="no_no" value="${notice.no_no }"	>
+			<table width="60%" align= "center" >
+				<tr><th>제목</th><td colspan="2"><input type="text" name="no_title" value="${notice.no_title }" readonly="readonly"></td></tr>
+	 			<tr><th>작성자</th><td><input type="text" name="admin_no" value="${notice.admin_no }" readonly="readonly"></td>
+	 			<td>조회수 ${notice.no_view }</td></tr>
+				<tr><th>내용</th><td colspan="2"><textarea cols="5" rows="" readonly="readonly" name="no_content">${notice.no_content }</textarea></td></tr>
+			</table>
+			<c:if test="${result == 0 && no_del=='n'}">
+			<div class="nv_btn"><a href="notice_del.la?no_no=${no_no }" id="nv_del">
+			Delete</a>
+			</div>
+			</c:if>
+			<div class="nv_btn"><input type="submit" id="nv_update" value="Update"></div>
+		</form>
 	</div>
 </c:if>
 
@@ -58,11 +68,6 @@
 		</c:if>
 		<c:if test="${no_no==total }">
 			<div class="nv_btn"></div>
-		</c:if>
-				<c:if test="${result == 0 && no_del=='n'}">
-			<div class="nv_btn"><a href="notice_del.la?no_no=${notice.no_no}&no_no=${notice.no_no}" class="nv_del">
-			Delete</a>
-			</div>
 		</c:if>
 	</div>
 </div>

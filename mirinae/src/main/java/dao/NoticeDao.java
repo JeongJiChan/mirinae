@@ -71,5 +71,8 @@ public class NoticeDao {
 		return (int) session.update("noticens.noticeDel", no_no);
 	}
 
-	
+	public int update(Notice notice) {
+		return (int)session.update("noticens.update", notice);
+	}
+
 }
