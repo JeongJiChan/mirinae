@@ -9,8 +9,8 @@
 		<typeAlias alias="project" type="model.Project" />
 		<typeAlias alias="options" type="model.Options" />
 		<typeAlias alias="cs" type="model.Cs" />
-		<typeAlias alias="support" type="model.Support" />
-		<typeAlias alias="support_detail" type="model.SupportDetail" />
+ 		<typeAlias alias="support" type="model.Support" /> 
+ 		<typeAlias alias="support_detail" type="model.SupportDetail" /> 
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -30,7 +30,7 @@
 		<mapper resource="project.xml" />
 		<mapper resource="options.xml" />
 		<mapper resource="cs.xml" />
-		<mapper resource="support.xml" />
-		<mapper resource="support_detail.xml" />
+ 		<mapper resource="support.xml" />
+ 		<mapper resource="support_detail.xml" /> 
 	</mappers>
 </configuration>
