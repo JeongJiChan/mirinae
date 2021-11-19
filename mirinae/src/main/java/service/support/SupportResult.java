@@ -1,5 +1,7 @@
 package service.support;
 
+import java.util.Arrays;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,8 +19,10 @@ public class SupportResult implements CommandProcess {
 		String sup_tel = request.getParameter("sup_tel");
 		String sup_address = request.getParameter("address");
 		String address_d = request.getParameter("address_detail");
-		String[] opt_code = request.getParameterValues("opt_code");
-		String[] supd_cnt = request.getParameterValues("supd_cnt");
+		String opt_code = request.getParameter("opt_code");
+		String supd_cnt = request.getParameter("supd_cnt");
+		String[] supd_cnts = supd_cnt.substring(1, supd_cnt.length()-1).split(",");
+		String[] opt_codes = opt_code.substring(1, opt_code.length()-1).split(",");
 		
 		int result = 0;
 		Support support = new Support();
@@ -31,23 +35,28 @@ public class SupportResult implements CommandProcess {
 		support.setSup_tel(sup_tel);
 		support.setSup_name(sup_name);
 		
-		sup_d.insert(support);
+		result = sup_d.insert(support);
+		System.out.println(opt_codes.length);
 		
-		SupportDetail detail = new SupportDetail();
+		SupportDetail detail = null;
 		SupportDetailDao supd_d = SupportDetailDao.getInstance();
 		if (result == 1) {
-			int supd_no = supd_d.setSupd_no();
-			support.setSup_no(sup_no);
-			for (int i = 0; i < opt_code.length; i++ ) {
-				int opt_codeInt = Integer.valueOf(opt_code[i]);
-				int supd_cntInt = Integer.valueOf(supd_cnt[i]);
+			for (int i = 0; i < opt_codes.length; i++ ) {
+				int supd_no = supd_d.setSupd_no();
+				support.setSup_no(sup_no);
+				detail = new SupportDetail();
+				int opt_codeInt = Integer.parseInt(opt_codes[i].replace(" ", ""));
+				int supd_cntInt = Integer.parseInt(supd_cnts[i].replace(" ", ""));
+				
 				detail.setSupd_no(supd_no);
 				detail.setOpt_code(opt_codeInt);
 				detail.setSupd_cnt(supd_cntInt);
 				detail.setSup_no(sup_no);
+				
+				supd_d.insert(detail);
 			}
 		}
-		supd_d.insert(detail);
+		
 		
 		request.setAttribute("result", result);
 		return "/support/sup_result";

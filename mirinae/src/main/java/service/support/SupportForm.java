@@ -1,6 +1,8 @@
 package service.support;
 
 
+import java.util.Arrays;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,12 +14,18 @@ public class SupportForm implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 //		받아 옴 프로젝트번호 프로젝트명 회원번호 옵션명 수량 총 금액
 //		입력 받아 support로 보냄 프로젝트 받는 분, 프로젝트 받는 분 전화번호, 프로젝트 받는 분 주소/상세주소
-		String p_name = request.getParameter("p_name");
-		int m_no = Integer.parseInt(request.getParameter("m_no"));
-		String[] opt_code = request.getParameterValues("opt_cod");
-		String[] opt_name = request.getParameterValues("opt_name");
-		String[] opt_price = request.getParameterValues("opt_price");
-		String[] supd_cnt = request.getParameterValues("supd_cnt");
+//		String p_name = request.getParameter("p_name");
+//		int m_no = Integer.parseInt(request.getParameter("m_no"));
+//		String[] opt_code = request.getParameterValues("opt_cod");
+//		String[] opt_name = request.getParameterValues("opt_name");
+//		String[] opt_price = request.getParameterValues("opt_price");
+//		String[] supd_cnt = request.getParameterValues("supd_cnt");
+		String p_name = "test";
+		int m_no = Integer.parseInt("1");
+		String[] opt_code = {"1", "2", "3"};
+		String[] opt_name = {"4", "5", "6"};
+		String[] opt_price = {"7", "8", "9"};
+		String[] supd_cnt = {"10", "11", "12"};
 		String result = "";
 		int[] oc_price = new int[opt_name.length];
 		int total_price = 0;
@@ -32,10 +40,12 @@ public class SupportForm implements CommandProcess {
 			result += supd_cnt[i] + " : ";
 			result += oc_price[i] + "<br>";
 		}
+		String a = Arrays.toString(opt_code);
+		String b = Arrays.toString(supd_cnt);
 		request.setAttribute("p_name", p_name);
 		request.setAttribute("m_no", m_no);
-		request.setAttribute("opt_code", opt_code);
-		request.setAttribute("supd_cnt", supd_cnt);
+		request.setAttribute("opt_code", a);
+		request.setAttribute("supd_cnt", b);
 		request.setAttribute("result", result);
 		request.setAttribute("total_price", total_price);
 		return "/support/sup_form";
