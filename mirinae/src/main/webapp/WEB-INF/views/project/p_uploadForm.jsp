@@ -45,10 +45,10 @@
 			alert("목표금액을 0원 이상으로 입력해주세요.")
 		}
 		//값 넘어가는지 확인
-// 		alert(name_arr);
-// 		alert(price_arr);
+
 		frm.name_arr.value = name_arr;
 		frm.price_arr.value = price_arr;
+	  alert(frm.filename.value);
 	}
 	//옵션 추가하기
 	function optionplus() {
@@ -65,6 +65,7 @@
 			document.getElementById("price").value = "";
 			var name_str = "";
 			var price_str ="";
+
 			for(var i = 0; i < name_arr.length; i++){
 				name_str += name_arr[i]+"<hr>";
 				price_str += price_arr[i]+" 원<hr>";
@@ -120,7 +121,7 @@
     }
 
 </script>
-<form action="p_upload.kim" method="post" name="frm" onsubmit=" return chk()">
+<form action="p_upload.kim" method="post" name="frm" onsubmit=" return chk()" enctype="multipart/form-data">
 	<input type="hidden" name="name_arr">
 	<input type="hidden" name="price_arr">
 <table id="picture_table">
