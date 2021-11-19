@@ -9,7 +9,7 @@
 	
 	<!-- 총 공지사항 갯수 -->
 	<select id="getTotalN" resultType="integer">
-		select count(*) from notice
+		select count(*) from notice where del='y'
 	</select>
 	
 	<!-- 조회수 증가 -->
@@ -34,5 +34,9 @@
 	<!-- 공지사항 삭제 -->
 	<update id="noticeDel" parameterType="integer">
 		update notice set no_del = 'y' where no_no = #{no_no}
+	</update>
+	<!-- 공지사항 수정 -->
+	<update id="update">
+		update notice set no_title=#{no_title}, no_content=#{no_content} where no_no = #{no_no}
 	</update>
 </mapper>
