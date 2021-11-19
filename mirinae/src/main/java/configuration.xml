@@ -5,12 +5,13 @@
 	<properties resource="db.properties" />
 	<typeAliases>
 		<typeAlias alias="member" type="model.Member" />
+		<typeAlias alias="admin" type="model.Admin" />
 		<typeAlias alias="notice" type="model.Notice" />
 		<typeAlias alias="project" type="model.Project" />
 		<typeAlias alias="options" type="model.Options" />
 		<typeAlias alias="cs" type="model.Cs" />
-		<typeAlias alias="support" type="model.Support" />
-		<typeAlias alias="support_detail" type="model.SupportDetail" />
+<!-- 		<typeAlias alias="support" type="model.Support" />
+		<typeAlias alias="support_detail" type="model.SupportDetail" /> -->
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -26,11 +27,12 @@
 	<mappers>
 <!-- 	CRUD를 member.xml이 처리 -->
 		<mapper resource="member.xml" />
+		<mapper resource="admin.xml" />
 		<mapper resource="notice.xml" />
 		<mapper resource="project.xml" />
 		<mapper resource="options.xml" />
 		<mapper resource="cs.xml" />
-		<mapper resource="support.xml" />
-		<mapper resource="support_detail.xml" />
+<!-- 		<mapper resource="support.xml" />
+		<mapper resource="support_detail.xml" /> -->
 	</mappers>
 </configuration>

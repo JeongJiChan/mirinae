@@ -1,8 +1,11 @@
 drop table member;
-select * from member;
+select * from admin;
+desc admin;
 alter table member rename column e_name to m_name;
 ALTER TABLE member MODIFY(address VARCHAR2(200));
 delete from member where m_no=7;
+
+insert into ADMIN values(111,'master','1234','관리자');
 
 alter table cs rename column cs_date to cs_reg_date;
 insert into cs values (2, 'test','test', 'test', '210506', 1, 'n', 1, 1);
