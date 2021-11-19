@@ -22,7 +22,7 @@
 		</div>
 		<div align="center">
 			<button onclick="location.href='/mirinae/views/main/home.chan'">Main</button>
-			<button onclick="location.href='/mirinae/views/member/my_page.chan'">MyPage</button>
+			<button onclick="location.href='/mirinae/views/member/my_page.sun'">MyPage</button>
 		</div>
 	</c:if>
 	<c:if test="${result != 1 }">

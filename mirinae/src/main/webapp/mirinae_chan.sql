@@ -6,6 +6,7 @@ delete from member where m_no=19;
 alter table cs rename column cs_date to cs_reg_date;
 alter table support add (sup_name varchar2(20), oc_price number);
 select * from SUPPORT;
+select * from SUPPORT_detail;
 
 ALTER TABLE member DROP COLUMN reg_date;
 ALTER TABLE member DROP COLUMN del;

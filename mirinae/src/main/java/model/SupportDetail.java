@@ -29,4 +29,10 @@ public class SupportDetail {
 	public void setSup_no(int sup_no) {
 		this.sup_no = sup_no;
 	}
+	@Override
+	public String toString() {
+		return "SupportDetail [supd_no=" + supd_no + ", supd_cnt=" + supd_cnt + ", opt_code=" + opt_code + ", sup_no="
+				+ sup_no + "]";
+	}
+	
 }

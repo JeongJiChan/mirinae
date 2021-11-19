@@ -1,6 +1,7 @@
 package dao;
 
 import java.io.Reader;
+import java.util.Arrays;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;

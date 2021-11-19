@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="noticens">
+<mapper namespace="support_detailns">
 	<select id="select" resultType="integer">
 		select count(*) + 1 from support_detail
 	</select>
-	<insert id="insert" parameterType="detail">
+	<insert id="insert" parameterType="support_detail">
 		insert into support_detail values(#{supd_no }, #{supd_cnt }, #{opt_code }, #{sup_no })
 	</insert>
 </mapper>

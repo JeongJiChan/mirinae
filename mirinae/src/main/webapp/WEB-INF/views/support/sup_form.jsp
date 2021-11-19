@@ -28,9 +28,9 @@
 </head>
 <body>
 	<form action="sup_result.chan" method="post">
-		<input type="hidden" value="${m_no }">
-		<input type="hidden" value="${opt_code }">
-		<input type="hidden" value="${supd_cnt }">
+		<input type="hidden" name="m_no" value="${m_no }">
+		<input type="text" name="opt_code" value="${opt_code }">
+		<input type="text" name="supd_cnt" value="${supd_cnt }">
 		<div align="center">
 			<table>
 				<tr>
