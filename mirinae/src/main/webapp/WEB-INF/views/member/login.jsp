@@ -4,7 +4,13 @@
 <!DOCTYPE html><html><head><meta charset="UTF-8">
 <title>Insert title here</title>
 </head><body>
-<c:if test="${result > 0 }">
+<c:if test="${result == 2 }">
+	<script type="text/javascript">
+		alert("관리자로 로그인되었습니다");
+		location.href="/mirinae/views/main/home.chan";
+	</script>
+</c:if>
+<c:if test="${result == 1 }">
 	<script type="text/javascript">
 		alert("로그인 성공");
 		location.href="/mirinae/views/main/home.chan";

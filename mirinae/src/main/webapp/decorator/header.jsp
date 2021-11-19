@@ -84,19 +84,17 @@
 					<li><a href="/mirinae/views/notice/notice_list.la">공지사항</a></li>
 					<li><a href="/mirinae/views/cs/cs_list.kwon">고객문의</a></li>
 				</ul></li>
-			<c:if test="${empty id}">
+			<c:if test="${empty id && empty admin_id}">
 				<li><a href="/mirinae/views/member/loginForm.sun">로그인</a></li>
 				<li><a href="/mirinae/views/member/joinForm.sun">회원가입</a></li>
 			</c:if>
-			<c:if test="${not empty id}">
-				<c:if test="${id != master }">
-					<li><a href="/mirinae/views/member/logout.sun">로그아웃</a></li>
-					<li><a href="/mirinae/views/member/my_page.sun">마이페이지</a></li>
-				</c:if>
-				<c:if test="${id = master }">
-					<li><a href="/mirinae/views/member/logout.sun">로그아웃</a></li>
-					<li><a href="/mirinam/views/admin/admin_page.chan">관리자페이지</a></li>
-				</c:if>
+			<c:if test="${not empty id && empty admin_id}">
+				<li><a href="/mirinae/views/member/logout.sun">로그아웃</a></li>
+				<li><a href="/mirinae/views/member/my_page.sun">마이페이지</a></li>
+			</c:if>	
+			<c:if test="${not empty admin_id && empty id}">
+				<li><a href="/mirinae/views/member/logout.sun">로그아웃</a></li>
+				<li><a href="/mirinam/views/admin/admin_page.chan">관리자페이지</a></li>
 			</c:if>
 		</ul>
 	</nav>

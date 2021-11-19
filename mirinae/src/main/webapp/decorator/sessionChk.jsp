@@ -9,5 +9,6 @@
 </head>
 <body>
 <c:set var="id" value="${sessionScope.id }"></c:set>
+<c:set var="admin_id" value="${sessionScope.admin_id }"></c:set>
 </body>
 </html>
