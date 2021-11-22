@@ -5,6 +5,7 @@ public class SupportDetail {
 	private int supd_cnt;
 	private int opt_code;
 	private int sup_no;
+	private int oc_price;
 	public int getSupd_no() {
 		return supd_no;
 	}
@@ -29,10 +30,10 @@ public class SupportDetail {
 	public void setSup_no(int sup_no) {
 		this.sup_no = sup_no;
 	}
-	@Override
-	public String toString() {
-		return "SupportDetail [supd_no=" + supd_no + ", supd_cnt=" + supd_cnt + ", opt_code=" + opt_code + ", sup_no="
-				+ sup_no + "]";
+	public int getOc_price() {
+		return oc_price;
 	}
-	
+	public void setOc_price(int oc_price) {
+		this.oc_price = oc_price;
+	}
 }

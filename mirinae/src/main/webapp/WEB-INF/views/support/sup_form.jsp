@@ -29,8 +29,11 @@
 <body>
 	<form action="sup_result.chan" method="post">
 		<input type="hidden" name="m_no" value="${m_no }">
-		<input type="text" name="opt_code" value="${opt_code }">
-		<input type="text" name="supd_cnt" value="${supd_cnt }">
+		<input type="hidden" name="opt_code" value="${opt_code }">
+		<input type="hidden" name="supd_cnt" value="${supd_cnt }">
+		<input type="hidden" name="p_name" value="${p_name }">
+		<input type="hidden" name="opt_price" value="${opt_price }">
+		<input type="hidden" name="total_price" value="${total_price }">
 		<div align="center">
 			<table>
 				<tr>
@@ -59,7 +62,7 @@
 				</tr>
 				<tr>
 					<th><input type="submit" value="후원"></th>
-					<th><input type="button" value="취소"></th>
+					<th><button value="취소" onclick="history.back()"></button></th>
 				</tr>
 			</table>
 		</div>

@@ -5,6 +5,6 @@
 		select count(*) + 1 from support_detail
 	</select>
 	<insert id="insert" parameterType="support_detail">
-		insert into support_detail values(#{supd_no }, #{supd_cnt }, #{opt_code }, #{sup_no })
+		insert into support_detail values(#{supd_no }, #{supd_cnt }, #{opt_code }, #{sup_no }, 'n', #{oc_price})
 	</insert>
 </mapper>
