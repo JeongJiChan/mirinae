@@ -10,8 +10,30 @@ public class Cs {
 	private Date cs_reg_date;
 	private int cs_view;
 	private String cs_del;
+	private int cs_ref;
+	private int cs_re_level;
+	private int cs_re_step;
 	private int m_no;
 	private int admin_no;
+	
+	public int getCs_ref() {
+		return cs_ref;
+	}
+	public void setCs_ref(int cs_ref) {
+		this.cs_ref = cs_ref;
+	}
+	public int getCs_re_level() {
+		return cs_re_level;
+	}
+	public void setCs_re_level(int cs_re_level) {
+		this.cs_re_level = cs_re_level;
+	}
+	public int getCs_re_step() {
+		return cs_re_step;
+	}
+	public void setCs_re_step(int cs_re_step) {
+		this.cs_re_step = cs_re_step;
+	}
 	public int getCs_no() {
 		return cs_no;
 	}

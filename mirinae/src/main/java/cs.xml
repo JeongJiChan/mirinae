@@ -6,7 +6,7 @@
 	<select id="list" resultType="cs">
 		select * from
 		(select rowNum rn , a.* from
-		(select * from cs order by cs_no desc) a)
+		(select * from cs order by cs_ref desc, cs_re_step asc) a)
 		where rn between #{startRow} and #{endRow}
 
 	</select>
@@ -30,5 +30,14 @@
 	<select id="getTotalB" resultType="integer">
 		select count(*) from cs where cs_del='n'
 	</select>
+	
+	<!-- 게시글 입력 -->
+	<insert id="insert" parameterType="cs">
+		<selectKey keyProperty="cs_no" order="BEFORE"
+			resultType="integer">
+			select nvl(max(cs_no), 0) + 1 cs_no from cs
+		</selectKey>
+		insert into board values(#{cs_no}, #{cs_title}, #{cs_content}, sysdate, #{cs_view}, 'n', #{cs_ref}, #{cs_re_step}, #{cs_re_level}, #{m_no}, #{admin_no});
+	</insert>
 	
 </mapper>

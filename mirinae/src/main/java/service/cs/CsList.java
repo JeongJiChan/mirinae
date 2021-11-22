@@ -43,7 +43,6 @@ public class CsList implements CommandProcess {
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("PAGE_PER_BLOCK", PAGE_PER_BLOCK);
 		request.setAttribute("totalPage", totalPage);
-
 		return "cs/cs_list";
 	}
 
