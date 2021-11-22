@@ -2,6 +2,7 @@ drop table member;
 alter table member rename column e_name to m_name;
 ALTER TABLE member MODIFY(address VARCHAR2(200));
 delete from admin where admin_no=1;
+delete from NOTICE;
 alter table cs rename column cs_date to cs_reg_date;
 alter table support add (sup_name varchar2(20), oc_price number);
 delete from support_detail;
@@ -18,6 +19,7 @@ select * from PROJECT;
 select * from CATEGORY;
 select * from MYPICK;
 select * from REPLY;
+commit
 
 ALTER TABLE member DROP COLUMN reg_date;
 ALTER TABLE member DROP COLUMN del;
@@ -32,6 +34,17 @@ alter table support add address_d varchar2(20);
 ALTER TABLE support add sup_name varchar2(20);
 ALTER TABLE support add sup_date date;
 ALTER TABLE support add sup_tel varchar2(20);
+ALTER TABLE support add p_name varchar2(20);
+ALTER TABLE support add del char(1) default 'n';
+ALTER TABLE support add total_price varchar2(20);
+ALTER TABLE support_detail add del char(1) default 'n';
+ALTER TABLE support_detail add oc_price varchar2(20);
+
+select * from support;
+select * from support_detail;
+
+update support set total_price = 10000
+update support_detail set oc_price = 500
 
 create table Member ( -- 회원
     m_no number primary key, -- 회원번호

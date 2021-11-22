@@ -6,7 +6,6 @@ import java.util.Arrays;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Options;
 import service.main.CommandProcess;
 
 public class SupportForm implements CommandProcess {
@@ -16,7 +15,7 @@ public class SupportForm implements CommandProcess {
 //		입력 받아 support로 보냄 프로젝트 받는 분, 프로젝트 받는 분 전화번호, 프로젝트 받는 분 주소/상세주소
 //		String p_name = request.getParameter("p_name");
 //		int m_no = Integer.parseInt(request.getParameter("m_no"));
-//		String[] opt_code = request.getParameterValues("opt_cod");
+//		String[] opt_code = request.getParameterValues("opt_code");
 //		String[] opt_name = request.getParameterValues("opt_name");
 //		String[] opt_price = request.getParameterValues("opt_price");
 //		String[] supd_cnt = request.getParameterValues("supd_cnt");
@@ -42,10 +41,12 @@ public class SupportForm implements CommandProcess {
 		}
 		String a = Arrays.toString(opt_code);
 		String b = Arrays.toString(supd_cnt);
+		String c = Arrays.toString(opt_price);
 		request.setAttribute("p_name", p_name);
 		request.setAttribute("m_no", m_no);
 		request.setAttribute("opt_code", a);
 		request.setAttribute("supd_cnt", b);
+		request.setAttribute("opt_price", c);
 		request.setAttribute("result", result);
 		request.setAttribute("total_price", total_price);
 		return "/support/sup_form";

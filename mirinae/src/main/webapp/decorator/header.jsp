@@ -71,13 +71,13 @@
 		<a href="/mirinae/views/main/home.chan"><img alt="" src="/mirinae/images/milkyway.png" width="100px"></a><p>Mirinae</p>
 		<ul id="main-menu">
 			<li><a href="/mirinae/views/project/p_uploadForm.kim">프로젝트 등록</a></li>
-			<li><a href="/mirinae/views/project/p_list.chan">프로젝트 목록</a>
+			<li><a href="/mirinae/views/project/p_list.kim">프로젝트 목록</a>
 				<ul id="sub-menu">
-					<li><a href="/mirinae/views/project/p_list.chan?cate=1">카테고리1</a></li>
-					<li><a href="/mirinae/views/admin/notice.chan?cate=2">카테고리2</a></li>
-					<li><a href="/mirinae/views/admin/notice.chan?cate=3">카테고리3</a></li>
-					<li><a href="/mirinae/views/admin/notice.chan?cate=4">카테고리5</a></li>
-					<li><a href="/mirinae/views/admin/notice.chan?cate=5">카테고리5</a></li>
+					<li><a href="/mirinae/views/project/p_list.kim?cate=1">카테고리1</a></li>
+					<li><a href="/mirinae/views/project/p_list.kim?cate=2">카테고리2</a></li>
+					<li><a href="/mirinae/views/project/p_list.kim?cate=3">카테고리3</a></li>
+					<li><a href="/mirinae/views/project/p_list.kim?cate=4">카테고리5</a></li>
+					<li><a href="/mirinae/views/project/p_list.kim?cate=5">카테고리5</a></li>
 				</ul></li>
 			<li><a> 게시판 </a>
 				<ul id="sub-menu">			<!-- notice/notice_list.do -->
