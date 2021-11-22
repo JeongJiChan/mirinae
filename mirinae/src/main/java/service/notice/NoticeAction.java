@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.NoticeDao;
 import model.Notice;
@@ -11,7 +12,15 @@ import service.main.CommandProcess;
 
 public class NoticeAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("admin_id");
+		
 		NoticeDao nd = NoticeDao.getInstance();
+		
+		//admin ID 체크
+		int result =0;
+		if(id != null) 
+			result = nd.adminChk(id);
 		
 		final int ROW_PER_PAGE = 10; // 한 페이지에 게시글 10개 씩
 		final int PAGE_PER_BLOCK = 5; // 한 블럭에 5페이지 씩 
@@ -36,6 +45,7 @@ public class NoticeAction implements CommandProcess {
 		int number = totalN - startRow+1;
 		List<Notice> list = nd.list(startRow, endRow);
 		
+		request.setAttribute("result", result);
 		request.setAttribute("totalN", totalN);
 		request.setAttribute("total", total);
 		request.setAttribute("number", number);

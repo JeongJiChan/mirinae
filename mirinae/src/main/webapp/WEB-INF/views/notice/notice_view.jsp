@@ -34,16 +34,16 @@
 			<input type="hidden" name="no_no" value="${notice.no_no }"	>
 			<table width="60%" align= "center" >
 				<tr><th>제목</th><td colspan="2"><input type="text" name="no_title" value="${notice.no_title }" readonly="readonly"></td></tr>
-	 			<tr><th>작성자</th><td><input type="text" name="admin_no" value="${notice.admin_no }" readonly="readonly"></td>
+	 			<tr><th>작성자</th><td><input type="text" name="admin_no" value="${admin_id }" readonly="readonly"></td>
 	 			<td>조회수 ${notice.no_view }</td></tr>
-				<tr><th>내용</th><td colspan="2"><textarea cols="5" rows="" readonly="readonly" name="no_content">${notice.no_content }</textarea></td></tr>
+				<tr><th>내용</th><td colspan="2"><textarea cols="5" rows="" readonly="readonly" name="no_content"><c:out value="${notice.no_content }" escapeXml="false" /></textarea></td></tr>
 			</table>
-			<c:if test="${result == 0 && no_del=='n'}">
-			<div class="nv_btn"><a href="notice_del.la?no_no=${no_no }" id="nv_del">
-			Delete</a>
-			</div>
+			<c:if test="${result != 0 && no_del=='n'}">
+				<div class="nv_btn"><a href="notice_del.la?no_no=${no_no }" id="nv_del">
+				Delete</a>
+				</div>
+				<div class="nv_btn"><input type="submit" id="nv_update" value="Update"></div>
 			</c:if>
-			<div class="nv_btn"><input type="submit" id="nv_update" value="Update"></div>
 		</form>
 	</div>
 </c:if>
