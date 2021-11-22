@@ -137,3 +137,4 @@ create sequence seq_member
 	select count(*) from notice;
 	select * from notice;
 	
+	
