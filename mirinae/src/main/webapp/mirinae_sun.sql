@@ -31,7 +31,7 @@ create table cs(
 
 ALTER TABLE member DROP COLUMN reg_date;
 ALTER TABLE member DROP COLUMN del;
-alter table member add address_d varchar2(20);
+alter table member add address_d varchar2(200);
 alter table member add reg_date date;
 alter table member add del char(1);
 

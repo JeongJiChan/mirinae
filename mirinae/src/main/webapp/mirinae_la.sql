@@ -132,3 +132,9 @@ create sequence seq_member
 	nomaxvalue
 	nominvalue
 	nocycle
+	
+	
+	select count(*) from notice;
+	select * from notice;
+	
+	
