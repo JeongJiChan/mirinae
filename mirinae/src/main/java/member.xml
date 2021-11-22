@@ -19,11 +19,19 @@
 				#{birth},#{address},#{address_d},sysdate,'n')
 	</insert>
 	
-<!-- 	<update id="update" parameterType="member">
-		update member2 set password=#{password},name=#{name},address=#{address},tel=#{tel}
-			where id=#{id}
+	<!-- 회원수정 닉네임 중복체크, m_nick를 가지고 member 조회 -->
+	<select id="select3" parameterType="string" resultType="member">
+		select * from member where not m_nick=#{m_nick}
+	</select>
+	
+	<!-- 회원정보 수정, m_id를 가지고 member 조회 -->
+	<update id="update" parameterType="member">
+		update member set m_pass=#{m_pass},m_nick=#{m_nick},m_email=#{m_email},tel=#{tel},address=#{address},address_detail=#{address_detail}
+			where m_id=#{m_id}
 	</update>
-	<update id="delete" parameterType="string">
+	
+	
+<!-- 	<update id="delete" parameterType="string">
 		update member2 set del='y' where id=#{id}
 	</update> -->
 </mapper>

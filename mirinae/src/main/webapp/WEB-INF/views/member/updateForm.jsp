@@ -24,18 +24,29 @@ window.onload = function(){
 
 	/* 비밀번호 확인, 중복체크 버튼 눌렀는지 확인 */
 	function chk() {
+		var getEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+
+		//이메일 유효성 검사 
+		if(!getEmail.test($("#m_email").val())) { 
+			alert("이메일 형식에 맞게 다시 입력");
+			$("#m_email").focus(); 
+			return false;
+		}
+
 		if (frm.m_pass.value != frm.m_pass2.value) {
 			alert("비밀번호 재확인이 일치하지 않습니다");
 			frm.m_pass.focus();
 			frm.m_pass.value = "";
 			frm.m_pass2.value = "";
 			return false;
-		}	
+		}
+
 		if (frm.nickchk.value == "unChk") {
-	   	 	alert("닉네임 중복체크를 해주세요.");
-	    	return false;
+   	 		alert("닉네임 중복체크를 해주세요.");
+    		return false;
 		}
 	};
+	
 	/* 비밀번호와 비밀번호 재확인 일치여부 */
 	function pass_chk() {
 		if (frm.m_pass.value != '' && frm.m_pass2.value != '') {
@@ -68,14 +79,14 @@ window.onload = function(){
 		}
 		// 변수 id에 입력한 id를 담아서 post방식으로 confirmNick.sun을 실행하고, 그 결과를 받아서
 		// id가 err_nick인 곳에 html 형식으로 보여줘라
-		$.post('confirmNick.sun', "m_nick=" + frm.m_nick.value, function(data) {
+		$.post('confirmMyNick.sun', "m_nick=" + frm.m_nick.value, function(data) {
 			 if(data == 1) {
-                $('#err_nick').html("닉네임 중복");
+                $('#err_nick').html("닉네임 중복인가?");
                 $('#err_nick').css("color","red");
                 frm.nickchk.value == "unChk";
              }
              else {
-                $('#err_nick').html("사용가능한 닉네임");
+                $('#err_nick').html("사용가능한 닉네임??");
                 $('#err_nick').css("color","blue");
                 frm.nickchk.value="chk";
              }
@@ -130,7 +141,7 @@ table td { width: 250px; }
 				</tr>
 				<tr>
 					<th>이메일</th>
-					<td><input type="email" name="m_email" placeholder="이메일"
+					<td><input type="email" name="m_email" id="m_email" placeholder="이메일"
 						required="required" value="${member.m_email }" size="30"></td>
 				</tr>
 				<tr>

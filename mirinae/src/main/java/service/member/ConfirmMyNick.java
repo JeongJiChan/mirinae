@@ -2,21 +2,22 @@ package service.member;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import dao.MemberDao;
 import model.Member;
 import service.main.CommandProcess;
 
-public class UpdateForm implements CommandProcess {
-
+public class ConfirmMyNick implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
-		HttpSession session = request.getSession();
-		String m_id = (String)session.getAttribute("id");
+		String my_nick = request.getParameter("m_nick");
+		String msg = "";
 		MemberDao md = MemberDao.getInstance();
-		Member member = md.select(m_id);
-		
-		request.setAttribute("member", member);
-		return "/member/updateForm";
+		Member member3 = md.select3(my_nick);
+
+		if(member3 == null) msg = "0";
+		else msg = "1";
+
+		request.setAttribute("msg", msg);
+		return "/member/confirmMyNick";
 	}
+
 }
