@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="memberns">
+
+	<!-- 아이디 중복체크, m_id를 가지고 member 조회 -->
 	<select id="select" parameterType="string" resultType="member">
 		select * from member where m_id=#{m_id}
 	</select>
+	
+	<!-- 닉네임 중복체크, m_nick를 가지고 member 조회 -->
 	<select id="select2" parameterType="string" resultType="member">
 		select * from member where m_nick=#{m_nick}
 	</select>
+	
+	<!-- 회원가입 성공하면 데이터 입력 -->
 	<insert id="insert" parameterType="member">
-		insert into member values ((SELECT NVL(MAX(m_no),0)+1 FROM member),#{m_id},#{m_pass},#{m_nick},#{m_email},#{m_name},#{tel},#{birth},#{address},#{address_d},sysdate,'n')
+		insert into member values ((SELECT NVL(MAX(m_no),0)+1 FROM member),
+				#{m_id},#{m_pass},#{m_nick},#{m_email},#{m_name},#{tel},
+				#{birth},#{address},#{address_d},sysdate,'n')
 	</insert>
 	
 <!-- 	<update id="update" parameterType="member">
