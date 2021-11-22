@@ -9,7 +9,7 @@
 	th { border: 1px solid black;}
 	td { border: 1px solid black;}
 	#picture_table { width: 35%; float: left; table-layout: fixed;}
-	#picture { border: 1px solid black; width: 100%; height: 310px; }
+ 	#picture { border: 1px solid black; width: 100%; height: 310px; } 
 	#project_table { width: 60%;  float: left; }
 	#option_table {  border: 1px solid black; width: 59.8%;  float: left; overflow: hidden; table-layout: fixed; }
 	#button { clear: both; }
@@ -31,7 +31,7 @@
 	var name_arr = [];
 	var price_arr = [];
 
-	//카테고리 미선택시 화면 안넘어감
+	//제약조건
 	function chk() {
 		if(frm.category.value == "카테고리를 선택하세요"){
 			alert("카테고리를 선택하세요");
@@ -44,11 +44,17 @@
 		if(frm.goal_money.value < 0 ){
 			alert("목표금액을 0원 이상으로 입력해주세요.")
 		}
-		//값 넘어가는지 확인
+		if(frm.filename.value == ""){
+			alert("대표이미지를 선택해주세요.");
+			return false;
+		}
+		if(frm.filename.value.indexOf(".jpg") == -1){
+			alert("확장자가 jpg인 파일만 올려주시기 바랍니다.");
+			return false;
+		}
 
 		frm.name_arr.value = name_arr;
 		frm.price_arr.value = price_arr;
-	  alert(frm.filename.value);
 	}
 	//옵션 추가하기
 	function optionplus() {
@@ -59,21 +65,29 @@
 		}else if(price <= 0){
 			alert("옵션 가격이 0보다 작을 수 없습니다.")
 		}else{
-			name_arr.push(name);
-			price_arr.push(price);
-			document.getElementById("opt_name").value = "";
-			document.getElementById("price").value = "";
-			var name_str = "";
-			var price_str ="";
-
-			for(var i = 0; i < name_arr.length; i++){
-				name_str += name_arr[i]+"<hr>";
-				price_str += price_arr[i]+" 원<hr>";
+			if(name.indexOf(",") != -1){
+				alert('옵션 이름에 ","를 사용할 수 없습니다. ');
+				document.getElementById("opt_name").value = "";
+				document.getElementById("price").value = "";
+				frm.opt_name.focus();
+			}else{
+				name_arr.push(name);
+				price_arr.push(price);
+				document.getElementById("opt_name").value = "";
+				document.getElementById("price").value = "";
+				var name_str = "";
+				var price_str ="";
+				for(var i = 0; i < name_arr.length; i++){
+					name_str += name_arr[i]+"<hr>";
+					//금액을 자동으로 천단위를 바꿔줌
+					price_str += price_arr[i].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')+" 원<hr>";
+				}
+				$('#opt_divN').html(name_str);
+				$('#opt_divP').html(price_str);
+				$('#opt_divN').scrollTop($('#opt_divN')[0].scrollHeight);
+				$('#opt_divP').scrollTop($('#opt_divP')[0].scrollHeight);
+				frm.opt_name.focus();
 			}
-			$('#opt_divN').html(name_str);
-			$('#opt_divP').html(price_str);
-			$('#opt_divN').scrollTop($('#opt_divN')[0].scrollHeight);
-			$('#opt_divP').scrollTop($('#opt_divP')[0].scrollHeight);
 		}
 	}
 	//옵션 목록을 비운다

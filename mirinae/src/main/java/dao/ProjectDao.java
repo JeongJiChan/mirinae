@@ -1,6 +1,7 @@
 package dao;
 
 import java.io.Reader;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -32,6 +33,10 @@ public class ProjectDao {
 	public int find_p_no() {
 		return (int) session.selectOne("projectns.select");
 	}
+	public List<Project> selectList() { 
+		return session.selectList("projectns.selectList"); 
+	}
+
 
 	
 	
