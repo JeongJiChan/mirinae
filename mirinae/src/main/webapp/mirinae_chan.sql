@@ -1,12 +1,23 @@
 drop table member;
-select * from member;
 alter table member rename column e_name to m_name;
 ALTER TABLE member MODIFY(address VARCHAR2(200));
-delete from member where m_no=19;
+delete from admin where admin_no=1;
 alter table cs rename column cs_date to cs_reg_date;
 alter table support add (sup_name varchar2(20), oc_price number);
+delete from support_detail;
+delete from support;
+delete from cs;
+select * from member;
+select * from admin;
 select * from SUPPORT;
 select * from SUPPORT_detail;
+select * from OPTIONS;
+select * from NOTICE;
+select * from cs;
+select * from PROJECT;
+select * from CATEGORY;
+select * from MYPICK;
+select * from REPLY;
 
 ALTER TABLE member DROP COLUMN reg_date;
 ALTER TABLE member DROP COLUMN del;
