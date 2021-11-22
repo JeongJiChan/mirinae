@@ -1,9 +1,11 @@
 drop table member;
 select * from admin;
+select * from member;
 desc admin;
 alter table member rename column e_name to m_name;
 ALTER TABLE member MODIFY(address VARCHAR2(200));
-delete from member where m_no=7;
+delete from member where m_no=1;
+update member set del = 'n' where m_no=1;
 
 insert into ADMIN values(111,'master','1234','관리자');
 
