@@ -75,4 +75,8 @@ public class NoticeDao {
 		return (int)session.update("noticens.update", notice);
 	}
 
+	public int getTotal() {
+		return (int) session.selectOne("noticens.getTotal");
+	}
+
 }

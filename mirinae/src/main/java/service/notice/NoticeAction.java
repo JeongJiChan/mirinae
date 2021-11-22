@@ -21,8 +21,9 @@ public class NoticeAction implements CommandProcess {
 			pageNum = "1";
 		int currentPage = Integer.parseInt(pageNum); // 현재 페이지
 
-		int total = nd.getTotalN(); // 총 게시글 수
-		int totalPage = (int) Math.ceil((double)total/ROW_PER_PAGE); // 총 페이지 수
+		int total = nd.getTotal(); // 총 게시글 수
+		int totalN = nd.getTotalN(); // 삭제되지 않은 총 게시글 수 (no_del='n')
+		int totalPage = (int) Math.ceil((double)totalN/ROW_PER_PAGE); // 총 페이지 수
 		
 		int startRow = (currentPage - 1) * ROW_PER_PAGE + 1; // 게시글의 시작 번호(변수 num의 제일 마지막)
 		int endRow = startRow + ROW_PER_PAGE - 1; // 게시글의 마지막 번호(변수 num = 1)
@@ -32,9 +33,10 @@ public class NoticeAction implements CommandProcess {
 		
 		if (endPage > totalPage) endPage = totalPage; // 마지막 페이지가 총 페이지 수 보다 클 경우
 		
-		int number = total - startRow+1;
+		int number = totalN - startRow+1;
 		List<Notice> list = nd.list(startRow, endRow);
 		
+		request.setAttribute("totalN", totalN);
 		request.setAttribute("total", total);
 		request.setAttribute("number", number);
 		request.setAttribute("list", list);

@@ -9,7 +9,10 @@
 	
 	<!-- 총 공지사항 갯수 -->
 	<select id="getTotalN" resultType="integer">
-		select count(*) from notice where del='y'
+		select count(*) from notice where no_del='n'
+	</select>
+	<select id="getTotal" resultType="integer">
+		select count(*) from notice
 	</select>
 	
 	<!-- 조회수 증가 -->

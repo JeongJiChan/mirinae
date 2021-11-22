@@ -19,7 +19,8 @@ public class NoticeView implements CommandProcess {
 		NoticeDao nd = NoticeDao.getInstance();
 		
 		// 총 게시글 수
-		int total = nd.getTotalN(); 
+		int total = nd.getTotal(); 
+		int totalN = nd.getTotalN(); 
 		//조회수 카운트
 		nd.viewcountUpdate(no_no);
 			
@@ -37,6 +38,7 @@ public class NoticeView implements CommandProcess {
 		request.setAttribute("result", result);
 		request.setAttribute("no_no", no_no);
 		request.setAttribute("total", total);
+		request.setAttribute("totalN", totalN);
 		request.setAttribute("no_del", no_del);
 		request.setAttribute("notice", notice);
 		request.setAttribute("pageNum", pageNum);
