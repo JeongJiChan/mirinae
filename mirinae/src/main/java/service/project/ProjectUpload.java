@@ -31,15 +31,15 @@ public class ProjectUpload implements CommandProcess {
 		MultipartRequest mr = new MultipartRequest(request, real, maxSize,
 				"utf-8", new DefaultFileRenamePolicy());
 		
-	//	HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 
 		int cate_code = Integer.parseInt(mr.getParameter("category"));
 		String p_name = mr.getParameter("name");
 		String p_content = mr.getParameter("content");
-	//	String m_id = (String)session.getAttribute("id");
-	//	MemberDao memberDao = MemberDao.getInstance();
-	//  Member member = memberDao.select(m_id);
-	//	String p_writer = member.getM_name();
+		String m_id = (String)session.getAttribute("id");
+		MemberDao memberDao = MemberDao.getInstance();
+	    Member member = memberDao.select(m_id);
+		String p_writer = member.getM_name();
 		Date s_date = Date.valueOf(mr.getParameter("s_date"));
 		Date e_date = Date.valueOf(mr.getParameter("e_date"));
 		int goal_money = Integer.parseInt(mr.getParameter("goal_money"));
@@ -49,7 +49,7 @@ public class ProjectUpload implements CommandProcess {
 		project.setCate_code(cate_code);
 		project.setP_name(p_name);
 		project.setP_content(p_content);
-	//	project.setP_writer(p_writer);
+		project.setP_writer(p_writer);
 		project.setS_date(s_date);
 		project.setE_date(e_date);
 		project.setGoal_money(goal_money);

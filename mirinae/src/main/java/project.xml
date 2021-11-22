@@ -3,10 +3,13 @@
 <mapper namespace="projectns">
 	<insert id="insert" parameterType="project"> <!-- 입력, 수정, 삭제는 resultType이 필요없다 -->
 															   <!-- 세션연결 후에 작성자 이름 추가 -->
-		insert into project values(#{p_no},#{cate_code},#{p_name},#{p_content},'',
+		insert into project values(#{p_no},#{cate_code},#{p_name},#{p_content},#{p_writer},
 									#{s_date},#{e_date},#{goal_money},0,'n',sysdate,0)
 	</insert>
 <select id="select" resultType="integer">
 	select count(*)+1 from project
+</select>
+<select id="selectList" resultType="project">
+	select * from project order by p_no desc
 </select>
 </mapper>
