@@ -24,13 +24,20 @@ window.onload = function(){
 
 	/* 비밀번호 확인, 중복체크 버튼 눌렀는지 확인 */
 	function chk() {
-		var getName= RegExp(/^[가-힣]+$/);
+		var getName = /^[가-힣]+$/;
+		var getEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 
 		//이름 유효성 검사 
 		if(!getName.test($("#m_name").val())) { 
 			alert("이름은 한글만 입력가능");
 			$("#m_name").val(""); 
 			$("#m_name").focus(); 
+			return false; 
+		}
+		//이메일 유효성 검사 
+		if(!getEmail.test($("#m_email").val())) { 
+			alert("이메일 형식에 맞게 다시 입력");
+			$("#m_email").focus(); 
 			return false; 
 		}
 
@@ -80,17 +87,18 @@ window.onload = function(){
 		// 변수 id에 입력한 id를 담아서 post방식으로 confirmId.sun을 실행하고, 그 결과를 받아서
 		// id가 err_id인 곳에 html 형식으로 보여줘라
 		$.post('confirmId.sun', "m_id=" + frm.m_id.value, function(data) {
-			frm.idchk.value="chk";
  		 	if(data == 1) {
                 $('#err_id').html("아이디 중복");
                 $('#err_id').css("color","red");
+                frm.idchk.value="unChk";
              }
- 		 else {
- 			 $('#err_id').html("사용가능한 아이디");
-             $('#err_id').css("color","blue");
-              }
-		});
-	}
+ 		 	else {
+ 				$('#err_id').html("사용가능한 아이디");
+             	$('#err_id').css("color","blue");
+             	frm.idchk.value="chk";
+              	}
+			});
+		}
 	
 	/* 비밀번호와 비밀번호 재확인 일치여부 */
 	function pass_chk() {
@@ -126,14 +134,15 @@ window.onload = function(){
 		// 변수 id에 입력한 id를 담아서 post방식으로 confirmNick.sun을 실행하고, 그 결과를 받아서
 		// id가 err_nick인 곳에 html 형식으로 보여줘라
 		$.post('confirmNick.sun', "m_nick=" + frm.m_nick.value, function(data) {
-			frm.nickchk.value="chk";
 			 if(data == 1) {
                 $('#err_nick').html("닉네임 중복");
                 $('#err_nick').css("color","red");
+                frm.nickchk.value="unChk";
              }
              else {
                 $('#err_nick').html("사용가능한 닉네임");
                 $('#err_nick').css("color","blue");
+                frm.nickchk.value="chk";
              }
 		});
 	}	
