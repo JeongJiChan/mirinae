@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/decorator">
+	<decorator name="decorator" page="deco.jsp">
+		<pattern>/views/main/*</pattern>
+		<pattern>/views/project/*</pattern>
+		<pattern>/views/notice/*</pattern>
+		<pattern>/views/member/*</pattern>
+		<pattern>/views/support/*</pattern>
+		<pattern>/views/cs/*</pattern>
+	</decorator>
+		<excludes>
+		<pattern>/views/member/confirmId.*</pattern>
+		<pattern>/views/member/confirmNick.*</pattern>
+	</excludes>
+</decorators>

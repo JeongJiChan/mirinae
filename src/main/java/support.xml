@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="supportns">
+	<select id="select" resultType="integer">
+		select nvl(count(*), 0) + 1 from support
+	</select>
+	<insert id="insert" parameterType="support">
+		insert into support values(#{sup_no }, #{m_no }, #{sup_address }, #{address_d },
+			#{sup_name }, sysdate, #{sup_tel })
+	</insert>
+</mapper>
