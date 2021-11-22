@@ -47,5 +47,8 @@ public class CsDao {
 		public int getTotalB() {
 			return (int) session.selectOne("csns.getTotalB");
 		}
+		public int insert(Cs cs) {
+			return session.insert("csns.insert", cs);
+		}
 		
 }
