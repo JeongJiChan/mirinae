@@ -12,16 +12,16 @@ public class NoticeUpdateForm implements CommandProcess {
 		int no_no = Integer.parseInt(request.getParameter("no_no"));
 		String no_title = request.getParameter("no_title");
 		String no_content = request.getParameter("no_content");
-		int admin_no = Integer.parseInt(request.getParameter("admin_no"));
+		String admin_id = request.getParameter("admin_id");
 		
 		Notice notice = new Notice();
 		
 		notice.setNo_content(no_content);
-		notice.setAdmin_no(admin_no);
 		notice.setNo_no(no_no);
 		notice.setNo_title(no_title);
 		
 		request.setAttribute("notice", notice);
+		request.setAttribute("admin_id", admin_id);
 		return "/notice/notice_updateForm";
 	}
 

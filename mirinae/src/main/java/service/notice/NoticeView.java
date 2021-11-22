@@ -11,7 +11,7 @@ import service.main.CommandProcess;
 public class NoticeView implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
-		String id = (String)session.getAttribute("m_id");
+		String id = (String)session.getAttribute("admin_id");
 		
 		int no_no = Integer.parseInt(request.getParameter("no_no"));
 		String pageNum = request.getParameter("pageNum");
@@ -33,8 +33,10 @@ public class NoticeView implements CommandProcess {
 		if(id != null) 
 			result = nd.adminChk(id);
 		
-		/*adminChk디버깅: System.out.println(result); */
+		/* adminChk 디버깅 
+		System.out.println(result);*/
 		
+		request.setAttribute("admin_id", id);
 		request.setAttribute("result", result);
 		request.setAttribute("no_no", no_no);
 		request.setAttribute("total", total);

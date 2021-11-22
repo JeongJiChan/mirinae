@@ -28,7 +28,7 @@
 		<selectKey keyProperty="no_no" order="BEFORE" resultType="integer">
 			select nvl(max(no_no), 0) + 1 no_no from notice
 		</selectKey>
-		insert into notice values(#{no_no}, #{no_title}, #{no_content}, sysdate, 0,'n', 1)
+		insert into notice values(#{no_no}, #{no_title}, #{no_content}, sysdate, 0,'n', #{admin_no})
 	</insert>
 	<!-- admin 테이블에 있는지 조회 -->
 	<select id="adminChk" resultType="integer">

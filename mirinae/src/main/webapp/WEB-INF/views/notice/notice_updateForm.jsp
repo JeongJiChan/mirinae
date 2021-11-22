@@ -3,6 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- 텍스트 에디터 -->
+<script
+	src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
+<style>
+	.ck.ck-editor { max-width: 700px;}
+	.ck-editor__editable { min-height: 300px;}
+</style>
+
 <style type="text/css">
 	#n_list { width: 100%; cursor: pointer; }
 	div.nv_btn {width:60px; float: left; margin:25px; text-align: center;
@@ -36,8 +44,8 @@
 		<input type="hidden" name="no_no" value="${notice.no_no }">
 				<table width="60%" align= "center" >
 				<tr><th>제목</th><td colspan="2"><input type="text" name="no_title" value="${notice.no_title }"></td></tr>
-	 			<tr><th>작성자</th><td colspan="2">${notice.admin_no }</td></tr>
-				<tr><th>내용</th><td colspan="2"><textarea cols="5" rows="" name="no_content">${notice.no_content }</textarea></td></tr>
+	 			<tr><th>작성자</th><td colspan="2">${admin_id }</td></tr>
+				<tr><th>내용</th><td colspan="2"><textarea cols="5" rows="" name="no_content" id="content">${notice.no_content }</textarea></td></tr>
 			</table>
 			<div class="btnDiv">
 			<input type="submit" class="nv_btn" id="nv_update" value="수정">
@@ -45,5 +53,6 @@
 			</div>
 	</form>
 </div>
+<script src="${pageContext.request.contextPath}/js/ckeditor_la.js"></script>
 </body>
 </html>
