@@ -22,7 +22,7 @@
 	</c:if>
 	<c:if test="${result == -1 }">
 		<script type="text/javascript">
-			alert("아이디 또는 닉네임 중복");
+			alert("닉네임 중복");
 			history.go(-1);
 		</script>
 	</c:if>

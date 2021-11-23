@@ -24,7 +24,7 @@ public class Login implements CommandProcess {
 		AdminDao ad = AdminDao.getInstance();
 		Admin admin = ad.ad_select(admin_id);
 		
-		if(member == null || member.getDel().equals("y")) result = -1; // 데이터 없음
+		if(member == null) result = -1; // 데이터 없음
 		else if(member.getM_pass().equals(m_pass)) {
 			HttpSession session = request.getSession();
 			session.setAttribute("id", m_id);
@@ -40,6 +40,8 @@ public class Login implements CommandProcess {
 			}
 			else result = 0; // 비밀번호 틀림
 		}
+		
+		if(member != null && member.getDel().equals("y")) result = -2; // 탈퇴한 회원
 		
 		request.setAttribute("result", result);
 		return "/member/login";

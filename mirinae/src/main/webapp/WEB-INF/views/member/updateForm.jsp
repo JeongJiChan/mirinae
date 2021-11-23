@@ -80,13 +80,18 @@ window.onload = function(){
 		// 변수 id에 입력한 id를 담아서 post방식으로 confirmNick.sun을 실행하고, 그 결과를 받아서
 		// id가 err_nick인 곳에 html 형식으로 보여줘라
 		$.post('confirmMyNick.sun', "m_nick=" + frm.m_nick.value, function(data) {
-			 if(data == 1) {
-                $('#err_nick').html("닉네임 중복인가?");
+			if(data == 2) {
+                $('#err_nick').html("기존 닉네임으로 사용");
+                $('#err_nick').css("color","orange");
+                frm.nickchk.value="chk";
+             }
+			else if(data == 1) {
+                $('#err_nick').html("닉네임 중복");
                 $('#err_nick').css("color","red");
                 frm.nickchk.value == "unChk";
              }
              else {
-                $('#err_nick').html("사용가능한 닉네임??");
+                $('#err_nick').html("사용가능한 닉네임");
                 $('#err_nick').css("color","blue");
                 frm.nickchk.value="chk";
              }
@@ -166,5 +171,6 @@ table td { width: 250px; }
 			</table>
 		</fieldset>
 	</form>
+	<div><a href="my_page.sun">이전</a></div>
 </body>
 </html>

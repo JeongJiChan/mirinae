@@ -27,6 +27,11 @@
 		alert("회원정보가 없습니다");
 		history.go(-1);
 	</script>
+</c:if><c:if test="${result == -2 }">
+	<script type="text/javascript">
+		alert("탈퇴한 회원입니다");
+		history.go(-1);
+	</script>
 </c:if>
 </body>
 </html>

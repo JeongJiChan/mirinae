@@ -34,7 +34,7 @@ public class Join implements CommandProcess {
 		
 		MemberDao md = MemberDao.getInstance();
 		Member member2 = md.select(m_id);
-		Member member3 = md.select2(m_nick);
+		Member member3 = md.nick_Chk(m_nick);
 		
 		int result = 0; // 입력실패
 		if(member2 == null) {
