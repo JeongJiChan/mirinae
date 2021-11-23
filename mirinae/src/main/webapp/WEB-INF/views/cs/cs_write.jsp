@@ -15,7 +15,7 @@
 	location.href = "cs_list.kwon?pageNum=1";
 </script>
 </c:if>
-<c:if test="${result == 0 }">
+<c:if test="${result != 0 }">
 <script type="text/javascript">
 	alert("문의 작성 중 오류가 발생했습니다");
 	history.back();

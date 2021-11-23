@@ -1,11 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file="../../../decorator/sessionChk.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	function sessionChk() {
+		if (${empty id}) {
+			alert("로그인 후 이용해 주시기 바랍니다");
+			location.href="/mirinae/views/member/loginForm.sun";
+			
+		} else {
+			location.href="cs_writeForm.kwon?cs_no=0&pageNum=${currentPage}";
+		}
+	}
+
+</script>
 <style type="text/css">
 .caption {
 	width: 100%;
@@ -42,7 +55,7 @@
 								<c:if test="${cs.cs_re_level > 0 }">
 								<img alt="" src="/mirinae/images/level.gif" height="5"
 									width="${cs.cs_re_level*10 }">
-									<img alt="" src="/mirinae/images/re.gif" height="5"">
+									<img alt="" src="/mirinae/images/re.gif" height="5">
 								</c:if>
 								${cs.cs_title }</td>
 							<td align="center" width="10%">${cs.cs_writer }</td>
@@ -88,7 +101,7 @@
 		</div>
 		<br>
 		<button
-			onclick="location.href='cs_writeForm.kwon?num=0&pageNum=${currentPage}'"
+			onclick="sessionChk()"
 			style="margin-left: 1300px">글쓰기</button>
 	</div>
 </body>
