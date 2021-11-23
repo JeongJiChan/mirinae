@@ -31,4 +31,7 @@ public class AdminDao {
 		// selectOne는 데이터 한건 조회, selectList는 여러건 조회
 		return (Admin)session.selectOne("adminns.ad_select",id);
 	}
+	public String ad_selectN(int no_no) {
+		// 해당 글의 공지사항 작성자 검색
+		return (String)session.selectOne("adminns.ad_selectN",no_no);	}
 }

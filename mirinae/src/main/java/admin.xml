@@ -4,4 +4,9 @@
 	<select id="ad_select" parameterType="string" resultType="admin">
 		select * from admin where admin_id=#{admin_id}
 	</select>
+	
+	<!-- 공지사항 작성한 관리자 ID 검색 -->
+	<select id="ad_selectN" parameterType="integer" resultType="string">
+		select admin_id from admin where admin_no=(select admin_no from notice where no_no=#{no_no})
+	</select>
 </mapper>

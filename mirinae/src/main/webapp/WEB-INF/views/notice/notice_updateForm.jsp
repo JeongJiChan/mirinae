@@ -3,6 +3,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script type="text/javascript">
+	function chk() {
+		if($("#content").val().trim().length < 1)
+		{
+		    alert("글내용을 입력해주세요.");
+		    return false; 
+		}
+	}
+</script>
 <!-- 텍스트 에디터 -->
 <script
 	src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
@@ -40,10 +49,10 @@
 	<h1 class="n_title" style="text-align:center" onclick="location.href='notice_list.la'">Notice</h1>
 </div>
 <div id="n_view">
-	<form action="notice_update.la" method="post">
+	<form action="notice_update.la" method="post" name="updateform" onsubmit="return chk()">
 		<input type="hidden" name="no_no" value="${notice.no_no }">
 				<table width="60%" align= "center" >
-				<tr><th>제목</th><td colspan="2"><input type="text" name="no_title" value="${notice.no_title }"></td></tr>
+				<tr><th>제목</th><td colspan="2"><input type="text" name="no_title" value="${notice.no_title }" required="required"></td></tr>
 	 			<tr><th>작성자</th><td colspan="2">${admin_id }</td></tr>
 				<tr><th>내용</th><td colspan="2"><textarea cols="5" rows="" name="no_content" id="content">${notice.no_content }</textarea></td></tr>
 			</table>
