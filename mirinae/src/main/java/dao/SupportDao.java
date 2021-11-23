@@ -9,7 +9,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import model.Project;
 import model.Support;
+import service.support.SupportList;
 
 public class SupportDao {
 	private static SupportDao instance = new SupportDao();
@@ -30,6 +32,9 @@ public class SupportDao {
 	public int setSup_no() {
 		return (int) session.selectOne("supportns.setSup_no");
 	}
+	public String getP_name(int p_no) {
+		return (String) session.selectOne("supportns.getP_name", p_no);
+	}	
 	public int insert(Support support) {
 		return session.insert("supportns.insert", support);
 	}
@@ -37,13 +42,19 @@ public class SupportDao {
 		return (int) session.selectOne("supportns.setM_no", id);
 	}
 	public int getTotalN(int m_no) {
-		return (int) session.selectOne("support.getTotalN", m_no);
+		return (int) session.selectOne("supportns.getTotalN", m_no);
 	}
-	public List<Support> list(int startRow, int endRow, int m_no) {
+	public List<Integer> getSup_no(int m_no) {
+		return session.selectList("supportns.getSup_no", m_no);
+	}
+	public List<Support> s_list(int startRow, int endRow, int m_no) {
 		HashMap<String, Integer> sl = new HashMap<>();
 		sl.put("startRow", startRow);
 		sl.put("endRow", endRow);
 		sl.put("m_no", m_no);
-		return session.selectList("supportns.list", sl);
-	}	
+		return session.selectList("supportns.s_list", sl);
+	}
+	public Support select(int sup_no) {
+		return (Support) session.selectOne("supportns.select", sup_no);
+	}
 }

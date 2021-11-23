@@ -1,5 +1,7 @@
 package service.support;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -7,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.SupportDao;
+import dao.SupportListDao;
 import model.Support;
 import service.main.CommandProcess;
 
@@ -14,9 +17,11 @@ public class SupportList implements CommandProcess {
 
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
-		String id = (String)session.getAttribute("m_id");
+		String id = (String)session.getAttribute("id");
 		
 		SupportDao sd = SupportDao.getInstance();
+		SupportListDao sld = SupportListDao.getInstance();
+		
 		int m_no = sd.setM_no(id);
 		
 		final int ROW_PER_PAGE = 10; // 한 페이지에 게시글 10개 씩
@@ -37,11 +42,20 @@ public class SupportList implements CommandProcess {
 		int endPage = startPage + PAGE_PER_BLOCK - 1; // 한 블럭 당 마지막 페이지
 		
 		if (endPage > totalPage) endPage = totalPage; // 마지막 페이지가 총 페이지 수 보다 클 경우
-
-		List<Support> list = sd.list(startRow, endRow, m_no);
 		
+		List<SupportList> sp_list = new ArrayList<SupportList>();
+		List<Integer> sup_no = sd.getSup_no(m_no);
+		Iterator<Integer> it = sup_no.iterator();
+		
+		while(it.hasNext()) {
+			int temp = it.next();
+			sp_list.addAll((List<SupportList>)sld.list(temp));
+		}
+
+		List<Support> s_list = sd.s_list(startRow, endRow, m_no);
 		request.setAttribute("totalN", totalN);
-		request.setAttribute("list", list);
+		request.setAttribute("s_list", s_list);
+		request.setAttribute("sp_list", sp_list);
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("currentPage", currentPage);
 		request.setAttribute("totalPage", totalPage);
@@ -50,5 +64,4 @@ public class SupportList implements CommandProcess {
 		request.setAttribute("PAGE_PER_BLOCK", PAGE_PER_BLOCK);
 		return "/support/sup_list";
 	}
-
 }
