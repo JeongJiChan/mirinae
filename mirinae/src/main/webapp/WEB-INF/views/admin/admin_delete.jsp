@@ -7,10 +7,10 @@
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
 		alert("탈퇴되었습니다");
-		location.href="loginForm.sun";
+		location.href="member_list.sun";
 	</script>
 </c:if>
-<c:if test="${result == 0 }">
+<c:if test="${!(result > 0)}">
 	<script type="text/javascript">
 		alert("탈퇴 실패");
 		history.go(-1);
