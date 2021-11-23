@@ -86,7 +86,7 @@ window.onload = function(){
                 frm.nickchk.value == "unChk";
              }
              else {
-                $('#err_nick').html("사용가능한 닉네임??");
+                $('#err_nick').html("사용가능한 닉네임인데");
                 $('#err_nick').css("color","blue");
                 frm.nickchk.value="chk";
              }

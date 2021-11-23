@@ -29,20 +29,19 @@ public class MemberDao {
 	public Member select(String id) {
 		return (Member)session.selectOne("memberns.select",id);
 	}
-	public Member select2(String nick) {
-		return (Member)session.selectOne("memberns.select2",nick);
+	public Member nick_Chk(String nick) {
+		return (Member)session.selectOne("memberns.nick_Chk",nick);
 	}
 	public int insert(Member member) {
 		return session.insert("memberns.insert", member);
 	}
-	public Member select3(String m_nick) {
-		return (Member)session.selectOne("memberns.select3",m_nick);
+	public Member ud_nick_Chk(String nick) {
+		return (Member)session.selectOne("memberns.ud_nick_Chk",nick);
 	}
 	public int update(Member member) {
 		return session.update("memberns.update", member);
 	}
 	
-
 //	public int delete(String id) {
 //		return session.update("memberns.delete", id);
 //	}

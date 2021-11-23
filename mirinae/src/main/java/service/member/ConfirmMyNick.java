@@ -11,11 +11,11 @@ public class ConfirmMyNick implements CommandProcess {
 		String my_nick = request.getParameter("m_nick");
 		String msg = "";
 		MemberDao md = MemberDao.getInstance();
-		Member member3 = md.select3(my_nick);
+		Member member3 = md.ud_nick_Chk(my_nick);
 
 		if(member3 == null) msg = "0";
 		else msg = "1";
-
+		System.out.println(msg);
 		request.setAttribute("msg", msg);
 		return "/member/confirmMyNick";
 	}

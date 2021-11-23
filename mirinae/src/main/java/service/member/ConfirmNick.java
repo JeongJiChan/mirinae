@@ -11,7 +11,7 @@ public class ConfirmNick implements CommandProcess {
 		String m_nick = request.getParameter("m_nick");
 		String msg = "";
 		MemberDao md = MemberDao.getInstance();
-		Member member = md.select2(m_nick);
+		Member member = md.nick_Chk(m_nick);
 
 		if(member == null) msg = "0";
 		else msg = "1";
