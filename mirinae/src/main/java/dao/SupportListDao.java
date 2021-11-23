@@ -10,11 +10,12 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import model.SupportDetail;
+import service.support.SupportList;
 
-public class SupportDetailDao {
-	private static SupportDetailDao instance = new SupportDetailDao();
-	private SupportDetailDao() {}
-	public static SupportDetailDao getInstance() {
+public class SupportListDao {
+	private static SupportListDao instance = new SupportListDao();
+	private SupportListDao() {}
+	public static SupportListDao getInstance() {
 		return instance;
 	}
 	private static SqlSession session;
@@ -27,13 +28,7 @@ public class SupportDetailDao {
 			System.out.println("연결에러 : " + e.getMessage());
 		}
 	}
-	public int setSupd_no() {
-		return (int) session.selectOne("support_detailns.setSupd_no");
-	}
-	public int insert(SupportDetail detail) {
-		return session.insert("support_detailns.insert", detail);		
-	}
-	public List<SupportDetail> select(int sup_no) {
-		return session.selectList("support_detailns.select", sup_no);
+	public List<SupportList> list(int temp) {
+		return session.selectList("support_listns.sp_list", temp);
 	}
 }

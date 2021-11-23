@@ -10,7 +10,7 @@ public class Support {
 	private String sup_tel;
 	private Date sup_date;
 	private String sup_name;
-	private String p_name;
+	private int p_no;
 	private String total_price;
 	public int getSup_no() {
 		return sup_no;
@@ -53,11 +53,11 @@ public class Support {
 	public void setSup_name(String sup_name) {
 		this.sup_name = sup_name;
 	}
-	public String getP_name() {
-		return p_name;
+	public int getP_no() {
+		return p_no;
 	}
-	public void setP_name(String p_name) {
-		this.p_name = p_name;
+	public void setP_no(int p_no) {
+		this.p_no = p_no;
 	}
 	public String getTotal_price() {
 		return total_price;
