@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!-- db.properties라는 파일을 읽어와서 이 파일에서 사용 -->
+	<properties resource="db.properties" />
+	<typeAliases>
+		<typeAlias alias="member" type="model.Member" />
+		<typeAlias alias="admin" type="model.Admin" />
+		<typeAlias alias="notice" type="model.Notice" />
+		<typeAlias alias="project" type="model.Project" />
+		<typeAlias alias="options" type="model.Options" />
+		<typeAlias alias="cs" type="model.Cs" />
+		<typeAlias alias="support" type="model.Support" />
+		<typeAlias alias="support_detail" type="model.SupportDetail" />
+		<typeAlias alias="mypick" type="model.Mypick" />
+		<typeAlias alias="support_list" type="model.SupportList" />
+	</typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+<!-- 	CRUD를 member.xml이 처리 -->
+		<mapper resource="member.xml" />
+		<mapper resource="admin.xml" />
+		<mapper resource="notice.xml" />
+		<mapper resource="project.xml" />
+		<mapper resource="options.xml" />
+		<mapper resource="cs.xml" />
+		<mapper resource="support.xml" />
+		<mapper resource="support_detail.xml" />
+		<mapper resource="mypick.xml" />
+		<mapper resource="support_list.xml" />
+	</mappers>
+</configuration>
