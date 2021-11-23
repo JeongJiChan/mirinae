@@ -6,7 +6,7 @@ delete from member where m_no=19;
 alter table cs rename column cs_date to cs_reg_date;
 insert into cs values (2, 'test','test', 'test', '210506', 1, 'n', 1, 1);
 insert into member values (1, 'test', 'test', 'test', 'test', 'test', 'test', sysdate, 'test', sysdate, 'n');
-insert into admin values (1, 'test', 'test', 'test');
+insert into admin values (1, 'master', 'master', 'master');
 select * from cs;
 
 create table cs(
@@ -136,5 +136,8 @@ create sequence seq_member
 	
 	select count(*) from notice;
 	select * from notice;
+	select * from admin;
 	
+select * from admin;
+insert into ADMIN values(2,'admin2','1111','admin2');
 	

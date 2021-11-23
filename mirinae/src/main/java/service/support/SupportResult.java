@@ -1,7 +1,5 @@
 package service.support;
 
-import java.util.Arrays;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -21,9 +19,12 @@ public class SupportResult implements CommandProcess {
 		String address_d = request.getParameter("address_detail");
 		String opt_code = request.getParameter("opt_code");
 		String supd_cnt = request.getParameter("supd_cnt");
+		String opt_price = request.getParameter("opt_price");
+		String total_price = request.getParameter("total_price");
+		String p_name = request.getParameter("p_name");
 		String[] supd_cnts = supd_cnt.substring(1, supd_cnt.length()-1).split(",");
 		String[] opt_codes = opt_code.substring(1, opt_code.length()-1).split(",");
-		
+		String[] opt_prices = opt_price.substring(1, opt_price.length()-1).split(",");
 		int result = 0;
 		Support support = new Support();
 		SupportDao sup_d = SupportDao.getInstance();
@@ -34,9 +35,10 @@ public class SupportResult implements CommandProcess {
 		support.setAddress_d(address_d);
 		support.setSup_tel(sup_tel);
 		support.setSup_name(sup_name);
+		support.setP_name(p_name);
+		support.setTotal_price(total_price);
 		
 		result = sup_d.insert(support);
-		System.out.println(opt_codes.length);
 		
 		SupportDetail detail = null;
 		SupportDetailDao supd_d = SupportDetailDao.getInstance();
@@ -47,11 +49,14 @@ public class SupportResult implements CommandProcess {
 				detail = new SupportDetail();
 				int opt_codeInt = Integer.parseInt(opt_codes[i].replace(" ", ""));
 				int supd_cntInt = Integer.parseInt(supd_cnts[i].replace(" ", ""));
+				int opt_priceInt = Integer.parseInt(opt_prices[i].replace(" ", ""));
+				int oc_price = supd_cntInt * opt_priceInt;
 				
 				detail.setSupd_no(supd_no);
 				detail.setOpt_code(opt_codeInt);
 				detail.setSupd_cnt(supd_cntInt);
 				detail.setSup_no(sup_no);
+				detail.setOc_price(oc_price);
 				
 				supd_d.insert(detail);
 			}

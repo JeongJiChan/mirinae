@@ -1,6 +1,8 @@
 package dao;
 
 import java.io.Reader;
+import java.util.HashMap;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -26,9 +28,22 @@ public class SupportDao {
 		}
 	}
 	public int setSup_no() {
-		return (int) session.selectOne("supportns.select");
+		return (int) session.selectOne("supportns.setSup_no");
 	}
 	public int insert(Support support) {
 		return session.insert("supportns.insert", support);
 	}
+	public int setM_no(String id) {
+		return (int) session.selectOne("supportns.setM_no", id);
+	}
+	public int getTotalN(int m_no) {
+		return (int) session.selectOne("support.getTotalN", m_no);
+	}
+	public List<Support> list(int startRow, int endRow, int m_no) {
+		HashMap<String, Integer> sl = new HashMap<>();
+		sl.put("startRow", startRow);
+		sl.put("endRow", endRow);
+		sl.put("m_no", m_no);
+		return session.selectList("supportns.list", sl);
+	}	
 }

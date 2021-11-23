@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="sessionChk.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,11 +24,13 @@
 	.box::-webkit-scrollbar {    display:none;	}
 	#preImage { width: 100%; height: 310px; }
 </style>
-
-</head>
-<body>
 <script type="text/javascript">
-	
+
+	window.onload = function() {
+		if(${empty id}){
+			location.href="/mirinae/views/member/loginForm.sun";
+		}
+	}	
 	var name_arr = [];
 	var price_arr = [];
 
@@ -135,7 +138,9 @@
     }
 
 </script>
-<form action="p_upload.kim" method="post" name="frm" onsubmit=" return chk()" enctype="multipart/form-data">
+</head>
+<body>
+<form action="p_upload.kim" method="post" name="frm" onsubmit=" return chk()" enctype="multipart/form-data" >
 	<input type="hidden" name="name_arr">
 	<input type="hidden" name="price_arr">
 <table id="picture_table">

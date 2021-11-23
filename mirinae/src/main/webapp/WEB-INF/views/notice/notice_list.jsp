@@ -60,6 +60,12 @@
 				<button class=last onclick="location.href='notice_list.la?pageNum=${endPage + 1}'">다음</button> 
 			</c:if>
 </div>
-<button class="writeBtn" onclick="location.href='notice_writeForm.la'">글쓰기</button>
+<div align="right">
+	<div style="width: 25%" align="left">
+	<c:if test="${result != 0 }">
+		<button class="writeBtn" onclick="location.href='notice_writeForm.la'">글쓰기</button>
+	</c:if>
+	</div>
+</Div>
 </body>
 </html>

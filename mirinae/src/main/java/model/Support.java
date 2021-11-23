@@ -10,6 +10,8 @@ public class Support {
 	private String sup_tel;
 	private Date sup_date;
 	private String sup_name;
+	private String p_name;
+	private String total_price;
 	public int getSup_no() {
 		return sup_no;
 	}
@@ -50,5 +52,17 @@ public class Support {
 	}
 	public void setSup_name(String sup_name) {
 		this.sup_name = sup_name;
+	}
+	public String getP_name() {
+		return p_name;
+	}
+	public void setP_name(String p_name) {
+		this.p_name = p_name;
+	}
+	public String getTotal_price() {
+		return total_price;
+	}
+	public void setTotal_price(String total_price) {
+		this.total_price = total_price;
 	}
 }
