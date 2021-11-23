@@ -3,11 +3,12 @@ drop sequence seq_member;
 
 ---------------------------
 drop table member;
-select * from member;
+select * from admin;
 desc admin;
 alter table member rename column e_name to m_name;
 ALTER TABLE member MODIFY(address VARCHAR2(200));
-delete from member where m_no=22;
+delete from member where m_no=7;
+UPDATE member SET m_nick = '안녕' WHERE m_no=1;
 
 insert into ADMIN values(111,'master','1234','관리자');
 
@@ -44,8 +45,8 @@ create table Member ( -- 회원
     m_name varchar2(20), -- 회원이름
     tel varchar2(20), -- 회원전화번호
     birth date, -- 회원생년월일
-    address varchar2(20), -- 회원주소
-    address_d varchar2(20), -- 회원상세주소
+    address varchar2(200), -- 회원주소
+    address_d varchar2(100), -- 회원상세주소
     reg_date date, -- 회원가입일
     del char(1) -- 회원삭제여부
 );
@@ -140,10 +141,3 @@ create table support_detail( -- 후원내역
     opt_code number references options(opt_code), -- 후원내역의 옵션코드
     sup_no number references support(sup_no) -- 후원내역의 후원번호
 );
-
-create sequence seq_member
-	start with 1
-	increment by 1
-	nomaxvalue
-	nominvalue
-	nocycle

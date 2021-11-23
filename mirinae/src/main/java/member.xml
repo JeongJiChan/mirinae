@@ -20,18 +20,29 @@
 	</insert>
 	
 	<!-- 회원수정 닉네임 중복체크, m_nick를 가지고 member 조회 -->
-	<select id="ud_nick_Chk" parameterType="string" resultType="member">
-		select * from member where m_nick=#{m_nick}
+	<select id="ud_nick_Chk" parameterType="string" resultType="string">
+		select m_nick from member where m_id=#{m_id}
 	</select>
 	
 	<!-- 회원정보 수정, m_id를 가지고 member 조회 -->
 	<update id="update" parameterType="member">
-		update member set m_pass=#{m_pass},m_nick=#{m_nick},m_email=#{m_email},tel=#{tel},address=#{address},address_detail=#{address_detail}
+		update member set m_pass=#{m_pass},m_nick=#{m_nick},m_email=#{m_email},tel=#{tel},address=#{address},address_d=#{address_d}
 			where m_id=#{m_id}
 	</update>
 	
+	<!-- 회원탈퇴, m_id를 가지고 member 테이블에 있는 del을 y로 바꾸고 삭제한거처럼 처리 -->
+	<update id="delete" parameterType="string">
+		update member set del='y' where m_id=#{m_id}
+	</update>
 	
-<!-- 	<update id="delete" parameterType="string">
-		update member2 set del='y' where id=#{id}
-	</update> -->
+	<!-- 테이블에 저장되어 있는 총 회원수 -->
+	<select id="getTotal" resultType="integer">
+		select count(*) from member
+	</select>
+	
+	<!-- 전체 회원정보 조회 -->
+	<select id="list" parameterType="hashmap" resultType="member">
+		select * from (select rowNum rn, e.* from (select * from member order by m_no desc) e) 
+			where rn between #{startRow} and #{endRow}
+	</select>
 </mapper>

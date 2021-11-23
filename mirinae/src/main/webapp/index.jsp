@@ -8,8 +8,8 @@
 </head>
 <body>
 <script type="text/javascript">
-// 	location.href="views/main/home.chan"
-location.href="views/support/sup_form.chan"
+ 	location.href="views/main/home.chan"
+//	location.href="views/support/sup_form.chan"
 </script>
 </body>
 </html>

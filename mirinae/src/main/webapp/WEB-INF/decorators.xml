@@ -7,9 +7,11 @@
 		<pattern>/views/member/*</pattern>
 		<pattern>/views/support/*</pattern>
 		<pattern>/views/cs/*</pattern>
+		<pattern>/views/admin/*</pattern>
 	</decorator>
 		<excludes>
 		<pattern>/views/member/confirmId.*</pattern>
 		<pattern>/views/member/confirmNick.*</pattern>
+		<pattern>/views/member/confirmMyNick.*</pattern>
 	</excludes>
 </decorators>
