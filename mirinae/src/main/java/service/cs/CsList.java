@@ -32,6 +32,7 @@ public class CsList implements CommandProcess {
 
 		int startPage = currentPage - (currentPage - 1) % PAGE_PER_BLOCK; // 한 블럭 당 시작 페이지(1, 11, 21, ...)
 		int endPage = startPage + PAGE_PER_BLOCK - 1; // 한 블럭 당 마지막 페이지
+		if (endPage > totalPage) endPage = totalPage;
 		
 		
 		List<Cs> list = cd.list(startRow, endRow); // order by bno (최신순)

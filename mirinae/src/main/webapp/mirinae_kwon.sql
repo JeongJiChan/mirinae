@@ -42,7 +42,7 @@ create table cs(
     cs_no number primary key, 
     cs_title varchar2(20), 
     cs_content varchar2(2000),
-    cs_writer varchar2(20), 
+    cs_writer varchar2(20),
     cs_reg_date date,
     cs_view number,
     cs_del char(1), 
@@ -99,6 +99,16 @@ create table support( — 후원
     sup_tel varchar2(20), — 배송받을 번호
     sup_date date — 후원날짜
 );
+ALTER TABLE support DROP COLUMN sup_name;
+ALTER TABLE support DROP COLUMN sup_date;
+ALTER TABLE support DROP COLUMN sup_tel;
+alter table support add address_d varchar2(20);
+ALTER TABLE support add sup_name varchar2(20);
+ALTER TABLE support add sup_date date;
+ALTER TABLE support add sup_tel varchar2(20);
+ALTER TABLE support add p_name varchar2(20);
+ALTER TABLE support add del char(1) default 'n';
+ALTER TABLE support_detail add del char(1) default 'n';
 
 create table options( — 옵션
     opt_code varchar2(10) primary key, — 옵션코드

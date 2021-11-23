@@ -16,6 +16,14 @@ public class Cs {
 	private int m_no;
 	private int admin_no;
 	
+	
+	
+	public String getCs_writer() {
+		return cs_writer;
+	}
+	public void setCs_writer(String cs_writer) {
+		this.cs_writer = cs_writer;
+	}
 	public int getCs_ref() {
 		return cs_ref;
 	}
@@ -51,12 +59,6 @@ public class Cs {
 	}
 	public void setCs_content(String cs_content) {
 		this.cs_content = cs_content;
-	}
-	public String getCs_writer() {
-		return cs_writer;
-	}
-	public void setCs_writer(String cs_writer) {
-		this.cs_writer = cs_writer;
 	}
 	public Date getCs_reg_date() {
 		return cs_reg_date;

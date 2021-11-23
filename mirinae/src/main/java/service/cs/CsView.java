@@ -2,6 +2,7 @@ package service.cs;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.CsDao;
 import dao.MemberDao;
@@ -21,10 +22,11 @@ public class CsView implements CommandProcess {
 		// 데이터 가져오기
 		Cs cs = cd.select(cs_no);
 		
-	/*	// 회원테이블에서 닉네임 가져오기
-		int m_no = cs.getM_no(); // cs에 저장된 m_no
-		MemberDao md = MemberDao.getInstance();
-		String cs_nick = md.selectNick(m_no); */
+
+		/*
+		 * int m_no = cs.getM_no(); // cs에 저장된 m_no MemberDao md =
+		 * MemberDao.getInstance(); String cs_nick = md.selectNick(m_no);
+		 */
 		
 		request.setAttribute("cs_no", cs_no);
 		request.setAttribute("cs", cs);
