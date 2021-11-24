@@ -7,18 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
-	function sessionChk() {
-		if (${empty id}) {
-			alert("로그인 후 이용해 주시기 바랍니다");
-			location.href="/mirinae/views/member/loginForm.sun";
-			
-		} else {
-			location.href="cs_writeForm.kwon?cs_no=0&pageNum=${currentPage}";
-		}
-	}
-
-</script>
 <style type="text/css">
 .caption {
 	width: 100%;
@@ -33,9 +21,10 @@
 </style>
 </head>
 <body>
+	
 	<div class="caption">
 		<h1 class="cs_title"
-			style="font-size: 56px; line-height: 1.4em; text-align: center">CustomerService</h1>
+			style="font-size: 56px; line-height: 1.4em; text-align: center">고객 문의내역</h1>
 	</div>
 	<div>
 		<table align="center" width="60%">
@@ -60,7 +49,7 @@
 						<c:if test="${cs.cs_del != 'y' }">
 							
 							<td
-								onclick="location.href='cs_view.kwon?cs_no=${cs.cs_no}&pageNum=${currentPage}'"
+								onclick="location.href='my_cs_view.kwon?cs_no=${cs.cs_no}&pageNum=${currentPage}'"
 								width="70%" class="title">
 								<c:if test="${cs.cs_re_level > 0 }">
 								<img alt="" src="/mirinae/images/level.gif" height="5"
@@ -80,39 +69,36 @@
 			<!-- 이전 -->
 			<c:if test="${startPage > PAGE_PER_BLOCK }">
 				<button
-					onclick="location.href='cs_list.kwon?pageNum=1'">처음으로</button>
+					onclick="location.href='my_cs_list.kwon?pageNum=1'">처음으로</button>
 			</c:if>
 			<c:if test="${pageNum > 1}">
 				<button
-					onclick="location.href='cs_list.kwon?pageNum=${currentPage-1}'">이전</button>
+					onclick="location.href='my_cs_list.kwon?pageNum=${currentPage-1}'">이전</button>
 			</c:if>
 			<!-- 페이지 -->
 			<c:forEach var="i" begin="${startPage}" end="${endPage}">
 				<c:if test="${currentPage== i }">
 					<button
-						onclick="location.href='cs_list.kwon?pageNum=${i}'"
+						onclick="location.href='my_cs_list.kwon?pageNum=${i}'"
 						disabled="disabled">${i}</button>
 				</c:if>
 				<c:if test="${currentPage!= i }">
 					<button
-						onclick="location.href='cs_list.kwon?pageNum=${i}'">${i}</button>
+						onclick="location.href='my_cs_list.kwon?pageNum=${i}'">${i}</button>
 				</c:if>
 			</c:forEach>
 			<!-- 다음 -->
 			<c:if test="${currentPage < totalPage}">
 				<button
-					onclick="location.href='cs_list.kwon?pageNum=${currentPage + 1}'">다음</button>
+					onclick="location.href='my_cs_list.kwon?pageNum=${currentPage + 1}'">다음</button>
 			</c:if>
 			<!-- 보여줄 것이 남아있다 -->
 			<c:if test="${endPage < totalPage }">
 				<button
-					onclick="location.href='cs_list.kwon?pageNum=${endPage+1}'">다음 목록</button>
+					onclick="location.href='my_cs_list.kwon?pageNum=${endPage+1}'">다음 목록</button>
 			</c:if>
 		</div>
 		<br>
-		<button
-			onclick="sessionChk()"
-			style="margin-left: 1300px">글쓰기</button>
 	</div>
 </body>
 </html>

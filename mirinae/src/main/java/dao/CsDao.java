@@ -64,5 +64,16 @@ public class CsDao {
 		public Admin select3(int admin_no) {
 			return (Admin)session.selectOne("csns.select3", admin_no);
 		}
+		public int getTotalB2(int m_no) {
+			return (int) session.selectOne("csns.getTotalB2", m_no);
+		}
+		public List<Cs> list2(int startRow, int endRow, int m_no) {
+			HashMap<String, Integer> hm = new HashMap<>();
+			 hm.put("startRow", startRow);
+			 hm.put("endRow", endRow);
+			 hm.put("m_no", m_no);
+			 return (List<Cs>)session.selectList("csns.list2", hm);
+		}
+		
 		
 }

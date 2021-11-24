@@ -21,7 +21,7 @@
 	<h2><a href="/mirinae/">마이픽 프로젝트</a></h2>
 	<h2><a href="/mirinae/">내가 등록한 프로젝트</a></h2>
 	<h2><a href="/mirinae/views/support/sup_list.chan">내가 후원한 프로젝트</a></h2>
-	<h2><a href="/mirinae/">고객 문의 내역</a></h2>
+	<h2><a href="/mirinae/views/cs/my_cs_list.kwon">고객 문의 내역</a></h2>
 	<h2><a href="updateForm.sun">회원 수정</a></h2>
 	<h2><a onclick="del()">회원 탈퇴</a></h2>
 </body>
