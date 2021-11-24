@@ -40,6 +40,7 @@ public class ProjectUpload implements CommandProcess {
 		MemberDao memberDao = MemberDao.getInstance();
 	    Member member = memberDao.select(m_id);
 		String p_writer = member.getM_name();
+		
 		Date s_date = Date.valueOf(mr.getParameter("s_date"));
 		Date e_date = Date.valueOf(mr.getParameter("e_date"));
 		int goal_money = Integer.parseInt(mr.getParameter("goal_money"));
