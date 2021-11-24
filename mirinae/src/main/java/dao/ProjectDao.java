@@ -1,6 +1,7 @@
 package dao;
 
 import java.io.Reader;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -8,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import model.Notice;
 import model.Project;
 
 public class ProjectDao {
@@ -35,6 +37,18 @@ public class ProjectDao {
 	}
 	public List<Project> selectList() { 
 		return session.selectList("projectns.selectList"); 
+	}
+//	public int getTotal() {
+//		return (int) session.selectOne("projectns.getTotal");
+//	}
+//	public List<Project> list(int startRow, int endRow) {
+//		HashMap<String, Integer> pro = new HashMap<>();
+//		pro.put("startRow", startRow);
+//		pro.put("endRow", endRow);
+//	    return (List<Project>)session.selectList("projectns.list", pro);	
+//	}
+	public Project proview(String p_no) {
+		return (Project)session.selectOne("projectns.proview", p_no);
 	}
 
 

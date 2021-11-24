@@ -6,10 +6,21 @@
 		insert into project values(#{p_no},#{cate_code},#{p_name},#{p_content},#{p_writer},
 									#{s_date},#{e_date},#{goal_money},0,'n',sysdate,0)
 	</insert>
-<select id="select" resultType="integer">
-	select count(*)+1 from project
-</select>
-<select id="selectList" resultType="project">
-	select * from project order by p_no desc
-</select>
+	<select id="select" resultType="integer">
+		select count(*)+1 from project
+	</select>
+	<select id="selectList" resultType="project">
+		select * from project order by p_no desc
+	</select>
+
+<!-- 	<select id="getTotal" resultType="integer"> -->
+<!-- 		select count(*) from project -->
+<!-- 	</select> -->
+<!-- 	<select id="list" resultType="project"> -->
+<!--  		select * from (select rowNum rn,a.* from (select * from -->
+<!-- 		project where p_del = 'n' order by p_no desc)a) where rn between #{startRow} and #{endRow}  -->
+<!-- 	</select> -->
+	<select id="proview" parameterType="string" resultType="project">
+		select * from project where p_no = #{p_no}
+	</select>
 </mapper>
