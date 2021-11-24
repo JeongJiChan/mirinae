@@ -9,7 +9,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import model.Admin;
 import model.Cs;
+import model.Member;
 
 
 public class CsDao {
@@ -49,6 +51,18 @@ public class CsDao {
 		}
 		public int insert(Cs cs) {
 			return session.insert("csns.insert", cs);
+		}
+		public Member select2(int m_no) {
+			return (Member)session.selectOne("csns.select2", m_no);
+		}
+		public int delete(int cs_no) {
+			return session.delete("csns.delete", cs_no);
+		}
+		public int insert2(Cs cs) {
+			return session.insert("csns.insert2", cs);
+		}
+		public Admin select3(int admin_no) {
+			return (Admin)session.selectOne("csns.select3", admin_no);
 		}
 		
 }

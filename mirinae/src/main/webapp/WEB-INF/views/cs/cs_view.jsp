@@ -12,7 +12,7 @@
 	function delCs() {
 		var con = confirm("문의를 삭제하시겠습니까?");
 		if(con) {
-			location.href="cs_delete.kwon?cs_no=${cs.cs_no}";
+			location.href="cs_delete.kwon?cs_no=${cs.cs_no}&pageNum=${pageNum}";
 		}
 	}
 </script>
@@ -21,20 +21,21 @@
 	
 	<div>
 		<h2>${cs.cs_title }</h2>
-		<h5>${m_nick }>nickname | ${cs.cs_reg_date } | 조회수 : ${cs.cs_view }</h5>
+		<h5>${cs.cs_writer } | ${cs.cs_reg_date } | 조회수 : ${cs.cs_view }</h5>
+		
+		
 	</div>
 	<div>
 		<pre>${cs.cs_content }</pre>
 	</div>
+	
 	<div>
-		<c:if test="${m_no == cs.m_no }" >
-			<div>
+		<button onclick="location.href='cs_list.kwon?pageNum=${pageNum}'">목록</button>
+		<c:if test="${id == cs_id && not empty id || not empty admin_id && empty id}" >
 				<button onclick="delCs()">삭제</button>
-			</div>
 		</c:if>
-		<button onclick="location.href='cs_list.kwon?cs_no=${cs.cs_no}'">목록</button>
-		<c:if test="${not empty admin_id && empty id}">
-			<button onclick="location.href='cs_rewriteForm.kwon'">
+		<c:if test="${not empty admin_id && empty id && cs.cs_re_level == 0}">
+			<button onclick="location.href='cs_rewriteForm.kwon?cs_no=${cs.cs_no}'">
 			답글</button>
 		</c:if>
 	</div>

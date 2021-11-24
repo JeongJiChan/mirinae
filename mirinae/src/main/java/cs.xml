@@ -40,4 +40,27 @@
 		insert into cs values(#{cs_no}, #{cs_title}, #{cs_content}, #{cs_writer}, sysdate, 0, 'n', #{cs_no}, 0, 0, #{m_no}, '')
 	</insert>
 	
+	<!-- 답글 입력 -->
+	<insert id="insert2" parameterType="cs">
+		<selectKey keyProperty="cs_no" order="BEFORE"
+			resultType="integer">
+			select nvl(max(cs_no), 0) + 1 cs_no from cs
+		</selectKey>
+		insert into cs values(#{cs_no}, #{cs_title}, #{cs_content}, 'admin', sysdate, 0, 'n', #{cs_ref}, 1, 1, '', #{admin_no})
+	</insert>
+	
+	<!-- 회원번호로 회원정보 조회 -->
+	<select id="select2" parameterType="integer" resultType="member">
+		select * from member where m_no = #{m_no}
+	</select>
+	
+	<!-- 관리자번호로 관리자정보 조회 -->
+	<select id="select3" parameterType="integer" resultType="admin">
+		select * from admin where admin_no = #{admin_no}
+	</select>
+	
+	<!-- 문의글 삭제 -->
+	<update id="update" parameterType="integer">
+		update cs set del=y where cs_no = #{cs_no}
+	</update>
 </mapper>
