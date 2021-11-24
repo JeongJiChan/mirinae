@@ -34,7 +34,7 @@ public class OptionsDao {
 		
 		return (int) session.selectOne("optionsns.select");
 	}
-	public List<Options> optionsList(String p_no) {
+	public List<Options> optionsList(int p_no) {
 		return session.selectList("optionsns.selectList",p_no);
 	}
 }

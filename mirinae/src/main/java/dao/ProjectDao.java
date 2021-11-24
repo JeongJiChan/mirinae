@@ -47,9 +47,13 @@ public class ProjectDao {
 //		pro.put("endRow", endRow);
 //	    return (List<Project>)session.selectList("projectns.list", pro);	
 //	}
-	public Project proview(String p_no) {
+	public Project proview(int p_no) {
 		return (Project)session.selectOne("projectns.proview", p_no);
 	}
+	public void p_viewUpload(int p_no) {
+		session.update("projectns.p_viewupdate", p_no);	
+	}
+
 
 
 	

@@ -15,7 +15,7 @@ public class ProjectList implements CommandProcess {
 		ProjectDao pd = ProjectDao.getInstance();
 		List<Project> project = pd.selectList();
 		
-//		final int ROW_PER_PAGE = 9; //한페이지당 10개
+//		final int ROW_PER_PAGE = 9; //한페이지당 9개
 //		final int PAGE_PER_BLOCK = 10; // 한블럭당 10개의 페이지
 //		String pageNum = request.getParameter("pageNum");
 //		if(pageNum == null || pageNum.equals("")){
