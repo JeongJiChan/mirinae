@@ -57,7 +57,6 @@ public class MemberDao {
 	
 	// 회원탈퇴, m_id를 가지고 member 테이블에 있는 del을 y로 바꾸고 삭제한거처럼 처리
 	public int delete(String id) {
-		System.out.println(id);
 		return session.update("memberns.delete", id);
 	}
 	

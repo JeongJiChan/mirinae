@@ -8,20 +8,32 @@
 <title>Insert title here</title>
 <style type="text/css">
 	table,tr,th,td { border: 1px solid black; }
+	.prev_btn, .num_btn, .next_btn { float: left; margin: 10px; }
+	.goback { clear: both; }
 </style>
 <script type="text/javascript" src="/mirinae/js/jquery.js"></script>
 <script type="text/javascript">
 	function del(delMid) {
 		var con = confirm("탈퇴처리 하시겠습니까?");
 		if(con) {
-			location.href="../admin/admin_delete.sun?m_id="+delMid;
+			location.href="../admin/admin_delete.sun?m_id="+delMid+"&pageNum=${pageNum}";
 		} else alert("탈퇴 취소");
-	};
+	};)
+	
 </script>
 </head>
 <body>
 <h2>전 체 회 원 목 록</h2>
 <pre><span style="color: red">*</span>탈퇴회원도 포함</pre>
+<!-- <form method="post" action="searchMember.sun">
+	<select name="part">
+		<option value="id">ID</option>
+		<option value="name">이름</option>
+	</select>
+		<input type="text" name="searchData" required="required"/>
+		<input type="submit" value="검색" /> 
+</form> -->
+
 	<table>
 		<tr>
 			<th>회원번호</th>
@@ -65,7 +77,7 @@
 	</table>
 	<!-- paging -->
 	<div>
-		<div>
+		<div class="number">
 			<div class="prev_btn">
 				<c:if test="${startPage > PAGE_PER_BLOCK}">
 					<button class="first" onclick="location.href='member_list.sun?pageNum=${startPage-1}'">
@@ -78,9 +90,19 @@
 					</button>
 				</c:if>
 			</div>
-			<c:forEach var="i" begin="${startPage}" end="${endPage}">
-				<span id="page${i}" class="page_num" onclick="location.href='member_list.sun?pageNum=${i}'">${i}</span>
-			</c:forEach>
+			<div class="num_btn">
+				<c:forEach var="i" begin="${startPage}" end="${endPage}">
+					<c:if test="${currentPage== i }">
+						<button
+							onclick="location.href='member_list.sun?pageNum=${i}'"
+							disabled="disabled">${i}</button>
+					</c:if>
+					<c:if test="${currentPage!= i }">
+						<button
+							onclick="location.href='member_list.sun?pageNum=${i}'">${i}</button>
+					</c:if>
+				</c:forEach>
+			</div>
 			<div class="next_btn">
 				<c:if test="${currentPage < totalPage}">
 					<button class="next" onclick="location.href='member_list.sun?pageNum=${currentPage + 1}'">
@@ -95,6 +117,6 @@
 			</div> <!-- next_btn -->
 		</div> <!-- number -->
 	</div> <!-- paging -->	
-	<div><a href="admin_page.sun">이전</a></div>
+	<div class="goback"><a href="admin_page.sun">이전 페이지</a></div>
 </body>
 </html>
