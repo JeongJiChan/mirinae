@@ -33,8 +33,6 @@ public class CsView implements CommandProcess {
 		
 		String id = (String) session.getAttribute("id");
 		String admin_id = (String) session.getAttribute("admin_id");
-		System.out.println(id);
-		System.out.println(admin_id);
 		
 		if(cs.getCs_re_level() == 0) { // 문의글이면(작성자 : 일반회원)
 			Member member = cd.select2(cs.getM_no());

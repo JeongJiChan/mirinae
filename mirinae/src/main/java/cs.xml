@@ -63,4 +63,18 @@
 	<update id="update" parameterType="integer">
 		update cs set del=y where cs_no = #{cs_no}
 	</update>
+	
+	<!-- 고객 문의내역 게시글 수 -->
+	<select id="getTotalB2" resultType="integer">
+		select count(*) from cs where cs_ref in (select cs_ref from cs where m_no = #{m_no} and cs_del = 'n')
+	</select>
+	
+	<!-- 고객 문의내역 조회 -->
+	<select id="list2" resultType="cs">
+		select * from
+		(select rowNum rn , a.* from
+		(select * from cs where cs_ref in (select cs_ref from cs where m_no = #{m_no}) order by cs_ref desc, cs_re_step asc) a)
+		where rn between #{startRow} and #{endRow}
+	</select>
+
 </mapper>
