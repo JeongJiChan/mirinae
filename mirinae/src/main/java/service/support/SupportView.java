@@ -1,15 +1,10 @@
 package service.support;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import dao.SupportDao;
-import dao.SupportDetailDao;
-import model.Support;
-import model.SupportDetail;
+import dao.SupportListDao;
+import model.SupportList;
 import service.main.CommandProcess;
 
 public class SupportView implements CommandProcess {
@@ -19,15 +14,13 @@ public class SupportView implements CommandProcess {
 		int sup_no = Integer.parseInt(request.getParameter("sup_no"));
 		String pageNum = request.getParameter("pageNum");
 		
-		SupportDao sup_d = SupportDao.getInstance();
-		SupportDetailDao supd_d = SupportDetailDao.getInstance();
+		SupportListDao supl_d = SupportListDao.getInstance();
 		
-		Support support = sup_d.select(sup_no);
-		List<SupportDetail> list = supd_d.select(sup_no);
-		
+		int temp = sup_no;
+		SupportList sp = supl_d.oneList(temp);
+
 		request.setAttribute("pageNum", pageNum);
-		request.setAttribute("support", support);
-		request.setAttribute("list", list);
+		request.setAttribute("sp", sp);
 		return "/support/sup_view";
 	}
 }

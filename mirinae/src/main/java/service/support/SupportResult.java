@@ -21,6 +21,7 @@ public class SupportResult implements CommandProcess {
 		String supd_cnt = request.getParameter("supd_cnt");
 		String opt_price = request.getParameter("opt_price");
 		String total_price = request.getParameter("total_price");
+		int total_priceInt = Integer.parseInt(request.getParameter("total_price"));
 		int p_no = Integer.parseInt(request.getParameter("p_no"));
 		String[] supd_cnts = supd_cnt.substring(1, supd_cnt.length()-1).split(",");
 		String[] opt_codes = opt_code.substring(1, opt_code.length()-1).split(",");
@@ -43,6 +44,7 @@ public class SupportResult implements CommandProcess {
 		SupportDetail detail = null;
 		SupportDetailDao supd_d = SupportDetailDao.getInstance();
 		if (result == 1) {
+			result = supd_d.insert_price(p_no, total_priceInt);
 			for (int i = 0; i < opt_codes.length; i++ ) {
 				int supd_no = supd_d.setSupd_no();
 				support.setSup_no(sup_no);

@@ -12,7 +12,7 @@
 		select m_no from member where m_id=#{id}
 	</select>
 	<select id="getP_name" resultType="string">
-		select project from p_no=#{p_no}
+		select p_name from project where p_no=#{p_no}
 	</select>
 	<select id="getTotalN" resultType="integer">
 		select count(*) from support where del='n' and m_no=#{m_no}
@@ -26,5 +26,11 @@
 	</select>
 	<select id="select" resultType="support">
 		select * from support where sup_no=#{sup_no}
+	</select>
+	<select id="getOpt_name" resultType="string">
+		select opt_name from options where opt_code=#{string}
+	</select>
+	<select id="getOpt_price" resultType="int">
+		select opt_price from options where opt_code=#{string}
 	</select>
 </mapper>

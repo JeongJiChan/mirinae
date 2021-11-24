@@ -11,9 +11,10 @@ import javax.servlet.http.HttpSession;
 import dao.SupportDao;
 import dao.SupportListDao;
 import model.Support;
+import model.SupportList;
 import service.main.CommandProcess;
 
-public class SupportList implements CommandProcess {
+public class SupportListAll implements CommandProcess {
 
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
