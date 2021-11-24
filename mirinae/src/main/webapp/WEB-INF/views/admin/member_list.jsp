@@ -12,11 +12,13 @@
 <script type="text/javascript" src="/mirinae/js/jquery.js"></script>
 <script type="text/javascript">
 	function del(delMid) {
+		console.log(delMid);
+		alert(delMid);
 		var con = confirm("탈퇴처리 하시겠습니까?");
 		if(con) {
-			location.href="../member/admin_delete.sun?m_id="+delMid;
+			location.href="../admin/admin_delete.sun?m_id="+delMid;
 		} else alert("탈퇴 취소");
-	}
+	};
 </script>
 </head>
 <body>
@@ -58,7 +60,7 @@
 					<td>${member.address_d}</td>
 					<td>${member.reg_date}</td>
 					<td>${member.del}</td>
-					<td><a onclick="del(${member.m_id})">탈퇴</a></td>
+					<td><a onclick="del('${member.m_id}')">탈퇴</a></td>
 				</tr>
 			</c:forEach>
 		</c:if>
