@@ -45,4 +45,5 @@
 		select * from (select rowNum rn, e.* from (select * from member order by m_no desc) e) 
 			where rn between #{startRow} and #{endRow}
 	</select>
+	
 </mapper>

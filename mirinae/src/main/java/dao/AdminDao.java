@@ -1,11 +1,16 @@
 package dao;
 
 import java.io.Reader;
-import model.Admin;
+import java.util.HashMap;
+import java.util.List;
+
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+import model.Admin;
+import model.Member;
 
 
 public class AdminDao {
@@ -33,5 +38,6 @@ public class AdminDao {
 	}
 	public String ad_selectN(int no_no) {
 		// 해당 글의 공지사항 작성자 검색
-		return (String)session.selectOne("adminns.ad_selectN",no_no);	}
+		return (String)session.selectOne("adminns.ad_selectN",no_no);	
+	}
 }

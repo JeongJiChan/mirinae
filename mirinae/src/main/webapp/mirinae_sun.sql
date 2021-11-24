@@ -3,7 +3,7 @@ drop sequence seq_member;
 
 ---------------------------
 drop table member;
-select * from admin;
+select * from member;
 desc admin;
 alter table member rename column e_name to m_name;
 ALTER TABLE member MODIFY(address VARCHAR2(200));
