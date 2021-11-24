@@ -49,7 +49,7 @@
 						<c:if test="${cs.cs_del != 'y' }">
 							
 							<td
-								onclick="location.href='cs_view.kwon?cs_no=${cs.cs_no}&pageNum=${currentPage}'"
+								onclick="location.href='my_cs_view.kwon?cs_no=${cs.cs_no}&pageNum=${currentPage}'"
 								width="70%" class="title">
 								<c:if test="${cs.cs_re_level > 0 }">
 								<img alt="" src="/mirinae/images/level.gif" height="5"
