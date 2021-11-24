@@ -23,6 +23,13 @@
 .caption {
 	width: 100%;
 }
+.title {
+	padding-left: 70px;
+}
+.title:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
 </style>
 </head>
 <body>
@@ -51,7 +58,7 @@
 							
 							<td
 								onclick="location.href='cs_view.kwon?cs_no=${cs.cs_no}&pageNum=${currentPage}'"
-								width="70%" style="padding-left: 70px">
+								width="70%" class="title">
 								<c:if test="${cs.cs_re_level > 0 }">
 								<img alt="" src="/mirinae/images/level.gif" height="5"
 									width="${cs.cs_re_level*10 }">
@@ -99,6 +106,7 @@
 					onclick="location.href='cs_list.kwon?pageNum=${endPage+1}'">다음</button>
 			</c:if>
 		</div>
+		<h1>${admin_id }</h1>
 		<br>
 		<button
 			onclick="sessionChk()"

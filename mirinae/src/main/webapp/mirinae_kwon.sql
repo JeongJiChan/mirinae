@@ -3,6 +3,8 @@ alter table member rename column e_name to m_name;
 ALTER TABLE member MODIFY(address VARCHAR2(200));
 delete from member where m_no=5;
 drop table cs;
+insert into admin values (1234, 'master', 1, 'master');
+select * from admin;
 
 create table Member ( 
     m_no number primary key, 
@@ -54,6 +56,7 @@ create table cs(
 );
 
 select * from cs;
+delete from cs where CS_TITLE='dsfa'
 INSERT INTO cs VALUES(seq_test.NEXTVAL,'test','test합니다','jmg','210403', 0, 'n',1,1);
 
 create table project( — 프로젝트

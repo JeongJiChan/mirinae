@@ -4,16 +4,40 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import dao.AdminDao;
 import dao.CsDao;
+import dao.MemberDao;
+import model.Admin;
 import model.Cs;
+import model.Member;
 import service.main.CommandProcess;
 
 public class CsList implements CommandProcess {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
+		if(session.getAttribute("id") != null) {
+			String m_id = (String) session.getAttribute("id");
+			MemberDao md = MemberDao.getInstance();
+			Member member = md.select(m_id);
+			int m_no = member.getM_no();
+			request.setAttribute("m_no", m_no);
+		}
+		
+		if(session.getAttribute("admin_id") != null) {
+			String admin_id = (String)session.getAttribute("admin_id");
+			AdminDao ad = AdminDao.getInstance();
+			Admin admin = ad.ad_select(admin_id);
+			int admin_no = admin.getAdmin_no();
+			request.setAttribute("admin_no", admin_no);
+		}
+		
+
 		CsDao cd = CsDao.getInstance();
+		
 		
 		final int ROW_PER_PAGE = 15; // 한 페이지에 게시글 6개 씩
 		final int PAGE_PER_BLOCK = 5; // 한 블럭에 5페이지 씩
@@ -44,6 +68,8 @@ public class CsList implements CommandProcess {
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("PAGE_PER_BLOCK", PAGE_PER_BLOCK);
 		request.setAttribute("totalPage", totalPage);
+		
+		
 		return "cs/cs_list";
 	}
 
