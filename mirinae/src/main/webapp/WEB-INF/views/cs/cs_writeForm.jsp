@@ -17,10 +17,7 @@
 </style>
 </head>
 <body>
-	<form method="post" onclick="location.">
-		<input type="hidden" name="ref" value="${cs_ref}">
-		<input type="hidden" name="re_level" value="${cs_re_level}">
-		<input type="hidden" name="re_step" value="${cs_re_step}">
+	<form method="post" action="cs_write.kwon">
 		<br><br><br>
 		<h2 align="center">문의 입력</h2>
 		<br><br><br>
@@ -33,10 +30,10 @@
 			</tr>
 			<tr height="50">
 				<th>고객 닉네임</th>
-				<%-- <td>${m.nick }</td> --%>
+				<td>${m_nick }</td>
 			<tr>
 				<th>내용</th>
-				<td><textarea id="textarea" name="content" required="required"></textarea></td>
+				<td><textarea id="textarea" name="content"></textarea></td>
 		</table>
 		<br>
 		<div id="classic">

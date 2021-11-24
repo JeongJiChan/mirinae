@@ -4,7 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.AdminDao;
 import dao.NoticeDao;
+import model.Admin;
 import model.Notice;
 import service.main.CommandProcess;
 
@@ -27,6 +29,8 @@ public class NoticeView implements CommandProcess {
 		//데이터 가져오기
 		Notice notice = nd.select(no_no);
 		String no_del = notice.getNo_del();
+		AdminDao ad = AdminDao.getInstance();
+		String writer = ad.ad_selectN(no_no);
 		
 		//admin ID 체크
 		int result =0;
@@ -36,6 +40,7 @@ public class NoticeView implements CommandProcess {
 		/* adminChk 디버깅 
 		System.out.println(result);*/
 		
+		request.setAttribute("writer", writer);
 		request.setAttribute("admin_id", id);
 		request.setAttribute("result", result);
 		request.setAttribute("no_no", no_no);

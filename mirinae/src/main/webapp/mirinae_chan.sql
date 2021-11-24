@@ -45,6 +45,11 @@ select * from support_detail;
 
 update support set total_price = 10000
 update support_detail set oc_price = 500
+alter table support rename column p_name to p_no;
+ALTER TABLE support MODIFY(p_no VARCHAR2(200));
+update support set p_no = 1 where p_no='test';
+ALTER TABLE member MODIFY(address_d VARCHAR2(100));
+ALTER TABLE support MODIFY(address_d VARCHAR2(100));
 
 create table Member ( -- 회원
     m_no number primary key, -- 회원번호

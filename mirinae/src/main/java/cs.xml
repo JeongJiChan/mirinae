@@ -37,7 +37,7 @@
 			resultType="integer">
 			select nvl(max(cs_no), 0) + 1 cs_no from cs
 		</selectKey>
-		insert into board values(#{cs_no}, #{cs_title}, #{cs_content}, sysdate, #{cs_view}, 'n', #{cs_ref}, #{cs_re_step}, #{cs_re_level}, #{m_no}, #{admin_no});
+		insert into cs values(#{cs_no}, #{cs_title}, #{cs_content}, #{cs_writer}, sysdate, 0, 'n', #{cs_no}, 0, 0, #{m_no}, '')
 	</insert>
 	
 </mapper>

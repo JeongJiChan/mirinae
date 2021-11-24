@@ -31,7 +31,7 @@ public class NoticeDao {
 			reader.close();
 
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			System.out.println("연결 에러 : " + e.getMessage());
 		}
 	}
 		

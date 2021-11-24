@@ -34,16 +34,18 @@
 			<input type="hidden" name="no_no" value="${notice.no_no }"	>
 			<table width="60%" align= "center" >
 				<tr><th>제목</th><td colspan="2"><input type="text" name="no_title" value="${notice.no_title }" readonly="readonly"></td></tr>
-	 			<tr><th>작성자</th><td><input type="text" name="admin_no" value="${admin_id }" readonly="readonly"></td>
+	 			<tr><th>작성자</th><td><input type="text" name="admin_no" value="${writer }" readonly="readonly"></td>
 	 			<td>조회수 ${notice.no_view }</td></tr>
 				<tr><th>내용</th><td colspan="2"><textarea cols="5" rows="" readonly="readonly" name="no_content"><c:out value="${notice.no_content }" escapeXml="false" /></textarea></td></tr>
 			</table>
-			<c:if test="${result != 0 && no_del=='n'}">
-				<div class="nv_btn"><a href="notice_del.la?no_no=${no_no }" id="nv_del">
-				Delete</a>
-				</div>
-				<div class="nv_btn"><input type="submit" id="nv_update" value="Update"></div>
-			</c:if>
+		<!-- 공지사항 삭제 버튼 -->
+		<c:if test="${result != 0 && no_del=='n'}">
+			<div class="nv_btn"><a href="notice_del.la?no_no=${no_no }" id="nv_del" onclick="return confirm('정말 삭제하시겠습니까?');">
+			Delete</a>
+			</div>
+		<!-- 공지사항 수정 버튼 -->
+			<div class="nv_btn"><input type="submit" id="nv_update" value="Update"></div>
+		</c:if>
 		</form>
 	</div>
 </c:if>
@@ -54,15 +56,17 @@
 </c:if>
 <div class="btnDiv">
 	<div id="n_viewBtn">
+		<!-- 이전글 버튼 -->
 		<c:if test="${no_no>1 }">
 			<div class="nv_btn"><a href="notice_view.la?no_no=${notice.no_no-1}">Previous</a></div>
 		</c:if>
 		<c:if test="${no_no==1 }">
 			<div class="nv_btn"></div>
 		</c:if>
-		
+		<!-- 목록버튼 -->
 			<div class="nv_btn"><a href="notice_list.la?pageNum=${pageNum}">List</a></div>
 		
+		<!-- 다음글 버튼 -->
 		<c:if test="${no_no<total }">
 			<div class="nv_btn"><a href="notice_view.la?no_no=${notice.no_no+1}">Next</a></div>
 		</c:if>
