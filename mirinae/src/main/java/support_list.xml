@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="support_listns">
-	<select id="sp_list" resultType="support_list">
+	<select id="sp_list" resultType="support_list" parameterType="integer">
 		select * from support s, project p where s.p_no = p.p_no and p.p_del ='n' and s.sup_no=#{temp}
 	</select>
 </mapper>

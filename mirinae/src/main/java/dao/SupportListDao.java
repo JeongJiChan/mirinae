@@ -1,7 +1,6 @@
 package dao;
 
 import java.io.Reader;
-import java.util.Arrays;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -9,8 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import model.SupportDetail;
-import service.support.SupportList;
+import model.SupportList;
+import service.support.SupportListAll;
 
 public class SupportListDao {
 	private static SupportListDao instance = new SupportListDao();
@@ -30,5 +29,8 @@ public class SupportListDao {
 	}
 	public List<SupportList> list(int temp) {
 		return session.selectList("support_listns.sp_list", temp);
+	}
+	public SupportList oneList(int temp) {
+		return (SupportList) session.selectOne("support_listns.sp_list", temp);
 	}
 }

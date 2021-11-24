@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,22 +32,22 @@
 		<input type="hidden" name="m_no" value="${m_no }">
 		<input type="hidden" name="opt_code" value="${opt_code }">
 		<input type="hidden" name="supd_cnt" value="${supd_cnt }">
-		<input type="hidden" name="p_name" value="${p_no }">
+		<input type="hidden" name="p_no" value="${p_no }">
 		<input type="hidden" name="opt_price" value="${opt_price }">
 		<input type="hidden" name="total_price" value="${total_price }">
 		<div align="center">
 			<table>
 				<tr>
-					<td colspan="2" width="100%"><div id="img_area"></div></td>
+					<td colspan="2" width="100%"><div id="img_area"><img alt="" src="/mirinae/p_images/${p_no }.jpg"></div></td>
 				</tr>
 				<tr>
 					<td colspan="2">${p_name }</td>
 				</tr>
 				<tr>
-					<td colspan="2">${result }</td>
+					<td colspan="2"></td><fmt:formatNumber value="${result }" pattern="#,###" />
 				</tr>
 				<tr>
-					<td colspan="2">총 금액 : ${total_price }</td>
+					<td colspan="2">총 금액 : <fmt:formatNumber value="${total_price }" pattern="#,###" /></td>
 				</tr>
 				<tr>
 					<td colspan="2"><input type="text" name="sup_name" placeholder="프로젝트 받는 분" required="required" size="100%"></td>

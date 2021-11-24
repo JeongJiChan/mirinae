@@ -68,7 +68,8 @@
 </head>
 <body>
 	<nav role="navigation">
-		<a href="/mirinae/views/main/home.chan"><img alt="" src="/mirinae/images/logo1.gif" width="200px"></a>
+		<a href="/mirinae/views/main/home.chan"><img alt="" src="/mirinae/images/logo5.gif" width="200px"></a>
+		<div style="">
 		<ul id="main-menu">
 			<li><a href="/mirinae/views/project/p_uploadForm.kim">프로젝트 등록</a></li>
 			<li><a href="/mirinae/views/project/p_list.kim">프로젝트 목록</a>
@@ -97,6 +98,7 @@
 				<li><a href="/mirinae/views/admin/admin_page.sun">관리자페이지</a></li>
 			</c:if>
 		</ul>
+		</div>
 	</nav>
 </body>
 </html>

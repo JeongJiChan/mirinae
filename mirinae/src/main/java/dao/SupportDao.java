@@ -11,7 +11,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import model.Project;
 import model.Support;
-import service.support.SupportList;
+import service.support.SupportListAll;
 
 public class SupportDao {
 	private static SupportDao instance = new SupportDao();
@@ -56,5 +56,11 @@ public class SupportDao {
 	}
 	public Support select(int sup_no) {
 		return (Support) session.selectOne("supportns.select", sup_no);
+	}
+	public String getOpt_name(String string) {
+		return (String) session.selectOne("supportns.getOpt_name", string);
+	}
+	public int getOpt_price(String string) {
+		return (int) session.selectOne("supportns.getOpt_price", string);
 	}
 }

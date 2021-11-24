@@ -2,6 +2,7 @@ package dao;
 
 import java.io.Reader;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -33,7 +34,10 @@ public class SupportDetailDao {
 	public int insert(SupportDetail detail) {
 		return session.insert("support_detailns.insert", detail);		
 	}
-	public List<SupportDetail> select(int sup_no) {
-		return session.selectList("support_detailns.select", sup_no);
+	public int insert_price(int p_no, int total_priceInt) {
+		HashMap<String, Integer> data = new HashMap<String, Integer>();
+		data.put("p_no", p_no);
+		data.put("total_price", total_priceInt);
+		return session.insert("support_detailns.insert_price", data);
 	}
 }
