@@ -1,6 +1,7 @@
 package dao;
 
 import java.io.Reader;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -32,5 +33,8 @@ public class OptionsDao {
 	public int find_opt_code() {
 		
 		return (int) session.selectOne("optionsns.select");
+	}
+	public List<Options> optionsList(String p_no) {
+		return session.selectList("optionsns.selectList",p_no);
 	}
 }

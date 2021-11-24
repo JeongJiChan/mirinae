@@ -28,6 +28,11 @@
 
 	window.onload = function() {
 		if(${empty id}){
+			alert("로그인 후 이용해주세요.");
+			location.href="/mirinae/views/member/loginForm.sun";
+		}
+		if(${empty admin_id}){
+			alert("로그인 후 이용해주세요.");
 			location.href="/mirinae/views/member/loginForm.sun";
 		}
 	}	
