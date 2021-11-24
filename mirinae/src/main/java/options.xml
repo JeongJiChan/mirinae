@@ -7,7 +7,7 @@
 	<select id="select"  resultType="integer">
 		select count(*)+1 from options
 	</select>
-	<select id="selectList" parameterType="string" resultType="options">
+	<select id="selectList" parameterType="integer" resultType="options">
 		select * from options where p_no = #{p_no}
 	</select>
 </mapper>

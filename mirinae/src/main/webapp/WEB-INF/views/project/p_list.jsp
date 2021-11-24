@@ -28,6 +28,11 @@
 		<img id="image" src="/mirinae/p_images/${pro.p_no }.jpg">
 		</a></th></tr>
 		<tr><th colspan="2">목표 달성률 : <fmt:formatNumber value="${pro.cur_money/pro.goal_money * 100 }" pattern="0.00"/>%</th></tr>
+		<tr><th>카테고리 : 
+			<c:if test="${pro.cate_code == 100 }">	의류	</c:if>
+			<c:if test="${pro.cate_code == 200 }">	가전	</c:if>
+			<c:if test="${pro.cate_code == 300 }">	기타	</c:if>
+		</th><th>조회수 : ${pro.p_view }</th></tr>
 		<tr><th>번호 : ${pro.p_no }</th><th>제목 : ${pro.p_name }</th></tr>
 		<tr><th>작성자 : ${pro.p_writer }</th><th>작성일 : ${pro.reg_date }</th></tr>	
 		<tr><th>목표금액 : ${pro.goal_money }</th><th>현재금액 : ${pro.cur_money }</th></tr>
