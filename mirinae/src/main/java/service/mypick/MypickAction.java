@@ -15,11 +15,11 @@ import service.main.CommandProcess;
 public class MypickAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
-		String id = (String)session.getAttribute("m_id");
+		String m_id = (String)session.getAttribute("id");
 		
 		MypickDao md = MypickDao.getInstance();
 		
-		int m_no = md.m_no(id); // 마이픽한 회원 번호
+		int m_no = md.m_no(m_id); // 마이픽한 회원 번호
 		
 		final int ROW_PER_PAGE = 9; // 한 페이지에 게시글 10개 씩
 		final int PAGE_PER_BLOCK = 5; // 한 블럭에 5페이지 씩 
@@ -40,19 +40,17 @@ public class MypickAction implements CommandProcess {
 		
 		if (endPage > totalPage) endPage = totalPage; // 마지막 페이지가 총 페이지 수 보다 클 경우
 		
-		List<Mypick> m_list = md.m_list(m_no);
-		List<Project> p_list = md.p_list(m_no);
+		List<Mypick> pick_list = md.my_list(m_no,startRow, endRow);
 		
 		request.setAttribute("total", total);
-		request.setAttribute("m_list", m_list);
-		request.setAttribute("p_list", p_list);
+		request.setAttribute("pick_list", pick_list);
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("currentPage", currentPage);
 		request.setAttribute("totalPage", totalPage);
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("PAGE_PER_BLOCK", PAGE_PER_BLOCK);	
-		return "mypick_list";
+		return "/mypick/mypick_list";
 	}
 
 }

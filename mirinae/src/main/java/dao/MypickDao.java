@@ -1,12 +1,15 @@
 package dao;
 
 import java.io.Reader;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
 
 import model.Mypick;
 import model.Project;
@@ -36,17 +39,18 @@ public class MypickDao {
 		return (int)session.selectOne("mypickns.getTotal");
 	}
 
-	public List<Mypick> m_list(int m_no) {
-		List<Mypick> m_list=(List<Mypick>)session.selectList("mypickns.selectM",m_no);
-		return m_list; 
+	// 세션 id를 받아 m_no 조회
+	public int m_no(String m_id) {
+		return (int)session.selectOne("mypickns.selectM_no",m_id);
 	}
 
-	public int m_no(String id) {
-		return (int)session.selectOne("mypickns.selectM_no",id);
+	// 마이픽한 프로젝트 조회
+	public List<Mypick> my_list(int m_no, int startRow, int endRow) {
+		HashMap<String, Integer> hm = new HashMap<String, Integer>();
+		hm.put("m_no", m_no);
+		hm.put("startRow", startRow);
+		hm.put("endRow", endRow);
+		return session.selectList("mypickns.myList", hm);
+		
 	}
-
-	public List<Project> p_list(int m_no) {
-		return session.selectList("mypickns.selectP"); 
-	}
-
 }

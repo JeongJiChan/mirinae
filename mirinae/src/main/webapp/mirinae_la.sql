@@ -135,9 +135,14 @@ create sequence seq_member
 	
 	
 	select count(*) from notice;
-	select * from notice;
 	select * from admin;
 	
 select * from admin;
 insert into ADMIN values(2,'admin2','1111','admin2');
-	
+select * from project;
+
+ALTER TABLE project RENAME COLUMN d_date TO e_date;
+desc project;
+select * from member;
+select * from mypick;
+insert into mypick values(3,1);
