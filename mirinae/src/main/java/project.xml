@@ -20,7 +20,10 @@
 <!--  		select * from (select rowNum rn,a.* from (select * from -->
 <!-- 		project where p_del = 'n' order by p_no desc)a) where rn between #{startRow} and #{endRow}  -->
 <!-- 	</select> -->
-	<select id="proview" parameterType="string" resultType="project">
+	<select id="proview" parameterType="integer" resultType="project">
 		select * from project where p_no = #{p_no}
 	</select>
+	<update id="p_viewupdate" parameterType="integer">
+		update project set p_view = p_view + 1 where p_no = #{p_no}
+	</update>
 </mapper>

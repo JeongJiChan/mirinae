@@ -15,8 +15,9 @@ public class ProView implements CommandProcess {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
-		String p_no = request.getParameter("p_no");
+		int p_no = Integer.parseInt(request.getParameter("p_no"));
 		ProjectDao pd = ProjectDao.getInstance();
+		pd.p_viewUpload(p_no);
 		Project project = pd.proview(p_no);
 		OptionsDao od = OptionsDao.getInstance();
 		List<Options> options = od.optionsList(p_no);

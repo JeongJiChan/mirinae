@@ -12,7 +12,7 @@ import service.main.CommandProcess;
 public class MemberList implements CommandProcess {
 
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
-		final int ROW_PER_PAGE = 3;
+		final int ROW_PER_PAGE = 10;
 		final int PAGE_PER_BLOCK = 5;
 		
 		String pageNum = request.getParameter("pageNum");		
