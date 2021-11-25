@@ -66,7 +66,7 @@ create table project( — 프로젝트
     p_content varchar2(4000), — 프로젝트 내용
     p_writer varchar2(20), — 프로젝트 작성자
     s_date date, — 프로젝트 시작일자
-    d_date date, — 프로젝트 종료일자
+    e_date date, — 프로젝트 종료일자
     goal_money number, — 프로젝트 목표금액
     p_view number, — 프로젝트 조회수
     p_del varchar2(5), — 프로젝트 삭제여부

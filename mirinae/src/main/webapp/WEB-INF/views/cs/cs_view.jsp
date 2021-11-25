@@ -18,7 +18,6 @@
 </script>
 </head>
 <body>
-	
 	<div>
 		<h2>${cs.cs_title }</h2>
 		<h5>${cs.cs_writer } | ${cs.cs_reg_date } | 조회수 : ${cs.cs_view }</h5>

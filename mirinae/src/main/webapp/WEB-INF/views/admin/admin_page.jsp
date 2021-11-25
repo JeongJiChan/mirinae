@@ -10,8 +10,7 @@
 <body>
 	<h2>${admin.admin_nick } 's 페이지</h2>
 	<h2><a href="/mirinae/views/admin/member_list.sun">회 원 목 록</a></h2>
-	<h2><a href="/mirinae/">프 로 젝 트 목 록</a></h2>
-	<h2><a href="/mirinae/">공 지 사 항 목 록</a></h2>
-	<h2><a href="/mirinae/">고 객 문 의 목 록</a></h2>
+	<h2><a href="/mirinae/views/admin/project_list.kwon">프 로 젝 트 목 록</a></h2>
+	<h2><a href="/mirinae/views/admin/support_list.kwon">후 원 목 록</a></h2>
 </body>
 </html>
