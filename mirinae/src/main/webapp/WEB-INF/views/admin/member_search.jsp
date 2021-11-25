@@ -23,7 +23,7 @@
 </script>
 </head>
 <body>
-<h2>전 체 회 원 목 록</h2>
+<h2>검색 회원 목록</h2>
 <pre><span style="color: red">*</span>탈퇴회원도 포함</pre>
 <form method="post" action="searchMember.sun">
 	<select name="part" id="part">
@@ -50,13 +50,13 @@
 			<th>탈퇴여부</th>
 			<th>탈퇴</th>
 		</tr>
-		<c:if test="${empty list}">
+		<c:if test="${empty search_list}">
 			<tr>
-				<td colspan="13">회원데이터가 존재하지 않습니다.</td>
+				<td colspan="13">검색된 회원정보가 없습니다.</td>
 			</tr>
 		</c:if>
-		<c:if test="${not empty list }">
-			<c:forEach var="member" items="${list }">
+		<c:if test="${not empty search_list }">
+			<c:forEach var="member" items="${search_list }">
 				<tr>
 					<td>${member.m_no}</td>
 					<td>${member.m_id}</td>

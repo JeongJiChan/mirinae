@@ -46,4 +46,10 @@
 			where rn between #{startRow} and #{endRow}
 	</select>
 	
+	<!-- 특정 단어로 검색된 회원정보 조회 -->
+	<select id="search_list" parameterType="hashmap" resultType="member">
+		select * from (select rowNum rn, e.* from (select * from member where #{part} like '%'||#{searchData}||'%' order by m_no desc) e) 
+			where rn between #{startRow} and #{endRow}
+	</select>
+	
 </mapper>
