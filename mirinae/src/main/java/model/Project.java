@@ -15,6 +15,7 @@ public class Project {
     private String p_del;
     private Date reg_date;
     private int cur_money;
+    private String m_id;
 	public int getP_no() {
 		return p_no;
 	}
@@ -86,6 +87,12 @@ public class Project {
 	}
 	public void setCur_money(int cur_money) {
 		this.cur_money = cur_money;
+	}
+	public String getM_id() {
+		return m_id;
+	}
+	public void setM_id(String m_id) {
+		this.m_id = m_id;
 	}
     
 
