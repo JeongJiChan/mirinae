@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+	table {table-layout: fixed; }
 	th { border: 1px solid black;}
 	td { border: 1px solid black;}
 	#picture_table { width: 35%; float: left; table-layout: fixed;}
@@ -31,11 +32,37 @@
  		    var value = $(this).val();
  		    var checked = $(this).prop('checked');
  		    if(checked){
- 		    	$('.'+value).attr('disabled', false);	
+ 		    	$('.'+value).attr('disabled', false);
+ 		    	$('.'+value).focus();
  		    }else{
  		    	$('.'+value).attr('disabled', true);
+ 		    	$('.'+value).val("");
+ 		    	const element = document.getElementById(value);
+ 		 		 element.innerHTML = "";
  		    }			
- 		});
+ 		});	
+ 		$('input').keyup('number',function() {
+ 			//해당 클래스 이름 가져오기
+ 		   var getClass=$(this).attr("class");
+ 		    //해당 클래스이름을 name으로 사용하는 input에 값 가져오기
+ 		   var valueByClass = $('input[name='+getClass+']').val();
+ 		   var price = $(this).val();
+ 		   var totalmoney = valueByClass * price;
+ 		  const element = document.getElementById(getClass);
+ 		  element.innerHTML = totalmoney.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+ 		});		
+ 		//alert(name.textContent);  //text 값	
+ 		setInterval(() => {
+ 			var total = 0;
+ 			$('#total>div').each(function(index, item) {
+	 			var num = item.textContent;
+	 			num = num.replaceAll(",","");
+	 			num *= 1;
+				 total += num;
+		 		  const element = document.getElementById('totalview');
+		 		  element.innerHTML = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')+"<b>원</b>"; 
+	 		});	
+		}, 2500);
  	});	
 </script>
 </head>
@@ -53,19 +80,20 @@
 	</td><th>조회수</th><td>${project.p_view }</td></tr>
 								
 	<tr><th>프로젝트 이름</th><td colspan="3">${project.p_name }</td></tr>
-	
 	<tr><th>프로젝트 기간</th><td colspan="3">${project.s_date } ~ ${project.e_date }</td></tr>	
-									
-	<tr><th>목표 금액</th><td colspan="3">${project.goal_money }</td></tr>
-	<tr><th colspan="3">현재 모인 금액</th><td>${project.cur_money }</td></tr>	
+	<tr><th>목표 금액</th><td colspan="3"><fmt:formatNumber value="${project.goal_money }" pattern="#,###" />원</td></tr>
+	<tr><th colspan="3">현재 모인 금액</th><td><fmt:formatNumber value="${project.cur_money }" pattern="#,###" />원</td></tr>	
 	<tr><th colspan="3"> 달성률</th><td><fmt:formatNumber value="${project.cur_money/project.goal_money * 100 }" pattern="0.00"/>%</td></tr>
 	<tr><th colspan="4">옵션 구매하기</th></tr>	
 	<c:forEach var="opt" items="${options }">
-	<c:set var="i" value="${i+1 }"></c:set>
-		<tr><th colspan="2"><input type="checkbox" name="opt_code" class="opt"  value="${opt.opt_code }">${opt.opt_name }</th><th>가격  : ${opt.opt_price }</th>
-		<td>수량 : <input type="number" name="supd_cnt" class="${opt.opt_code }" disabled="disabled" required="required" min="1"> </td></tr>
+		<input type="hidden" name="${opt.opt_code }" value="${opt.opt_price }">
+		<tr><th><input type="checkbox" name="opt_code" class="opt"  value="${opt.opt_code }">${opt.opt_name }</th>
+			<th>가격  : <fmt:formatNumber value="${opt.opt_price }" pattern="#,###" />원</th>
+			<td colspan="2">수량 : <input type="number" name="supd_cnt" class="${opt.opt_code }" disabled="disabled" required="required" min="1">
+			<div id="total" style="display:inline;"><div id="${opt.opt_code }" style="display:inline;"></div><b>원</b></div><br>
+			</td></tr>
 	</c:forEach>
-	<tr><th>총 금액</th><th colspan="3"></th></tr>
+	<tr><th>총 금액</th><th colspan="3"><div id="totalview" style="display:inline;">원</div></th></tr>
 	<tr class="btntable"><th class="btntable" colspan="4"><button style="WIDTH: 150pt; HEIGHT: 30pt">후원하기</button></th></tr>
 </table>
 <textarea id="content" rows="40" style="width:94%" name="content">${project.p_content }</textarea>

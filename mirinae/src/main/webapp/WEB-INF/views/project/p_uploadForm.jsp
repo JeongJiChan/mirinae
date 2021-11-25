@@ -25,7 +25,16 @@
 	#preImage { width: 100%; height: 310px; }
 </style>
 <script type="text/javascript">
-
+	//현재 시간 yyyymmdd 로 구해서 int로 형변환
+	var date = new Date();
+	var year = date.getYear() +1900;
+	var month = date.getMonth() + 1;
+	var day = date.getDate();
+	var finishdate = year+""+month+""+day;
+	finishdate = parseInt(finishdate);
+	// 시작일을 위한 변수
+	var s_date;
+	
 	window.onload = function() {
 		if(${empty id}){
 			alert("로그인 후 이용해주세요.");
@@ -42,7 +51,11 @@
 			return false;
 		}
 		if(frm.s_date.value > frm.e_date.value){
-			alert("시작일보다 종료일이 더 빠릅니다.");
+			alert("프로젝트 시작일보다 종료일이 더 빠릅니다.");
+			return false;
+		}
+		if(frm.s_date.value == frm.e_date.value){
+			alert("프로젝트 시작일과 종료일은 같을 수 없습니다.");
 			return false;
 		}
 		if(frm.goal_money.value < 0 ){
@@ -59,6 +72,15 @@
 
 		frm.name_arr.value = name_arr;
 		frm.price_arr.value = price_arr;
+		
+		if(frm.name_arr.value =="" || frm.price_arr.value ==""){
+			alert("옵션을 1개 이상 등록 해주세요");
+			return false;
+		}
+		if(s_date < finishdate){
+			alert("프로젝트 시작일을 오늘 이후로 설정하세요");
+			return false;
+		}
 	}
 	//옵션 추가하기
 	function optionplus() {
@@ -74,6 +96,10 @@
 				document.getElementById("opt_name").value = "";
 				document.getElementById("price").value = "";
 				frm.opt_name.focus();
+			}else if(name_arr.indexOf(name) != -1){
+				alert("동일한 옵션명을 입력할 수 없습니다.");
+				document.getElementById("opt_name").value = "";
+				document.getElementById("price").value = "";
 			}else{
 				name_arr.push(name);
 				price_arr.push(price);
@@ -137,6 +163,31 @@
            reader.readAsDataURL(input.files[0]);
         }
     }
+    //옵션 이름에 공백 불가
+    function noSpaceForm(obj) 
+    {             
+        var str_space = /\s/;               // 공백 체크
+        if(str_space.exec(obj.value)) 
+        {     // 공백 체크
+            alert("공백을 넣을 수 없습니다.");
+            obj.focus();
+            obj.value = obj.value.replace(' ',''); // 공백제거
+            return false;
+        }
+    }
+    
+    $(function() {
+
+		$("#s_date").change(function() {
+			s_date = $(this).val();
+			s_date = s_date.replaceAll("-","");
+			s_date = parseInt(s_date);
+			if(s_date < finishdate){
+				alert("프로젝트 시작일을 오늘 이후로 설정해주세요");
+			}
+		});
+	});
+	
 
 </script>
 </head>
@@ -157,14 +208,14 @@
 								
 	<tr><th class="title">프로젝트 이름</th><td><input type="text" name="name" required="required" autofocus="autofocus"></td></tr>
 	
-	<tr><th class="title">프로젝트 기간</th><td><input type="date" name="s_date" required="required"> ~ 
+	<tr><th class="title">프로젝트 기간</th><td><input type="date" id="s_date" name="s_date" required="required"> ~ 
 									<input type="date" name="e_date" required="required"></td></tr>	
 									
-	<tr><th class="title">목표 금액</th><td><input type="number" name="goal_money" required="required">원</td></tr>	
+	<tr><th class="title">목표 금액</th><td><input type="number" name="goal_money" required="required" min="1">원</td></tr>	
 	
 		
-	<tr><th class="title">옵션</th><td><input type="text" name="opt_name" id="opt_name" placeholder="옵션 이름">
-								 <input type="number" name="price" id="price" placeholder="옵션 가격"><input type="button" value="옵션추가" onclick="optionplus()">
+	<tr><th class="title">옵션</th><td><input type="text" name="opt_name" id="opt_name" placeholder="옵션 이름" onkeyup="noSpaceForm(this)">
+								 <input type="number" name="price" id="price" placeholder="옵션 가격" onkeyup="noSpaceForm(this)"><input type="button" value="옵션추가" onclick="optionplus()">
 								 <input type="button" value="옵션삭제" onclick="optiondelete()"><br>
 								 	<div style="color:red">옵션삭제는 최근부터 삭제됩니다. 원하는 이름을 입력 후 삭제버튼을 눌러주세요</div></td></tr>
 </table>
