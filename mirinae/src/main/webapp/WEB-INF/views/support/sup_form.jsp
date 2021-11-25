@@ -44,7 +44,7 @@
 					<td colspan="2">${p_name }</td>
 				</tr>
 				<tr>
-					<td colspan="2"></td><fmt:formatNumber value="${result }" pattern="#,###" />
+					<td colspan="2">${result }</td>
 				</tr>
 				<tr>
 					<td colspan="2">총 금액 : <fmt:formatNumber value="${total_price }" pattern="#,###" /></td>

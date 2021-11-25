@@ -35,9 +35,12 @@ public class SupportDetailDao {
 		return session.insert("support_detailns.insert", detail);		
 	}
 	public int insert_price(int p_no, int total_priceInt) {
+		int result = 0;
 		HashMap<String, Integer> data = new HashMap<String, Integer>();
 		data.put("p_no", p_no);
 		data.put("total_price", total_priceInt);
-		return session.insert("support_detailns.insert_price", data);
+		result = session.insert("support_detailns.insert_price", data);
+		session.commit();
+		return result;
 	}
 }
