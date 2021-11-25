@@ -4,10 +4,11 @@
 <html>
 <head>
 <script type="text/javascript">
-	function chk() {
-		if($("#content").val().trim().length < 1)
-		{
+	function chk() { 
+		var text = $('#content').val();
+		if(text.replace(/\s/g, "").length==0)	{
 		    alert("글내용을 입력해주세요.");
+		    $("#content").focus();
 		    return false; 
 		}
 	}

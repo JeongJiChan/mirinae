@@ -20,4 +20,13 @@
 	<select id="selectP" parameterType="integer" resultType="Project">
 		select * from project where p_no = #{p_no}
 	</select>
+	
+	<!-- 마이픽 저장 -->
+	<insert id="myinsert" parameterType="integer">
+		insert into mypick values(#{m_no}, #{p_no})
+	</insert>
+	<!-- 마이픽 삭제 -->
+	<delete id="mydelete" parameterType="integer">
+		delete from mypick where m_no = #{m_no} and p_no={p_no} 
+	</delete>
 </mapper>

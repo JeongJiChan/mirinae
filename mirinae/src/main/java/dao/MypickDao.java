@@ -53,4 +53,17 @@ public class MypickDao {
 		return session.selectList("mypickns.myList", hm);
 		
 	}
+
+	public int delete(int p_no, int m_no) {
+		HashMap<String, Integer> hm = new HashMap<String, Integer>();
+		hm.put("p_no", p_no);
+		hm.put("m_no", m_no);
+		return (int)session.delete("mypickns.mydelete", hm);
+	}
+	public int insert(int p_no, int m_no) {
+		HashMap<String, Integer> hm = new HashMap<String, Integer>();
+		hm.put("p_no", p_no);
+		hm.put("m_no", m_no);
+		return (int)session.delete("mypickns.myinsert", hm);
+	}
 }
