@@ -12,6 +12,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<c:url var="deleteUrl" value="sup_delete.chan">
+	<c:param name="sup_no" value="${sp.sup_no }"/>
+	<c:param name="total_price" value="${sp.total_price }"/>
+	<c:param name="p_no" value="${sp.p_no }"/>
+	<c:param name="pageNum" value="${pageNum }"/>
+</c:url>
+
+
 <c:if test="${sp.p_del == 'n'}">
 	<div id="n_view">
 		<form action="" method="post">
@@ -21,14 +30,14 @@
 			</div>
 			<div>
 				<div>
-					프로젝트 : ${sp.p_name }
-					기   간 : ${sp.s_date } ~ ${sp.e_date }
-					목표금액 : <fmt:formatNumber value="${sp.goal_money }" pattern="#,###"/>
-					현재금액 : <fmt:formatNumber value="${sp.cur_money }" pattern="#,###"/>
-					목표달성률 : <fmt:formatNumber value="${sp.cur_money/sp.goal_money * 100 }" pattern="0.00"/>%
-					후원금액 : <fmt:formatNumber value="${sp.total_price }" pattern="#,###"/>
-					후원일 : ${sp.sup_date }
-					수령인 : ${sp.sup_name }
+					프로젝트 : ${sp.p_name }<p>
+					기   간 : ${sp.s_date } ~ ${sp.e_date }<p>
+					목표금액 : <fmt:formatNumber value="${sp.goal_money }" pattern="#,###"/><p>
+					현재금액 : <fmt:formatNumber value="${sp.cur_money }" pattern="#,###"/><p>
+					목표달성률 : <fmt:formatNumber value="${sp.cur_money/sp.goal_money * 100 }" pattern="0.00"/>%<p>
+					후원금액 : <fmt:formatNumber value="${sp.total_price }" pattern="#,###"/><p>
+					후원일 : ${sp.sup_date }<p>
+					수령인 : ${sp.sup_name }<p>
 					배송지 : ${sp.sup_address } ${sp.address_d }
 				</div>
 			</div>
@@ -36,7 +45,8 @@
 	</div>
 </c:if>
 	<div class="btnDiv">
-		<a href="sup_list.chan?pageNum=${pageNum}">List</a>
+		<a href="sup_list.chan?pageNum=${pageNum}">목록</a> 
+		<a href="${deleteUrl }" onclick="return confirm('후원을 취소하시겠습니까?')">후원취소</a>
 	</div>
 </body>
 </html>
