@@ -70,6 +70,26 @@ public class MemberDao {
 		HashMap<String, Integer> hm = new HashMap<>();
 		hm.put("startRow", startRow);
 		hm.put("endRow", endRow);
-		return (List<Member>)session.selectList("memberns.list",hm);
+		return (List<Member>)session.selectList("memberns.list", hm);
+	}
+	
+	// 특정 단어로 검색된 회원정보 조회
+	public List<Member> search_list(int startRow, int endRow, String part, String searchData) {
+		HashMap<String, Object> hm = new HashMap<>();
+		hm.put("startRow", startRow);
+		hm.put("endRow", endRow);
+		hm.put("part", part);
+		hm.put("searchData", searchData);
+		
+		return (List<Member>)session.selectList("memberns.search_list", hm);
+	}
+	
+	// 특정 단어로 검색된 총 회원 수
+	public int getSearchTotal(String part, String searchData) {
+		HashMap<String, Object> hm = new HashMap<>();
+		hm.put("part", part);
+		hm.put("searchData", searchData);
+		
+		return (int)session.selectOne("memberns.getSearchTotal", hm);
 	}
 }

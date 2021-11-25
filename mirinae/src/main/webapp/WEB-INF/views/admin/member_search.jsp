@@ -16,15 +16,15 @@
 	function del(delMid) {
 		var con = confirm("탈퇴처리 하시겠습니까?");
 		if(con) {
-			location.href="../admin/admin_delete.sun?m_id="+delMid+"&pageNum=${pageNum}";
+			location.href="../admin/admin_search_delete.sun?m_id="+delMid+"&pageNum=${pageNum}&part=${part}&searchData=${searchData}";
 		} else alert("탈퇴 취소");
 	};
 	
 </script>
 </head>
 <body>
-<h2>전 체 회 원 목 록</h2>
-<pre><span style="color: red">*</span>탈퇴회원도 포함</pre>
+<h2>검 색 된 결 과</h2>
+<h5>"${partD}"에 "${searchData }" 포함된 결과</h5>
 <form method="post" action="member_search.sun">
 	<select name="part" id="part">
 		<option value="m_id">ID</option>
@@ -37,6 +37,13 @@
 </form>
 
 	<table>
+		<c:if test="${empty search_list}">
+			<tr>
+				<th colspan="13">검색된 회원정보가 없습니다.</th>
+			</tr>
+		</c:if>
+		
+		<c:if test="${not empty search_list }">
 		<tr>
 			<th>회원번호</th>
 			<th>ID</th>
@@ -52,13 +59,7 @@
 			<th>탈퇴여부</th>
 			<th>탈퇴</th>
 		</tr>
-		<c:if test="${empty list}">
-			<tr>
-				<td colspan="13">회원데이터가 존재하지 않습니다.</td>
-			</tr>
-		</c:if>
-		<c:if test="${not empty list }">
-			<c:forEach var="member" items="${list }">
+			<c:forEach var="member" items="${search_list }">
 				<tr>
 					<td>${member.m_no}</td>
 					<td>${member.m_id}</td>
@@ -82,12 +83,12 @@
 		<div class="number">
 			<div class="prev_btn">
 				<c:if test="${startPage > PAGE_PER_BLOCK}">
-					<button class="first" onclick="location.href='member_list.sun?pageNum=${startPage-1}'">
+					<button class="first" onclick="location.href='member_search.sun?pageNum=${startPage-1}&part=${part}&searchData=${searchData}'">
 						이전
 					</button> 
 				</c:if>
 				<c:if test="${pageNum > 1}">
-					<button class="prev" onclick="location.href='member_list.sun?pageNum=${currentPage - 1}'">
+					<button class="prev" onclick="location.href='member_search?pageNum=${currentPage - 1}&part=${part}&searchData=${searchData}'">
 						이전
 					</button>
 				</c:if>
@@ -96,29 +97,29 @@
 				<c:forEach var="i" begin="${startPage}" end="${endPage}">
 					<c:if test="${currentPage== i }">
 						<button
-							onclick="location.href='member_list.sun?pageNum=${i}'"
+							onclick="location.href='member_search.sun?pageNum=${i}&part=${part}&searchData=${searchData}'"
 							disabled="disabled">${i}</button>
 					</c:if>
 					<c:if test="${currentPage!= i }">
 						<button
-							onclick="location.href='member_list.sun?pageNum=${i}'">${i}</button>
+							onclick="location.href='member_search.sun?pageNum=${i}&part=${part}&searchData=${searchData}'">${i}</button>
 					</c:if>
 				</c:forEach>
 			</div>
 			<div class="next_btn">
 				<c:if test="${currentPage < totalPage}">
-					<button class="next" onclick="location.href='member_list.sun?pageNum=${currentPage + 1}'">
+					<button class="next" onclick="location.href='member_search.sun?pageNum=${currentPage + 1}&part=${part}&searchData=${searchData}'">
 						다음
 					</button>
 				</c:if>
 				<c:if test="${endPage < totalPage}">
-					<button class="last" onclick="location.href='member_list.sun?pageNum=${endPage + 1}'">
+					<button class="last" onclick="location.href='member_search.sun?pageNum=${endPage + 1}&part=${part}&searchData=${searchData}'">
 						다음
 					</button> 
 				</c:if>
 			</div> <!-- next_btn -->
 		</div> <!-- number -->
 	</div> <!-- paging -->	
-	<div class="goback"><a href="admin_page.sun">이전 페이지</a></div>
+	<div class="goback"><a href="member_list.sun">전체 회원 목록</a></div>
 </body>
 </html>
