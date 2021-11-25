@@ -7,98 +7,70 @@
 <head>
 <meta charset="UTF-8">
 <title>Mirinae</title>
+<style type="text/css">@import url("/mirinae/css/bootstrap.css")</style>
 <style type="text/css">
-	nav {
-		width: 100%;
-		display: flex;
-		justify-content: center;
-		position: relative;
-		min-width: 800px;
-	}
-	
-	ul, li {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
-	
-	#main-menu>li {
-		float: left;
-		position: relative;
-	}
-	
-	#main-menu>li>a {
-		font-size: 0.85rem;
-		text-align: center;
-		text-decoration: none;
-		letter-spacing: 0.05em;
-		display: block;
-		padding: 14px 36px;
-		color: black;
-	}
-	
-	#sub-menu {
-		position: absolute;
-		opacity: 0;
-		visibility: hidden;
-		transition: all 0.15s ease-in;
-	}
-	
-	#sub-menu>li {
-		padding: 10px 31px;
-		font-size: 10pt;
-		background: white;
-	}
-	
-	#sub-menu>li>a {
-		text-decoration: none;
-		color: black;
-	}
-	
-	#main-menu>li:hover #sub-menu {
-		opacity: 1;
-		visibility: visible;
-	}
-	
-	#sub-menu>li>a:hover {
-		text-decoration: underline;
-	}
+	.dropdown:hover .dropdown-menu { display: block; margin-top: 0; }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
-	<nav role="navigation">
-		<a href="/mirinae/views/main/home.chan"><img alt="" src="/mirinae/images/logo5.gif" width="200px"></a>
-		<div style="">
-		<ul id="main-menu">
-			<li><a href="/mirinae/views/project/p_uploadForm.kim">프로젝트 등록</a></li>
-			<li><a href="/mirinae/views/project/p_list.kim">프로젝트 목록</a>
-				<ul id="sub-menu">
-					<li><a href="/mirinae/views/project/p_list.kim?cate=1">카테고리1</a></li>
-					<li><a href="/mirinae/views/project/p_list.kim?cate=2">카테고리2</a></li>
-					<li><a href="/mirinae/views/project/p_list.kim?cate=3">카테고리3</a></li>
-					<li><a href="/mirinae/views/project/p_list.kim?cate=4">카테고리5</a></li>
-					<li><a href="/mirinae/views/project/p_list.kim?cate=5">카테고리5</a></li>
-				</ul></li>
-			<li><a> 게시판 </a>
-				<ul id="sub-menu">			<!-- notice/notice_list.do -->
-					<li><a href="/mirinae/views/notice/notice_list.la">공지사항</a></li>
-					<li><a href="/mirinae/views/cs/cs_list.kwon">고객문의</a></li>
-				</ul></li>
-			<c:if test="${empty id && empty admin_id}">
-				<li><a href="/mirinae/views/member/loginForm.sun">로그인</a></li>
-				<li><a href="/mirinae/views/member/joinForm.sun">회원가입</a></li>
-			</c:if>
-			<c:if test="${not empty id && empty admin_id}">
-				<li><a href="/mirinae/views/member/logout.sun">로그아웃</a></li>
-				<li><a href="/mirinae/views/member/my_page.sun">마이페이지</a></li>
-			</c:if>	
-			<c:if test="${not empty admin_id && empty id}">
-				<li><a href="/mirinae/views/member/logout.sun">로그아웃</a></li>
-				<li><a href="/mirinae/views/admin/admin_page.sun">관리자페이지</a></li>
-			</c:if>
-		</ul>
-		</div>
-	</nav>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/mirinae/views/main/home.chan"><img alt="" src="/mirinae/images/logo4.gif" width="200px"></a>
+    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/mirinae/views/project/p_uploadForm.kim">프로젝트 등록</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/mirinae/views/project/p_list.kim">프로젝트 목록</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/mirinae/views/project/p_list.kim?cate=1">cate1</a>
+            <a class="dropdown-item" href="/mirinae/views/project/p_list.kim?cate=2">cate2</a>
+            <a class="dropdown-item" href="/mirinae/views/project/p_list.kim?cate=3">cate3</a>
+          </div>
+        </li>
+       <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="" aria-haspopup="true" aria-expanded="false">게시판</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/mirinae/views/notice/notice_list.la">공지사항</a>
+            <a class="dropdown-item" href="/mirinae/views/cs/cs_list.kwon">고객문의</a>
+          </div>
+        </li>
+        <c:if test="${empty id && empty admin_id}">
+        <li class="nav-item">
+          <a class="nav-link" href="/mirinae/views/member/loginForm.sun">로그인</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/mirinae/views/member/joinForm.sun">회원가입</a>
+        </li>
+		</c:if>
+		<c:if test="${not empty id && empty admin_id}">
+        <li class="nav-item">
+          <a class="nav-link" href="/mirinae/views/member/logout.sun">로그아웃</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/mirinae/views/member/my_page.sun">마이페이지</a>
+        </li>
+        </c:if>	
+        <c:if test="${not empty admin_id && empty id}">
+        <li class="nav-item">
+          <a class="nav-link" href="/mirinae/views/member/logout.sun">로그아웃</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/mirinae/views/admin/admin_page.sun">관리자페이지</a>
+        </li>
+        </c:if>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
 </body>
 </html>
