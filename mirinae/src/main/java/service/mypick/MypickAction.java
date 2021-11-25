@@ -8,8 +8,6 @@ import javax.servlet.http.HttpSession;
 
 import dao.MypickDao;
 import model.Mypick;
-import model.Notice;
-import model.Project;
 import service.main.CommandProcess;
 
 public class MypickAction implements CommandProcess {

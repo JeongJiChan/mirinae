@@ -5,6 +5,13 @@
 <html>
 <head>
 <style type="text/css">
+	.title {
+	   padding-left: 70px;
+	}
+	.title:hover {
+	   text-decoration: underline;
+	   cursor: pointer;
+	}
 	#n_list { width: 100%; cursor: pointer; }
 	.n_title {style="font-size:56px; line-height:1.4em; align: center;}
 	button.writeBtn { margin-left: 1400px; }
@@ -28,10 +35,10 @@
 		<c:url value="notice_view.la" var="nl_title">
 			<c:param name="no_no" value="${notice.no_no }"/>
 			<c:param name="pageNum" value="${currentPage }"/>
-		</c:url>
+		</c:url> <a href=></a>
 			<tr>
 			<td align="center">${number }<c:set var="number" value="${number-1 }"/> </td>
-			<td width="70%" style="padding-left :70px"><input type="button" onclick="location.href='${nl_title}'" value="${notice.no_title }"></td>
+			<td width="70%" style="padding-left :70px" onclick="location.href='${nl_title}'" class="title">${notice.no_title }</td>
 			<td>${notice.no_date}</td>
 			<td>${notice.no_view }</td></tr>
 		</c:if>
@@ -50,7 +57,12 @@
 			</c:if>
 	<!-- 페이지 버튼 -->	
 			<c:forEach var="i" begin="${startPage }" end="${endPage }">
+			<c:if test="${currentPage!= i }">
 				<button id="page${i}" class="page_num" onclick="location.href='notice_list.la?pageNum=${i}'">${i}</button>
+			</c:if>
+			<c:if test="${currentPage== i }">
+				<button id="page${i}" class="page_num" onclick="location.href='notice_list.la?pageNum=${i}'" disabled="disabled">${i}</button>
+			</c:if>
 			</c:forEach>
 	<!-- 다음 페이지 버튼 -->
 			<c:if test="${currentPage < totalPage}">

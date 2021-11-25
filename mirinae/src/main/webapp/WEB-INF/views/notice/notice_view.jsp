@@ -36,7 +36,7 @@
 				<tr><th>제목</th><td colspan="2"><input type="text" name="no_title" value="${notice.no_title }" readonly="readonly"></td></tr>
 	 			<tr><th>작성자</th><td><input type="text" name="admin_no" value="${writer }" readonly="readonly"></td>
 	 			<td>조회수 ${notice.no_view }</td></tr>
-				<tr><th>내용</th><td colspan="2"><textarea cols="5" rows="" readonly="readonly" name="no_content"><c:out value="${notice.no_content }" escapeXml="false" /></textarea></td></tr>
+				<tr><th>내용</th><td colspan="2"><div>${notice.no_content }</div></td></tr>
 			</table>
 		<!-- 공지사항 삭제 버튼 -->
 		<c:if test="${result != 0 && no_del=='n'}">
@@ -58,7 +58,7 @@
 	<div id="n_viewBtn">
 		<!-- 이전글 버튼 -->
 		<c:if test="${no_no>1 }">
-			<div class="nv_btn"><a href="notice_view.la?no_no=${notice.no_no-1}">Previous</a></div>
+			<div class="nv_btn"><a href="notice_view.la?no_no=${notice.no_no-1}&pageNum=${curPageNum}">Previous</a></div>
 		</c:if>
 		<c:if test="${no_no==1 }">
 			<div class="nv_btn"></div>
@@ -68,7 +68,7 @@
 		
 		<!-- 다음글 버튼 -->
 		<c:if test="${no_no<total }">
-			<div class="nv_btn"><a href="notice_view.la?no_no=${notice.no_no+1}">Next</a></div>
+			<div class="nv_btn"><a href="notice_view.la?no_no=${notice.no_no+1}&pageNum=${curPageNum}">Next</a></div>
 		</c:if>
 		<c:if test="${no_no==total }">
 			<div class="nv_btn"></div>
