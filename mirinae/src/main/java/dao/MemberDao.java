@@ -80,6 +80,16 @@ public class MemberDao {
 		hm.put("endRow", endRow);
 		hm.put("part", part);
 		hm.put("searchData", searchData);
+		
 		return (List<Member>)session.selectList("memberns.search_list", hm);
+	}
+	
+	// 특정 단어로 검색된 총 회원 수
+	public int getSearchTotal(String part, String searchData) {
+		HashMap<String, Object> hm = new HashMap<>();
+		hm.put("part", part);
+		hm.put("searchData", searchData);
+		
+		return (int)session.selectOne("memberns.getSearchTotal", hm);
 	}
 }
