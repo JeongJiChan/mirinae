@@ -19,6 +19,7 @@ select * from PROJECT;
 select * from CATEGORY;
 select * from MYPICK;
 select * from REPLY;
+select * from support s, project p where s.p_no = p.p_no
 commit
 
 ALTER TABLE member DROP COLUMN reg_date;

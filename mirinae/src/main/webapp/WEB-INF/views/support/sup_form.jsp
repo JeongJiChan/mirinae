@@ -63,7 +63,7 @@
 				</tr>
 				<tr>
 					<th><input type="submit" value="후원"></th>
-					<th><button value="취소" onclick="history.back()"></button></th>
+					<th><button onclick="history.back()">취소</button></th>
 				</tr>
 			</table>
 		</div>

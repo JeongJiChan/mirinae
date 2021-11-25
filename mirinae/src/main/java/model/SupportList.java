@@ -11,6 +11,7 @@ public class SupportList {
 	private Date sup_date;
 	private String sup_name;
 	private int p_no;
+	private String del;
 	private String total_price;
     private int cate_code;
     private String p_name;
@@ -77,6 +78,12 @@ public class SupportList {
 	}
 	public void setP_no(int p_no) {
 		this.p_no = p_no;
+	}
+	public String getDel() {
+		return del;
+	}
+	public void setDel(String del) {
+		this.del = del;
 	}
 	public String getTotal_price() {
 		return total_price;
