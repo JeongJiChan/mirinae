@@ -51,6 +51,10 @@ ALTER TABLE support MODIFY(p_no VARCHAR2(200));
 update support set p_no = 1 where p_no='test';
 ALTER TABLE member MODIFY(address_d VARCHAR2(100));
 ALTER TABLE support MODIFY(address_d VARCHAR2(100));
+delete from support_detail;
+delete from support;
+delete from options;
+delete from project;
 
 create table Member ( -- 회원
     m_no number primary key, -- 회원번호
