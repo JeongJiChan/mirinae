@@ -37,4 +37,7 @@ public class OptionsDao {
 	public List<Options> optionsList(int p_no) {
 		return session.selectList("optionsns.selectList",p_no);
 	}
+	public void deleteoptions(int p_no) {
+		session.update("optionsns.deleteopt",p_no);
+	}
 }
