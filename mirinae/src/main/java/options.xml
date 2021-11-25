@@ -2,12 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="optionsns">
 	<insert id="insert" parameterType="options"> <!-- 입력, 수정, 삭제는 resultType이 필요없다 -->
-		insert into options values( #{opt_code},#{opt_name},#{opt_price},#{p_no})
+		insert into options values( #{opt_code},#{opt_name},#{opt_price},#{p_no},'n')
 	</insert>
 	<select id="select"  resultType="integer">
 		select count(*)+1 from options
 	</select>
 	<select id="selectList" parameterType="integer" resultType="options">
-		select * from options where p_no = #{p_no}
+		select * from options where p_no = #{p_no} and opt_del = 'n'
 	</select>
+	<update id="deleteopt" parameterType="integer">
+		update options set opt_del = 'y' where p_no = #{p_no}
+	</update>
 </mapper>

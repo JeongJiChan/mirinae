@@ -60,6 +60,12 @@ public class ProjectDao {
 	public int getTotal(int cate_code) {
 		return (int) session.selectOne("projectns.categetTotal",cate_code);
 	}
+	public int delete(int p_no) {
+		return (int)session.update("projectns.prodel", p_no);
+	}
+	public int update(Project project) {
+		return session.update("projectns.proupdate", project);
+	}
 
 
 

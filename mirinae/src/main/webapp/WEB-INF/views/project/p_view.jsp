@@ -20,14 +20,32 @@
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
- 	function chk() {
- 		if(${empty id}){
- 			alert("로그인 후 이용해주세요.");
- 			location.href="/mirinae/views/member/loginForm.sun";
-			return false;
- 		}
- 	};
- 	$(function() {		
+	function chk1() {
+	 		if(${empty id}){
+	 			alert("로그인 후 이용해주세요.");
+	 			location.href="/mirinae/views/member/loginForm.sun";
+				return false;
+	 		}
+	 		if(frm.opt_code.value == ""){
+	 			alert("옵션을 선택해주세요");
+	 			return false;
+	 		}
+	}
+	 	
+ 	function del() {
+ 		var con = confirm("정말 삭제하시겠습니까??");
+		if (con){  
+			location.href="p_del.kim?p_no="+${project.p_no};
+		}
+	}
+ 	function update() {
+ 		var con = confirm("정말 수정하시겠습니까??");
+		if (con){  
+			location.href="p_updateForm.kim?p_no="+${project.p_no};
+		}
+	}
+ 	$(function() {	
+ 		
  		$('.opt').change(function() {
  		    var value = $(this).val();
  		    var checked = $(this).prop('checked');
@@ -41,6 +59,7 @@
  		 		 element.innerHTML = "";
  		    }			
  		});	
+ 		
  		$('input').keyup('number',function() {
  			//해당 클래스 이름 가져오기
  		   var getClass=$(this).attr("class");
@@ -52,6 +71,7 @@
  		  element.innerHTML = totalmoney.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
  		});		
  		//alert(name.textContent);  //text 값	
+ 		
  		setInterval(() => {
  			var total = 0;
  			$('#total>div').each(function(index, item) {
@@ -64,10 +84,11 @@
 	 		});	
 		}, 2500);
  	});	
+
 </script>
 </head>
 <body>
-<form action="/mirinae/views/support/sup_form.chan" method="post" name="frm" onsubmit=" return chk()" >
+<form action="/mirinae/views/support/sup_form.chan" method="post" name="frm" onsubmit="return chk1()">
 <input type="hidden" name="p_no" value="${project.p_no }">
 <table id="picture_table">
 	<tr><th id="picture"><img id="preImage" src="/mirinae/p_images/${project.p_no }.jpg"></th></tr>
@@ -94,9 +115,16 @@
 			</td></tr>
 	</c:forEach>
 	<tr><th>총 금액</th><th colspan="3"><div id="totalview" style="display:inline;">원</div></th></tr>
-	<tr class="btntable"><th class="btntable" colspan="4"><button style="WIDTH: 150pt; HEIGHT: 30pt">후원하기</button></th></tr>
+	<tr class="btntable"><th class="btntable" colspan="4"><input type="submit" value="후원하기"  >
+	<c:if test="${project.m_id == id }">
+		<input type="button" onclick="update()" value="수정">
+	</c:if>
+	<c:if test="${project.m_id == id }">
+		<input type="button" onclick="del()" value="삭제">
+	</c:if>
+	</th></tr>
 </table>
-<textarea id="content" rows="40" style="width:94%" name="content">${project.p_content }</textarea>
+<textarea id="content" rows="40" style="width:94%" name="content" readonly="readonly">${project.p_content }</textarea>
 </form>
 </body>
 </html>
