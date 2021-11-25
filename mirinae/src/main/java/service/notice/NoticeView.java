@@ -6,7 +6,6 @@ import javax.servlet.http.HttpSession;
 
 import dao.AdminDao;
 import dao.NoticeDao;
-import model.Admin;
 import model.Notice;
 import service.main.CommandProcess;
 
@@ -37,9 +36,16 @@ public class NoticeView implements CommandProcess {
 		if(id != null) 
 			result = nd.adminChk(id);
 		
-		/* adminChk 디버깅 
-		System.out.println(result);*/
+		//해당글의 페이지번호 조회
+		int curPageNum = 1;
+		final int ROW_PER_PAGE = 10; // 한 페이지에 게시글 10개 씩
+		totalN = nd.getTotalN(); // 삭제되지 않은 총 게시글 수 (no_del='n')
+		if( no_del.equals("n")) {
+			int cul_no = nd.curPageNum(no_no);
+			curPageNum = (totalN-cul_no) / ROW_PER_PAGE;
+		}
 		
+		request.setAttribute("curPageNum", curPageNum);
 		request.setAttribute("writer", writer);
 		request.setAttribute("admin_id", id);
 		request.setAttribute("result", result);

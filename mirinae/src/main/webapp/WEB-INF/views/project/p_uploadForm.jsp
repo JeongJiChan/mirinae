@@ -223,7 +223,7 @@
 	<tr><th class="option_list option_list1">옵션이름</th><th class="option_list option_list2">옵션 가격</th></tr>
 	<tr><th class="option_list option_list3"><div id="opt_divN" class="box"></div></th><th class="option_list"><div id="opt_divP"></div></th></tr>
 </table>
-<textarea id="content" rows="40" style="width:94%" placeholder="내용을 입력하세요" name="content"></textarea>
+<textarea id="content" rows="40" style="width:94%" placeholder="내용을 입력하세요" name="content" required="required"></textarea>
 <div align="center" id="button"><input type="submit" value="등록"><input type="button" value="취소" onclick="history.back()"></div>
 </form>
 </body>

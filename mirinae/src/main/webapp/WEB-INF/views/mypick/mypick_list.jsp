@@ -32,7 +32,7 @@
 					</div>
 					<div class="p_content">
 						<ul>
-							<li>프로젝트명 : ${list.p_name }</li>
+							<li>${list.p_name }</li>
 							<li>목표 금액 : <fmt:formatNumber value="${list.goal_money }" pattern="#,###" /></li>
 							<li>현재 후원 금액 : <fmt:formatNumber value="${list.cur_money }" pattern="#,###" /></li>
 							<li>프로젝트 기간 : ${list.s_date } ~ ${list.e_date }</li>

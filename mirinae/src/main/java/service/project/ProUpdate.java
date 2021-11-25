@@ -1,11 +1,8 @@
-
-
 package service.project;
 
 import java.io.File;
 import java.sql.Date;
 
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -13,61 +10,50 @@ import javax.servlet.http.HttpSession;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-import dao.ProjectDao;
 import dao.MemberDao;
 import dao.OptionsDao;
-import model.Project;
+import dao.ProjectDao;
 import model.Member;
 import model.Options;
+import model.Project;
 import service.main.CommandProcess;
 
-public class ProjectUpload implements CommandProcess {
+public class ProUpdate implements CommandProcess {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		String real = request.getSession().getServletContext().getRealPath("/p_images");
 		int maxSize = 1024 * 1024 * 10;
-		try {
-		MultipartRequest mr = new MultipartRequest(request, real, maxSize,
-				"utf-8", new DefaultFileRenamePolicy());
-		
-		HttpSession session = request.getSession();
 
+		try {
+			MultipartRequest mr = new MultipartRequest(request, real, maxSize,
+					"utf-8", new DefaultFileRenamePolicy());
+		int p_no = Integer.parseInt(mr.getParameter("p_no"));
 		int cate_code = Integer.parseInt(mr.getParameter("category"));
 		String p_name = mr.getParameter("name");
 		String p_content = mr.getParameter("content");
-		String m_id = (String)session.getAttribute("id");
-		MemberDao memberDao = MemberDao.getInstance();
-	    Member member = memberDao.select(m_id);
-		String p_writer = member.getM_name();
-		Date s_date = Date.valueOf(mr.getParameter("s_date"));
 		Date e_date = Date.valueOf(mr.getParameter("e_date"));
 		int goal_money = Integer.parseInt(mr.getParameter("goal_money"));
-
-	//  프로젝트 셋팅
+		
 		Project project = new Project();
+		project.setP_no(p_no);
 		project.setCate_code(cate_code);
 		project.setP_name(p_name);
 		project.setP_content(p_content);
-		project.setP_writer(p_writer);
-		project.setS_date(s_date);
 		project.setE_date(e_date);
 		project.setGoal_money(goal_money);
-		project.setM_id(m_id);
+		
 		
 		int result = 0;
 		ProjectDao pd = ProjectDao.getInstance();
-		//프로젝트 넘버 알아오기
-		int p_no = pd.find_p_no();
-		project.setP_no(p_no);
-		int resultpro = pd.insert(project); 
-		
+		int resultpro = pd.update(project); 
 		
 		//옵션 세팅
 		int resultopt = 0;
 	 	String opt_name1 = mr.getParameter("name_arr");
 	 	String opt_price1 = mr.getParameter("price_arr");
 		OptionsDao od = OptionsDao.getInstance();
+		od.deleteoptions(p_no);
 		//옵션 코드 알아오기
 		int opt_code = od.find_opt_code();
 	 	if(opt_name1.contains(",")) {
@@ -104,20 +90,20 @@ public class ProjectUpload implements CommandProcess {
 	 	}
 	
 	 	//파일 이름 변경
-	 	 
  	    String fileName = mr.getFilesystemName("filename");
- 	    String now = String.valueOf(p_no);	 	 
+ 	    String now = String.valueOf(p_no);	
  	    int i = -1;
  	   	i = fileName.lastIndexOf("."); // 파일 확장자 위치
  	   	//이름과 확장자 결합
  	   	String realFileName = now + fileName.substring(i, fileName.length());     
  	    File oldFile = new File(real +"/"+ fileName);
  	    File newFile = new File(real +"/"+ realFileName);
- 	    
+
+ 	   
  	    File deleteimg = new File(real +"/"+ realFileName);
  	    if(deleteimg.exists()) {
  	    	deleteimg.delete();
- 	    }   
+ 	    }
  	    oldFile.renameTo(newFile); // 파일명 변경
 
 		if(resultpro == 1 && resultopt == 1) {
@@ -126,8 +112,10 @@ public class ProjectUpload implements CommandProcess {
 	
 		 request.setAttribute("result", result);
 		}catch (Exception e) {
-			System.out.println("연결에러 : "+e.getMessage());
+			e.printStackTrace();
+			
 		}
-		return "/project/p_upload";
+		return "/project/p_update";
 	}
+
 }

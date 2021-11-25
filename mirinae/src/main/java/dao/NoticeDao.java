@@ -79,4 +79,9 @@ public class NoticeDao {
 		return (int) session.selectOne("noticens.getTotal");
 	}
 
+	public int curPageNum(int no_no) {
+		//System.out.println("no_no="+no_no);
+		return (int)session.selectOne("noticens.curPageNum", no_no);
+	}
+
 }

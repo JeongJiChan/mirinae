@@ -42,4 +42,9 @@
 	<update id="update">
 		update notice set no_title=#{no_title}, no_content=#{no_content} where no_no = #{no_no}
 	</update>
+	<!-- 해당 글의 현재 페이지번호 -->
+	<select id="curPageNum" parameterType="integer" resultType="integer">
+		select rn from (select rowNum rn,a.* from (select * from
+		notice where no_del = 'n' )a)where no_no=#{no_no} order by rn desc
+	</select>
 </mapper>
