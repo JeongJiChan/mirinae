@@ -76,5 +76,30 @@
 		(select * from cs where cs_ref in (select cs_ref from cs where m_no = #{m_no}) order by cs_ref desc, cs_re_step asc) a)
 		where rn between #{startRow} and #{endRow}
 	</select>
-
+	
+	<!-- 관리자페이지 - 총 프로젝트 수 -->
+	<select id="getTotalP" resultType="integer">
+		select count(*) from project
+	</select>
+	
+	<!-- 프로젝트 목록 최신순 -->
+	<select id="list3" resultType="project">
+		select * from
+		(select rowNum rn , a.* from
+		(select * from project order by p_no desc) a)
+		where rn between #{startRow} and #{endRow}
+	</select>
+	
+	<!-- 관리자페이지 - 총 후원 수 -->
+	<select id="getTotalP" resultType="integer">
+		select count(*) from support
+	</select>
+	
+	<!-- 후원 목록 최신순 -->
+	<select id="list4" resultType="project">
+		select * from
+		(select rowNum rn , a.* from
+		(select * from support order by sup_no desc) a)
+		where rn between #{startRow} and #{endRow}
+	</select>
 </mapper>
