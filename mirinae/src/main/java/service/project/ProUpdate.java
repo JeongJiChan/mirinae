@@ -91,14 +91,19 @@ public class ProUpdate implements CommandProcess {
 	
 	 	//파일 이름 변경
  	    String fileName = mr.getFilesystemName("filename");
- 	    String now = String.valueOf(p_no);	 	 
+ 	    String now = String.valueOf(p_no);	
  	    int i = -1;
  	   	i = fileName.lastIndexOf("."); // 파일 확장자 위치
  	   	//이름과 확장자 결합
  	   	String realFileName = now + fileName.substring(i, fileName.length());     
  	    File oldFile = new File(real +"/"+ fileName);
  	    File newFile = new File(real +"/"+ realFileName);
-	 	   
+
+ 	   
+ 	    File deleteimg = new File(real +"/"+ realFileName);
+ 	    if(deleteimg.exists()) {
+ 	    	deleteimg.delete();
+ 	    }
  	    oldFile.renameTo(newFile); // 파일명 변경
 
 		if(resultpro == 1 && resultopt == 1) {

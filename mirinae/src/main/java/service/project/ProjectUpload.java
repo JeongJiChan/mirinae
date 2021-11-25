@@ -113,7 +113,11 @@ public class ProjectUpload implements CommandProcess {
  	   	String realFileName = now + fileName.substring(i, fileName.length());     
  	    File oldFile = new File(real +"/"+ fileName);
  	    File newFile = new File(real +"/"+ realFileName);
-	 	   
+ 	    
+ 	    File deleteimg = new File(real +"/"+ realFileName);
+ 	    if(deleteimg.exists()) {
+ 	    	deleteimg.delete();
+ 	    }   
  	    oldFile.renameTo(newFile); // 파일명 변경
 
 		if(resultpro == 1 && resultopt == 1) {

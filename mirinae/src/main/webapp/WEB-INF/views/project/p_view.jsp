@@ -116,10 +116,10 @@
 	</c:forEach>
 	<tr><th>총 금액</th><th colspan="3"><div id="totalview" style="display:inline;">원</div></th></tr>
 	<tr class="btntable"><th class="btntable" colspan="4"><input type="submit" value="후원하기"  >
-	<c:if test="${project.m_id == id }">
+	<c:if test="${project.m_id == id || not empty admin_id }">
 		<input type="button" onclick="update()" value="수정">
 	</c:if>
-	<c:if test="${project.m_id == id }">
+	<c:if test="${project.m_id == id || not empty admin_id }">
 		<input type="button" onclick="del()" value="삭제">
 	</c:if>
 	</th></tr>

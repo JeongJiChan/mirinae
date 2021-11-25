@@ -61,10 +61,10 @@
 		if(frm.goal_money.value < 0 ){
 			alert("목표금액을 0원 이상으로 입력해주세요.")
 		}
-// 		if(frm.filename.value == ""){
-// 			alert("대표이미지를 선택해주세요.");
-// 			return false;
-// 		}
+		if(frm.filename.value == ""){
+			alert("프로젝트 수정 시 대표이미지를 다시 선택해 주세요.");
+			return false;
+		}
 		if(frm.filename.value.indexOf(".jpg") == -1){
 			alert("확장자가 jpg인 파일만 올려주시기 바랍니다.");
 			return false;
@@ -224,9 +224,9 @@
 	<tr><th class="option_list option_list1">옵션이름</th><th class="option_list option_list2">옵션 가격</th></tr>
 	<tr><th class="option_list option_list3"><div id="opt_divN" class="box"></div></th><th class="option_list"><div id="opt_divP"></div></th></tr>
 </table>
-<textarea id="content" rows="40" style="width:94%" placeholder="내용을 입력하세요" name="content">
+<textarea id="content" rows="40" style="width:94%" placeholder="내용을 입력하세요" name="content" required="required">
 --------------------------------------------------------
-     수정전 옵션
+           수정전 옵션
 <c:forEach var="opt" items="${options }">
 	옵션 이름 : ${opt.opt_name }
 	옵션 가격 : ${opt.opt_price }원
