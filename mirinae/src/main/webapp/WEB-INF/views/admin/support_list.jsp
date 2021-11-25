@@ -27,7 +27,7 @@
 </head>
 <body>
 <h2>전체 후원 목록</h2>
-<pre><span style="color: red">*</span>취소된 프로젝트도 포함</pre>
+<pre><span style="color: red">*</span>취소한 후원도 포함</pre>
 <!-- <form method="post" action="searchMember.sun">
 	<select name="part">
 		<option value="id">ID</option>
@@ -49,7 +49,6 @@
 			<th>프로젝트번호</th>
 			<th>총액</th>
 			<th>삭제여부</th>
-			
 		</tr>
 		<c:if test="${empty list}">
 			<tr>
@@ -60,7 +59,7 @@
 			<c:forEach var="s" items="${list }">
 				<tr>
 					<td align="center" class="title" onclick="location.href='../support/sup_view.chan?sup_no=${s.sup_no}'">${s.sup_no}</td>
-					<td>${s.m_no}</td>
+					<td align="center">${s.m_no}</td>
 					<td>${s.sup_address}</td>
 					<td>${s.address_d}</td>
 					<td>${s.sup_tel}</td>
@@ -68,7 +67,6 @@
 					<td>${s.sup_name}</td>
 					<td>${s.p_no}</td>
 					<td>${s.total_price}</td>
-					
 					<%-- <td><a onclick="del('${p.p_no}')">강제취소</a></td> --%>
 				</tr>
 			</c:forEach>

@@ -56,7 +56,7 @@ public class SupportList implements CommandProcess {
 		
 		
 		
-		return "admin/project_list";
+		return "admin/support_list";
 	}
 
 }

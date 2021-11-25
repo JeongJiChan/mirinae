@@ -91,12 +91,12 @@
 	</select>
 	
 	<!-- 관리자페이지 - 총 후원 수 -->
-	<select id="getTotalP" resultType="integer">
+	<select id="getTotalS" resultType="integer">
 		select count(*) from support
 	</select>
 	
 	<!-- 후원 목록 최신순 -->
-	<select id="list4" resultType="project">
+	<select id="list4" resultType="support">
 		select * from
 		(select rowNum rn , a.* from
 		(select * from support order by sup_no desc) a)
