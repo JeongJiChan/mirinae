@@ -36,11 +36,10 @@ public class ProjectUpload implements CommandProcess {
 		int cate_code = Integer.parseInt(mr.getParameter("category"));
 		String p_name = mr.getParameter("name");
 		String p_content = mr.getParameter("content");
-		String m_id = (String)session.getAttribute("id");
+		String m_id = (String) session.getAttribute("id");
 		MemberDao memberDao = MemberDao.getInstance();
 	    Member member = memberDao.select(m_id);
 		String p_writer = member.getM_name();
-		
 		Date s_date = Date.valueOf(mr.getParameter("s_date"));
 		Date e_date = Date.valueOf(mr.getParameter("e_date"));
 		int goal_money = Integer.parseInt(mr.getParameter("goal_money"));
@@ -54,6 +53,7 @@ public class ProjectUpload implements CommandProcess {
 		project.setS_date(s_date);
 		project.setE_date(e_date);
 		project.setGoal_money(goal_money);
+		project.setM_id(m_id);
 		
 		int result = 0;
 		ProjectDao pd = ProjectDao.getInstance();

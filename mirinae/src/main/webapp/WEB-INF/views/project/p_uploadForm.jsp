@@ -36,7 +36,7 @@
 	var s_date;
 	
 	window.onload = function() {
-		if(${empty id}){
+		if(${empty id && empty admin_id}){
 			alert("로그인 후 이용해주세요.");
 			location.href="/mirinae/views/member/loginForm.sun";
 		}

@@ -5,7 +5,7 @@
 	<insert id="insert" parameterType="project"> <!-- 입력, 수정, 삭제는 resultType이 필요없다 -->
 															   <!-- 세션연결 후에 작성자 이름 추가 -->
 		insert into project values(#{p_no},#{cate_code},#{p_name},#{p_content},#{p_writer},
-									#{s_date},#{e_date},#{goal_money},0,'n',sysdate,0)
+									#{s_date},#{e_date},#{goal_money},0,'n',sysdate,0,#{m_id})
 	</insert>
 <!-- 	프로젝트 넘버 구하기 -->
 	<select id="find_p_no" resultType="integer">
