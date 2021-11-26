@@ -9,7 +9,22 @@
 	
 	<!-- 닉네임 중복체크, m_nick를 가지고 member 조회 -->
 	<select id="nick_Chk" parameterType="string" resultType="member">
-		select * from member where m_nick=#{m_nick}
+		select m_nick from member where m_nick=#{m_nick}
+	</select>
+	
+	<!-- 이메일 중복체크, m_email를 가지고 member 조회 -->
+	<select id="nick_Email" parameterType="string" resultType="member">
+		select m_email from member where m_email=#{m_email}
+	</select>
+	
+	<!-- m_name과 m_email 가지고 member 조회 -->
+	<select id="find_Id" parameterType="hashmap" resultType="member">
+		select * from member where m_name=#{m_name} and m_email=#{m_email}
+	</select>
+	
+	<!-- m_id과 m_email 가지고 member 조회 -->
+	<select id="find_Pass" parameterType="hashmap" resultType="member">
+		select * from member where m_id=#{m_id} and m_email=#{m_email}
 	</select>
 	
 	<!-- 회원가입 성공하면 데이터 입력 -->

@@ -13,6 +13,8 @@
 		<excludes>
 		<pattern>/views/member/confirmId.*</pattern>
 		<pattern>/views/member/confirmNick.*</pattern>
+		<pattern>/views/member/confirmEmail.*</pattern>
 		<pattern>/views/member/confirmMyNick.*</pattern>
+		
 	</excludes>
 </decorators>
