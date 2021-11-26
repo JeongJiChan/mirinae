@@ -66,9 +66,4 @@ public class ProjectDao {
 	public int update(Project project) {
 		return session.update("projectns.proupdate", project);
 	}
-
-
-
-	
-	
 }

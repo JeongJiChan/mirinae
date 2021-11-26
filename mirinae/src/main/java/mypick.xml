@@ -20,13 +20,16 @@
 	<select id="selectP" parameterType="integer" resultType="Project">
 		select * from project where p_no = #{p_no}
 	</select>
-	
-	<!-- 마이픽 저장 -->
-	<insert id="myinsert" parameterType="integer">
-		insert into mypick values(#{m_no}, #{p_no})
+	<!-- 마이픽 등록하기 -->
+	<insert id="insertMypick" parameterType="hashmap">
+		insert into mypick values (select m_no from member where m_id = #{id}),#{p_no})
 	</insert>
 	<!-- 마이픽 삭제 -->
 	<delete id="mydelete" parameterType="integer">
 		delete from mypick where m_no = #{m_no} and p_no={p_no} 
 	</delete>
+	<!-- 해당 id와 p_no가 mypick 테이블에 있는지 조회 -->
+	<select id="countMypick" parameterType="hashmap" resultType="integer">
+		select count(*) from mypick where p_no =#{p_no} and m_no = (select m_no from member where m_id = #{id})
+	</select>
 </mapper>
