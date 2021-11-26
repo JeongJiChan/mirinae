@@ -17,9 +17,20 @@
 	#preImage { width: 100%; height: 340px; }
 	#option { height: 80px; }
 	.btntable { border: 0px solid black; }
+	.mypick {margin-left:15px; width: 30px; height: 30px; }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
+	function mypick() {
+		$("#mypickdel").click(function() {
+			
+			onclick="location.href='/mirinae/views/mypick/mypick_insert.la'"
+			var $this = $(this);
+			
+			$this.find()
+		});
+	}
+	
 	function chk1() {
 	 		if(${empty id}){
 	 			alert("로그인 후 이용해주세요.");
@@ -122,6 +133,16 @@
 	<c:if test="${project.m_id == id || not empty admin_id }">
 		<input type="button" onclick="del()" value="삭제">
 	</c:if>
+	
+	<!-- 마이픽 버튼 -->
+	<c:if test="${mypick > 0}">
+	<img alt="mypick" src="/mirinae/images/star-fill.png" class="mypick" id="mypickdel">
+	</c:if>
+	<c:if test="${mypick == 0}">
+	<img alt="mypick" src="/mirinae/images/star-empty.png" class="mypick" id="mypickinsert"
+		onclick="location.href='/mirinae/views/mypick/mypick_delete.la'">
+	</c:if>
+	
 	</th></tr>
 </table>
 <textarea id="content" rows="40" style="width:94%" name="content" readonly="readonly">${project.p_content }</textarea>
