@@ -56,6 +56,11 @@ delete from support;
 delete from options;
 delete from project;
 
+alter table project add m_id varchar2(20);
+alter table options add opt_del varchar2(5);
+alter table project modify p_name varchar2(40);
+alter table options modify opt_name varchar2(40);
+
 create table Member ( -- 회원
     m_no number primary key, -- 회원번호
     m_id varchar2(20), -- 회원아이디
