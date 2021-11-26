@@ -17,17 +17,23 @@
 </style>
 <script type="text/javascript" src="/mirinae/js/jquery.js"></script>
 <script type="text/javascript">
-	/* function del(delMid) {
-		var con = confirm("탈퇴처리 하시겠습니까?");
-		if(con) {
-			location.href="../admin/admin_delete.sun?m_id="+delMid+"&pageNum=${pageNum}";
-		} else alert("탈퇴 취소");
-	};) */
+    $(function() {
+		$('td').click(function() {
+			var data = $(this).prop('tagName');
+			if(data == 'td'){
+			location.href="../project/p_view.kim?p_no="${p.p_no};
+			}
+		});
+		$('button').click(function() {
+			location.href='../project/p_del.kim?p_no='+${p.p_no};
+		});
+	});
+
 </script>
 </head>
 <body>
 <h2>전체 프로젝트 목록</h2>
-<pre><span style="color: red">*</span>취소된 프로젝트도 포함</pre>
+<pre><span style="color: red">&nbsp;&nbsp;&nbsp;*</span>취소된 프로젝트도 포함</pre>
 <!-- <form method="post" action="searchMember.sun">
 	<select name="part">
 		<option value="id">ID</option>
@@ -57,19 +63,18 @@
 		<c:if test="${not empty list }">
 			<c:forEach var="p" items="${list }">
 				<tr>
-					<td align="center">${p.p_no}</td>
-					<td>${p.cate_code}</td>
+					<td align="center" class="title" onclick="location.href='../project/p_view.kim?p_no=${p.p_no}'">${p.p_no}</td>
+					<td class="title" onclick="location.href='../project/p_view.kim?p_no=${p.p_no}'">${p.cate_code}</td>
 					<td class="title" onclick="location.href='../project/p_view.kim?p_no=${p.p_no}'">${p.p_name}</td>
-					<td>${p.p_writer}</td>
-					<td>${p.s_date}</td>
-					<td>${p.e_date}</td>
-					<td>${p.cur_money}</td>
-					<td>${p.goal_money}</td>
-					<td>${p.p_del}</td>
-					
-					<td><a onclick="del('${p.p_no}')">강제취소</a></td>
+					<td class="title" onclick="location.href='../project/p_view.kim?p_no=${p.p_no}'">${p.p_writer}</td>
+					<td class="title" onclick="location.href='../project/p_view.kim?p_no=${p.p_no}'">${p.s_date}</td>
+					<td class="title" onclick="location.href='../project/p_view.kim?p_no=${p.p_no}'">${p.e_date}</td>
+					<td class="title" onclick="location.href='../project/p_view.kim?p_no=${p.p_no}'">${p.cur_money}</td>
+					<td class="title" onclick="location.href='../project/p_view.kim?p_no=${p.p_no}'">${p.goal_money}</td>
+					<td class="title" align="center" onclick="location.href='../project/p_view.kim?p_no=${p.p_no}'">${p.p_del}</td>
+					<th><button onclick="location.href='../project/p_del.kim?p_no=${p.p_no}'">강제취소</button></th>
 				</tr>
-			</c:forEach>
+			</c:forEach>	
 		</c:if>
 	</table>
 	<!-- paging -->
