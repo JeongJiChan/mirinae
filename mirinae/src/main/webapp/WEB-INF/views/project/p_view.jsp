@@ -17,19 +17,24 @@
 	#preImage { width: 100%; height: 340px; }
 	#option { height: 80px; }
 	.btntable { border: 0px solid black; }
-	.mypick {margin-left:15px; width: 30px; height: 30px; }
+	.star {margin-left:15px; width: 30px; height: 30px; cursor: pointer;}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
-	function mypick() {
-		$("#mypickdel").click(function() {
-			
-			onclick="location.href='/mirinae/views/mypick/mypick_insert.la'"
-			var $this = $(this);
-			
-			$this.find()
-		});
-	}
+	function sessionChk(p_no) {
+		if(${not empty id}) {
+			$.post("/mirinae/views/mypick/mypick.la", "p_no="+p_no, function(data) {
+				var imgSrc = data.split(",")[0];
+				var msg = data.split(",")[1];
+				
+				$(".star").attr("src", imgSrc);
+			});
+		}else {
+			alert('로그인 후 이용해주세요.');
+			location.href="/mirinae/views/member/loginForm.sun";
+			return false;
+		}
+	} 
 	
 	function chk1() {
 	 		if(${empty id}){
@@ -135,14 +140,9 @@
 	</c:if>
 	
 	<!-- 마이픽 버튼 -->
-	<c:if test="${mypick > 0}">
-	<img alt="mypick" src="/mirinae/images/star-fill.png" class="mypick" id="mypickdel">
-	</c:if>
-	<c:if test="${mypick == 0}">
-	<img alt="mypick" src="/mirinae/images/star-empty.png" class="mypick" id="mypickinsert"
-		onclick="location.href='/mirinae/views/mypick/mypick_delete.la'">
-	</c:if>
 	
+	<img onclick="sessionChk(${project.p_no })" alt="마이픽" src="${imgSrc}" class="star">
+	${imgSrc }<br>${msg }
 	</th></tr>
 </table>
 <textarea id="content" rows="40" style="width:94%" name="content" readonly="readonly">${project.p_content }</textarea>

@@ -54,23 +54,21 @@ public class MypickDao {
 		
 	}
 
-	public int delete(int p_no, int m_no) {
-		HashMap<String, Integer> hm = new HashMap<String, Integer>();
+	public int delete(int p_no, String id) {
+		HashMap<String, Object> hm = new HashMap<String, Object>();
 		hm.put("p_no", p_no);
-		hm.put("m_no", m_no);
+		hm.put("id", id);
 		return (int)session.delete("mypickns.mydelete", hm);
 	}
 
-	public int insertMypick(int p_no, String id) {
+	public int insert(int p_no, String id) {
 		HashMap<String,Object> hm = new HashMap<String, Object>();
 		hm.put("p_no",p_no);
 		hm.put("id", id);
-		return (int)session.insert("mypickns.insertMypick", hm);
+		return (int)session.insert("mypickns.myinsert", hm);
 	}
 
 	public int count(String id, int p_no) {
-		System.out.println("id = "+id);
-		System.out.println("p_no = "+p_no);
 		HashMap<String,Object> hm = new HashMap<String, Object>();
 		hm.put("p_no",p_no);
 		hm.put("id", id);
