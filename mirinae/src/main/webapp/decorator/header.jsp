@@ -10,17 +10,20 @@
 <style type="text/css">@import url("/mirinae/css/bootstrap.css")</style>
 <style type="text/css">
 	.dropdown:hover .dropdown-menu { display: block; margin-top: 0; }
+	#div { display: flex; justify-content: center; align-items: center; }
+	ul { display: flex; justify-content: space-between; align-item: center; font-size: 20px; }
+	#navbarColor01 { display: flex; justify-content: center; align-items: center; }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/mirinae/views/main/home.chan"><img alt="" src="/mirinae/images/logo4.gif" width="200px"></a>
+  <div class="container-fluid" id="div">
     <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarColor01">
+    <a class="navbar-brand" href="/mirinae/views/main/home.chan"><img alt="" src="/mirinae/images/logo3.gif" width="150px"></a>
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
           <a class="nav-link" href="/mirinae/views/project/p_uploadForm.kim">프로젝트 등록</a>

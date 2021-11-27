@@ -4318,6 +4318,8 @@ fieldset:disabled .btn {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+  justify-content: space-between;
+  align-content: center;
 }
 
 .navbar-nav .nav-link {
@@ -4536,6 +4538,8 @@ fieldset:disabled .btn {
     display: flex  ;
     -ms-flex-preferred-size: auto;
     flex-basis: auto;
+    justify-content: center;
+    align-items: center;
   }
   .navbar-expand-lg .navbar-toggler {
     display: none;
@@ -8012,10 +8016,6 @@ fieldset:disabled .btn {
 
 .me-5 {
   margin-right: 3rem ;
-}
-
-.me-auto {
-  margin-right: auto ;
 }
 
 .mb-0 {

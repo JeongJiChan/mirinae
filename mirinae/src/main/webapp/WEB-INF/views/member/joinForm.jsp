@@ -25,19 +25,12 @@ window.onload = function(){
 	/* 비밀번호 확인, 중복체크 버튼 눌렀는지 확인 */
 	function chk() {
 		var getName = /^[가-힣]+$/;
-		var getEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 
 		//이름 유효성 검사 
 		if(!getName.test($("#m_name").val())) { 
 			alert("이름은 한글만 입력가능");
 			$("#m_name").val(""); 
 			$("#m_name").focus(); 
-			return false; 
-		}
-		//이메일 유효성 검사 
-		if(!getEmail.test($("#m_email").val())) { 
-			alert("이메일 형식에 맞게 다시 입력");
-			$("#m_email").focus(); 
 			return false; 
 		}
 
@@ -54,6 +47,10 @@ window.onload = function(){
 		}	
 		if (frm.nickchk.value == "unChk") {
 	   	 	alert("닉네임 중복체크를 해주세요.");
+	    	return false;
+		}
+		if (frm.emailchk.value == "unChk") {
+	   	 	alert("이메일 중복체크를 해주세요.");
 	    	return false;
 		}
 	};
@@ -145,7 +142,40 @@ window.onload = function(){
                 frm.nickchk.value="chk";
              }
 		});
-	}	
+	}
+	
+	/* 이메일 중복체크 & 이메일 유효성 검사 */
+	function email_chk() {
+		var getEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+		
+		//이메일 유효성 검사 
+		if(!getEmail.test($("#m_email").val())) { 
+			alert("이메일 형식에 맞게 입력해주세요");
+			$("#m_email").focus(); 
+			return false; 
+		}
+		
+		if (!frm.m_email.value) {
+			alert("이메일을 입력하고 체크해주세요");
+			frm.m_email.focus();
+			return false;
+		}
+
+		// 변수 id에 입력한 id를 담아서 post방식으로 confirmId.sun을 실행하고, 그 결과를 받아서
+		// id가 err_id인 곳에 html 형식으로 보여줘라
+		$.post('confirmEmail.sun', "m_email=" + frm.m_email.value, function(data) {
+ 		 	if(data == 1) {
+                $('#err_email').html("이메일 중복");
+                $('#err_email').css("color","red");
+                frm.emailchk.value="unChk";
+             }
+ 		 	else {
+ 				$('#err_email').html("사용가능한 이메일");
+             	$('#err_email').css("color","blue");
+             	frm.emailchk.value="chk";
+              	}
+			});
+	}
 </script>
 </head>
 <body>
@@ -154,6 +184,7 @@ window.onload = function(){
 		<fieldset><legend>회 원 가 입</legend>
 			<input type="hidden" name="idchk" value="unChk">
 	    	<input type="hidden" name="nickchk" value="unChk">
+	    	<input type="hidden" name="emailchk" value="unChk">
 	
 			<pre>*는 반드시 입력항목입니다</pre>
 			<div> <!-- 아이디 -->
@@ -184,6 +215,8 @@ window.onload = function(){
 	        <div> <!-- 이메일 -->
 	            <label for="m_email"><span style="color: red">*</span></label>
 	            	<input type="email" name="m_email" id="m_email" placeholder="이메일" required="required">
+	            	<input type="button" value="중복체크" onclick="email_chk()">
+					<div id="err_email"></div>
 	        </div>
 	        
 	        <div> <!-- 이름 -->

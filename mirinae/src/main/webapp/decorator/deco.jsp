@@ -13,8 +13,7 @@
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
-	<br>
-	<br>
+	<hr>
 	<deco:head></deco:head>
 	<deco:body></deco:body>
 	<hr>

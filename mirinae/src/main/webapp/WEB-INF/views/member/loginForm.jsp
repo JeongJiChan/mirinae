@@ -23,6 +23,10 @@
 			<div> <!-- 로그인하기 -->
 	            <input type="submit" value="로그인">
 	        </div>
+	        
+	         <div>
+            <a href="findIdForm.sun">아이디 찾기</a> | <a href="findPassForm.sun">비밀번호 찾기</a> | <a href="joinForm.sun">회원가입</a>
+        	</div>
 		</fieldset>
 	</form>
 </body>

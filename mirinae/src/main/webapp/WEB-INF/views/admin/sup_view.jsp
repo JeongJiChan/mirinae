@@ -17,7 +17,6 @@
 	<c:param name="sup_no" value="${sp.sup_no }"/>
 	<c:param name="total_price" value="${sp.total_price }"/>
 	<c:param name="p_no" value="${sp.p_no }"/>
-	<c:param name="pageNum" value="${pageNum }"/>
 </c:url>
 
 
@@ -45,8 +44,8 @@
 	</div>
 </c:if>
 	<div class="btnDiv">
-		<a href="sup_list.chan?pageNum=${pageNum}">목록</a> 
-		&nbsp;
+		<a href="support_list.kwon">목록</a> 
+		&nbsp;&nbsp;&nbsp;
 		<a href="${deleteUrl }" onclick="return confirm('후원을 취소하시겠습니까?')">후원취소</a>
 	</div>
 </body>

@@ -10,7 +10,8 @@
 	table,tr,th,td { border: 1px solid black; }
 	.prev_btn, .num_btn, .next_btn { float: left; margin: 10px; }
 	.goback { clear: both; }
-	.title:hover {
+	.number { align: center;}
+	.support:hover { 
 		text-decoration: underline;
 		cursor: pointer;
 	}
@@ -27,7 +28,7 @@
 </head>
 <body>
 <h2>전체 후원 목록</h2>
-<pre><span style="color: red">*</span>취소한 후원도 포함</pre>
+<pre><span style="color: red">&nbsp;&nbsp;&nbsp;*</span>취소한 후원도 포함</pre>
 <!-- <form method="post" action="searchMember.sun">
 	<select name="part">
 		<option value="id">ID</option>
@@ -48,7 +49,8 @@
 			<th>후원자명</th>
 			<th>프로젝트번호</th>
 			<th>총액</th>
-			<th>삭제여부</th>
+			<th>취소여부</th>
+			<th>취소 및 환불</th>
 		</tr>
 		<c:if test="${empty list}">
 			<tr>
@@ -57,23 +59,24 @@
 		</c:if>
 		<c:if test="${not empty list }">
 			<c:forEach var="s" items="${list }">
-				<tr>
-					<td align="center" class="title" onclick="location.href='../support/sup_view.chan?sup_no=${s.sup_no}'">${s.sup_no}</td>
+				<tr class="support" onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}'">
+					<td align="center">${s.sup_no}</td>
 					<td align="center">${s.m_no}</td>
 					<td>${s.sup_address}</td>
 					<td>${s.address_d}</td>
 					<td>${s.sup_tel}</td>
 					<td>${s.sup_date}</td>
 					<td>${s.sup_name}</td>
-					<td>${s.p_no}</td>
+					<td align="center">${s.p_no}</td>
 					<td>${s.total_price}</td>
-					<%-- <td><a onclick="del('${p.p_no}')">강제취소</a></td> --%>
+					<td>${s.del }</td>
+					<td><button>취소</button></td>
 				</tr>
 			</c:forEach>
 		</c:if>
 	</table>
 	<!-- paging -->
-	<div>
+	<div align="center">
 		<div class="number">
 			<div class="prev_btn">
 				<c:if test="${startPage > PAGE_PER_BLOCK}">

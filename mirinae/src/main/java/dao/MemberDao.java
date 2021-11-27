@@ -4,11 +4,12 @@ import java.io.Reader;
 import java.util.HashMap;
 import java.util.List;
 
-import model.Member;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+import model.Member;
 
 
 public class MemberDao {
@@ -35,9 +36,14 @@ public class MemberDao {
 		return (Member)session.selectOne("memberns.select",id);
 	}
 	
-	// 닉네임 중복체크, m_nick를 가지고 member 조회
+	// 닉네임 중복체크, m_nick를 가지고 m_nick 조회
 	public Member nick_Chk(String nick) {
 		return (Member)session.selectOne("memberns.nick_Chk",nick);
+	}
+	
+	// 이메일 중복체크, m_email를 가지고 m_email 조회
+	public Member nick_Email(String email) {
+		return (Member)session.selectOne("memberns.nick_Email",email);
 	}
 	
 	// 회원가입 성공하면 데이터 입력
@@ -70,6 +76,7 @@ public class MemberDao {
 		HashMap<String, Integer> hm = new HashMap<>();
 		hm.put("startRow", startRow);
 		hm.put("endRow", endRow);
+		
 		return (List<Member>)session.selectList("memberns.list", hm);
 	}
 	
@@ -92,4 +99,22 @@ public class MemberDao {
 		
 		return (int)session.selectOne("memberns.getSearchTotal", hm);
 	}
+	
+	// 이름과 이메일 가지고 member 조회
+		public Member find_Id(String name, String email) {
+			HashMap<String, Object> hm = new HashMap<>();
+			hm.put("m_name", name);
+			hm.put("m_email", email);
+			
+			return (Member)session.selectOne("memberns.find_Id", hm);
+		}
+		
+	// 아이디와 이메일 가지고 member 조회
+		public Member find_Pass(String id, String email) {
+			HashMap<String, Object> hm = new HashMap<>();
+			hm.put("m_id", id);
+			hm.put("m_email", email);
+					
+			return (Member)session.selectOne("memberns.find_Pass", hm);
+		}
 }
