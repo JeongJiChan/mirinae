@@ -10,6 +10,7 @@
 <script type="text/javascript">
 	location.href="views/main/home.chan"
 // location.href="views/support/sup_list.chan"
+
 </script>
 </body>
 </html>

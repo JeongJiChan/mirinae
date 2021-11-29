@@ -11,8 +11,9 @@
 <style type="text/css">
 	.dropdown:hover .dropdown-menu { display: block; margin-top: 0; }
 	#div { display: flex; justify-content: center; align-items: center; }
-	ul { display: flex; justify-content: space-between; align-item: center; font-size: 20px; }
+	ul { display: flex; justify-content: space-between; align-item: center; font-size: 20px; margin-right: 20px; margin-left: 20px; }
 	#navbarColor01 { display: flex; justify-content: center; align-items: center; }
+	li { margin-left: 20px; margin-right: 20px; min-width: 100px; text-align: center; }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
