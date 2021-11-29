@@ -9,15 +9,17 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	function sessionChk() {
-		if (${empty id}) {
-			alert("로그인 후 이용해 주시기 바랍니다");
-			location.href="/mirinae/views/member/loginForm.sun";
-			
+		if(${empty admin_id}) {
+			if (${empty id}) {
+				alert("로그인 후 이용해 주시기 바랍니다");
+				location.href="/mirinae/views/member/loginForm.sun";		
+			} else {
+				location.href="cs_writeForm.kwon?cs_no=0&pageNum=${currentPage}";
+			} 
 		} else {
-			location.href="cs_writeForm.kwon?cs_no=0&pageNum=${currentPage}";
+			alert("관리자는 고객문의를 작성할 수 없습니다");
 		}
 	}
-
 </script>
 <style type="text/css">@import url("/mirinae/css/bootstrap.css");</style>
 <style type="text/css">
@@ -68,11 +70,7 @@
 				<c:forEach var="cs" items="${list }">
 					<tr>
 						<td class="tableno underline">${cs.cs_no}<c:set var="number"
-								value="${cs.cs_no - 1}"></c:set></td>
-						<c:if test="${cs.cs_del=='y' }">
-							<th colspan="4">삭제된 게시글입니다</th>
-						</c:if>
-						
+								value="${cs.cs_no - 1}"></c:set></td>	
 						<c:if test="${cs.cs_del != 'y' }">
 							
 							<td

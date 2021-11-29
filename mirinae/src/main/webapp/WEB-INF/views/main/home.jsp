@@ -27,13 +27,13 @@
 			</ol>
 			<div class="carousel-inner">
 				<div class="item active">
-					<img src="/mirinae/images/logo1.gif" alt="First slide">
+					<img src="/mirinae/p_images/${p_no1 }.jpg" alt="First slide">
 				</div>
 				<div class="item">
-					<img src="/mirinae/images/logo2.gif" alt="Second slide">
+					<img src="/mirinae/p_images/${p_no2 }.jpg" alt="Second slide">
 				</div>
 				<div class="item">
-					<img src="/mirinae/images/logo3.gif" alt="Third slide">
+					<img src="/mirinae/p_images/${p_no3 }.jpg" alt="Third slide">
 				</div>
 			</div>
 			<!-- Controls -->

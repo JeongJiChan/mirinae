@@ -76,4 +76,19 @@ public class ProjectDao {
 		pro.put("search", search);
 	    return (List<Project>)session.selectList("projectns.list2", pro);		
 	}
+	public int hot_select1() {
+		return (int) session.selectOne("projectns.hotselect1");
+	}
+	public int hot_select2() {
+		return (int) session.selectOne("projectns.hotselect2");
+	}
+	public int hot_select3() {
+		return (int) session.selectOne("projectns.hotselect3");
+	}
+	public int hot_select4() {
+		return (int) session.selectOne("projectns.hotselect4");
+	}
+	public int hot_select5() {
+		return (int) session.selectOne("projectns.hotselect5");
+	}
 }
