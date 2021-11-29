@@ -27,13 +27,19 @@
 			</ol>
 			<div class="carousel-inner">
 				<div class="item active">
-					<img src="/mirinae/p_images/${p_no1 }.jpg" alt="First slide">
+					<img src="/mirinae/p_images/${p_no1 }.jpg" alt="First slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${p_no1}'">
 				</div>
 				<div class="item">
-					<img src="/mirinae/p_images/${p_no2 }.jpg" alt="Second slide">
+					<img src="/mirinae/p_images/${p_no2 }.jpg" alt="Second slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${p_no2}'">
 				</div>
 				<div class="item">
-					<img src="/mirinae/p_images/${p_no3 }.jpg" alt="Third slide">
+					<img src="/mirinae/p_images/${p_no3 }.jpg" alt="Third slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${p_no3}'">
+				</div>
+				<div class="item">
+					<img src="/mirinae/p_images/${p_no4 }.jpg" alt="Third slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${p_no4}'">
+				</div>
+				<div class="item">
+					<img src="/mirinae/p_images/${p_no5 }.jpg" alt="Third slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${p_no5}'">
 				</div>
 			</div>
 			<!-- Controls -->

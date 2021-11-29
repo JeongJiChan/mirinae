@@ -13,6 +13,7 @@ public class HomeAction implements CommandProcess{
 		int p_no3 = pd.hot_select3();
 		int p_no4 = pd.hot_select4();
 		int p_no5 = pd.hot_select5();
+		System.out.println(p_no1);
 		request.setAttribute("p_no1", p_no1);
 		request.setAttribute("p_no2", p_no2);
 		request.setAttribute("p_no3", p_no3);

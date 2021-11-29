@@ -6,6 +6,7 @@ drop table cs;
 insert into admin values (1234, 'master', 1, 'master');
 select * from admin;
 select * from support;
+
 create table Member ( 
     m_no number primary key, 
     m_id varchar2(20), 
