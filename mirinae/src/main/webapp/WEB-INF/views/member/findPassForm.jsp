@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<form action="findPass.sun" method="post" name="frm" onsubmit="return chk()">
+	<form action="findPass.sun" method="post" name="frm">
 		<fieldset><legend>비 밀 번 호 찾 기</legend>
 			<div> <!-- 아이디 -->
 				<label></label>

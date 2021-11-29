@@ -20,17 +20,21 @@
 </head>
 <body>
  	<c:if test="${result == 1 }">
- 	<form action="updatePassForm" method="post" name="frm">
+ 	<form action="updatePass.sun" method="post" name="frm">
  	<input type="hidden" name="num" value="num">
  	
-		<fieldset><legend>비 밀 번 호 찾 기</legend>
-			<div> <!-- 인증번호 -->
-				<label>인증번호</label><br>
-				<input type="text" name="confirmNum" id="confirmNum" placeholder="인증번호를 입력해주세요" required="required" autofocus="autofocus">
+		<fieldset><legend>새 비 밀 번 호 설 정</legend>
+			<div> <!-- 비밀번호 -->
+				<label>새로운 비밀번호</label><br>
+				<input type="password" name="m_pass" required="required" autofocus="autofocus">
 			</div>
-	
+			<div> <!-- 비밀번호 확인 -->
+				<label>새로운 비밀번호</label><br>
+				<input type="password" name="m_pass2"required="required">
+			</div>
+			
 			<div> <!-- 찾기 -->
-	            <input type="submit" value="비밀번호 찾기">
+	            <input type="submit" value="비밀번호 변경">
 	        </div>
 		</fieldset>
 	</form>
