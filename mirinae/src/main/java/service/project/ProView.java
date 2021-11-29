@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.MypickDao;
+import dao.NoticeDao;
 import dao.OptionsDao;
 import dao.ProjectDao;
 import model.Options;
@@ -28,12 +29,21 @@ public class ProView implements CommandProcess {
 		List<Options> options = od.optionsList(p_no);
 		
 		int mypick=0;
+		String imgSrc="";
 		if(id != null) {
 			MypickDao md = MypickDao.getInstance();
 			mypick = md.count(id,p_no);
-		} else 
-			mypick=0;
+			if(mypick > 0 ) {
+				imgSrc = "/mirinae/images/star-fill.png";
+			}else if (mypick == 0) {
+				imgSrc = "/mirinae/images/star-empty.png";
+			}
+		} else {
+			imgSrc = "/mirinae/images/star-empty.png";
+		}
 		
+		
+		request.setAttribute("imgSrc", imgSrc);
 		request.setAttribute("mypick", mypick);
 		request.setAttribute("project", project);
 		request.setAttribute("options", options);

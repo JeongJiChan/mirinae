@@ -24,6 +24,13 @@
 	.box::-webkit-scrollbar {    display:none;	}
 	#preImage { width: 100%; height: 310px; }
 </style>
+<!-- 텍스트 에디터 -->
+<script
+	src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
+<style>
+	.ck.ck-editor { max-width: 92%;}
+	.ck-editor__editable { min-height: 500px;}
+</style>
 <script type="text/javascript">
 	//현재 시간 yyyymmdd 로 구해서 int로 형변환
 	var date = new Date();
@@ -226,5 +233,6 @@
 <textarea id="content" rows="40" style="width:94%" placeholder="내용을 입력하세요" name="content" required="required"></textarea>
 <div align="center" id="button"><input type="submit" value="등록"><input type="button" value="취소" onclick="history.back()"></div>
 </form>
+<script src="${pageContext.request.contextPath}/js/ckeditor_la.js"></script>
 </body>
 </html>

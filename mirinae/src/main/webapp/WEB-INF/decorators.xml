@@ -15,6 +15,7 @@
 		<pattern>/views/member/confirmNick.*</pattern>
 		<pattern>/views/member/confirmEmail.*</pattern>
 		<pattern>/views/member/confirmMyNick.*</pattern>
+		<pattern>/views/mypick/mypick.*</pattern>
 		
 	</excludes>
 </decorators>
