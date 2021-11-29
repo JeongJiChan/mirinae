@@ -12,6 +12,8 @@ public class Mypick implements CommandProcess{
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("id");
 		int p_no = Integer.parseInt(request.getParameter("p_no"));
+		
+		System.out.println("p_no = "+p_no);
 		// 마이픽 조회
 		MypickDao md = MypickDao.getInstance();
 		int mypick=0;
@@ -33,6 +35,7 @@ public class Mypick implements CommandProcess{
 			msg = "마이픽이 등록되었습니다";
 		}
 		
+		request.setAttribute("msg", msg);
 		request.setAttribute("imgSrc", imgSrc);
 		request.setAttribute("mypick", mypick);
 		return "/mypick/mypick";

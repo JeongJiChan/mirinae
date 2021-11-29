@@ -26,7 +26,7 @@
 			$.post("/mirinae/views/mypick/mypick.la", "p_no="+p_no, function(data) {
 				var imgSrc = data.split(",")[0];
 				var msg = data.split(",")[1];
-				
+				alert(msg);
 				$(".star").attr("src", imgSrc);
 			});
 		}else {
@@ -142,7 +142,6 @@
 	<!-- 마이픽 버튼 -->
 	
 	<img onclick="sessionChk(${project.p_no })" alt="마이픽" src="${imgSrc}" class="star">
-	${imgSrc }<br>${msg }
 	</th></tr>
 </table>
 <textarea id="content" rows="40" style="width:94%" name="content" readonly="readonly">${project.p_content }</textarea>

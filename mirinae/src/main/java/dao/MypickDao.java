@@ -65,7 +65,7 @@ public class MypickDao {
 		HashMap<String,Object> hm = new HashMap<String, Object>();
 		hm.put("p_no",p_no);
 		hm.put("id", id);
-		return (int)session.insert("mypickns.myinsert", hm);
+		return session.insert("mypickns.myinsert", hm);
 	}
 
 	public int count(String id, int p_no) {

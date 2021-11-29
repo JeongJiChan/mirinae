@@ -19,7 +19,7 @@ public class MypickAction implements CommandProcess {
 		
 		int m_no = md.m_no(m_id); // 마이픽한 회원 번호
 		
-		final int ROW_PER_PAGE = 9; // 한 페이지에 게시글 10개 씩
+		final int ROW_PER_PAGE = 9; // 한 페이지에 게시글 9개 씩
 		final int PAGE_PER_BLOCK = 5; // 한 블럭에 5페이지 씩 
 		
 		String pageNum = request.getParameter("pageNum"); // 페이지 번호

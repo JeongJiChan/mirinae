@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.MypickDao;
+import dao.NoticeDao;
 import dao.OptionsDao;
 import dao.ProjectDao;
 import model.Options;
@@ -40,6 +41,7 @@ public class ProView implements CommandProcess {
 		} else {
 			imgSrc = "/mirinae/images/star-empty.png";
 		}
+		
 		
 		request.setAttribute("imgSrc", imgSrc);
 		request.setAttribute("mypick", mypick);

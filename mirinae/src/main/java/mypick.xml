@@ -22,7 +22,10 @@
 	</select>
 	<!-- 마이픽 등록하기 -->
 	<insert id="myinsert" parameterType="hashmap">
-		insert into mypick values ((select m_no from member where m_id = #{id}),#{p_no})
+		<selectKey keyProperty="my_no" order="BEFORE" resultType="integer">
+			select nvl(max(my_no), 0) + 1 my_no from mypick
+		</selectKey>
+		insert into mypick values (#{my_no},(select m_no from member where m_id = #{id}),#{p_no})
 	</insert>
 	<!-- 마이픽 삭제 -->
 	<delete id="mydelete" parameterType="integer">
