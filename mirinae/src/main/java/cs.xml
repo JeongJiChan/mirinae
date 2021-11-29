@@ -6,7 +6,7 @@
 	<select id="list" resultType="cs">
 		select * from
 		(select rowNum rn , a.* from
-		(select * from cs order by cs_ref desc, cs_re_step asc) a)
+		(select * from cs where cs_del='n' order by cs_ref desc, cs_re_step asc) a)
 		where rn between #{startRow} and #{endRow}
 
 	</select>

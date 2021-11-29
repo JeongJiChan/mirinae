@@ -48,4 +48,24 @@
 		update project set cate_code = #{cate_code}, p_name = #{p_name}, p_content = #{p_content},
 							e_date = #{e_date}, goal_money = #{goal_money} where p_no = #{p_no}
 	</update>
+	<select id="hotselect1" resultType="integer">
+		select p_no from (select rowNum rn,a.* from (select * from
+		project where p_del = 'n' order by p_view desc)a) where rn=0
+	</select>
+	<select id="hotselect2" resultType="integer">
+		select p_no from (select rowNum rn,a.* from (select * from
+		project where p_del = 'n' order by p_view desc)a) where rn=1
+	</select>
+	<select id="hotselect3" resultType="integer">
+		select p_no from (select rowNum rn,a.* from (select * from
+		project where p_del = 'n' order by p_view desc)a) where rn=2
+	</select>
+	<select id="hotselect4" resultType="integer">
+		select p_no from (select rowNum rn,a.* from (select * from
+		project where p_del = 'n' order by p_view desc)a) where rn=3
+	</select>
+	<select id="hotselect5" resultType="integer">
+		select p_no from (select rowNum rn,a.* from (select * from
+		project where p_del = 'n' order by p_view desc)a) where rn=4
+	</select>
 </mapper>
