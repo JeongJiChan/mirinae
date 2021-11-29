@@ -68,8 +68,8 @@
         </li>
         </c:if>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-sm-2" type="text" placeholder="Search">
+      <form class="d-flex" action="/mirinae/views/main/homeSearch.kwon">
+        <input class="form-control me-sm-2" type="text" name="search" placeholder="Search">
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
       </form>
     </div>
