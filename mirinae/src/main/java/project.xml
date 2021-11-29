@@ -50,22 +50,30 @@
 	</update>
 	<select id="hotselect1" resultType="integer">
 		select p_no from (select rowNum rn,a.* from (select * from
-		project where p_del = 'n' order by p_view desc)a) where rn=0
+		project where p_del = 'n' order by p_view desc)a) where rn=1
 	</select>
 	<select id="hotselect2" resultType="integer">
 		select p_no from (select rowNum rn,a.* from (select * from
-		project where p_del = 'n' order by p_view desc)a) where rn=1
+		project where p_del = 'n' order by p_view desc)a) where rn=2
 	</select>
 	<select id="hotselect3" resultType="integer">
 		select p_no from (select rowNum rn,a.* from (select * from
-		project where p_del = 'n' order by p_view desc)a) where rn=2
+		project where p_del = 'n' order by p_view desc)a) where rn=3
 	</select>
 	<select id="hotselect4" resultType="integer">
 		select p_no from (select rowNum rn,a.* from (select * from
-		project where p_del = 'n' order by p_view desc)a) where rn=3
+		project where p_del = 'n' order by p_view desc)a) where rn=4
 	</select>
 	<select id="hotselect5" resultType="integer">
 		select p_no from (select rowNum rn,a.* from (select * from
-		project where p_del = 'n' order by p_view desc)a) where rn=4
+		project where p_del = 'n' order by p_view desc)a) where rn=5
+	</select>
+	<!-- 내가 올린	프로젝트 총 갯수 구하기 -->
+	<select id="myTotal" parameterType="string" resultType="integer">
+		select count(*) from project where m_id = #{id}
+	</select>
+	<!-- 내가 올린 프로젝트 리스트 -->
+	<select id="myprojectList" parameterType="string" resultType="project">
+		select * from project where m_id = #{id} and p_del='n'
 	</select>
 </mapper>
