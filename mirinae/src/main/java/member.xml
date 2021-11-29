@@ -22,6 +22,11 @@
 		select * from member where m_name=#{m_name} and m_email=#{m_email}
 	</select>
 	
+	<!-- m_id과 m_email 가지고 member 조회 -->
+	<select id="find_Pass" parameterType="hashmap" resultType="member">
+		select * from member where m_id=#{m_id} and m_email=#{m_email}
+	</select>
+	
 	
 	<!-- 회원가입 성공하면 데이터 입력 -->
 	<insert id="insert" parameterType="member">
