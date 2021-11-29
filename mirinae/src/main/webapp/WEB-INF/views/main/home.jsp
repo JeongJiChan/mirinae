@@ -12,7 +12,7 @@
 </style>
 <script>	$('.carousel').carousel(); </script>
 <style type="text/css">
-	ci { height: 200px; width: auto; }
+	container { height: 200px; width: auto; }
 </style>
 </head>
 <body>
