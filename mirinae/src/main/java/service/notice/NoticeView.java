@@ -44,7 +44,6 @@ public class NoticeView implements CommandProcess {
 			int cul_no = nd.curPageNum(no_no);
 			curPageNum = (totalN-cul_no) / ROW_PER_PAGE;
 		}
-		
 		request.setAttribute("curPageNum", curPageNum);
 		request.setAttribute("writer", writer);
 		request.setAttribute("admin_id", id);

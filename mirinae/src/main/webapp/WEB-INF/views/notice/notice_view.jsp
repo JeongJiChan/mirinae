@@ -8,72 +8,78 @@
 	<c:param name="pageNum" value="${pageNum}"/>
 </c:url>
 <head>
+<style type="text/css">@import url("/mirinae/css/bootstrap.css");</style>
 <style type="text/css">
 	#n_list { width: 100%; cursor: pointer; }
-	div.nv_btn {width:60px; float: left; margin:25px; text-align: center;
-		font-style: Sans-Serif}
-	#nv_del #nv_update{ color: red; margin-right: auto; }
-	textarea {width: 80%; height:300px; resize:none;}
-	a:link { color: red; text-decoration: none;}
-	a:visited { color: black; text-decoration: none;}
-	a:hover { color: blue; font-weight: bold;}
-	
-	.btnDiv {display: flex;}
-	div#n_viewBtn{margin: auto;}
+	.bottommargin { margin-bottom: 20px;}	
+	.labeling {background-color: #2c3e50; color: white; border-radius: 1px;
+			 border-collapse: collapse;
+ 			 border-radius: 10px;
+ 			 text-align: center;	
+ 			 width: 15%;
+		}
+	.labelingdate {background-color: #2c3e50; color: white; border-radius: 1px;
+			 border-collapse: collapse;
+ 			 border-radius: 10px;
+ 			 text-align: center;	
+ 			 width: 20%;
+		}
+	.underlinewhite {border-bottom: 1px solid white; }
+	.underlineblack {border-bottom: 1px solid black; }
+	.titleheight { height: 35px; }
+	.writeheight { height: 30px; }
+	.botmar { margin-top: 15px; }
+	.textbox {overflow: scroll; overflow-x:hidden; }
+	.leftpadding { padding-left: 10px;}
 </style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	function List() {
+		location.href="notice_list.la?pageNum="+${pageNum};
+	}
+	function del() {
+		var con = confirm("정말 삭제하시겠습니까?");
+		if(con){
+			location.href="notice_del.la?no_no="+${no_no };		
+		}
+	}
+</script>
 </head>
 <body>
 <div id="n_list">
-	<h1 class="n_title" style="text-align:center" onclick="location.href='notice_list.la'">Notice</h1>
+	<h1 class="n_title bottommargin" style="font-size: 56px; line-height: 1.4em; text-align: center;" onclick="location.href='notice_list.la'">Notice</h1>
 </div>
-<c:if test="${no_del == 'n'}">
-	<div id="n_view">
 		<form action="notice_updateForm.la" method="post">
 			<input type="hidden" name="no_no" value="${notice.no_no }"	>
-			<table width="60%" align= "center" >
-				<tr><th>제목</th><td colspan="2"><input type="text" name="no_title" value="${notice.no_title }" readonly="readonly"></td></tr>
-	 			<tr><th>작성자</th><td><input type="text" name="admin_no" value="${writer }" readonly="readonly"></td>
-	 			<td>조회수 ${notice.no_view }</td></tr>
-				<tr><th>내용</th><td colspan="2"><div>${notice.no_content }</div></td></tr>
-			</table>
-		<!-- 공지사항 삭제 버튼 -->
-		<c:if test="${result != 0 && no_del=='n'}">
-			<div class="nv_btn"><a href="notice_del.la?no_no=${no_no }" id="nv_del" onclick="return confirm('정말 삭제하시겠습니까?');">
-			Delete</a>
-			</div>
-		<!-- 공지사항 수정 버튼 -->
-			<div class="nv_btn"><input type="submit" id="nv_update" value="Update"></div>
-		</c:if>
-		</form>
-	</div>
-</c:if>
+			<input type="hidden" name="no_title" value="${notice.no_title }">
+			<input type="hidden" name="admin_no" value="${writer }">
+			<table width="800px;" align= "center">
+			<!-- 게시물이 삭제되었을 때 -->
+				<c:if test="${no_del == 'y' }">
+					<tr><th colspan="4" style="text-align: center;"><h2>삭제된 게시물 입니다.</h2></th></tr>
+				</c:if>
+				<c:if test="${no_del == 'n' }">
+				<tr><th class="labeling underlinewhite titleheight">제목</th><td colspan="3" class="leftpadding underlineblack">${notice.no_title }</td></tr>
+	 			<tr><th class="labeling underlinewhite writeheight">작성자</th><td class="leftpadding underlineblack">${writer }</td>
+	 			<td class="labelingdate">작성일 : ${notice.no_date }</td>
+	 			<td class="labeling underlinewhite">조회수 : ${notice.no_view }</td></tr>
+				<tr><th class="labeling underlinewhite">내용</th><td colspan="3"><div class="leftpadding textbox underlineblack" style="height: 300px;">${notice.no_content }</div></td></tr>
+				</c:if>
+				<tr><th colspan="4">
+					<div align="center">
 
-<!-- 게시물이 삭제되었을 때 -->
-<c:if test="${no_del == 'y' }">
-	<div>삭제된 게시물 입니다.</div>
-</c:if>
-<div class="btnDiv">
-	<div id="n_viewBtn">
-		<!-- 이전글 버튼 -->
-		<c:if test="${no_no>1 }">
-			<div class="nv_btn"><a href="notice_view.la?no_no=${notice.no_no-1}&pageNum=${curPageNum}">Previous</a></div>
-		</c:if>
-		<c:if test="${no_no==1 }">
-			<div class="nv_btn"></div>
-		</c:if>
-		<!-- 목록버튼 -->
-			<div class="nv_btn"><a href="notice_list.la?pageNum=${pageNum}">List</a></div>
-		
-		<!-- 다음글 버튼 -->
-		<c:if test="${no_no<total }">
-			<div class="nv_btn"><a href="notice_view.la?no_no=${notice.no_no+1}&pageNum=${curPageNum}">Next</a></div>
-		</c:if>
-		<c:if test="${no_no==total }">
-			<div class="nv_btn"></div>
-		</c:if>
-	</div>
-</div>
+						<!-- 목록버튼 -->
+						<input type="button" value="목록" onclick="List()" class="btn btn-primary botmar">			
+					<c:if test="${result != 0 && no_del=='n'}">
+					<!-- 공지사항 수정 버튼 -->
+						<input type="submit" value="수정" class="btn btn-warning botmar" >
+					<!-- 공지사항 삭제 버튼 -->
+						<input type="button" value="삭제" onclick="del()" class="btn btn-danger botmar">
+					</c:if>
+				</div>
+				</th></tr>
+			</table>	
+		</form>
 </body>
 </html>
