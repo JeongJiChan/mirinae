@@ -71,21 +71,17 @@
 .img-responsive,
 .thumbnail a>img,
 .thumbnail>img { 
-	display:block; height:auto
+	display:block;width:100%;height:600px;
 }
 
 carousel {
-	position:relative
+	position:relative;
+	width: 1200px;
+	height: 600px;
 }
 
 .carousel-inner {
-	position:relative; overflow:hidden;
-	display: flex;
-  height: 400px;
-  width: auto;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
+	position:relative;width:100%;overflow:hidden; height: 600px;
 }
 
 .carousel-inner>.item {
@@ -754,6 +750,9 @@ progress {
   padding-left: var(--bs-gutter-x, 0.75rem);
   margin-right: auto;
   margin-left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (min-width: 576px) {
@@ -6627,7 +6626,11 @@ fieldset:disabled .btn {
 
 .carousel {
   position: relative;
-  width: 100%;
+  width: 1200px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .carousel.pointer-event {
@@ -6638,12 +6641,6 @@ fieldset:disabled .btn {
 .carousel-inner {
   position: relative;
   overflow: hidden;
-  display: flex;
-  height: 400px;
-  width: auto;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
 }
 
 .carousel-inner::after {
@@ -6657,23 +6654,14 @@ fieldset:disabled .btn {
 .thumbnail a > img,
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
-  display: flex;
-  height: 400px;
-  width: auto;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
+  display: block;
+  width: 100%;
+  height: 600px;
 }
 
 .carousel-inner {
   position: relative;
   overflow: hidden;
-  display: flex;
-  height: 400px;
-  width: auto;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
 }
 .carousel-inner > .item {
   position: relative;

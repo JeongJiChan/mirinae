@@ -16,7 +16,7 @@
 </style>
 </head>
 <body>
-<div class="container">
+	<div class="container">
 		<div id="carousel-example-generic" class="carousel slide">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
@@ -44,5 +44,6 @@
 			</a>
 		</div>
 	</div>
+	
 </body>
 </html>
