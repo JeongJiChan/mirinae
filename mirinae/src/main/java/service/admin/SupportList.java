@@ -44,7 +44,6 @@ public class SupportList implements CommandProcess {
 		
 		
 		List<Support> list = cd.list4(startRow, endRow);
-		
 		request.setAttribute("list", list);
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("currentPage", currentPage);

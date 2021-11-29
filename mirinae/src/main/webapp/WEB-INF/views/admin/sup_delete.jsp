@@ -14,17 +14,10 @@
 </head>
 <body>
 	<c:if test="${result >= 1 }">
-		<div align="center" id="img">
-			<img alt="" src="/mirinae/images/milkyway.png" width="1200px" height="300px">
-			<div id="p">
-			<p>Success ! </p>
-			<p>Thank you</p>
-			</div>
-		</div>
-		<div align="center">
-			<button onclick="location.href='/mirinae/views/main/home.chan'">Main</button>
-			<button onclick="location.href='/mirinae/views/admin/support_list.kwon'">List</button>
-		</div>
+		<script type="text/javascript">
+			alert("삭제 완료");
+			location.href="support_list.kwon";
+		</script>
 	</c:if>
 	<c:if test="${result < 1 }">
 		<script type="text/javascript">
