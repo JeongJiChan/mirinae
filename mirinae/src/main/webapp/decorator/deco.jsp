@@ -9,6 +9,7 @@
 <style type="text/css">@import url("/mirinae/css/bootstrap.css");</style>
 <style type="text/css">
 	hr { width: 100%; }
+	#footer { background-color: gray; opacity: 0.3; height: 100px; color: black; }
 </style>
 </head>
 <body>
@@ -17,6 +18,8 @@
 	<deco:head></deco:head>
 	<deco:body></deco:body>
 	<hr>
+<div id="footer">
 Mirinae CrowdFunding.
+</div>
 </body>
 </html>

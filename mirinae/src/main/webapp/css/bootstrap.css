@@ -71,7 +71,7 @@
 .img-responsive,
 .thumbnail a>img,
 .thumbnail>img { 
-	display:block;max-width:100%;height:auto
+	display:block; height:auto
 }
 
 carousel {
@@ -79,7 +79,13 @@ carousel {
 }
 
 .carousel-inner {
-	position:relative;width:100%;overflow:hidden
+	position:relative; overflow:hidden;
+	display: flex;
+  height: 400px;
+  width: auto;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
 
 .carousel-inner>.item {
@@ -6621,6 +6627,7 @@ fieldset:disabled .btn {
 
 .carousel {
   position: relative;
+  width: 100%;
 }
 
 .carousel.pointer-event {
@@ -6631,6 +6638,12 @@ fieldset:disabled .btn {
 .carousel-inner {
   position: relative;
   overflow: hidden;
+  display: flex;
+  height: 400px;
+  width: auto;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
 
 .carousel-inner::after {
@@ -6644,14 +6657,23 @@ fieldset:disabled .btn {
 .thumbnail a > img,
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+  display: flex;
+  height: 400px;
+  width: auto;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
 
 .carousel-inner {
   position: relative;
   overflow: hidden;
+  display: flex;
+  height: 400px;
+  width: auto;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
 .carousel-inner > .item {
   position: relative;
