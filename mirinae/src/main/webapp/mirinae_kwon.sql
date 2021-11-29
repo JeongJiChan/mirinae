@@ -5,7 +5,7 @@ delete from member where m_no=5;
 drop table cs;
 insert into admin values (1234, 'master', 1, 'master');
 select * from admin;
-
+select * from support;
 create table Member ( 
     m_no number primary key, 
     m_id varchar2(20), 
@@ -20,6 +20,11 @@ create table Member (
     reg_date date,
     del char(1) 
 );
+create table mypick(
+    m_no number references member(m_no) primary key, 
+    p_no number references project(p_no) 
+);
+select * from mypick;
 select * from member;
 
 create table admin( 
@@ -94,7 +99,7 @@ create table reply( — 댓글
     m_no number references member(m_no), — 댓글 작성자
     p_no number references project(p_no) — 댓글단 프로젝트 번호
 );
-
+delete from support where sup_name = '정민권'
 create table support( — 후원
     sup_no number primary key, — 후원번호
     m_no number references member(m_no), — 후원한 회원번호
@@ -102,6 +107,9 @@ create table support( — 후원
     sup_tel varchar2(20), — 배송받을 번호
     sup_date date — 후원날짜
 );
+select * from support;
+select * from support_detail
+delete from support
 ALTER TABLE support DROP COLUMN sup_name;
 ALTER TABLE support DROP COLUMN sup_date;
 ALTER TABLE support DROP COLUMN sup_tel;

@@ -30,7 +30,10 @@ public class ProjectDao {
 		}
 	}
 	public int insert(Project project) {
-		return session.insert("projectns.insert",project);
+		System.out.println(project);
+		int result = session.insert("projectns.insert",project);
+		session.commit();
+		return result;
 	}
 	public int find_p_no() {
 		return (int) session.selectOne("projectns.find_p_no");
@@ -65,5 +68,12 @@ public class ProjectDao {
 	}
 	public int update(Project project) {
 		return session.update("projectns.proupdate", project);
+	}
+	public List<Project> list2(int startRow, int endRow, String search) {
+		HashMap<String, Object> pro = new HashMap<>();
+		pro.put("startRow", startRow);
+		pro.put("endRow", endRow);
+		pro.put("search", search);
+	    return (List<Project>)session.selectList("projectns.list2", pro);		
 	}
 }

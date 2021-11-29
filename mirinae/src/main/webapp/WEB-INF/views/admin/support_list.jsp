@@ -59,18 +59,18 @@
 		</c:if>
 		<c:if test="${not empty list }">
 			<c:forEach var="s" items="${list }">
-				<tr class="support" onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}'">
-					<td align="center">${s.sup_no}</td>
-					<td align="center">${s.m_no}</td>
-					<td>${s.sup_address}</td>
-					<td>${s.address_d}</td>
-					<td>${s.sup_tel}</td>
-					<td>${s.sup_date}</td>
-					<td>${s.sup_name}</td>
-					<td align="center">${s.p_no}</td>
-					<td>${s.total_price}</td>
-					<td>${s.del }</td>
-					<td><button>취소</button></td>
+				<tr>
+					<td class="support" onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}'" align="center">${s.sup_no}</td>
+					<td class="support" onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}'" align="center">${s.m_no}</td>
+					<td class="support" onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}'">${s.sup_address}</td>
+					<td class="support" onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}'">${s.address_d}</td>
+					<td class="support" onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}'">${s.sup_tel}</td>
+					<td class="support" onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}'">${s.sup_date}</td>
+					<td class="support" onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}'">${s.sup_name}</td>
+					<td class="support" onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}'" align="center">${s.p_no}</td>
+					<td class="support" onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}'">${s.total_price}</td>
+					<td class="support" onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}'" align="center">${s.del }</td>
+					<th><button onclick="location.href='../admin/sup_delete.kwon?sup_no=${s.sup_no}&p_no=${s.p_no}&total_price=${s.total_price }'">취소</button></th>
 				</tr>
 			</c:forEach>
 		</c:if>

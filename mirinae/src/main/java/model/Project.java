@@ -94,6 +94,13 @@ public class Project {
 	public void setM_id(String m_id) {
 		this.m_id = m_id;
 	}
+	@Override
+	public String toString() {
+		return "Project [p_no=" + p_no + ", cate_code=" + cate_code + ", p_name=" + p_name + ", p_content=" + p_content
+				+ ", p_writer=" + p_writer + ", s_date=" + s_date + ", e_date=" + e_date + ", goal_money=" + goal_money
+				+ ", p_view=" + p_view + ", p_del=" + p_del + ", reg_date=" + reg_date + ", cur_money=" + cur_money
+				+ ", m_id=" + m_id + "]";
+	}
     
 
    

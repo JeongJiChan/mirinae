@@ -12,6 +12,14 @@ public class Support {
 	private String sup_name;
 	private int p_no;
 	private String total_price;
+	private String del;
+	
+	public String getDel() {
+		return del;
+	}
+	public void setDel(String del) {
+		this.del = del;
+	}
 	public int getSup_no() {
 		return sup_no;
 	}

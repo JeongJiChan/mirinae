@@ -6,6 +6,14 @@ public class SupportDetail {
 	private int opt_code;
 	private int sup_no;
 	private int oc_price;
+	private String del;
+	
+	public String getDel() {
+		return del;
+	}
+	public void setDel(String del) {
+		this.del = del;
+	}
 	public int getSupd_no() {
 		return supd_no;
 	}

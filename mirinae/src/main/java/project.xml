@@ -9,7 +9,7 @@
 	</insert>
 <!-- 	프로젝트 넘버 구하기 -->
 	<select id="find_p_no" resultType="integer">
-		select count(*)+1 from project
+		select nvl(max(p_no), 0)+1 from project
 	</select>
 <!-- 	프로젝트 총 갯수 구하기 -->
 	<select id="getTotal" resultType="integer">
@@ -19,6 +19,11 @@
 	<select id="list" resultType="project">
  		select * from (select rowNum rn,a.* from (select * from
 		project where p_del = 'n' order by p_no desc)a) where rn between #{startRow} and #{endRow} 
+	</select>
+	<select id="list2" resultType="project">
+ 		select * from (select rowNum rn,a.* from (select * from project where p_del = 'n' and 
+ 			(p_name like '%'||#{search}||'%' or p_content like '%'||#{search}||'%') order by p_no desc)a) 
+ 				where rn between #{startRow} and #{endRow} 
 	</select>
 	<select id="catelist" resultType="project">
  		select * from (select rowNum rn,a.* from (select * from

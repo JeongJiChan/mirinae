@@ -17,7 +17,7 @@
 </style>
 <script type="text/javascript" src="/mirinae/js/jquery.js"></script>
 <script type="text/javascript">
-    $(function() {
+  /*   $(function() {
 		$('td').click(function() {
 			var data = $(this).prop('tagName');
 			if(data == 'td'){
@@ -27,7 +27,7 @@
 		$('button').click(function() {
 			location.href='../project/p_del.kim?p_no='+${p.p_no};
 		});
-	});
+	}); */
 
 </script>
 </head>
