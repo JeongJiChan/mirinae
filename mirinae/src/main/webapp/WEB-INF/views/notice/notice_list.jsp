@@ -22,6 +22,11 @@
 	.hover:hover{cursor: pointer; color: #f39c12;}
 	.bottommargin { margin-bottom: 20px;}
 	#btn { float: right; }
+.btn-secondary:disabled, .btn-secondary.disabled {
+  color: #fff;
+  background-color: #f39c12;
+  border-color: #f39c12;
+}
 </style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -31,7 +36,7 @@
 	<h1 class="bottommargin" style="font-size: 56px; line-height: 1.4em; text-align: center;" onclick="location.href='notice_list.la'">Notice</h1>
 </div>
 <!-- 공지사항 리스트 -->
-	<table align="center" width="70%" class="topTable">
+	<table align="center" width="800px;" class="topTable">
 			<tr>
 				<th class="tableno linewhite">글번호</th>
 				<th class="tabletitle linewhite">제목</th>
@@ -39,7 +44,7 @@
 				<th class="tableviewcount linewhite">조회수</th>
 			</tr>
 	</table>
-	<table align="center" width="70%">
+	<table align="center" width="800px;">
 		<c:forEach var="notice" items="${list }">
 		<c:if test="${notice.no_del == 'n'}"> 
 		<c:set var="number" value="${number}"/>
@@ -67,10 +72,10 @@
 			<!-- 페이지 버튼 -->	
 					<c:forEach var="i" begin="${startPage }" end="${endPage }">
 					<c:if test="${currentPage!= i }">
-						<button onclick="location.href='notice_list.la?pageNum=${i}'">${i}</button>
+						<button class="btn btn-secondary" onclick="location.href='notice_list.la?pageNum=${i}'">${i}</button>
 					</c:if>
 					<c:if test="${currentPage== i }">
-						<button onclick="location.href='notice_list.la?pageNum=${i}'" disabled="disabled">${i}</button>
+						<button class="btn btn-secondary" onclick="location.href='notice_list.la?pageNum=${i}'" disabled="disabled">${i}</button>
 					</c:if>
 					</c:forEach>
 			<!-- 다음 페이지 버튼 -->

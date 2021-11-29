@@ -40,14 +40,18 @@
 	.topmargin {margin-top: 7px; }
 	.hover:hover{cursor: pointer; color: #f39c12;}
 	.bottommargin { margin-bottom: 20px;}
-	
+	.btn-secondary:disabled, .btn-secondary.disabled {
+	  color: #fff;
+	  background-color: #f39c12;
+	  border-color: #f39c12;
+	}	
 </style>
 </head>
 <body>
 	<div class="caption">
 		<h1 class="bottommargin" style="font-size: 56px; line-height: 1.4em; text-align: center;">Customer Service</h1>
 	</div>
-		<table align="center" width="70%" class="topTable">
+		<table align="center" width="800px;" class="topTable">
 			<tr>
 				<th class="tableno linewhite">글번호</th>
 				<th class="tabletitle linewhite">제목</th>
@@ -56,7 +60,7 @@
 				<th class="tableviewcount linewhite">조회수</th>
 			</tr>
 		</table>
-		<table align="center" width="70%">
+		<table align="center" width="800px;">
 				<c:if test="${empty list }">
 					<h3>문의내역이 없습니다</h3>
 				</c:if>
@@ -92,33 +96,33 @@
 					<div style="display: inline;">
 						<!-- 이전 -->
 						<c:if test="${startPage > PAGE_PER_BLOCK }">
-							<button
+							<button class="btn btn-secondary"
 								onclick="location.href='cs_list.kwon?pageNum=1'">처음으로</button>
 						</c:if>
 						<c:if test="${pageNum > 1}">
-							<button
+							<button class="btn btn-secondary"
 								onclick="location.href='cs_list.kwon?pageNum=${currentPage-1}'">이전</button>
 						</c:if>
 						<!-- 페이지 -->
 						<c:forEach var="i" begin="${startPage}" end="${endPage}">
 							<c:if test="${currentPage== i }">
-								<button
+								<button class="btn btn-secondary"
 									onclick="location.href='cs_list.kwon?pageNum=${i}'"
 									disabled="disabled">${i}</button>
 							</c:if>
 							<c:if test="${currentPage!= i }">
-								<button
+								<button class="btn btn-secondary"
 									onclick="location.href='cs_list.kwon?pageNum=${i}'">${i}</button>
 							</c:if>
 						</c:forEach>
 						<!-- 다음 -->
 						<c:if test="${currentPage < totalPage}">
-							<button
+							<button class="btn btn-secondary"
 								onclick="location.href='cs_list.kwon?pageNum=${currentPage + 1}'">다음</button>
 						</c:if>
 						<!-- 보여줄 것이 남아있다 -->
 						<c:if test="${endPage < totalPage }">
-							<button
+							<button class="btn btn-secondary"
 								onclick="location.href='cs_list.kwon?pageNum=${endPage+1}'">다음 목록</button>
 						</c:if>
 					</div>

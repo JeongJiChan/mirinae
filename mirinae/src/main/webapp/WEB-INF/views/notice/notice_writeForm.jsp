@@ -3,16 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript">
-	function chk() { 
-		var text = $('#content').val();
-		if(text.replace(/\s/g, "").length==0)	{
-		    alert("글내용을 입력해주세요.");
-		    $("#content").focus();
-		    return false; 
-		}
-	}
-</script>
 <!-- 텍스트 에디터 -->
 <script	src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
 <style type="text/css">@import url("/mirinae/css/bootstrap.css");</style>
