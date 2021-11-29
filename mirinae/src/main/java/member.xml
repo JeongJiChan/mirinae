@@ -73,4 +73,9 @@
 		select count(*) from member where ${part} like '%'||#{searchData}||'%' order by m_no desc
 	</select>
 	
+	<!-- 비밀번호 재설정, m_id를 가지고 변경 -->
+	<update id="updatePass" parameterType="member">
+		update member set m_pass=#{m_pass} where m_id=#{m_id}
+	</update>
+	
 </mapper>
