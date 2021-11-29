@@ -5,6 +5,45 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">@import url("/mirinae/css/bootstrap.css");</style>
+<style type="text/css">
+	pre>.red { color: red;}
+	.form-controllogin {
+		  width: 435px;
+		  padding: 0.575rem 0.75rem;
+		  margin: 5px;
+		  font-size: 1rem;
+		  font-weight: 400;
+		  line-height: 1.5;
+		  color: #212529;
+		  background-color: #fff;
+		  background-clip: padding-box;
+		  border: 1px solid #ced4da;
+		  -webkit-appearance: none;
+		  -moz-appearance: none;
+		  appearance: none;
+		  border-radius: 0.25rem;
+		  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	}
+	.form-controlloginbtn {
+		  width: 340px;
+		  padding: 0.575rem 0.75rem;
+		  margin: 5px;
+		  font-size: 1rem;
+		  font-weight: 400;
+		  line-height: 1.5;
+		  color: #212529;
+		  background-color: #fff;
+		  background-clip: padding-box;
+		  border: 1px solid #ced4da;
+		  -webkit-appearance: none;
+		  -moz-appearance: none;
+		  appearance: none;
+		  border-radius: 0.25rem;
+		  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	}
+	.btnsize { width: 100px; height: 40px; margin-top: 10px; }
+</style>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 window.onload = function(){
@@ -179,76 +218,86 @@ window.onload = function(){
 </script>
 </head>
 <body>
-<div>
+	<h1 class="bottommargin"
+			style="font-size: 56px; line-height: 1.4em; text-align: center; margin-bottom: 20px;">회 원 가 입</h1>
+<div align="center">
 	<form action="join.sun" method="post" name="frm" onsubmit="return chk()">
-		<fieldset><legend>회 원 가 입</legend>
+		<fieldset>
 			<input type="hidden" name="idchk" value="unChk">
 	    	<input type="hidden" name="nickchk" value="unChk">
 	    	<input type="hidden" name="emailchk" value="unChk">
-	
-			<pre>*는 반드시 입력항목입니다</pre>
+			<pre><b class="red">*</b><b>는 반드시 입력항목입니다</b>                                    </pre>
 			<div> <!-- 아이디 -->
-	            <label for="m_id"><span style="color: red">*</span></label>
-	            	<input type="text" name="m_id" id="m_id" placeholder="아이디" required="required" autofocus="autofocus">
-					<input type="button" value="중복체크" onclick="id_chk()">
+	            <label for="m_id"><span style="color: red"><b>*</b></span></label>
+	            	<input type="text" name="m_id" id="m_id" placeholder="아이디" required="required" autofocus="autofocus"
+	            		class="form-controlloginbtn">
+					<input class="btn btn-primary chk" type="button" value="중복체크" onclick="id_chk()">
 					<div id="err_id"></div>
 	        </div>
 	        
 	        <div> <!-- 비밀번호 -->
-	            <label for="m_pass"><span style="color: red">*</span></label>
-	            	<input type="password" name="m_pass" id="m_pass" placeholder="비밀번호" required="required">
+	            <label for="m_pass"><span style="color: red"><b>*</b></span></label>
+	            	<input type="password" name="m_pass" id="m_pass" placeholder="비밀번호" required="required"
+	            	class="form-controllogin">
 	        </div>
 	        
 			<div> <!-- 비밀번호 재확인 -->
-	            <label for="m_pass2"><span style="color: red">*</span></label>
-	            	<input type="password" name="m_pass2" placeholder="비밀번호 재확인" required="required" onchange="pass_chk()">
+	            <label for="m_pass2"><span style="color: red"><b>*</b></span></label>
+	            	<input type="password" name="m_pass2" placeholder="비밀번호 재확인" required="required" onchange="pass_chk()"
+	            	class="form-controllogin">
 					<div id="same"></div>
 	        </div>
 	        
 	        <div> <!-- 닉네임 -->
-	            <label for="m_nick"><span style="color: red">*</span></label>
-	            	<input type="text" name="m_nick" id="m_nick" placeholder="닉네임" required="required">
-					<input type="button" value="중복체크" onclick="nick_chk()">
+	            <label for="m_nick"><span style="color: red"><b>*</b></span></label>
+	            	<input type="text" name="m_nick" id="m_nick" placeholder="닉네임" required="required"
+	            	class="form-controlloginbtn">
+					<input type="button" class="btn btn-primary chk" value="중복체크" onclick="nick_chk()">
 					<div id="err_nick"></div>
 	        </div>
 	        
 	        <div> <!-- 이메일 -->
-	            <label for="m_email"><span style="color: red">*</span></label>
-	            	<input type="email" name="m_email" id="m_email" placeholder="이메일" required="required">
-	            	<input type="button" value="중복체크" onclick="email_chk()">
+	            <label for="m_email"><span style="color: red"><b>*</b></span></label>
+	            	<input type="email" name="m_email" id="m_email" placeholder="이메일" required="required"
+	            	class="form-controlloginbtn">
+	            	<input type="button" class="btn btn-primary chk" value="중복체크" onclick="email_chk()">
 					<div id="err_email"></div>
 	        </div>
 	        
 	        <div> <!-- 이름 -->
-	            <label for="m_name"><span style="color: red">*</span></label>
-	            	<input type="text" name="m_name" id="m_name" placeholder="이름" required="required">
+	            <label for="m_name"><span style="color: red"><b>*</b></span></label>
+	            	<input type="text" name="m_name" id="m_name" placeholder="이름" required="required"
+	            	class="form-controllogin">
 	        </div>
 	        
 			<div> <!-- 휴대전화 -->
-	            <label for="tel"><span style="color: red">*</span></label>
+	            <label for="tel"><span style="color: red"><b>*</b></span></label>
 	            	<input type="tel" name="tel" required="required"
 						pattern="010-\d{3,4}-\d{4}" placeholder="010-0000-0000"
-						title="010-숫자3/4-숫자4">
+						title="010-숫자3/4-숫자4"
+						class="form-controllogin">
 	        </div>
 	        
 	        <div> <!-- 생년월일 -->
-	            <label for="birth"><span style="color: red">*</span></label>
-	            	<input type="date" name="birth" required="required">
+	            <label for="birth"><span style="color: red"><b>*</b></span></label>
+	            	<input type="date" name="birth" required="required"
+	            	class="form-controllogin">
 	        </div>
 	        
 	        <div> <!-- 주소 -->
-	            <label for="address"><span style="color: red">*</span></label>
+	            <label for="address"><span style="color: red"><b>*</b></span></label>
 	            	<input type="text" id="address_kakao" name="address" placeholder="주소"
-	            	required="required" readonly />
+	            	required="required" readonly="readonly" class="form-controllogin" class="form-controllogin" />
 	        </div>
 	        
 	        <div> <!-- 상세주소 -->
-	            <label for="address_detail"><span style="color: red">*</span></label>
-	            	<input type="text" name="address_detail" placeholder="상세주소" required="required">
+	            <label for="address_detail"><span style="color: red"><b>*</b></span></label>
+	            	<input type="text" name="address_detail" placeholder="상세주소" required="required"
+	            	class="form-controllogin">
 	        </div>
 	        
 	        <div> <!-- 가입하기 -->
-	            <input type="submit" value="가입하기">
+	            <input type="submit" class="btn btn-primary btnsize" value="등록"> <input type="button" class="btn btn-primary btnsize" value="취소" onclick="history.back()">
 	        </div>
 		</fieldset>
 	</form>
