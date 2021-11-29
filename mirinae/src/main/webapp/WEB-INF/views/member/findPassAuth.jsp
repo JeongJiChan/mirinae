@@ -9,7 +9,9 @@
 <script type="text/javascript" src="/mirinae/js/jquery.js"></script>
 <script type="text/javascript">
 	function chk() {
-		if(!frm.num.value.equals(frm.confirmNum.value)) {
+		var n = parseInt(frm.num.value);
+		var cn = parseInt(frm.confirmNum.value);
+		if(n != cn) {
 			alert("인증번호가 일치하지 않습니다. 메일을 다시 확인해주세요.");
 			$('#confirmNum').val("");
 			$('#confirmNum').focus();
@@ -20,22 +22,17 @@
 </head>
 <body>
  	<c:if test="${result == 1 }">
- 	<form action="updatePass.sun" method="post" name="frm">
+ 	<form action="updatePassForm.sun" method="post" name="frm" onsubmit="return chk()">
  	<input type="hidden" name="num" value="${num}">
  	<input type="hidden" name="m_id" value="${member.m_id}">
- 	
 		<fieldset><legend>비 밀 번 호 찾 기</legend>
 			<div> <!-- 인증번호 -->
 				<label>인증번호</label><br>
-				<input type="text" name="m_pass" required="required" autofocus="autofocus">
-			</div>
-			<div> <!-- 비밀번호 확인 -->
-				<label>새로운 비밀번호</label><br>
-				<input type="password" name="m_pass2"required="required">
+				<input type="text" name="confirmNum" maxlength="6" placeholder="인증번호를 입력해주세요" required="required" autofocus="autofocus">
 			</div>
 			
-			<div> <!-- 찾기 -->
-	            <input type="submit" value="비밀번호 변경">
+			<div> <!-- 인증번호 입력 -->
+	            <input type="submit" value="확인">
 	        </div>
 		</fieldset>
 	</form>
