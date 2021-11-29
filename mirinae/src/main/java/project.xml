@@ -76,4 +76,5 @@
 	<select id="myprojectList" parameterType="string" resultType="project">
 		select * from project where m_id = #{id} and p_del='n'
 	</select>
+	
 </mapper>
