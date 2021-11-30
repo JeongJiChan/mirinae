@@ -51,6 +51,7 @@ public class MemberSearch implements CommandProcess {
 		request.setAttribute("part", part);
 		request.setAttribute("searchData", searchData);
 		request.setAttribute("partD", partD);
+		request.setAttribute("total", total);
 		
 		return "/admin/member_search";
 	}

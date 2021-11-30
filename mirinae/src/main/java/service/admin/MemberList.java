@@ -38,6 +38,7 @@ public class MemberList implements CommandProcess {
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("PAGE_PER_BLOCK", PAGE_PER_BLOCK);
+		request.setAttribute("total", total);
 		request.setAttribute("totalPage", totalPage);
 		
 		return "/admin/member_list";

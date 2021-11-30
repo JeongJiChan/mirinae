@@ -25,6 +25,7 @@
 <body>
 <h2>전 체 회 원 목 록</h2>
 <pre><span style="color: red">*</span>탈퇴회원도 포함</pre>
+<pre>총 회원수는 <b>${total }</b> 명 (탈퇴회원포함)</pre>
 <form method="post" action="member_search.sun">
 	<select name="part" id="part">
 		<option value="m_id">ID</option>
