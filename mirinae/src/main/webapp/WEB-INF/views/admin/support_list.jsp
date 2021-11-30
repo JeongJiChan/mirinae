@@ -17,14 +17,6 @@
 	}
 </style>
 <script type="text/javascript" src="/mirinae/js/jquery.js"></script>
-<script type="text/javascript">
-	/* function del(delMid) {
-		var con = confirm("탈퇴처리 하시겠습니까?");
-		if(con) {
-			location.href="../admin/admin_delete.sun?m_id="+delMid+"&pageNum=${pageNum}";
-		} else alert("탈퇴 취소");
-	};) */
-</script>
 </head>
 <body>
 <h2>전체 후원 목록</h2>
