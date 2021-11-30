@@ -21,6 +21,8 @@
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
+
+	var data =0;
 	function sessionChk(p_no) {
 		if(${not empty id}) {
 			$.post("/mirinae/views/mypick/mypick.la", "p_no="+p_no, function(data) {
@@ -42,7 +44,7 @@
 	 			location.href="/mirinae/views/member/loginForm.sun";
 				return false;
 	 		}
-	 		if(frm.opt_code.value == ""){
+	 		if(data == 0){
 	 			alert("옵션을 선택해주세요");
 	 			return false;
 	 		}
@@ -68,9 +70,11 @@
  		    if(checked){
  		    	$('.'+value).attr('disabled', false);
  		    	$('.'+value).focus();
+ 		    	data += 1;
  		    }else{
  		    	$('.'+value).attr('disabled', true);
  		    	$('.'+value).val("");
+ 		    	data -= 1;
  		    	const element = document.getElementById(value);
  		 		 element.innerHTML = "";
  		    }			
