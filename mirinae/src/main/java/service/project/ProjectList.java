@@ -25,11 +25,12 @@ public class ProjectList implements CommandProcess {
 		//끝번호 	시작번호 + 페이지당개수 - 1			
 		int endRow = startRow + ROW_PER_PAGE - 1;
 		ProjectDao pd = ProjectDao.getInstance();
-		int total = pd.getTotal();  
+		int total = pd.getTotal(); 
+		int totalN = pd.getTotal2();
 		int number = total - startRow + 1;
 		List<Project> project = pd.list(startRow,endRow);  
 //		(double) 나눗셈 결과를 실수로 바꾸기 위해 사용 적지 않으면 소숫점 이하가 사라진다.
-		int totalPage = (int)Math.ceil((double)total/ROW_PER_PAGE); //총 페이지
+		int totalPage = (int)Math.ceil((double)totalN/ROW_PER_PAGE); //총 페이지
 		//시작페이지	현재페이지 - (현재페이지 - 1)%10				
 		int startPage = currentPage - (currentPage - 1) % PAGE_PER_BLOCK;
 //		끝페이지	시작페이지 + 블록당페이지 수 -1				

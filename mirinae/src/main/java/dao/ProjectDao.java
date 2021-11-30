@@ -83,5 +83,8 @@ public class ProjectDao {
 		return (int) session.selectOne("projectns.getTotal2");
 	}
 	
+	public List<Project> my_projectList(String id) {
+		return (List<Project>)session.selectList("projectns.myprojectList", id);
+	}
 
 }
