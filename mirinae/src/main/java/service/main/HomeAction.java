@@ -8,17 +8,19 @@ import dao.ProjectDao;
 public class HomeAction implements CommandProcess{
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		ProjectDao pd = ProjectDao.getInstance();
-		int p_no1 = pd.hot_select1();
-		int p_no2 = pd.hot_select2();
-		int p_no3 = pd.hot_select3();
-		int p_no4 = pd.hot_select4();
-		int p_no5 = pd.hot_select5();
-		System.out.println(p_no1);
-		request.setAttribute("p_no1", p_no1);
-		request.setAttribute("p_no2", p_no2);
-		request.setAttribute("p_no3", p_no3);
-		request.setAttribute("p_no4", p_no4);
-		request.setAttribute("p_no5", p_no5);
+		int count = pd.getTotal2();
+		int[] p_no = new int[5];
+		if(count > 4) {
+			for(int i = 0; i < 5; i++) {
+				p_no[i] = pd.hot_select(i+1);
+				request.setAttribute("p_no"+(i+1), p_no[i]);
+			}
+		} else {
+			for(int i = 0; i < count; i++) {
+				p_no[i] = pd.hot_select(i+1);
+				request.setAttribute("p_no"+(i+1), p_no[i]);
+			}
+		}
 		return "/main/home";
 	}
 }
