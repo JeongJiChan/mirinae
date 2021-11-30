@@ -31,6 +31,7 @@ public class FindPass implements CommandProcess {
         p.put("mail.smtp.host", "smtp.naver.com");
         p.put("mail.smtp.auth", "true");
         p.put("mail.smtp.port", "587");
+        p.put("mail.smtp.ssl.protocols", "TLSv1.2");
  
         String m_email = request.getParameter("m_email");
         String m_id = request.getParameter("m_id");
