@@ -21,35 +21,15 @@
 	  background-color: #f39c12;
 	  border-color: #f39c12;
 	}
-	#prolist { margin-left: 13%; margin-right: 13%;}
+	#prolist { margin-left: 13%; margin-right: 10%;}
 	h4 { display: inline; color: #3498db; }
 	.underline {border-bottom: 1px solid #2c3e50; }
 	h3 { margin-left: 5px; margin-top: 10px; margin-bottom: 0px; }
 	
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script type="text/javascript">
-	$(function() {
-		$('select').change(function() {
-			if($('#cate').prop("select", true)){
-				 var value = $(this).val();
-				 if(value == 0){
-					 location.href="p_list.kim"; 
-				 }else{
-				 location.href="p_cateView.kim?cate_code="+value;
-				 }
-			}
-		});	
-	});
-</script>
 </head>
 <body>
-<div>카테고리 <select id="cate">
-			<option value="0">전체보기</option>
-			<option value="100">의류</option>
-			<option value="200">가전</option>
-			<option value="300">기타</option>	
-			</select> </div>
 <c:if test="${empty project }">
 		<h1 align="center">등록된 프로젝트가 없습니다.</h1>
 </c:if>

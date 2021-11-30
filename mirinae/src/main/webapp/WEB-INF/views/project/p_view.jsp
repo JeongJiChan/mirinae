@@ -18,6 +18,10 @@
 	#option { height: 80px; }
 	.btntable { border: 0px solid black; }
 	.star {margin-left:15px; width: 30px; height: 30px; cursor: pointer;}
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+  	-webkit-appearance: none;
+	}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
