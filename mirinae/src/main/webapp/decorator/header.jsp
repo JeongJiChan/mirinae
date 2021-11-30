@@ -14,10 +14,22 @@
 	ul { display: flex; justify-content: space-between; align-item: center; font-size: 20px; margin-right: 20px; margin-left: 20px; }
 	#navbarColor01 { display: flex; justify-content: center; align-items: center; }
 	li { margin-left: 20px; margin-right: 20px; min-width: 100px; text-align: center; }
+	.nav-link { cursor: pointer;}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+	function mingwonjjang() {
+		if(${empty sessionScope.id && empty sessionScope.admin_id }) {
+			alert("로그인이 필요합니다.");
+		} else {
+			location.href="/mirinae/views/project/p_uploadForm.kim";
+		}
+	}
+</script>
 </head>
 <body>
+<c:set var="id" value="${sessionScope.id }"></c:set>
+<c:set var="admin_id" value="${sessionScope.admin_id }"></c:set>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid" id="div">
     <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,7 +39,7 @@
     <a class="navbar-brand" href="/mirinae/views/main/home.chan"><img alt="" src="/mirinae/images/logo3.gif" width="150px"></a>
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link" href="/mirinae/views/project/p_uploadForm.kim">프로젝트 등록</a>
+          <a class="nav-link" onclick="mingwonjjang()">프로젝트 등록</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="/mirinae/views/project/p_list.kim">프로젝트 목록</a>

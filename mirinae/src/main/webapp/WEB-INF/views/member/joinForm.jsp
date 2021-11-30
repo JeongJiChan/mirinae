@@ -280,7 +280,7 @@ window.onload = function(){
 	        
 	        <div> <!-- 생년월일 -->
 	            <label for="birth"><span style="color: red"><b>*</b></span></label>
-	            	<input type="date" name="birth" required="required"
+	            	<input type="date" name="birth" required="required" placeholder="생년월일"
 	            	class="form-controllogin">
 	        </div>
 	        
