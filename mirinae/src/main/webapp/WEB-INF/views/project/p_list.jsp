@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 
 <style type="text/css">
-	table { margin: 2%; text-align: center;}
+	table { margin: 2%;}
 	#table { width: 28%; float: left; table-layout: fixed;}
 	#image { width: 100%; height: 290px; border-radius: 1px;
 			 border-collapse: collapse;
@@ -22,12 +22,10 @@
 	  border-color: #f39c12;
 	}
 	#prolist { margin-left: 13%; margin-right: 13%;}
-/* 	.topTable {background-color: #2c3e50; color: white; border-radius: 1px; */
-/* 			 border-collapse: collapse; */
-/*  			 border-radius: 10px; */
-/*  			 border-style: hidden;		 */
-/* 		} */
-	th, td { border: 1px solid black;}
+	h4 { display: inline; color: #3498db; }
+	.underline {border-bottom: 1px solid #2c3e50; }
+	h3 { margin-left: 5px; margin-top: 10px; margin-bottom: 0px; }
+	
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
@@ -65,10 +63,14 @@
 			<a href="p_view.kim?p_no=${pro.p_no }">
 			<img id="image" src="/mirinae/p_images/${pro.p_no }.jpg" onerror="this.src='/mirinae/p_images/ximg.jpg'">
 			</a></th></tr>
-			<tr><th colspan="2">목표 달성률 : <fmt:formatNumber value="${pro.cur_money/pro.goal_money * 100 }" pattern="0.00"/>%</th></tr>
-			<tr><th colspan="2">제목 : ${pro.p_name }</th></tr>	
-			<tr><th colspan="2"><b><fmt:formatNumber value="${pro.cur_money/pro.goal_money * 100 }" pattern="0.00"/>%</b>목표금액 : <fmt:formatNumber value="${pro.goal_money }" pattern="#,###" />원</th></tr>
-			<tr><th colspan="2">기간 : ${pro.s_date } ~ ${pro.e_date }</th></tr>
+			<tr><td colspan="2"><h3>${pro.p_name }</h3></td></tr>	
+			<tr><td colspan="2" class="underline">
+				<c:if test="${pro.cate_code == 100 }">의류</c:if>
+				<c:if test="${pro.cate_code == 200 }">가전</c:if>
+				<c:if test="${pro.cate_code == 300 }">기타</c:if>
+			</td></tr>
+			<tr><th colspan="2"><h4><fmt:formatNumber value="${pro.cur_money/pro.goal_money * 100 }" pattern="0.00"/>%</h4>
+							<fmt:formatNumber value="${pro.goal_money }" pattern="#,###" />원</th></tr>
 			</table>
 		</c:if>
 		</c:forEach>

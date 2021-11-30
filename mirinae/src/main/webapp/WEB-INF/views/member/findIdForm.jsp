@@ -38,6 +38,8 @@
 					<div class="loginimg" align="center">
 						<img alt="" src="/mirinae/p_images/loginFormImg.png">
 					</div>
+					<div align="center" style="margin-bottom: 10px;"><h3>아 이 디 찾 기</h3></div>
+			<div align="center" style="margin-bottom: 20px;"><h5>아이디는 가입시 입력하신 이름, 이메일을 통해 찾으실 수 있습니다</h5></div>
 			<div align="center" class="loginId"> <!-- 이름 -->
 				<label></label>
 				<input type="text" name="m_name" placeholder="이름" required="required" autofocus="autofocus"
