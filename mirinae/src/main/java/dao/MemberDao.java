@@ -117,4 +117,9 @@ public class MemberDao {
 					
 			return (Member)session.selectOne("memberns.find_Pass", hm);
 		}
+		
+	// 비밀번호 재설정	
+		public int updatePass(Member up_member) {
+			return session.update("memberns.updatePass", up_member);
+		}
 }

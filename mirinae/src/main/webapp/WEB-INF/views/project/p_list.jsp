@@ -9,16 +9,25 @@
 <title>Insert title here</title>
 
 <style type="text/css">
-	table { border: 1px solid black; margin: 25px;}
-	tr th { border: 1px solid black; }
-	#table { width: 25%; float: left; table-layout: fixed; }
-	#image { width: 100%; height: 290px; }
+	table { margin: 2%; text-align: center;}
+	#table { width: 28%; float: left; table-layout: fixed;}
+	#image { width: 100%; height: 290px; border-radius: 1px;
+			 border-collapse: collapse;
+ 			 border-radius: 10px;
+ 			 }
 	#btnlist {clear: both; bottom: 0; width: 100%; }
 	.btn-secondary:disabled, .btn-secondary.disabled {
 	  color: #fff;
 	  background-color: #f39c12;
 	  border-color: #f39c12;
 	}
+	#prolist { margin-left: 13%; margin-right: 13%;}
+/* 	.topTable {background-color: #2c3e50; color: white; border-radius: 1px; */
+/* 			 border-collapse: collapse; */
+/*  			 border-radius: 10px; */
+/*  			 border-style: hidden;		 */
+/* 		} */
+	th, td { border: 1px solid black;}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
@@ -46,29 +55,25 @@
 <c:if test="${empty project }">
 		<h1 align="center">등록된 프로젝트가 없습니다.</h1>
 </c:if>
+<div id="prolist">
 <c:if test="${not empty project }">
 		<c:forEach var="pro" items="${project }">
 		<c:if test="${pro.p_del != 'y' }">
 			<c:set var="i" value="${i+1 }"></c:set>
-			<table id="table">
+			<table id="table" class="topTable">
 			<tr><th id="table_picture" colspan="2">
 			<a href="p_view.kim?p_no=${pro.p_no }">
 			<img id="image" src="/mirinae/p_images/${pro.p_no }.jpg" onerror="this.src='/mirinae/p_images/ximg.jpg'">
 			</a></th></tr>
 			<tr><th colspan="2">목표 달성률 : <fmt:formatNumber value="${pro.cur_money/pro.goal_money * 100 }" pattern="0.00"/>%</th></tr>
-			<tr><th>카테고리 : 
-				<c:if test="${pro.cate_code == 100 }">	의류	</c:if>
-				<c:if test="${pro.cate_code == 200 }">	가전	</c:if>
-				<c:if test="${pro.cate_code == 300 }">	기타	</c:if>
-			</th><th>조회수 : ${pro.p_view }</th></tr>
-			<tr><th>번호 : ${pro.p_no }</th><th>제목 : ${pro.p_name }</th></tr>
-			<tr><th>작성자 : ${pro.p_writer }</th><th>작성일 : ${pro.reg_date }</th></tr>	
-			<tr><th>목표금액 : <fmt:formatNumber value="${pro.goal_money }" pattern="#,###" />원</th><th>현재금액 : <fmt:formatNumber value="${pro.cur_money }" pattern="#,###" />원</th></tr>
+			<tr><th colspan="2">제목 : ${pro.p_name }</th></tr>	
+			<tr><th colspan="2"><b><fmt:formatNumber value="${pro.cur_money/pro.goal_money * 100 }" pattern="0.00"/>%</b>목표금액 : <fmt:formatNumber value="${pro.goal_money }" pattern="#,###" />원</th></tr>
 			<tr><th colspan="2">기간 : ${pro.s_date } ~ ${pro.e_date }</th></tr>
 			</table>
 		</c:if>
 		</c:forEach>
-</c:if>
+	</c:if>
+</div>
 <div id="btnlist" align="center">
 <c:if test="${startPage > PAGE_PER_BLOCK }">
 	<button class="btn btn-secondary" onclick="location.href='p_list.kim?pageNum=${startPage-1 }'">이전</button>

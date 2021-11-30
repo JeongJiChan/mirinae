@@ -21,9 +21,6 @@ public class Mypick implements CommandProcess{
 		String msg = "";
 		mypick = md.count(id, p_no);
 		
-		System.out.println("id = "+id);
-		System.out.println("p_no = "+p_no);
-		System.out.println("mypick = "+mypick);
 		
 		if(mypick > 0 ) { // 마이픽 테이블에 있으면
 			md.delete(p_no, id); // 마이픽 삭제

@@ -9,19 +9,19 @@
 <script type="text/javascript" src="/mirinae/js/jquery.js"></script>
 <script type="text/javascript">
 	function chk() {
-		if(!frm.num.value.equals(frm.confirmNum.value)) {
-			alert("인증번호가 일치하지 않습니다. 메일을 다시 확인해주세요.");
-			$('#confirmNum').val("");
-			$('#confirmNum').focus();
+		if (frm.m_pass.value != frm.m_pass2.value) {
+			alert("비밀번호 재확인이 일치하지 않습니다");
+			frm.m_pass.focus();
+			frm.m_pass.value = "";
+			frm.m_pass2.value = "";
 			return false;
 		}
 	}
 </script>
 </head>
 <body>
- 	<c:if test="${result == 1 }">
- 	<form action="updatePass.sun" method="post" name="frm">
- 	<input type="hidden" name="num" value="num">
+ 	<form action="updatePass.sun" method="post" name="frm" onsubmit="return chk()">
+ 	<input type="hidden" name="m_id" value="${m_id }">
  	
 		<fieldset><legend>새 비 밀 번 호 설 정</legend>
 			<div> <!-- 비밀번호 -->
@@ -38,14 +38,5 @@
 	        </div>
 		</fieldset>
 	</form>
-	</c:if>
-	
-	<c:if test="${result == -1 }">
-		<div>등록된 정보가 없습니다</div>
-		<div>
-            <a href="findPassForm.sun">다시 찾기</a> | <a href="findIdForm.sun">아이디 찾기</a> | <a href="joinForm.sun">회원가입</a>
-        </div>
-	</c:if>
-	
 </body>
 </html>

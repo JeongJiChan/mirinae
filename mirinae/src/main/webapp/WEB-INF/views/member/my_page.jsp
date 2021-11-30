@@ -28,7 +28,7 @@
 	<div class="mypageTop" align="center">
 	<h2><b>${member.m_name }님 환영!</b></h2>
 	<h4><a href="/mirinae/views/mypick/mypick_list.la">마이픽 프로젝트</a></h4>
-	<h4><a href="/mirinae/">내가 등록한 프로젝트</a></h4>
+	<h4><a href="/mirinae/views/project/myProject.la">내가 등록한 프로젝트</a></h4>
 	<h4><a href="/mirinae/views/support/sup_list.chan">내가 후원한 프로젝트</a></h4>
 	<h4><a href="/mirinae/views/cs/my_cs_list.kwon">고객 문의 내역</a></h4>
 	<h4><a href="updateForm.sun">회원 수정</a></h4>
