@@ -13,6 +13,7 @@ public class SupportDelete implements CommandProcess {
 		int sup_no = Integer.parseInt(request.getParameter("sup_no"));
 		int p_no = Integer.parseInt(request.getParameter("p_no"));
 		int total_price = Integer.parseInt(request.getParameter("total_price"));
+		String pageNum = request.getParameter("pageNum");
 		SupportDao sup_d = SupportDao.getInstance();
 		SupportDetailDao supd_d = SupportDetailDao.getInstance();
 		
@@ -29,7 +30,7 @@ public class SupportDelete implements CommandProcess {
 			result = supd_d.delete(sup_no);
 			System.out.println("result3 : " + result);
 		}
-		
+		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("result", result);
 		return "/admin/sup_delete";
 	}
