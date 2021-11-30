@@ -25,6 +25,7 @@
 <body>
 <h2>검 색 된 결 과</h2>
 <h5>"${partD}"에 "${searchData }" 포함된 결과</h5>
+<pre>검색된 회원수는 <b>${total }</b> 명</pre>
 <form method="post" action="member_search.sun">
 	<select name="part" id="part">
 		<option value="m_id">ID</option>
