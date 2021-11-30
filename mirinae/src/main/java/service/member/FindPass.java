@@ -76,7 +76,7 @@ public class FindPass implements CommandProcess {
             }
             result = 1;
         } 
-       
+        request.setAttribute("m_email", m_email);
         request.setAttribute("result", result);
         request.setAttribute("member", member);
         request.setAttribute("num", num);
