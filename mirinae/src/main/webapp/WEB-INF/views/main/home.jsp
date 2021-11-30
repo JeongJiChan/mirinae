@@ -19,7 +19,7 @@
 			text-align: center;
 			position: relative;
 	}
-	.row img { width: auto; height: 150px; }
+	.row img { width: auto; height: 150px; cursor: pointer; }
 	#row1 { height: 300px; }
 </style>
 </head>
