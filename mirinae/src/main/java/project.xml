@@ -62,7 +62,7 @@
 	</select>
 	<!-- 내가 올린 프로젝트 리스트 -->
 	<select id="myprojectList" parameterType="string" resultType="project">
-		select * from project where m_id = #{id} and p_del='n' order by p_no desc
+		select * from project where m_id = #{id} and p_del='n' order by p_no desc 
 	</select>
 	
 </mapper>
