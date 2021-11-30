@@ -35,6 +35,7 @@
 				<li data-target="#carousel-example-generic" data-slide-to="3"></li>
 				<li data-target="#carousel-example-generic" data-slide-to="4"></li>
 			</ol>
+		<div class="carousel-inner">	
 			<div class="item active">
 					<img src="/mirinae/p_images/${p_no1 }.jpg" alt="First slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${p_no1}'">
 				</div>
@@ -51,6 +52,7 @@
 					<img src="/mirinae/p_images/${p_no5 }.jpg" alt="Third slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${p_no5}'">
 				</div>
 			</div>
+		</div>	
 			<!-- Controls -->
 			<a class="left carousel-control" href="#carousel-example-generic"
 				data-slide="prev"> <span class="icon-prev"></span>
@@ -58,7 +60,6 @@
 				data-slide="next"> <span class="icon-next"></span>
 			</a>
 		</div>
-	</div>
 	<div class="row" id="row1">
 		<div class="col-md-6">
 			<img alt="" src="/mirinae/images/logo1.gif">
