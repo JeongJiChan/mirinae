@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="/mirinae/js/jquery.js"></script>
 <script type="text/javascript" src="/mirinae/js/bootstrap.min.js"></script>
-<style type="text/css">
+<style type="text/css">?
 	@import url("/mirinae/css/bootstrap.css")
 </style>
 <script>	$('.carousel').carousel(); </script>
