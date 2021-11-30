@@ -38,8 +38,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div id="n_list">
-	<h1 class="n_title bottommargin" style="font-size: 56px; line-height: 1.4em; text-align: center;" onclick="location.href='notice_list.la'">Notice</h1>
+<div>
+	<h1 style="font-size: 56px; line-height: 1.4em; text-align: center;" onclick="location.href='notice_list.la'">Notice</h1>
 </div>
 <div align="center">
 	<form action="notice_write.la" name="nwf" method="post" name="writeform" onsubmit="return chk()">
