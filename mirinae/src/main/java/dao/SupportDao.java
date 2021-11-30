@@ -66,4 +66,10 @@ public class SupportDao {
 	public int delete(int sup_no) {
 		return session.update("supportns.delete", sup_no);
 	}
+	public List<Support> list4(int startRow, int endRow) {
+		HashMap<String, Integer> hm = new HashMap<>();
+	    hm.put("startRow", startRow);
+	    hm.put("endRow", endRow);
+	    return (List<Support>)session.selectList("supportns.list4", hm);
+	}
 }

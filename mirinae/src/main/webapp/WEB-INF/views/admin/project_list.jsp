@@ -72,7 +72,7 @@
 					<td class="title" onclick="location.href='../project/p_view.kim?p_no=${p.p_no}'">${p.cur_money}</td>
 					<td class="title" onclick="location.href='../project/p_view.kim?p_no=${p.p_no}'">${p.goal_money}</td>
 					<td class="title" align="center" onclick="location.href='../project/p_view.kim?p_no=${p.p_no}'">${p.p_del}</td>
-					<th><button onclick="location.href='../project/p_del.kim?p_no=${p.p_no}'">강제취소</button></th>
+					<th><button onclick="location.href='../admin/p_del.kwon?p_no=${p.p_no}'">강제취소</button></th>
 				</tr>
 			</c:forEach>	
 		</c:if>

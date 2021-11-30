@@ -36,4 +36,10 @@
 	<update id="delete" parameterType="int">
 		update support set del='y' where sup_no=#{sup_no}
 	</update>
+	<select id="list4" resultType="support">
+		select * from
+		(select rowNum rn , a.* from
+		(select * from support order by sup_no desc) a)
+		where rn between #{startRow} and #{endRow}
+	</select>
 </mapper>

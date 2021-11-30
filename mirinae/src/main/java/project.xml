@@ -61,5 +61,12 @@
 	<select id="myprojectList" parameterType="string" resultType="project">
 		select * from project where m_id = #{id} and p_del='n'
 	</select>
+	<!-- 프로젝트 목록 최신순 -->
+	<select id="list3" resultType="project">
+		select * from
+		(select rowNum rn , a.* from
+		(select * from project order by p_no desc) a)
+		where rn between #{startRow} and #{endRow}
+	</select>
 	
 </mapper>
