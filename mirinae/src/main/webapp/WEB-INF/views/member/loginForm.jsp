@@ -38,6 +38,7 @@
 					<div class="loginimg" align="center">
 						<img alt="" src="/mirinae/p_images/loginFormImg.png">
 					</div>
+					<div align="center" style="margin-bottom: 20px;"><h3>로 그 인</h3></div>
 					<div align="center" class="loginId"> 						
 						<label for="id"></label>
 						<input type="text" name="id" placeholder="아이디" required="required" autofocus="autofocus"
