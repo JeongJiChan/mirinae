@@ -15,6 +15,9 @@
 	<select id="getTotal" resultType="integer">
 		select count(*) from project
 	</select>
+	<select id="getTotal2" resultType="integer">
+		select count(*) from project where p_del='n'
+	</select>
 <!-- 	프로젝트 리스트 시작 끝 구하기 -->
 	<select id="list" resultType="project">
  		select * from (select rowNum rn,a.* from (select * from

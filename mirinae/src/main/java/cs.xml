@@ -83,7 +83,7 @@
 	</select>
 	
 	<!-- 프로젝트 목록 최신순 -->
-	<select id="list3" resultType="project">
+	<select id="list3" parameterType="hashmap" resultType="project">
 		select * from
 		(select rowNum rn , a.* from
 		(select * from project order by p_no desc) a)
