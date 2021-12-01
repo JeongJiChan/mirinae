@@ -92,5 +92,8 @@ public class ProjectDao {
 	public List<Project> my_projectList(String id) {
 		return (List<Project>)session.selectList("projectns.myprojectList", id);
 	}
+	public int idSearch(String id) {
+		return (int) session.selectOne("projectns.idSearch", id);
+	}
 
 }

@@ -71,5 +71,9 @@
 		(select * from project order by p_no desc) a)
 		where rn between #{startRow} and #{endRow}
 	</select>
+	<!-- 탈퇴 시 아이디로 프로젝트 검색 -->
+	<select id="idSearch" resultType="integer">
+		select count(*) from project where m_id = #{id}
+	</select>
 	
 </mapper>
