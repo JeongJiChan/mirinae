@@ -3,7 +3,9 @@ package service.main;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.NoticeDao;
 import dao.ProjectDao;
+import model.Notice;
 import model.Project;
 
 public class HomeAction implements CommandProcess{
@@ -11,10 +13,15 @@ public class HomeAction implements CommandProcess{
 		
 //		캐러셀 핫토픽
 		ProjectDao pd = ProjectDao.getInstance();
+		NoticeDao nd = NoticeDao.getInstance();
 		int count = pd.getTotal2();
+		int no_count = nd.getTotalN();
 		int[] p_no = new int[5];
+		int[] no_no = new int[3];
 		String[] p_name = new String[5];
+		String[] no_title = new String[3];
 		Project project = new Project();
+		Notice notice = new Notice();
 		
 		if(count > 4) {
 			for(int i = 0; i < 5; i++) {
@@ -60,10 +67,27 @@ public class HomeAction implements CommandProcess{
 				request.setAttribute("goalmoney"+(i+1), goalmoney);
 			}
 		}
+		
+//		공지사항
+		if(no_count > 2) {
+			for(int i = 0; i < 3; i++) {
+				no_no[i] = nd.newSelect(i+1);
+				notice = nd.select(no_no[i]);
+				no_title[i] = notice.getNo_title();
+				request.setAttribute("no_no"+(i+1), no_no[i]);
+				request.setAttribute("no_title"+(i+1), no_title[i]);
+			}
+		} else {
+			for(int i = 0; i < no_count; i++) {
+				no_no[i] = nd.newSelect(i+1);
+				notice = nd.select(no_no[i]);
+				no_title[i] = notice.getNo_title();
+				request.setAttribute("no_no"+(i+1), no_no[i]);
+				request.setAttribute("no_title"+(i+1), no_title[i]);
+			}
+		}
 		request.setAttribute("count", count);
-		
-		System.out.println(p_name[0]);
-		
+		request.setAttribute("no_count", no_count);
 		return "/main/home";
 	}
 }

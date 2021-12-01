@@ -82,6 +82,6 @@
 	
 	<select id="finishingselect" resultType="integer">
 		select p_no from (select rowNum rn,a.* from 
-		(select * from project where p_del = 'n' order by goal_money/cur_money desc)a) where rn=#{rn}
+		(select * from project where p_del = 'n' order by nvl(cur_money / decode(goal_money, 0, null, goal_money), 0) desc)a) where rn=#{rn}
 	</select>
 </mapper>
