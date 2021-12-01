@@ -25,7 +25,7 @@ public class HomeSearch implements CommandProcess {
 		//끝번호 	시작번호 + 페이지당개수 - 1			
 		int endRow = startRow + ROW_PER_PAGE - 1;
 		ProjectDao pd = ProjectDao.getInstance();
-		int total = pd.getTotal();  
+		int total = pd.getTotal2();  
 		int number = total - startRow + 1;
 		String search = request.getParameter("search");
 		List<Project> project = pd.list2(startRow,endRow,search);  
