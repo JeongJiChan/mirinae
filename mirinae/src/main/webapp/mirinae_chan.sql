@@ -46,6 +46,7 @@ select * from support_detail;
 
 update support set total_price = 10000
 update support_detail set oc_price = 500
+update project set cur_money = 1000;
 alter table support rename column p_name to p_no;
 ALTER TABLE support MODIFY(p_no VARCHAR2(200));
 update support set p_no = 1 where p_no='test';
