@@ -16,7 +16,7 @@
 	<c:if test="${result >= 1 }">
 		<script type="text/javascript">
 			alert("삭제 완료");
-			location.href="support_list.kwon?pageNum=${pageNum}";
+			location.href="support_list.kwon";
 		</script>
 	</c:if>
 	<c:if test="${result < 1 }">

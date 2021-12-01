@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.CsDao;
+import dao.SupportDao;
 import model.Project;
 import model.Support;
 import service.main.CommandProcess;
@@ -18,6 +19,7 @@ public class SupportList implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		
 		CsDao cd = CsDao.getInstance();
+		SupportDao sup_d = SupportDao.getInstance();
 		
 		final int ROW_PER_PAGE = 10; // 한 페이지에 게시글 6개 씩
 		final int PAGE_PER_BLOCK = 5; // 한 블럭에 5페이지 씩
@@ -43,7 +45,7 @@ public class SupportList implements CommandProcess {
 		
 		
 		
-		List<Support> list = cd.list4(startRow, endRow);
+		List<Support> list = sup_d.list4(startRow, endRow);
 		request.setAttribute("list", list);
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("currentPage", currentPage);

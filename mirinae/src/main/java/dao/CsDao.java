@@ -77,12 +77,7 @@ public class CsDao {
 			 return (List<Cs>)session.selectList("csns.list2", hm);
 		}
 		
-		public List<Project> list3(int startRow, int endRow) {
-			HashMap<String, Integer> hm = new HashMap<>();
-		    hm.put("startRow", startRow);
-		    hm.put("endRow", endRow);
-		    return (List<Project>)session.selectList("csns.list3", hm);
-		}
+		
 		
 		public int getTotalP() {
 			return (int) session.selectOne("csns.getTotalP");
@@ -90,12 +85,7 @@ public class CsDao {
 		public int getTotalS() {
 			return (int) session.selectOne("csns.getTotalS");
 		}
-		public List<Support> list4(int startRow, int endRow) {
-			HashMap<String, Integer> hm = new HashMap<>();
-		    hm.put("startRow", startRow);
-		    hm.put("endRow", endRow);
-		    return (List<Support>)session.selectList("csns.list4", hm);
-		}
+		
 		
 		
 }

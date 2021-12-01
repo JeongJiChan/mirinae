@@ -96,10 +96,5 @@
 	</select>
 	
 	<!-- 후원 목록 최신순 -->
-	<select id="list4" resultType="support">
-		select * from
-		(select rowNum rn , a.* from
-		(select * from support order by sup_no desc) a)
-		where rn between #{startRow} and #{endRow}
-	</select>
+	
 </mapper>

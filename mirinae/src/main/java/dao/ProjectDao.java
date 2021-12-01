@@ -79,6 +79,12 @@ public class ProjectDao {
 	public int hot_select(int rn) {
 		return (int) session.selectOne("projectns.hotselect", rn);
 	}
+	public List<Project> list3(int startRow, int endRow) {
+		HashMap<String, Integer> hm = new HashMap<>();
+	    hm.put("startRow", startRow);
+	    hm.put("endRow", endRow);
+	    return (List<Project>)session.selectList("projectns.list3", hm);
+	}
 	public int getTotal2() {
 		return (int) session.selectOne("projectns.getTotal2");
 	}

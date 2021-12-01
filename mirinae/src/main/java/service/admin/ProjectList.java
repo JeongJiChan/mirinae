@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.CsDao;
+import dao.ProjectDao;
 import model.Project;
 import service.main.CommandProcess;
 
@@ -16,7 +17,7 @@ public class ProjectList implements CommandProcess {
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		
-		CsDao cd = CsDao.getInstance();
+		ProjectDao pd = ProjectDao.getInstance();
 		
 		final int ROW_PER_PAGE = 10; // 한 페이지에 게시글 6개 씩
 		final int PAGE_PER_BLOCK = 5; // 한 블럭에 5페이지 씩
@@ -27,7 +28,7 @@ public class ProjectList implements CommandProcess {
 		
 		int currentPage = Integer.parseInt(pageNum); // 현재 페이지
 		
-		int total = cd.getTotalP(); // 총 게시글 수
+		int total = pd.getTotal(); // 총 게시글 수
 		int totalPage = (int) Math.ceil((double)total/ROW_PER_PAGE); // 총 페이지 수
 		
 		int startRow = (currentPage - 1) * ROW_PER_PAGE + 1; // 게시글의 시작 번호(변수 num의 제일 마지막)
@@ -42,7 +43,7 @@ public class ProjectList implements CommandProcess {
 		
 		
 		
-		List<Project> list = cd.list3(startRow, endRow);
+		List<Project> list = pd.list3(startRow, endRow);
 		
 		request.setAttribute("list", list);
 		request.setAttribute("pageNum", pageNum);
