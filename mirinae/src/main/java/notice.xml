@@ -47,4 +47,8 @@
 		select rn from (select rowNum rn,a.* from (select * from
 		notice where no_del = 'n' )a)where no_no=#{no_no} order by rn desc
 	</select>
+	<select id="newselect" resultType="integer">
+		select no_no from (select rowNum rn,a.* from 
+		(select * from notice where no_del = 'n' order by no_date desc)a) where rn=#{rn}
+	</select>
 </mapper>

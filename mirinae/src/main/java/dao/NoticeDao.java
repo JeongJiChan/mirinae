@@ -83,5 +83,9 @@ public class NoticeDao {
 		//System.out.println("no_no="+no_no);
 		return (int)session.selectOne("noticens.curPageNum", no_no);
 	}
+	
+	public int newSelect(int rn) {
+		return (int)session.selectOne("noticens.newselect", rn);
+	}
 
 }
