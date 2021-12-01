@@ -40,18 +40,27 @@ public class HomeAction implements CommandProcess{
 				p_no[i] = pd.finishing_select(i+1);
 				project = pd.select(p_no[i]);
 				p_name[i] = project.getP_name();
+				int curmoney = project.getCur_money();
+				int goalmoney = project.getGoal_money();
 				request.setAttribute("finishing_p_no"+(i+1), p_no[i]);
 				request.setAttribute("finishing_p_name"+(i+1), p_name[i]);
+				request.setAttribute("curmoney"+(i+1), curmoney);
+				request.setAttribute("goalmoney"+(i+1), goalmoney);
 			}
 		} else {
 			for(int i = 0; i < count; i++) {
 				p_no[i] = pd.finishing_select(i+1);
 				project = pd.select(p_no[i]);
 				p_name[i] = project.getP_name();
+				int curmoney = project.getCur_money();
+				int goalmoney = project.getGoal_money();
 				request.setAttribute("finishing_p_no"+(i+1), p_no[i]);
 				request.setAttribute("finishing_p_name"+(i+1), p_name[i]);
+				request.setAttribute("curmoney"+(i+1), curmoney);
+				request.setAttribute("goalmoney"+(i+1), goalmoney);
 			}
 		}
+		request.setAttribute("count", count);
 		
 		System.out.println(p_name[0]);
 		
