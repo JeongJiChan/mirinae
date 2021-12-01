@@ -98,7 +98,7 @@
 								onclick="location.href='cs_list.kwon?pageNum=1'">처음으로</button>
 						</c:if>
 						<c:if test="${pageNum > 1}">
-							<button class="btn btn-secondary"
+							<button class="btn btn-primary"
 								onclick="location.href='cs_list.kwon?pageNum=${currentPage-1}'">이전</button>
 						</c:if>
 						<!-- 페이지 -->
@@ -120,7 +120,7 @@
 						</c:if>
 						<!-- 보여줄 것이 남아있다 -->
 						<c:if test="${endPage < totalPage }">
-							<button class="btn btn-secondary"
+							<button class="btn btn-primary"
 								onclick="location.href='cs_list.kwon?pageNum=${endPage+1}'">다음 목록</button>
 						</c:if>
 					</div>
