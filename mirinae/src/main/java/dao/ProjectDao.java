@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import model.Member;
 import model.Notice;
 import model.Project;
 
@@ -95,5 +96,10 @@ public class ProjectDao {
 	public int idSearch(String id) {
 		return (int) session.selectOne("projectns.idSearch", id);
 	}
-
+	public Project select(int p_no) {
+		return (Project)session.selectOne("projectns.select", p_no);
+	}
+	public int finishing_select(int rn) {
+		return (int) session.selectOne("projectns.finishingselect", rn);
+	}
 }
