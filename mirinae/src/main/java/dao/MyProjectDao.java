@@ -34,7 +34,5 @@ public class MyProjectDao {
 			return (int)session.selectOne("projectns.myTotal",id);
 		}
 		
-		public List<Project> my_projectList(String id) {
-			return (List<Project>)session.selectList("projectns.myprojectList", id);
-		}
+
 }

@@ -44,9 +44,9 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="/mirinae/views/project/p_list.kim">프로젝트 목록</a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="/mirinae/views/project/p_list.kim?cate=1">cate1</a>
-            <a class="dropdown-item" href="/mirinae/views/project/p_list.kim?cate=2">cate2</a>
-            <a class="dropdown-item" href="/mirinae/views/project/p_list.kim?cate=3">cate3</a>
+             <a class="dropdown-item" href="/mirinae/views/project/p_cateView.kim?cate_code=100"><b>의류</b></a>
+            <a class="dropdown-item" href="/mirinae/views/project/p_cateView.kim?cate_code=200"><b>가전</b></a>
+            <a class="dropdown-item" href="/mirinae/views/project/p_cateView.kim?cate_code=300"><b>기타</b></a>
           </div>
         </li>
        <li class="nav-item dropdown">

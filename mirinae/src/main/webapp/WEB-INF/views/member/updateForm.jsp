@@ -99,10 +99,50 @@ window.onload = function(){
 	}
 </script>
 <style type="text/css">
-table, tr, th, td {
-	border: 2px solid;
-}
-table td { width: 250px; }
+	.topTable {background-color: #2c3e50; color: white; border-radius: 1px;
+			 border-collapse: collapse;
+ 			 border-radius: 10px;	
+ 			 text-align: center; 
+ 			 width: 25%;
+ 			 height: 40px;	
+		}
+	.linewhite {border-bottom: 1px solid white;}
+	.lineblack {border-bottom: 1px solid black;}
+	.td { padding-left: 10px;}
+	.form-controllogin {
+		  width: 435px;
+		  padding: 0.575rem 0.75rem;
+		  margin: 5px;
+		  font-size: 1rem;
+		  font-weight: 400;
+		  line-height: 1;
+		  color: #212529;
+		  background-color: #fff;
+		  background-clip: padding-box;
+		  border: 1px solid #ced4da;
+		  -webkit-appearance: none;
+		  -moz-appearance: none;
+		  appearance: none;
+		  border-radius: 0.25rem;
+		  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	}
+	.form-controlloginbtn {
+		  width: 340px;
+		  padding: 0.575rem 0.75rem;
+		  margin: 5px;
+		  font-size: 1rem;
+		  font-weight: 400;
+		  line-height: 1.5;
+		  color: #212529;
+		  background-color: #fff;
+		  background-clip: padding-box;
+		  border: 1px solid #ced4da;
+		  -webkit-appearance: none;
+		  -moz-appearance: none;
+		  appearance: none;
+		  border-radius: 0.25rem;
+		  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	}
 </style>
 <title>Insert title here</title>
 </head>
@@ -115,62 +155,70 @@ table td { width: 250px; }
 		<input type="hidden" name="m_name" value="${memer.m_name }">
 		<input type="hidden" name="birth" value="${memer.birth }">
 		
-			<legend>회 원 정 보 수 정</legend>
-			<table>
+			<h2 align="center">회 원 정 보 수 정</h2>
+			<table align ="center" style="margin-top: 20px;">
 				<tr>
-					<th>아이디</th>
-					<td>${member.m_id }</td>
+					<th class="topTable linewhite">아이디</th>
+					<td class="lineblack td">${member.m_id }</td>
 				</tr>
 				<tr>
-					<th>이름</th>
-					<td>${member.m_name }</td>
+					<th class="topTable linewhite">이름</th>
+					<td class="lineblack td">${member.m_name }</td>
 				</tr>
 				<tr>
-					<th>생년월일</th>
-					<td>${member.birth }</td>
+					<th class="topTable linewhite">생년월일</th>
+					<td class="lineblack td">${member.birth }</td>
 				</tr>
 				<tr>
-					<th>비밀번호</th>
-					<td><input type="password" name="m_pass" required="required" size="20"></td>
+					<th class="topTable linewhite">비밀번호</th>
+					<td class="lineblack"><input type="password" name="m_pass" required="required" size="20"
+							class="form-controllogin"></td>
 				</tr>
 				<tr>
-					<th>비밀번호 재확인</th>
-					<td><input type="password" name="m_pass2" required="required" size="20" onchange="pass_chk()">
+					<th class="topTable linewhite">비밀번호 재확인</th>
+					<td class="lineblack"><input type="password" name="m_pass2" required="required" size="20" onchange="pass_chk()"
+						class="form-controllogin">
 					<div id="same"></div></td>
 				</tr>
 				<tr>
-					<th>닉네임</th>
-					<td><input type="text" name="m_nick" required="required" value="${member.m_nick }" size="15">
-					<input type="button" value="중복체크" onclick="nick_chk()">
+					<th class="topTable linewhite">닉네임</th>
+					<td class="lineblack"><input type="text" name="m_nick" required="required" value="${member.m_nick }" size="15"
+					 class="form-controlloginbtn">
+					<input type="button" value="중복체크" onclick="nick_chk()" class="btn btn-primary">
 					<div id="err_nick"></div></td>
 				</tr>
 				<tr>
-					<th>이메일</th>
-					<td><input type="email" name="m_email" id="m_email" placeholder="이메일"
-						required="required" value="${member.m_email }" size="30"></td>
+					<th class="topTable linewhite">이메일</th>
+					<td class="lineblack"><input type="email" name="m_email" id="m_email" placeholder="이메일"
+						required="required" value="${member.m_email }" size="30"
+						class="form-controllogin"></td>
 				</tr>
 				<tr>
-					<th>휴대전화</th>
-					<td><input type="tel" name="tel" required="required"
+					<th class="topTable linewhite">휴대전화</th>
+					<td class="lineblack"><input type="tel" name="tel" required="required"
 						pattern="010-\d{3,4}-\d{4}" placeholder="010-0000-0000"
-						title="010-숫자3/4-숫자4" value="${member.tel }" size="30"></td>
+						title="010-숫자3/4-숫자4" value="${member.tel }" size="30"
+						class="form-controllogin"></td>
 				</tr>
 				<tr>
-					<th>주소</th>
-					<td><input type="text" id="address_kakao" name="address"
-						placeholder="주소" required="required" readonly value="${member.address }" size="30" /></td>
+					<th class="topTable linewhite">주소</th>
+					<td class="lineblack"><input type="text" id="address_kakao" name="address"
+						placeholder="주소" required="required" readonly value="${member.address }" size="30"
+						class="form-controllogin" /></td>
 				</tr>
 				<tr>
-					<th>상세주소</th>
-					<td><input type="text" name="address_detail"
-						placeholder="상세주소" required="required" value="${member.address_d }" size="30"></td>
+					<th class="topTable linewhite">상세주소</th>
+					<td class="lineblack"><input type="text" name="address_detail"
+						placeholder="상세주소" required="required" value="${member.address_d }" size="30"
+						class="form-controllogin"></td>
 				</tr>
 				<tr>
-					<th colspan="2"><input type="submit" value="수정하기"></th>
+					<th colspan="2" style="text-align: center; padding-top: 10px;"><input type="submit" value="수정하기"
+					class="btn btn-primary">
+					<input type="button" value="취소" onclick="history.back()" class="btn btn-primary"></th>
 				</tr>
 			</table>
 		</fieldset>
 	</form>
-	<div><a href="my_page.sun">이전</a></div>
 </body>
 </html>

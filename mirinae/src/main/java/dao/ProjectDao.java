@@ -85,6 +85,12 @@ public class ProjectDao {
 	    hm.put("endRow", endRow);
 	    return (List<Project>)session.selectList("projectns.list3", hm);
 	}
+	public int getTotal2() {
+		return (int) session.selectOne("projectns.getTotal2");
+	}
 	
+	public List<Project> my_projectList(String id) {
+		return (List<Project>)session.selectList("projectns.myprojectList", id);
+	}
 
 }

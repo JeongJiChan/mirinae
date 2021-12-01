@@ -8,7 +8,7 @@ import dao.ProjectDao;
 public class HomeAction implements CommandProcess{
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		ProjectDao pd = ProjectDao.getInstance();
-		int count = pd.getTotal();
+		int count = pd.getTotal2();
 		int[] p_no = new int[5];
 		if(count > 4) {
 			for(int i = 0; i < 5; i++) {

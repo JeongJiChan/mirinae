@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.MyProjectDao;
+import dao.ProjectDao;
 import model.Mypick;
 import model.Project;
 import service.main.CommandProcess;
@@ -16,6 +17,7 @@ public class MyProjectList implements CommandProcess{
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("id");
 		MyProjectDao md = MyProjectDao.getInstance();
+		ProjectDao pd = ProjectDao.getInstance();
 		
 		final int ROW_PER_PAGE = 9; // 한 페이지에 게시글 9개 씩
 		final int PAGE_PER_BLOCK = 5; // 한 블럭에 5페이지 씩 
@@ -36,7 +38,7 @@ public class MyProjectList implements CommandProcess{
 		
 		if (endPage > totalPage) endPage = totalPage; // 마지막 페이지가 총 페이지 수 보다 클 경우
 		
-		List<Project> myProject = md.my_projectList(id);
+		List<Project> myProject = pd.my_projectList(id);
 		
 		request.setAttribute("myProject", myProject);
 		request.setAttribute("total", total);

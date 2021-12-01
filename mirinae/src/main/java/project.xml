@@ -15,6 +15,9 @@
 	<select id="getTotal" resultType="integer">
 		select count(*) from project
 	</select>
+	<select id="getTotal2" resultType="integer">
+		select count(*) from project where p_del='n'
+	</select>
 <!-- 	프로젝트 리스트 시작 끝 구하기 -->
 	<select id="list" resultType="project">
  		select * from (select rowNum rn,a.* from (select * from
@@ -55,11 +58,11 @@
 	</select>
 	<!-- 내가 올린	프로젝트 총 갯수 구하기 -->
 	<select id="myTotal" parameterType="string" resultType="integer">
-		select count(*) from project where m_id = #{id}
+		select count(*) from project where m_id = #{id} and p_del='n'
 	</select>
 	<!-- 내가 올린 프로젝트 리스트 -->
 	<select id="myprojectList" parameterType="string" resultType="project">
-		select * from project where m_id = #{id} and p_del='n'
+		select * from project where m_id = #{id} and p_del='n' order by p_no desc 
 	</select>
 	<!-- 프로젝트 목록 최신순 -->
 	<select id="list3" resultType="project">
