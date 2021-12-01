@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,7 @@
 </style>
 <script>	$('.carousel').carousel(); </script>
 <style type="text/css">
-	.container { margin-bottom: 100px; width: 100%; margin-left: 0px; margin-right: 0px; }
+	.container { margin-bottom: 50px; width: 100%; margin-left: 0px; margin-right: 0px; }
 	.row { display: flex;
 			justify-content: center;
 			align-items: center;	
@@ -37,15 +38,19 @@
 	.milky { margin-left: 20%; margin-right: 20%; position: relative; }
 	.milky img { width: 100%; height: 210px; }
 	.text { position: absolute; z-index: 1; color: white; width: 400px; top: 50%; left: 50%; transform: translate( -50%, -275%); text-align: center; }
-	.project_form { position: absolute; z-index: 1; width: 300px; height: 70px; top: 50%; left: 50%; background-color: rgba(0,0,0,0.6); transform: translate( -50%, -50%); color: white; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease-in-out; }
+	.project_form { position: absolute; z-index: 1; width: 300px; height: 70px; top: 50%; left: 50%; background-color: rgba(0,0,0,0.6);
+			transform: translate( -50%, -50%); color: white; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease-in-out; }
 	.project_form a { text-decoration-line : none; }
 	.project_from a:link { color: white; }
 	.project_form a:visited { color: white; }
 	.project_form a:active { color: white; }
 	.project_form a:hover { color: black; }
 	.project_form:hover { cursor: pointer; background-color: white; opacity: 1; text-decoration: underline; transition: all 0.2s ease-in-out; }
-/* 	.project_form: { background-color: rgba(0,0,0,0.6); transition: all 0.2s linear; } */
 	.project_form:hover a { color: black; transform: scale(1.1); overflow: hidden; transition: all 0.2s ease-in-out; }
+	.item .carousel-caption { left: 60px !important; right: 77% !important; top: 10% !important; font-size: 30px; }
+	.carousel-caption .p { mix-blend-mode: difference; }
+	.carousel-caption .h3 { mix-blend-mode: difference; }
+	.fin_pro { font-size: 30px; font-weight: bold; margin-left: 21%; margin-bottom: 10px; }
 </style>
 </head>
 <body>
@@ -56,30 +61,166 @@
 			<div class="container">
 				<div id="carousel-example-generic" class="carousel slide">
 					<!-- Indicators -->
-					<ol class="carousel-indicators">
-						<li data-target="#carousel-example-generic" data-slide-to="0"
-							class="active"></li>
-						<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-						<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-						<li data-target="#carousel-example-generic" data-slide-to="3"></li>
-						<li data-target="#carousel-example-generic" data-slide-to="4"></li>
-					</ol>
-				<div class="carousel-inner">	
-					<div class="item active">
-							<img src="/mirinae/p_images/${p_no1 }.jpg" alt="First slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${p_no1}'">
-						</div>
-						<div class="item">
-							<img src="/mirinae/p_images/${p_no2 }.jpg" alt="Second slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${p_no2}'">
-						</div>
-						<div class="item">
-							<img src="/mirinae/p_images/${p_no3 }.jpg" alt="Third slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${p_no3}'">
-						</div>
-						<div class="item">
-							<img src="/mirinae/p_images/${p_no4 }.jpg" alt="Third slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${p_no4}'">
-						</div>
-						<div class="item">
-							<img src="/mirinae/p_images/${p_no5 }.jpg" alt="Third slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${p_no5}'">
-						</div>
+					<c:if test="${4 < count }">
+						<ol class="carousel-indicators">
+							<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="4"></li>
+						</ol>
+					</c:if>
+					<c:if test="${4 = count }">
+						<ol class="carousel-indicators">
+							<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+						</ol>
+					</c:if>
+					<c:if test="${3 = count }">
+						<ol class="carousel-indicators">
+							<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+						</ol>
+					</c:if>
+					<c:if test="${2 = count }">
+						<ol class="carousel-indicators">
+							<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+						</ol>
+					</c:if>
+					<c:if test="${0 <= count }">
+						<ol class="carousel-indicators">
+							<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+						</ol>
+					</c:if>
+					<div class="carousel-inner">
+						<c:if test="${4 < count }">	
+							<div class="item active">
+								<img src="/mirinae/p_images/${p_no1 }.jpg" alt="First slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${p_no1}'">
+								<div class="carousel-caption d-none d-md-block">
+							        <h3 class="h3">HOT 1</h3>
+							        <p class="p">프로젝트명</p>
+						    	</div>
+							</div>
+							<div class="item">
+								<img src="/mirinae/p_images/${p_no2 }" alt="Second slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${p_no2}'">
+								<div class="carousel-caption d-none d-md-block">
+							        <h3>HOT 2</h3>
+							        <p>프로젝트명</p>
+						    	</div>
+							</div>
+							<div class="item">
+								<img src="/mirinae/p_images/${p_no3 }.jpg" alt="Third slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${p_no3}'">
+								<div class="carousel-caption d-none d-md-block">
+							        <h3>HOT 3</h3>
+							        <p>프로젝트명</p>
+						    	</div>
+							</div>
+							<div class="item">
+								<img src="/mirinae/p_images/${p_no4 }.jpg" alt="Third slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${p_no4}'">
+								<div class="carousel-caption d-none d-md-block">
+							        <h3>HOT 4</h3>
+							        <p>프로젝트명</p>
+						    	</div>
+							</div>
+							<div class="item">
+								<img src="/mirinae/p_images/${p_no5 }.jpg" alt="Third slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${p_no5}'">
+								<div class="carousel-caption d-none d-md-block">
+							        <h3>HOT 5</h3>
+							        <p>프로젝트명</p>
+						    	</div>
+							</div>
+						</c:if>
+						<c:if test="${4 = count }">	
+							<div class="item active">
+								<img src="/mirinae/p_images/${p_no1 }.jpg" alt="First slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${p_no1}'">
+								<div class="carousel-caption d-none d-md-block">
+							        <h3 class="h3">HOT 1</h3>
+							        <p class="p">프로젝트명</p>
+						    	</div>
+							</div>
+							<div class="item">
+								<img src="/mirinae/p_images/${p_no2 }" alt="Second slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${p_no2}'">
+								<div class="carousel-caption d-none d-md-block">
+							        <h3>HOT 2</h3>
+							        <p>프로젝트명</p>
+						    	</div>
+							</div>
+							<div class="item">
+								<img src="/mirinae/p_images/${p_no3 }.jpg" alt="Third slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${p_no3}'">
+								<div class="carousel-caption d-none d-md-block">
+							        <h3>HOT 3</h3>
+							        <p>프로젝트명</p>
+						    	</div>
+							</div>
+							<div class="item">
+								<img src="/mirinae/p_images/${p_no4 }.jpg" alt="Third slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${p_no4}'">
+								<div class="carousel-caption d-none d-md-block">
+							        <h3>HOT 4</h3>
+							        <p>프로젝트명</p>
+						    	</div>
+							</div>
+						</c:if>
+						<c:if test="${3 = count }">	
+							<div class="item active">
+								<img src="/mirinae/p_images/${p_no1 }.jpg" alt="First slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${p_no1}'">
+								<div class="carousel-caption d-none d-md-block">
+							        <h3 class="h3">HOT 1</h3>
+							        <p class="p">프로젝트명</p>
+						    	</div>
+							</div>
+							<div class="item">
+								<img src="/mirinae/p_images/${p_no2 }" alt="Second slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${p_no2}'">
+								<div class="carousel-caption d-none d-md-block">
+							        <h3>HOT 2</h3>
+							        <p>프로젝트명</p>
+						    	</div>
+							</div>
+							<div class="item">
+								<img src="/mirinae/p_images/${p_no3 }.jpg" alt="Third slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${p_no3}'">
+								<div class="carousel-caption d-none d-md-block">
+							        <h3>HOT 3</h3>
+							        <p>프로젝트명</p>
+						    	</div>
+							</div>
+						</c:if>
+						<c:if test="${2 = count }">	
+							<div class="item active">
+								<img src="/mirinae/p_images/${p_no1 }.jpg" alt="First slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${p_no1}'">
+								<div class="carousel-caption d-none d-md-block">
+							        <h3 class="h3">HOT 1</h3>
+							        <p class="p">프로젝트명</p>
+						    	</div>
+							</div>
+							<div class="item">
+								<img src="/mirinae/p_images/${p_no2 }" alt="Second slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${p_no2}'">
+								<div class="carousel-caption d-none d-md-block">
+							        <h3>HOT 2</h3>
+							        <p>프로젝트명</p>
+						    	</div>
+							</div>
+						</c:if>
+						<c:if test="${1 = count }">	
+							<div class="item active">
+								<img src="/mirinae/p_images/${p_no1 }.jpg" alt="First slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${p_no1}'">
+								<div class="carousel-caption d-none d-md-block">
+							        <h3 class="h3">HOT 1</h3>
+							        <p class="p">프로젝트명</p>
+						    	</div>
+							</div>							
+						</c:if>
+						<c:if test="${0 = count }">	
+							<div class="item active">
+								<img src="/mirinae/images/logo3.gif" alt="First slide">
+								<div class="carousel-caption d-none d-md-block">
+							        <h3 class="h3">HOT 1</h3>
+							        <p class="p">프로젝트명</p>
+						    	</div>
+							</div>							
+						</c:if>
 					</div>
 				</div>	
 				<!-- Controls -->
@@ -92,30 +233,163 @@
 		<div class="col-md-2">
 		</div>
 	</div>
-	<div class="d1">
-		<table id="t1" style="height: 300px; width: 48%; margin-left: 10px; margin-right: 10px;">
-			<tr><td><a><img alt="" src="/mirinae/images/milkyway.png" class="img"></a></td></tr>
-			<tr><td style="margin-bottom: 5px;">마감임박 1위</td>
-		</table>
-		<table id="t2" style="height: 300px; width: 48%; margin-left: 10px; margin-right: 10px;">
-			<tr><td><a><img alt="" src="/mirinae/images/milkyway.png" class="img"></a></td></tr>
-			<tr><td style="margin-bottom: 5px;">마감임박 2위</td>
-		</table>
-	</div>
-	<div class="d2">
-		<table id="t3" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
-			<tr><td><a><img alt="" src="/mirinae/images/milkyway.png" class="img"></a></td></tr>
-			<tr><td style="margin-bottom: 5px;">마감임박 3위</td>
-		</table>
-		<table id="t4" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
-			<tr><td><a><img alt="" src="/mirinae/images/milkyway.png" class="img"></a></td></tr>
-			<tr><td style="margin-bottom: 5px;">마감임박 4위</td>
-		</table>
-		<table id="t5" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
-			<tr><td><a><img alt="" src="/mirinae/images/milkyway.png" class="img"></a></td></tr>
-			<tr><td style="margin-bottom: 5px;">마감임박 5위</td>
-		</table>
-	</div>
+	<h1 class="fin_pro">로맨틱, 성공적, 프로젝트,</h1>
+	<c:if test="${4 < count }">
+		<div class="d1">
+			<table id="t1" style="height: 300px; width: 48%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/milkyway.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">1위</td>
+			</table>
+			<table id="t2" style="height: 300px; width: 48%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/milkyway.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">2위</td>
+			</table>
+		</div>
+		<div class="d2">
+			<table id="t3" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/milkyway.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">3위</td>
+			</table>
+			<table id="t4" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/milkyway.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">4위</td>
+			</table>
+			<table id="t5" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/milkyway.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">5위</td>
+			</table>
+		</div>
+	</c:if>
+	<c:if test="${4 = count }">
+		<div class="d1">
+			<table id="t1" style="height: 300px; width: 48%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/milkyway.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">1위</td>
+			</table>
+			<table id="t2" style="height: 300px; width: 48%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/milkyway.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">2위</td>
+			</table>
+		</div>
+		<div class="d2">
+			<table id="t3" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/milkyway.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">3위</td>
+			</table>
+			<table id="t4" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/milkyway.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">4위</td>
+			</table>
+			<table id="t5" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">5위</td>
+			</table>
+		</div>
+	</c:if>
+	<c:if test="${3 = count }">
+		<div class="d1">
+			<table id="t1" style="height: 300px; width: 48%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/milkyway.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">1위</td>
+			</table>
+			<table id="t2" style="height: 300px; width: 48%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/milkyway.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">2위</td>
+			</table>
+		</div>
+		<div class="d2">
+			<table id="t3" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/milkyway.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">3위</td>
+			</table>
+			<table id="t4" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">4위</td>
+			</table>
+			<table id="t5" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">5위</td>
+			</table>
+		</div>
+	</c:if>
+	<c:if test="${2 = count }">
+		<div class="d1">
+			<table id="t1" style="height: 300px; width: 48%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/milkyway.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">1위</td>
+			</table>
+			<table id="t2" style="height: 300px; width: 48%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/milkyway.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">2위</td>
+			</table>
+		</div>
+		<div class="d2">
+			<table id="t3" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">3위</td>
+			</table>
+			<table id="t4" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">4위</td>
+			</table>
+			<table id="t5" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">5위</td>
+			</table>
+		</div>
+	</c:if>
+	<c:if test="${1 = count }">
+		<div class="d1">
+			<table id="t1" style="height: 300px; width: 48%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/milkyway.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">1위</td>
+			</table>
+			<table id="t2" style="height: 300px; width: 48%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">2위</td>
+			</table>
+		</div>
+		<div class="d2">
+			<table id="t3" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">3위</td>
+			</table>
+			<table id="t4" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">4위</td>
+			</table>
+			<table id="t5" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">5위</td>
+			</table>
+		</div>
+	</c:if>
+	<c:if test="${4 = count }">
+		<div class="d1">
+			<table id="t1" style="height: 300px; width: 48%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">1위</td>
+			</table>
+			<table id="t2" style="height: 300px; width: 48%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">2위</td>
+			</table>
+		</div>
+		<div class="d2">
+			<table id="t3" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">3위</td>
+			</table>
+			<table id="t4" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">4위</td>
+			</table>
+			<table id="t5" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
+				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;">5위</td>
+			</table>
+		</div>
+	</c:if>
 	<div class="no">
 		<table>
 			<tr><td id="no1" rowspan="3">Notice</td><td style="border-bottom: 10px solid white;">notice1</td></tr>
