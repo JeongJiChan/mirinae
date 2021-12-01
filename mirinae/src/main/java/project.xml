@@ -75,5 +75,13 @@
 	<select id="idSearch" resultType="integer">
 		select count(*) from project where m_id = #{id}
 	</select>
+	<!-- p_no로 p_name 가져오기 -->
+	<select id="select" parameterType="integer" resultType="project">
+		select * from project where p_no=#{p_no}
+	</select>
 	
+	<select id="finishingselect" resultType="integer">
+		select p_no from (select rowNum rn,a.* from 
+		(select * from project where p_del = 'n' order by goal_money/cur_money desc)a) where rn=#{rn}
+	</select>
 </mapper>
