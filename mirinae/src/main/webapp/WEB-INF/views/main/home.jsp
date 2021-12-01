@@ -30,7 +30,8 @@
 	.carousel-inner { width: 100%; position: absolute; }
 	.d1 { margin-left: 20%; margin-right: 20%; display: flex; justify-content: center; margin-bottom: 10px; }
 	.d2 { margin-left: 20%; margin-right: 20%; display: flex; justify-content: center; margin-bottom: 50px; }
-	.img { width: 100%; height: 100%; }
+	.img1 { width: 100%; height: 300px; }
+	.img2 { width: 100%; height: 200px; }
 	.no { margin-left: 20%; margin-right: 20%; }
 	.no td { margin: 20px; width: 80%; padding: 10px; background-color: #EAEAEA; }
 	.no td:hover { cursor: pointer; text-decoration: underline;}
@@ -53,6 +54,7 @@
 	.carousel-caption .p { mix-blend-mode: difference; }
 	.carousel-caption .h3 { mix-blend-mode: difference; }
 	.fin_pro { font-size: 30px; font-weight: bold; margin-left: 21%; margin-bottom: 10px; }
+	h4 { display: inline; color: #3498db; margin-right: 20px; }
 </style>
 </head>
 <body>
@@ -93,7 +95,12 @@
 							<li data-target="#carousel-example-generic" data-slide-to="1"></li>
 						</ol>
 					</c:if>
-					<c:if test="${0 <= count }">
+					<c:if test="${1 == count }">
+						<ol class="carousel-indicators">
+							<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+						</ol>
+					</c:if>
+					<c:if test="${0 == count }">
 						<ol class="carousel-indicators">
 							<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
 						</ol>
@@ -235,55 +242,55 @@
 		<div class="col-md-2">
 		</div>
 	</div>
-	<h1 class="fin_pro">로맨틱, 성공적, 프로젝트,</h1>
+	<h1 class="fin_pro"><pre>로맨틱, 성공적, 프로젝트,</pre></h1>
 	<c:if test="${4 < count }">
 		<div class="d1">
 			<table id="t1" style="height: 300px; width: 48%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no1 }"><img alt="" src="/mirinae/p_images/${finishing_p_no1 }.jpg" class="img"></a></td></tr>
-				<tr><td style="margin-bottom: 5px;"><fmt:formatNumber value="${curmoney1/goalmoney1 * 100 }" pattern="0.00"/>% ${finishing_p_name1 }</td>
+				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no1 }"><img alt="" src="/mirinae/p_images/${finishing_p_no1 }.jpg" class="img1"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;"><h4><fmt:formatNumber value="${curmoney1/goalmoney1 * 100 }" pattern="0.00"/>%</h4> ${finishing_p_name1 }</td>
 			</table>
 			<table id="t2" style="height: 300px; width: 48%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no2 }"><img alt="" src="/mirinae/p_images/${finishing_p_no2 }.jpg" class="img"></a></td></tr>
-				<tr><td style="margin-bottom: 5px;"><fmt:formatNumber value="${curmoney2/goalmoney2 * 100 }" pattern="0.00"/>% ${finishing_p_name2 }</td>
+				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no2 }"><img alt="" src="/mirinae/p_images/${finishing_p_no2 }.jpg" class="img1"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;"><h4><fmt:formatNumber value="${curmoney2/goalmoney2 * 100 }" pattern="0.00"/>%</h4> ${finishing_p_name2 }</td>
 			</table>
 		</div>
 		<div class="d2">
 			<table id="t3" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no3 }"><img alt="" src="/mirinae/p_images/${finishing_p_no3 }.jpg" class="img"></a></td></tr>
-				<tr><td style="margin-bottom: 5px;"><fmt:formatNumber value="${curmoney3/goalmoney3 * 100 }" pattern="0.00"/>% ${finishing_p_name3 }</td>
+				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no3 }"><img alt="" src="/mirinae/p_images/${finishing_p_no3 }.jpg" class="img2"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;"><h4><fmt:formatNumber value="${curmoney3/goalmoney3 * 100 }" pattern="0.00"/>%</h4> ${finishing_p_name3 }</td>
 			</table>
 			<table id="t4" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no4 }"><img alt="" src="/mirinae/p_images/${finishing_p_no4 }.jpg" class="img"></a></td></tr>
-				<tr><td style="margin-bottom: 5px;"><fmt:formatNumber value="${curmoney3/goalmoney4 * 100 }" pattern="0.00"/>% ${finishing_p_name4 }</td>
+				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no4 }"><img alt="" src="/mirinae/p_images/${finishing_p_no4 }.jpg" class="img2"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;"><h4><fmt:formatNumber value="${curmoney3/goalmoney4 * 100 }" pattern="0.00"/>%</h4> ${finishing_p_name4 }</td>
 			</table>
 			<table id="t5" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no5 }"><img alt="" src="/mirinae/p_images/${finishing_p_no5 }.jpg" class="img"></a></td></tr>
-				<tr><td style="margin-bottom: 5px;"><fmt:formatNumber value="${curmoney3/goalmoney5 * 100 }" pattern="0.00"/>% ${finishing_p_name5 }</td>
+				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no5 }"><img alt="" src="/mirinae/p_images/${finishing_p_no5 }.jpg" class="img2"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;"><h4><fmt:formatNumber value="${curmoney3/goalmoney5 * 100 }" pattern="0.00"/>%</h4> ${finishing_p_name5 }</td>
 			</table>
 		</div>
 	</c:if>
 	<c:if test="${4 == count }">
 		<div class="d1">
 			<table id="t1" style="height: 300px; width: 48%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no1 }"><img alt="" src="/mirinae/p_images/${finishing_p_no1 }.jpg" class="img"></a></td></tr>
-				<tr><td style="margin-bottom: 5px;"><fmt:formatNumber value="${curmoney1/goalmoney1 * 100 }" pattern="0.00"/>% ${finishing_p_name1 }</td>
+				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no1 }"><img alt="" src="/mirinae/p_images/${finishing_p_no1 }.jpg" class="img1"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;"><h4><fmt:formatNumber value="${curmoney1/goalmoney1 * 100 }" pattern="0.00"/>%</h4> ${finishing_p_name1 }</td>
 			</table>
 			<table id="t2" style="height: 300px; width: 48%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no2 }"><img alt="" src="/mirinae/p_images/${finishing_p_no2 }.jpg" class="img"></a></td></tr>
-				<tr><td style="margin-bottom: 5px;"><fmt:formatNumber value="${curmoney2/goalmoney2 * 100 }" pattern="0.00"/>% ${finishing_p_name2 }</td>
+				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no2 }"><img alt="" src="/mirinae/p_images/${finishing_p_no2 }.jpg" class="img1"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;"><h4><fmt:formatNumber value="${curmoney2/goalmoney2 * 100 }" pattern="0.00"/>%</h4> ${finishing_p_name2 }</td>
 			</table>
 		</div>
 		<div class="d2">
 			<table id="t3" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no3 }"><img alt="" src="/mirinae/p_images/${finishing_p_no3 }.jpg" class="img"></a></td></tr>
-				<tr><td style="margin-bottom: 5px;"><fmt:formatNumber value="${curmoney3/goalmoney3 * 100 }" pattern="0.00"/>% ${finishing_p_name3 }</td>
+				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no3 }"><img alt="" src="/mirinae/p_images/${finishing_p_no3 }.jpg" class="img2"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;"><h4><fmt:formatNumber value="${curmoney3/goalmoney3 * 100 }" pattern="0.00"/>%</h4> ${finishing_p_name3 }</td>
 			</table>
 			<table id="t4" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no4 }"><img alt="" src="/mirinae/p_images/${finishing_p_no4 }.jpg" class="img"></a></td></tr>
-				<tr><td style="margin-bottom: 5px;"><fmt:formatNumber value="${curmoney3/goalmoney4 * 100 }" pattern="0.00"/>% ${finishing_p_name4 }</td>
+				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no4 }"><img alt="" src="/mirinae/p_images/${finishing_p_no4 }.jpg" class="img2"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;"><h4><fmt:formatNumber value="${curmoney3/goalmoney4 * 100 }" pattern="0.00"/>%</h4> ${finishing_p_name4 }</td>
 			</table>
 			<table id="t5" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td><a><img alt="" src="/mirinae/images/white.png2" class="img"></a></td></tr>
 				<tr><td style="margin-bottom: 5px;"></td>
 			</table>
 		</div>
@@ -291,25 +298,25 @@
 	<c:if test="${3 == count }">
 		<div class="d1">
 			<table id="t1" style="height: 300px; width: 48%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no1 }"><img alt="" src="/mirinae/p_images/${finishing_p_no1 }.jpg" class="img"></a></td></tr>
-				<tr><td style="margin-bottom: 5px;"><fmt:formatNumber value="${curmoney1/goalmoney1 * 100 }" pattern="0.00"/>% ${finishing_p_name1 }</td>
+				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no1 }"><img alt="" src="/mirinae/p_images/${finishing_p_no1 }.jpg" class="img1"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;"><h4><fmt:formatNumber value="${curmoney1/goalmoney1 * 100 }" pattern="0.00"/>%</h4> ${finishing_p_name1 }</td>
 			</table>
 			<table id="t2" style="height: 300px; width: 48%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no2 }"><img alt="" src="/mirinae/p_images/${finishing_p_no2 }.jpg" class="img"></a></td></tr>
-				<tr><td style="margin-bottom: 5px;"><fmt:formatNumber value="${curmoney2/goalmoney2 * 100 }" pattern="0.00"/>% ${finishing_p_name2 }</td>
+				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no2 }"><img alt="" src="/mirinae/p_images/${finishing_p_no2 }.jpg" class="img1"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;"><h4><fmt:formatNumber value="${curmoney2/goalmoney2 * 100 }" pattern="0.00"/>%</h4> ${finishing_p_name2 }</td>
 			</table>
 		</div>
 		<div class="d2">
 			<table id="t3" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no3 }"><img alt="" src="/mirinae/p_images/${finishing_p_no3 }.jpg" class="img"></a></td></tr>
-				<tr><td style="margin-bottom: 5px;"><fmt:formatNumber value="${curmoney3/goalmoney3 * 100 }" pattern="0.00"/>% ${finishing_p_name3 }</td>
+				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no3 }"><img alt="" src="/mirinae/p_images/${finishing_p_no3 }.jpg" class="img2"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;"><h4><fmt:formatNumber value="${curmoney3/goalmoney3 * 100 }" pattern="0.00"/>%</h4> ${finishing_p_name3 }</td>
 			</table>
 			<table id="t4" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img2"></a></td></tr>
 				<tr><td style="margin-bottom: 5px;"></td>
 			</table>
 			<table id="t5" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img2"></a></td></tr>
 				<tr><td style="margin-bottom: 5px;"></td>
 			</table>
 		</div>
@@ -317,25 +324,25 @@
 	<c:if test="${2 == count }">
 		<div class="d1">
 			<table id="t1" style="height: 300px; width: 48%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no1 }"><img alt="" src="/mirinae/p_images/${finishing_p_no1 }.jpg" class="img"></a></td></tr>
-				<tr><td style="margin-bottom: 5px;"><fmt:formatNumber value="${curmoney1/goalmoney1 * 100 }" pattern="0.00"/>% ${finishing_p_name1 }</td>
+				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no1 }"><img alt="" src="/mirinae/p_images/${finishing_p_no1 }.jpg" class="img1"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;"><h4><fmt:formatNumber value="${curmoney1/goalmoney1 * 100 }" pattern="0.00"/>%</h4> ${finishing_p_name1 }</td>
 			</table>
 			<table id="t2" style="height: 300px; width: 48%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no2 }"><img alt="" src="/mirinae/p_images/${finishing_p_no2 }.jpg" class="img"></a></td></tr>
-				<tr><td style="margin-bottom: 5px;"><fmt:formatNumber value="${curmoney2/goalmoney2 * 100 }" pattern="0.00"/>% ${finishing_p_name2 }</td>
+				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no2 }"><img alt="" src="/mirinae/p_images/${finishing_p_no2 }.jpg" class="img1"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;"><h4><fmt:formatNumber value="${curmoney2/goalmoney2 * 100 }" pattern="0.00"/>%</h4> ${finishing_p_name2 }</td>
 			</table>
 		</div>
 		<div class="d2">
 			<table id="t3" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img2"></a></td></tr>
 				<tr><td style="margin-bottom: 5px;"></td>
 			</table>
 			<table id="t4" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img2"></a></td></tr>
 				<tr><td style="margin-bottom: 5px;"></td>
 			</table>
 			<table id="t5" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img2"></a></td></tr>
 				<tr><td style="margin-bottom: 5px;"></td>
 			</table>
 		</div>
@@ -343,25 +350,25 @@
 	<c:if test="${1 == count }">
 		<div class="d1">
 			<table id="t1" style="height: 300px; width: 48%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no1 }"><img alt="" src="/mirinae/p_images/${finishing_p_no1 }.jpg" class="img"></a></td></tr>
-				<tr><td style="margin-bottom: 5px;"><fmt:formatNumber value="${curmoney1/goalmoney1 * 100 }" pattern="0.00"/>% ${finishing_p_name1 }</td>
+				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no1 }"><img alt="" src="/mirinae/p_images/${finishing_p_no1 }.jpg" class="img1"></a></td></tr>
+				<tr><td style="margin-bottom: 5px;"><h4><fmt:formatNumber value="${curmoney1/goalmoney1 * 100 }" pattern="0.00"/>%</h4> ${finishing_p_name1 }</td>
 			</table>
 			<table id="t2" style="height: 300px; width: 48%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img2"></a></td></tr>
 				<tr><td style="margin-bottom: 5px;"></td>
 			</table>
 		</div>
 		<div class="d2">
 			<table id="t3" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img2"></a></td></tr>
 				<tr><td style="margin-bottom: 5px;"></td>
 			</table>
 			<table id="t4" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img2"></a></td></tr>
 				<tr><td style="margin-bottom: 5px;"></td>
 			</table>
 			<table id="t5" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img2"></a></td></tr>
 				<tr><td style="margin-bottom: 5px;"></td>
 			</table>
 		</div>
@@ -369,25 +376,25 @@
 	<c:if test="${0 == count }">
 		<div class="d1">
 			<table id="t1" style="height: 300px; width: 48%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img2"></a></td></tr>
 				<tr><td style="margin-bottom: 5px;"></td>
 			</table>
 			<table id="t2" style="height: 300px; width: 48%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img2"></a></td></tr>
 				<tr><td style="margin-bottom: 5px;"></td>
 			</table>
 		</div>
 		<div class="d2">
 			<table id="t3" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img2"></a></td></tr>
 				<tr><td style="margin-bottom: 5px;"></td>
 			</table>
 			<table id="t4" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img2"></a></td></tr>
 				<tr><td style="margin-bottom: 5px;"></td>
 			</table>
 			<table id="t5" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
-				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img"></a></td></tr>
+				<tr><td><a><img alt="" src="/mirinae/images/white.png" class="img2"></a></td></tr>
 				<tr><td style="margin-bottom: 5px;"></td>
 			</table>
 		</div>
