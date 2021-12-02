@@ -22,7 +22,10 @@
 		if(${empty sessionScope.id && empty sessionScope.admin_id }) {
 			alert("로그인이 필요합니다.");
 			location.href="/mirinae/views/member/loginForm.sun";
-		} else {
+		}else if(${not empty sessionScope.admin_id}){
+			alert("관리자는 프로젝트를 등록할 수 없습니다.");
+			return false;
+		}else {
 			location.href="/mirinae/views/project/p_uploadForm.kim";
 		}
 	}

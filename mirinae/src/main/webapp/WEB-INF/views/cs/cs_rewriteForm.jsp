@@ -37,6 +37,7 @@
 	  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 	.underwhite{border-bottom:1px solid white; }
+	.underblack{border-bottom:1px solid black; }
 </style>
 </head>
 <body>
@@ -50,7 +51,7 @@
 			<tr height="50">
 				<th class="labeling underwhite">제목</th>
 				
-				<td>RE: ${cs_title }</td>
+				<td class="underblack" style="padding-left: 10px;">RE: ${cs_title }</td>
 			</tr>
 			<tr height="50">
 				<th class="labeling underwhite">관리자</th>

@@ -50,7 +50,7 @@ table { margin-top: 40px;}
 			style="font-size: 56px; line-height: 1.4em; text-align: center;">Customer Service</h1>
 	</div>
 <table align="center" width="800px;">
-				<tr><th class="labeling underlinewhite titleheight">제목</th><td colspan="3" class="leftpadding underlineblack">${cs.cs_title }</td></tr>
+				<tr><th class="labeling underlinewhite titleheight">제목</th><td class="leftpadding underlineblack">${cs.cs_title }</td><td></td><td></td></tr>
 	 			<tr><th class="labeling underlinewhite writeheight">작성자</th><td class="leftpadding underlineblack">${cs.cs_writer }</td>
 	 			<td class="labelingdate">작성일 : ${cs.cs_reg_date }</td>
 	 			<td class="labeling underlinewhite">조회수 : ${cs.cs_view }</td></tr>

@@ -180,7 +180,7 @@
 		<input type="submit" value="검색" class="btn btn-primary mar"/> 
 </form>
 </div>
-	<div align="center" style="margin-top: 15px;"><input type="button" value="이전 페이지" onclick="location.href='admin_page.sun'"
+	<div align="center" style="margin-top: 15px;"><input type="button" value="관리자 페이지" onclick="location.href='admin_page.sun'"
 						class="btn btn-primary"></div>
 </body>
 </html>
