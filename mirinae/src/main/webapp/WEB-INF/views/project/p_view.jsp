@@ -11,7 +11,7 @@
 	.proform { width:1100px;}
 	.topTable {background-color: #2c3e50; color: white; 
 		 border-collapse: collapse;
- 		 border-radius: 10px;
+ 		 border-radius: 5px;
 		 text-align: center;
 		 border-bottom: 1px solid white;
 		 height: 30px;
@@ -26,7 +26,7 @@
 	}
 	.textcenter { text-align: center;}
 	#picture_table { width: 35%; float: left; table-layout: fixed; margin-bottom: 20px; }
- 	#picture { width: 100%; height: 340px;} 
+ 	#picture { width: 100%; height: 360px; padding-right: 10px;} 
 	#project_table { width: 60%;  float: left; }
 	#preImage { width: 100%; height: 340px; }
 	#option { height: 80px; }
@@ -39,7 +39,7 @@
 	.countsize { width: 100px;}
 	input{ width: 100px;}
 	.leftpa { padding-left: 20px;}
-	.opttable {float: left; width: 660px; height: 90px; table-layout:fixed; border-bottom: 1px solid black;
+	.opttable {float: left; width: 660px; height: 90px; table-layout:fixed;
 				border-left: 1px solid black; border-right: 1px solid black; }
 	.underline {border-bottom: 1px solid black;}
 </style>
@@ -152,7 +152,7 @@
 	<tr><th class="topTable">프로젝트 기간</th><td colspan="4" class="leftpa underline">${project.s_date } ~ ${project.e_date }</td></tr>	
 	<tr><th class="topTable">목표 금액</th><td colspan="4" class="leftpa underline"><fmt:formatNumber value="${project.goal_money }" pattern="#,###" />원</td></tr>
 	<tr><th class="topTable">현재 모인 금액</th><td colspan="4" class="leftpa underline"><fmt:formatNumber value="${project.cur_money }" pattern="#,###" />원</td></tr>	
-	<tr><th class="topTable"> 달성률</th><td colspan="4" class="leftpa underline"><fmt:formatNumber value="${project.cur_money/project.goal_money * 100 }" pattern="0.00"/>%</td></tr>
+	<tr><th class="topTable"> 달성률</th><td colspan="4" class="leftpa"><fmt:formatNumber value="${project.cur_money/project.goal_money * 100 }" pattern="0.00"/>%</td></tr>
 	<tr><th colspan="5" class="topTablex">옵션 구매하기</th></tr>	
 	</table>
 <div style="display: inline; float: left; width: 660px; height: 90px; overflow-y:auto;overflow-x:hidden; border-bottom: 1px solid black;">

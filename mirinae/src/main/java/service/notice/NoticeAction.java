@@ -44,7 +44,6 @@ public class NoticeAction implements CommandProcess {
 		
 		int number = totalN - startRow+1;
 		List<Notice> list = nd.list(startRow, endRow);
-		
 		request.setAttribute("result", result);
 		request.setAttribute("totalN", totalN);
 		request.setAttribute("total", total);

@@ -22,6 +22,7 @@ public class MyCsList implements CommandProcess {
 		String id = (String) session.getAttribute("id");
 		Member member = md.select(id);
 		int m_no = member.getM_no();
+		String m_name = member.getM_name();
 		
 		final int ROW_PER_PAGE = 10; // 한 페이지에 게시글 6개 씩
 		final int PAGE_PER_BLOCK = 5; // 한 블럭에 5페이지 씩
@@ -46,6 +47,7 @@ public class MyCsList implements CommandProcess {
 		
 		List<Cs> list = cd.list2(startRow, endRow, m_no);
 
+		request.setAttribute("m_name", m_name);
 		request.setAttribute("list", list);
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("currentPage", currentPage);

@@ -16,6 +16,7 @@
 	.tabletitle { width: 55%; text-align: center; }
 	.tabletitlenocenter { width:55%; }
 	.tabledate{ width: 15%; text-align: center; }
+	.tablewirter{ width: 10%; text-align: center; }
 	.tableviewcount { width: 10%; text-align: center; }
 	.linewhite { border: 1px solid white; }
 	.underline {border-bottom:1px solid; border-bottom-color: #2c3e50 }
@@ -40,11 +41,15 @@
 			<tr>
 				<th class="tableno linewhite">글번호</th>
 				<th class="tabletitle linewhite">제목</th>
+				<th class="tablewirter linewhite">작성자</th>
 				<th class="tabledate linewhite">작성일</th>
 				<th class="tableviewcount linewhite">조회수</th>
 			</tr>
 	</table>
 	<table align="center" width="800px;">
+				<c:if test="${empty list }">
+					<h3 align="center" style="margin-top: 10px;">공지사항이 없습니다</h3>
+				</c:if>
 		<c:forEach var="notice" items="${list }">
 		<c:if test="${notice.no_del == 'n'}"> 
 		<c:set var="number" value="${number}"/>
@@ -56,12 +61,14 @@
 			<tr>
 			<td class="tableno underline">${number }<c:set var="number" value="${number-1 }"/> </td>
 			<td class="tabletitlenocenter underline hover" onclick="location.href='${nl_title}'">${notice.no_title }</td>
+			<td class="tablewirter underline">관리자</td>
 			<td class="tabledate underline">${notice.no_date}</td>
 			<td class="tableviewcount underline">${notice.no_view }</td></tr>
 		</c:if>
 		</c:forEach>
-		<tr><th colspan="4">
+		<tr><th colspan="5">
 		<div align="center" style="margin-top: 7px;">
+		
 			<!-- 이전 페이지 버튼 -->
 					<c:if test="${startPage > PAGE_PER_BLOCK}">
 						<button class="btn btn-primary" onclick="location.href='notice_list.la?pageNum=${startPage - 1}'">이전</button> 
@@ -69,12 +76,15 @@
 					<c:if test="${pageNum > 1}">
 						<button class="btn btn-primary" onclick="location.href='notice_list.la?pageNum=${currentPage - 1}'">이전	</button>
 					</c:if>
-			<!-- 페이지 버튼 -->	
+			<!-- 페이지 버튼 -->
+					<c:if test="${endPage == 0}">
+						<button class="btn btn-secondary" disabled="disabled">1</button>
+					</c:if>
 					<c:forEach var="i" begin="${startPage }" end="${endPage }">
 					<c:if test="${currentPage!= i }">
 						<button class="btn btn-secondary" onclick="location.href='notice_list.la?pageNum=${i}'">${i}</button>
 					</c:if>
-					<c:if test="${currentPage== i }">
+					<c:if test="${currentPage == i}">
 						<button class="btn btn-secondary" onclick="location.href='notice_list.la?pageNum=${i}'" disabled="disabled">${i}</button>
 					</c:if>
 					</c:forEach>
