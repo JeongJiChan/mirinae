@@ -10,13 +10,13 @@
 <body>
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
-		alert("프로젝트 삭제가 완료되었습니다.");
+		alert("프로젝트 취소가 완료되었습니다.");
 		location.href="project_list.kwon";
 	</script>
 </c:if>
 <c:if test="${result == 0 }">
 	<script type="text/javascript">
-		alert("프로젝트 삭제에 실패하셨습니다.");
+		alert("프로젝트 취소에 실패하셨습니다.");
 		history.go(-1);
 	</script>
 </c:if>
