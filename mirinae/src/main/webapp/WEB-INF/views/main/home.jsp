@@ -399,7 +399,7 @@
 			</table>
 		</div>
 	</c:if>
-	<c:if test="${3 == no_count }">
+	<c:if test="${3 <= no_count }">
 	<div class="no">
 		<table>
 			<tr><td id="no1" rowspan="3">Notice</td><td style="border-bottom: 10px solid white;" onclick="location.href='/mirinae/views/notice/notice_view.la?no_no=${no_no1}&pageNum=1'">${no_title1}</td></tr>
