@@ -18,15 +18,12 @@ public class SupportDelete implements CommandProcess {
 		int result = 0;
 		
 		result = sld.delete_s(sup_no);
-		System.out.println("result1 : " + result);
 		
 		if (result == 1) {
 			result = sld.p_del(p_no, total_price);
-			System.out.println("result2 : " + result);
 		}
 		if (result == 1) {
 			result = sld.delete_sd(sup_no);
-			System.out.println("result3 : " + result);
 		}
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("result", result);
