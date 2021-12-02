@@ -17,6 +17,7 @@ public class SupportForm implements CommandProcess {
 //		입력 받아 support로 보냄 프로젝트 받는 분, 프로젝트 받는 분 전화번호, 프로젝트 받는 분 주소/상세주소
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("id");
+		String per = request.getParameter("per");
 		int p_no = Integer.parseInt(request.getParameter("p_no"));
 		String[] opt_code = request.getParameterValues("opt_code");
 		String[] supd_cnt = request.getParameterValues("supd_cnt");
@@ -56,6 +57,7 @@ public class SupportForm implements CommandProcess {
 		String b = Arrays.toString(supd_cnt);
 		String c = Arrays.toString(opt_prices);
 		request.setAttribute("p_name", p_name);
+		request.setAttribute("per", per);
 		request.setAttribute("p_no", p_no);
 		request.setAttribute("m_no", m_no);
 		request.setAttribute("opt_code", a);

@@ -134,6 +134,7 @@
 <body>
 <form action="/mirinae/views/support/sup_form.chan" method="post" name="frm" onsubmit="return chk1()">
 <input type="hidden" name="p_no" value="${project.p_no }">
+<input type="hidden" name="per" value="${project.cur_money/project.goal_money * 100 }">
 <div align="center" style="margin-top: 50px; margin-left: 60px;">
 <div class="proform">
 <table id="picture_table">

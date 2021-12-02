@@ -43,16 +43,4 @@ public class SupportDetailDao {
 		session.commit();
 		return result;
 	}
-	public int delete(int sup_no) {
-		return session.update("support_detailns.delete", sup_no);
-	}
-	public int p_del(int p_no, int total_price) {
-		int result = 0;
-		HashMap<String, Integer> del_data = new HashMap<String, Integer>();
-		del_data.put("p_no", p_no);
-		del_data.put("total_price", total_price);
-		result = session.update("support_detailns.p_del", del_data);
-		session.commit();
-		return result;
-	}
 }

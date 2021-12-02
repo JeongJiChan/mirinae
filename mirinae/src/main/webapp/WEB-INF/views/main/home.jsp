@@ -261,11 +261,11 @@
 			</table>
 			<table id="t4" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
 				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no4 }"><img alt="" src="/mirinae/p_images/${finishing_p_no4 }.jpg" class="img2"></a></td></tr>
-				<tr><td style="margin-bottom: 5px;"><h4><fmt:formatNumber value="${curmoney3/goalmoney4 * 100 }" pattern="0.00"/>%</h4> ${finishing_p_name4 }</td>
+				<tr><td style="margin-bottom: 5px;"><h4><fmt:formatNumber value="${curmoney4/goalmoney4 * 100 }" pattern="0.00"/>%</h4> ${finishing_p_name4 }</td>
 			</table>
 			<table id="t5" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
 				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no5 }"><img alt="" src="/mirinae/p_images/${finishing_p_no5 }.jpg" class="img2"></a></td></tr>
-				<tr><td style="margin-bottom: 5px;"><h4><fmt:formatNumber value="${curmoney3/goalmoney5 * 100 }" pattern="0.00"/>%</h4> ${finishing_p_name5 }</td>
+				<tr><td style="margin-bottom: 5px;"><h4><fmt:formatNumber value="${curmoney5/goalmoney5 * 100 }" pattern="0.00"/>%</h4> ${finishing_p_name5 }</td>
 			</table>
 		</div>
 	</c:if>
@@ -287,7 +287,7 @@
 			</table>
 			<table id="t4" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
 				<tr><td><a href="/mirinae/views/project/p_view.kim?p_no=${finishing_p_no4 }"><img alt="" src="/mirinae/p_images/${finishing_p_no4 }.jpg" class="img2"></a></td></tr>
-				<tr><td style="margin-bottom: 5px;"><h4><fmt:formatNumber value="${curmoney3/goalmoney4 * 100 }" pattern="0.00"/>%</h4> ${finishing_p_name4 }</td>
+				<tr><td style="margin-bottom: 5px;"><h4><fmt:formatNumber value="${curmoney4/goalmoney4 * 100 }" pattern="0.00"/>%</h4> ${finishing_p_name4 }</td>
 			</table>
 			<table id="t5" style="height: 200px; width: 33%; margin-left: 10px; margin-right: 10px;">
 				<tr><td><a><img alt="" src="/mirinae/images/white.png2" class="img"></a></td></tr>

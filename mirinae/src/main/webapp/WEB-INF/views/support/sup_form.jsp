@@ -9,8 +9,21 @@
 <title>Insert title here</title>
 <style type="text/css">
 	#img_area { height: 400px; width: 450px; border: 1px solid black; width: 100%; }
-	tr, th, td { border: 0px; margin: 10px; padding: 20px; }
-	input { height: 30px; }
+	tr, th, td { border: 0px; }
+	.mainTable input { height: 30px; width: 90%; }
+	#button { margin-top: 10px; }
+	.subject { font-size: 30px; }
+	.topTable {background-color: #2c3e50; color: white; 
+		 border-collapse: collapse;
+ 		 border-radius: 10px;
+		 text-align: center;
+		 border-bottom: 1px solid white;
+		 height: 30px;
+		 width: 18%;
+		 border-bottom: 5px solid white;
+	}
+	h2 { display: inline; color: #3498db; margin-right: 20px; }	
+	.mainTable { margin-left: 20%; margin-right: 20%; }	
 </style>
 <script	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
@@ -25,6 +38,10 @@
 			}).open();
 		});
 	}
+	window.history.forward();
+	function noBack() {
+		window.history.forward();
+	}
 </script>
 </head>
 <body>
@@ -35,37 +52,42 @@
 		<input type="hidden" name="p_no" value="${p_no }">
 		<input type="hidden" name="opt_price" value="${opt_price }">
 		<input type="hidden" name="total_price" value="${total_price }">
-		<div align="center">
-			<table>
+		<div align="center" class="mainTable">
+			<table style="width: 70%;">
 				<tr>
-					<td colspan="2" width="100%"><div id="img_area"><img alt="" src="/mirinae/p_images/${p_no }.jpg"></div></td>
+					<td colspan="4" width="100%"><img id="img_area" alt="" src="/mirinae/p_images/${p_no }.jpg"></td>
 				</tr>
 				<tr>
-					<td colspan="2">${p_name }</td>
+					<td colspan="4" style="border-bottom: 10px solid white;">
+						<h2><fmt:formatNumber value="${per }" pattern="0.00"/>%</h2>
+						<span class="subject">${p_name }</span>
+					</td>
 				</tr>
 				<tr>
-					<td colspan="2">${result }</td>
+					<th class="topTable">이름</th>
+					<td style="border-bottom: 5px solid white; padding-left: 10px; width: 40%;"><input type="text" name="sup_name" placeholder="프로젝트 받는 분" required="required"></td>
+					<th class="topTable" colspan="2">내역</th>
 				</tr>
 				<tr>
-					<td colspan="2">총 금액 : <fmt:formatNumber value="${total_price }" pattern="#,###" /></td>
+					<th class="topTable">전화번호</th>
+					<td style="border-bottom: 5px solid white; padding-left: 10px;"><input type="tel" name="sup_tel"  placeholder="프로젝트 받는 분 전화번호" required="required"></td>
+					<td style="border-bottom: 5px solid white; padding-left: 10px;" rowspan="2" colspan="2">${result }</td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="text" name="sup_name" placeholder="프로젝트 받는 분" required="required" size="100%"></td>
+					<th class="topTable">주소</th>
+					<td style="border-bottom: 5px solid white; padding-left: 10px;"><input type="text" id="address_kakao" name="address" required="required" readonly="readonly" placeholder="프로젝트 받는 분 주소"></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="tel" name="sup_tel"  placeholder="프로젝트 받는 분 전화번호" required="required" size="100%"></td>
-				</tr>
-				<tr>
-					<td colspan="2"><input type="text" id="address_kakao" name="address" required="required" readonly="readonly" placeholder="프로젝트 받는 분 주소" size="100%"></td>
-				</tr>
-				<tr>
-					<td colspan="2"><input type="text" name="address_detail" required="required"  placeholder="상세주소" size="100%"></td>
-				</tr>
-				<tr>
-					<th><input type="submit" value="후원"></th>
-					<th><button onclick="history.back()">취소</button></th>
+					<th class="topTable">상세주소</th>
+					<td style="border-bottom: 5px solid white; padding-left: 10px;"><input type="text" name="address_detail" required="required"  placeholder="상세주소"></td>
+					<th class="topTable">금액</th>
+					<td style="border-bottom: 5px solid white; padding-left: 10px;"><fmt:formatNumber value="${total_price }" pattern="#,###" /></td>
 				</tr>
 			</table>
+		</div>
+		<div align="center" id="button">
+			<input type="submit" value="후원" class="btn btn-primary optmargin">
+			<input type="button" value="취소" onclick="history.back()" class="btn btn-primary optmargin">
 		</div>
 	</form>
 </body>

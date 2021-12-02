@@ -18,7 +18,7 @@
 		select count(*) from support where del='n' and m_no=#{m_no}
 	</select>
 	<select id="getSup_no" resultType="integer">
-		select sup_no from support where m_no=#{m_no} 
+		select sup_no from support where m_no=#{m_no} and del='n'
 	</select>
 	<select id="s_list" resultType="support">
 		select * from (select rowNum rn,a.* from (select * from	support where del='n' and m_no=#{m_no} 
@@ -33,9 +33,6 @@
 	<select id="getOpt_price" resultType="int">
 		select opt_price from options where opt_code=#{string}
 	</select>
-	<update id="delete" parameterType="int">
-		update support set del='y' where sup_no=#{sup_no}
-	</update>
 	<select id="list4" resultType="support">
 		select * from
 		(select rowNum rn , a.* from
