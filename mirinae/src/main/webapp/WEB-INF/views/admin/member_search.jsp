@@ -89,7 +89,7 @@
 					</button> 
 				</c:if>
 				<c:if test="${pageNum > 1}">
-					<button class="prev" onclick="location.href='member_search?pageNum=${currentPage - 1}&part=${part}&searchData=${searchData}'">
+					<button class="prev" onclick="location.href='member_search.sun?pageNum=${currentPage - 1}&part=${part}&searchData=${searchData}'">
 						이전
 					</button>
 				</c:if>
