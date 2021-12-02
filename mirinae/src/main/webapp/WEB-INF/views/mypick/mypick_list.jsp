@@ -51,7 +51,7 @@
 				<c:if test="${list.cate_code == 200 }">가전</c:if>
 				<c:if test="${list.cate_code == 300 }">기타</c:if>
 			</td></tr>
-			<tr><th colspan="2"><h4><fmt:formatNumber value="${list.cur_money/list.goal_money * 100 }" pattern="0.00"/>%</h4>
+			<tr><th colspan="2"><h4 style="margin-right: 20px;"><fmt:formatNumber value="${list.cur_money/list.goal_money * 100 }" pattern="0.00"/>%</h4>
 							<fmt:formatNumber value="${list.goal_money }" pattern="#,###" />원</th></tr>
 			</table>
 		</c:forEach>
@@ -59,18 +59,18 @@
 </div>
 <div id="btnlist" align="center">
 <c:if test="${startPage > PAGE_PER_BLOCK }">
-	<button class="btn btn-secondary" onclick="location.href='p_list.kim?pageNum=${startPage-1 }'">이전</button>
+	<button class="btn btn-primary" onclick="location.href='mypick_list.la?pageNum=${startPage-1 }'">이전</button>
 </c:if>
 <c:forEach var="i" begin="${ startPage }" end="${endPage }">
 	<c:if test="${currentPage == i }">
-		<button class="btn btn-secondary" onclick="location.href='p_list.kim?pageNum=${i}'" disabled="disabled">${i }</button>
+		<button class="btn btn-secondary" onclick="location.href='mypick_list.la?pageNum=${i}'" disabled="disabled">${i }</button>
 	</c:if>
 	<c:if test="${currentPage != i }">
-		<button class="btn btn-secondary" onclick="location.href='p_list.kim?pageNum=${i}'">${i }</button>	
+		<button class="btn btn-secondary" onclick="location.href='mypick_list.la?pageNum=${i}'">${i }</button>	
 	</c:if>
 </c:forEach>
 <c:if test="${endPage < totalPage }">
-	<button class="btn btn-secondary" onclick="location.href='p_list.kim?pageNum=${endPage+1 }'">다음</button>
+	<button class="btn btn-primary" onclick="location.href='mypick_list.la?pageNum=${endPage+1 }'">다음</button>
 </c:if>
 </div>
 </body>

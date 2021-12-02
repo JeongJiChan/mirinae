@@ -21,6 +21,7 @@
 	function mingwonjjang() {
 		if(${empty sessionScope.id && empty sessionScope.admin_id }) {
 			alert("로그인이 필요합니다.");
+			location.href="/mirinae/views/member/loginForm.sun";
 		} else {
 			location.href="/mirinae/views/project/p_uploadForm.kim";
 		}

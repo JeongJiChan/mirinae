@@ -49,7 +49,7 @@
 				<c:if test="${pro.cate_code == 200 }">가전</c:if>
 				<c:if test="${pro.cate_code == 300 }">기타</c:if>
 			</td></tr>
-			<tr><th colspan="2"><h4><fmt:formatNumber value="${pro.cur_money/pro.goal_money * 100 }" pattern="0.00"/>%</h4>
+			<tr><th colspan="2"><h4 style="margin-right: 20px;"><fmt:formatNumber value="${pro.cur_money/pro.goal_money * 100 }" pattern="0.00"/>%</h4>
 							<fmt:formatNumber value="${pro.goal_money }" pattern="#,###" />원</th></tr>
 			</table>
 		</c:if>

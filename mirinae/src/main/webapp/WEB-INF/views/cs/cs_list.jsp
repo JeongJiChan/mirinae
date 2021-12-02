@@ -64,7 +64,7 @@
 		</table>
 		<table align="center" width="800px;">
 				<c:if test="${empty list }">
-					<h3>문의내역이 없습니다</h3>
+					<h3 align="center" style="margin-top: 10px;">문의내역이 없습니다</h3>
 				</c:if>
 				<c:if test="${not empty list}">
 				<c:forEach var="cs" items="${list }">
@@ -102,8 +102,12 @@
 								onclick="location.href='cs_list.kwon?pageNum=${currentPage-1}'">이전</button>
 						</c:if>
 						<!-- 페이지 -->
+							<c:if test="${endPage == 0}">
+								<button class="btn btn-secondary"
+									disabled="disabled">1</button>
+							</c:if>
 						<c:forEach var="i" begin="${startPage}" end="${endPage}">
-							<c:if test="${currentPage== i }">
+							<c:if test="${currentPage== i}">
 								<button class="btn btn-secondary"
 									onclick="location.href='cs_list.kwon?pageNum=${i}'"
 									disabled="disabled">${i}</button>
@@ -115,7 +119,7 @@
 						</c:forEach>
 						<!-- 다음 -->
 						<c:if test="${currentPage < totalPage}">
-							<button class="btn btn-secondary"
+							<button class="btn btn-primary"
 								onclick="location.href='cs_list.kwon?pageNum=${currentPage + 1}'">다음</button>
 						</c:if>
 						<!-- 보여줄 것이 남아있다 -->
@@ -125,7 +129,7 @@
 						</c:if>
 					</div>
 					<button
-						onclick="sessionChk()" id="btn" class="btn btn-primary btnheight">글쓰기</button>
+						onclick="sessionChk()" id="btn" class="btn btn-primary">글쓰기</button>
 				</div>
 		</th></tr>
 		</table>
