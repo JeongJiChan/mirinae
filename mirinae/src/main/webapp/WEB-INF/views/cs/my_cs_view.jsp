@@ -58,8 +58,11 @@ table { margin-top: 40px;}
 </table>	
 	<div align="center">
 		<button onclick="location.href='my_cs_list.kwon?pageNum=${pageNum}'" class="btn btn-primary topmargin">목록</button>
+		<c:set var="id" value="${sessionScope.id }"></c:set>
+		<c:set var="admin_id" value="${sessionScope.admin_id }"></c:set>
+		<c:if test="${cs.cs_re_step == 0}">
 				<button onclick="delCs()" class="btn btn-danger topmargin">삭제</button>
-
+		</c:if>
 	</div>
 	
 </body>

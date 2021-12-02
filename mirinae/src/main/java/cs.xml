@@ -73,7 +73,7 @@
 	<select id="list2" resultType="cs">
 		select * from
 		(select rowNum rn , a.* from
-		(select * from cs where cs_ref in (select cs_ref from cs where m_no = #{m_no}) order by cs_ref desc, cs_re_step asc) a)
+		(select * from cs where cs_ref in (select cs_ref from cs where m_no =  #{m_no} and cs_del = 'n') order by cs_ref desc, cs_re_step asc) a)
 		where rn between #{startRow} and #{endRow}
 	</select>
 	
