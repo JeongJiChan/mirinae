@@ -13,7 +13,7 @@
 	function delCs() {
 		var con = confirm("문의를 삭제하시겠습니까?");
 		if(con) {
-			location.href="cs_delete.kwon?cs_no=${cs.cs_no}&pageNum=${pageNum}";
+			location.href="cs_delete.kwon?cs_ref=${cs.cs_ref}&pageNum=${pageNum}";
 		}
 	}
 </script>

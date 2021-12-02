@@ -57,8 +57,8 @@ public class CsDao {
 		public Member select2(int m_no) {
 			return (Member)session.selectOne("csns.select2", m_no);
 		}
-		public int delete(int cs_no) {
-			return session.delete("csns.delete", cs_no);
+		public int delete(int cs_ref) {
+			return session.delete("csns.delete", cs_ref);
 		}
 		public int insert2(Cs cs) {
 			return session.insert("csns.insert2", cs);

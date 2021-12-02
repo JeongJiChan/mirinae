@@ -18,7 +18,7 @@
 	
 	<!-- 게시글 삭제 -->
 	<update id="delete" parameterType="integer">
-		update cs set cs_del = 'y' where cs_no = #{cs_no}
+		update cs set cs_del = 'y' where cs_ref = #{cs_ref}
 	</update>
 	
 	<!-- 상세페이지 - 데이터 조회 -->
