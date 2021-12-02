@@ -2,6 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="support_listns">
 	<select id="sp_list" resultType="support_list" parameterType="integer">
-		select * from support s, project p where s.p_no = p.p_no and p.p_del ='n' and s.sup_no=#{temp}
+		select * from support s, project p where s.p_no = p.p_no and p.p_del ='n' and s.sup_no=#{temp} and s.del = 'n'
 	</select>
+	<update id="delete_s" parameterType="int">
+		update support set del='y' where sup_no=#{sup_no}
+	</update>
+	<update id="delete_sd" parameterType="int">
+		update support_detail set del='y' where sup_no=#{sup_no}
+	</update>
+	<update id="p_del" parameterType="int">
+		update project set cur_money = cur_money - #{total_price} where p_no=#{p_no}
+	</update>
 </mapper>

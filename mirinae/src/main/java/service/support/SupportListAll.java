@@ -53,9 +53,7 @@ public class SupportListAll implements CommandProcess {
 			sp_list.addAll((List<SupportList>)sld.list(temp));
 		}
 
-		List<Support> s_list = sd.s_list(startRow, endRow, m_no);
 		request.setAttribute("totalN", totalN);
-		request.setAttribute("s_list", s_list);
 		request.setAttribute("sp_list", sp_list);
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("currentPage", currentPage);

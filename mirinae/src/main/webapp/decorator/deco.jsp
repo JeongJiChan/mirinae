@@ -12,7 +12,7 @@
 	#footer { background-color: gray; opacity: 0.3; height: 100px; color: black; }
 </style>
 </head>
-<body>
+<body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload="">
 	<jsp:include page="header.jsp"></jsp:include>
 	<hr>
 	<deco:head></deco:head>

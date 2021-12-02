@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 	#img { margin-top: 100px; margin-bottom: 50px; position: relative; }
-	button { margin: 50px; margin-bottom: 100px; }
+	button { margin-top: 10px; }
 	#p { text-align: center; position: absolute; top: 50%; left: 50%; color: white; font-size: 20px; transform: translate( -50%, -50% ); }
 </style>
 </head>
@@ -21,8 +21,8 @@
 			</div>
 		</div>
 		<div align="center">
-			<button onclick="location.href='/mirinae/views/main/home.chan'">Main</button>
-			<button onclick="location.href='/mirinae/views/member/my_page.sun'">MyPage</button>
+			<button class="btn btn-primary optmargin" onclick="location.href='/mirinae/views/main/home.chan'">Main</button>
+			<button class="btn btn-primary optmargin" onclick="location.href='/mirinae/views/member/my_page.sun'">MyPage</button>
 		</div>
 	</c:if>
 	<c:if test="${result != 1 }">

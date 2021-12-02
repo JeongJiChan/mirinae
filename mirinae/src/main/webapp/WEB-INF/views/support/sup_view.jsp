@@ -6,48 +6,128 @@
 <html>
 <head>
 <style type="text/css">
-	.btnDiv {display: flex;}
+	#s_view { margin-left: 20%; margin-right: 20%; display: flex; justify-content: center; padding: 0px;}
+	.t_view { width: 100%; }
+	h3 { display: inline; color: #3498db; margin-right: 20px; }	
+	span { margin-right: 20px; }
+	.underline { border-bottom: 1px solid black; }
+	.leftpa { padding-left: 20px;}
+	.topTable {background-color: #2c3e50; color: white; 
+		 border-collapse: collapse;
+ 		 border-radius: 10px;
+		 text-align: center;
+		 border-bottom: 1px solid white;
+		 height: 30px;
+		 width: 18%;
+	}
+	.imageArea { height: 600px; width: 100%; }
+	.imageArea img { height: 600px; width: 100%; }
+ 	.tableMain { width: 100%; }
+ 	.form { width: 100%; }
+ 	#button { margin-top: 10px; }
+ 	#a { font-size: 30px; text-decoration: none; }
+ 	#a:active { color: black; }
+	#a:hover { color: black; }
+	#a:visited { color: black; }
+	#a:link { color: black; }
 </style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	window.history.forward();
+	function noBack() {
+		window.history.forward();
+	}
+</script>
 </head>
 <body>
-
-<c:url var="deleteUrl" value="sup_delete.chan">
-	<c:param name="sup_no" value="${sp.sup_no }"/>
-	<c:param name="total_price" value="${sp.total_price }"/>
-	<c:param name="p_no" value="${sp.p_no }"/>
-	<c:param name="pageNum" value="${pageNum }"/>
-</c:url>
-
-
-<c:if test="${sp.p_del == 'n'}">
-	<div id="n_view">
-		<form action="" method="post">
-			<input type="hidden" name="sup_no" value="${sp.sup_no }"	>
-			<div>
-				<img alt="" src="/mirinae/p_images/${sp.p_no }.jpg">
-			</div>
-			<div>
-				<div>
-					프로젝트 : ${sp.p_name }<p>
-					기   간 : ${sp.s_date } ~ ${sp.e_date }<p>
-					목표금액 : <fmt:formatNumber value="${sp.goal_money }" pattern="#,###"/><p>
-					현재금액 : <fmt:formatNumber value="${sp.cur_money }" pattern="#,###"/><p>
-					목표달성률 : <fmt:formatNumber value="${sp.cur_money/sp.goal_money * 100 }" pattern="0.00"/>%<p>
-					후원금액 : <fmt:formatNumber value="${sp.total_price }" pattern="#,###"/><p>
-					후원일 : ${sp.sup_date }<p>
-					수령인 : ${sp.sup_name }<p>
-					배송지 : ${sp.sup_address } ${sp.address_d }
+	<c:url var="deleteUrl" value="sup_delete.chan">
+		<c:param name="sup_no" value="${sp.sup_no }"/>
+		<c:param name="total_price" value="${sp.total_price }"/>
+		<c:param name="p_no" value="${sp.p_no }"/>
+		<c:param name="pageNum" value="${pageNum }"/>
+	</c:url>
+	<c:url var="projectView" value="/views/project/p_view.kim">
+		<c:param name="p_no" value="${sp.p_no }"></c:param>
+	</c:url>
+	<script type="text/javascript">
+		function con() {
+			var data = confirm('후원을 취소하시겠습니까?');
+			if (data) {
+				location.href='${deleteUrl }'
+			}
+			else return false;
+		}
+	</script>
+	<c:if test="${sp.p_del == 'n'}">
+		<div id="s_view">
+			<form action="" method="post" class="form">
+				<input type="hidden" name="sup_no" value="${sp.sup_no }"	>
+				<div class="imageArea">
+					<a href="${projectView }"><img alt="" src="/mirinae/p_images/${sp.p_no }.jpg"></a>
 				</div>
-			</div>
-		</form>
-	</div>
-</c:if>
-	<div class="btnDiv">
-		<a href="sup_list.chan?pageNum=${pageNum}">목록</a> 
-		&nbsp;
-		<a href="${deleteUrl }" onclick="return confirm('후원을 취소하시겠습니까?')">후원취소</a>
+				<div class="t_view">
+					<table class="tableMain">
+						<tr>
+							<th colspan="4">
+								<h3><fmt:formatNumber value="${sp.cur_money/sp.goal_money * 100 }" pattern="0.00"/>%</h3><a id="a" href="${projectView }">${sp.p_name }</a>
+							</th>
+						</tr>
+						<tr>
+							<th colspan="4">
+								<h5>${sp.s_date } ~ ${sp.e_date }</h5>
+							</th>
+						</tr>
+						<tr>
+							<th class="topTable">
+								목표 금액
+							</th>
+							<td class="leftpa underline">
+								<fmt:formatNumber value="${sp.goal_money }" pattern="#,###"/>
+							</td>
+							<th class="topTable">
+								현재 금액
+							</th>
+							<td class="leftpa underline">
+								<fmt:formatNumber value="${sp.cur_money }" pattern="#,###"/>
+							</td>
+						</tr>
+						<tr>
+							<th class="topTable">
+								후원 일자
+							</th>
+							<td class="leftpa underline">
+								${sp.sup_date }
+							</td>
+							<th class="topTable">
+								후원 금액
+							</th>
+							<td class="leftpa underline">
+								<fmt:formatNumber value="${sp.total_price }" pattern="#,###"/>
+							</td>
+						</tr>
+						<tr id="last">
+							<th class="topTable">
+								후원인
+							</th>
+							<td class="leftpa underline">
+								${sp.sup_name }
+							</td>
+							<th class="topTable">
+								배송지
+							</th>
+							<td class="leftpa underline">
+								${sp.sup_address } ${sp.address_d }
+							</td>
+						</tr>	
+					</table>
+				</div>
+			</form>
+		</div>
+	</c:if>
+	<div align="center" id="button">
+		<input type="button" value="목록" onclick="location.href='sup_list.chan?pageNum=${pageNum}'" class="btn btn-primary optmargin">
+		<input type="button" value="취소" onclick="con()" class="btn btn-primary optmargin">
 	</div>
 </body>
 </html>
