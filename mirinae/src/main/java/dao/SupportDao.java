@@ -63,10 +63,4 @@ public class SupportDao {
 	public int getOpt_price(String string) {
 		return (int) session.selectOne("supportns.getOpt_price", string);
 	}
-	public List<Support> list4(int startRow, int endRow) {
-		HashMap<String, Integer> hm = new HashMap<>();
-	    hm.put("startRow", startRow);
-	    hm.put("endRow", endRow);
-	    return (List<Support>)session.selectList("supportns.list4", hm);
-	}
 }

@@ -27,6 +27,25 @@
 <script type="text/javascript" src="/mirinae/js/jquery.js"></script>
 </head>
 <body>
+<c:url var="deleteUrl" value="sup_delete.kwon">
+	<c:param name="sup_no" value="${s.sup_no }"/>
+	<c:param name="total_price" value="${s.total_price }"/>
+	<c:param name="p_no" value="${s.p_no }"/>
+	<c:param name="pageNum" value="${pageNum }"/>
+</c:url>
+<script type="text/javascript">
+	function con(del,s_no,price,p_no,num) {
+		if (del == 'n') {
+			var data = confirm('후원을 취소하시겠습니까?');
+			if (data) {
+				alert('sup_delete.kwon?sup_no='+s_no+'&p_no='+p_no+'&total_price='+price+'&pageNum='+num);
+				location.href='sup_delete.kwon?sup_no='+s_no+'&p_no='+p_no+'&total_price='+price+'&pageNum='+num;
+			}
+			else return false;	
+		}
+		else alert('취소된 후원내역입니다');
+	}
+</script>
 <div align="center"><h2>전체 후원 목록</h2></div>
 <div align="center"><span style="color: red">&nbsp;&nbsp;&nbsp;*</span>취소한 후원도 포함</div>
 		<c:if test="${empty list}">
@@ -51,17 +70,17 @@
 		</tr>
 			<c:forEach var="s" items="${list }">
 				<tr>
-					<td onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}'" align="center">${s.sup_no}</td>
-					<td onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}'" align="center">${s.m_no}</td>
-					<td onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}'">${s.sup_address}</td>
-					<td onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}'">${s.address_d}</td>
-					<td onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}'">${s.sup_tel}</td>
-					<td onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}'">${s.sup_date}</td>
-					<td onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}'">${s.sup_name}</td>
-					<td onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}'" align="center">${s.p_no}</td>
-					<td onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}'">${s.total_price}</td>
-					<td onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}'" align="center">${s.del }</td>
-					<td><button style="width: 100%;" class="delbtn" onclick="location.href='../admin/sup_delete.kwon?sup_no=${s.sup_no}&p_no=${s.p_no}&total_price=${s.total_price }'">취소</button></td>
+					<td onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}&pageNum=${currentPage  }'" align="center">${s.sup_no}</td>
+					<td onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}&pageNum=${currentPage  }'" align="center">${s.m_no}</td>
+					<td onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}&pageNum=${currentPage  }'">${s.sup_address}</td>
+					<td onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}&pageNum=${currentPage  }'">${s.address_d}</td>
+					<td onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}&pageNum=${currentPage  }'">${s.sup_tel}</td>
+					<td onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}&pageNum=${currentPage  }'">${s.sup_date}</td>
+					<td onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}&pageNum=${currentPage  }'">${s.sup_name}</td>
+					<td onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}&pageNum=${currentPage  }'" align="center">${s.p_no}</td>
+					<td onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}&pageNum=${currentPage  }'">${s.total_price}</td>
+					<td onclick="location.href='../admin/sup_view.kwon?sup_no=${s.sup_no}&pageNum=${currentPage  }'" align="center">${s.del }</td>
+					<td><button style="width: 100%;" class="delbtn" onclick="con('${s.del }','${s.sup_no }','${s.total_price }','${s.p_no }','${pageNum }')">취소</button></td>
 				</tr>
 			</c:forEach>
 		</table>

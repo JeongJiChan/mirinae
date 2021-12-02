@@ -13,4 +13,25 @@
 	<update id="p_del" parameterType="int">
 		update project set cur_money = cur_money - #{total_price} where p_no=#{p_no}
 	</update>
+	<select id="op_list" resultType="integer" parameterType="integer">
+		select opt_code from support_detail where sup_no=#{temp}
+	</select>
+	<select id="opt_name" resultType="String" parameterType="integer">
+		select opt_name from options where opt_code=#{op_code}
+	</select>
+	<select id="cnt_list" resultType="integer" parameterType="integer">
+		select supd_cnt from support_detail where sup_no=#{temp}
+	</select>
+	<select id="price_list" resultType="integer" parameterType="integer">
+		select opt_price from options where opt_code=#{op_code}
+	</select>
+	<select id="list4" resultType="support">
+		select * from
+		(select rowNum rn , a.* from
+		(select * from support order by sup_no desc) a)
+		where rn between #{startRow} and #{endRow}
+	</select>
+	<select id="adminSp_list" resultType="support_list" parameterType="integer">
+		select * from support s, project p where s.p_no = p.p_no and p.p_del ='n' and s.sup_no=#{temp}
+	</select>
 </mapper>
