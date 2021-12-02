@@ -74,11 +74,6 @@
 							</th>
 						</tr>
 						<tr>
-							<th colspan="4">
-								<h5>${sp.s_date } ~ ${sp.e_date }</h5>
-							</th>
-						</tr>
-						<tr>
 							<th class="topTable">
 								목표 금액
 							</th>
@@ -94,21 +89,21 @@
 						</tr>
 						<tr>
 							<th class="topTable">
+								후원 기간
+							</th>
+							<td class="leftpa underline">
+								${sp.s_date } ~ ${sp.e_date }
+							</td>
+							<th class="topTable">
 								후원 일자
 							</th>
 							<td class="leftpa underline">
 								${sp.sup_date }
 							</td>
-							<th class="topTable">
-								후원 금액
-							</th>
-							<td class="leftpa underline">
-								<fmt:formatNumber value="${sp.total_price }" pattern="#,###"/>
-							</td>
 						</tr>
 						<tr id="last">
 							<th class="topTable">
-								후원인
+								수령인
 							</th>
 							<td class="leftpa underline">
 								${sp.sup_name }
@@ -118,6 +113,15 @@
 							</th>
 							<td class="leftpa underline">
 								${sp.sup_address } ${sp.address_d }
+							</td>
+						</tr>
+						<tr>
+							<th class="topTable">
+								후원 내역
+							</th>
+							<td class="leftpa underline" colspan="3">
+								${result }<p>
+								총액 <fmt:formatNumber value="${sp.total_price }" pattern="#,###"/>원
 							</td>
 						</tr>	
 					</table>

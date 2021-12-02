@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import model.Support;
 import model.SupportList;
 import service.support.SupportListAll;
 
@@ -48,5 +49,26 @@ public class SupportListDao {
 		result = session.update("support_listns.p_del", del_data);
 		session.commit();
 		return result;
+	}
+	public List<Integer> op_list(int temp) {
+		return session.selectList("support_listns.op_list", temp);
+	}
+	public String opt_name(int op_code) {
+		return (String) session.selectOne("support_listns.opt_name", op_code);
+	}
+	public List<Integer> cnt_list(int temp) {
+		return session.selectList("support_listns.cnt_list", temp);
+	}
+	public int price_list(int temp) {
+		return (int) session.selectOne("support_listns.price_list", temp);
+	}
+	public List<Support> list4(int startRow, int endRow) {
+		HashMap<String, Integer> hm = new HashMap<>();
+	    hm.put("startRow", startRow);
+	    hm.put("endRow", endRow);
+	    return (List<Support>)session.selectList("support_listns.list4", hm);
+	}
+	public SupportList admin_oneList(int temp) {
+		return (SupportList) session.selectOne("support_listns.adminSp_list", temp);
 	}
 }
