@@ -32,7 +32,7 @@ create table notice( -- 공지사항 테이블
 
 create table cs(  -- 고객문의 테이블
     cs_no number primary key, -- 고객문의 글번호
-    cs_title varchar2(20), -- 고객문의 제목
+    cs_title varchar2(100), -- 고객문의 제목
     cs_content varchar2(2000), -- 고객문의 내용
     cs_writer varchar2(20), -- 고객문의 작성자
     cs_reg_date date, -- 고객문의 작성일
@@ -74,59 +74,30 @@ create table mypick( -- 마이픽 테이블
 
 create table support( -- 후원 테이블
     sup_no number primary key, -- 후원번호
-    m_no number references member(m_no), — 후원한 회원번호
-    sup_address varchar2(100), — 배송지
-    sup_tel varchar2(20), — 배송받을 번호
-    sup_date date — 후원날짜
-);
-select * from support;
-select * from support_detail
-delete from support
-ALTER TABLE support DROP COLUMN sup_name;
-ALTER TABLE support DROP COLUMN sup_date;
-ALTER TABLE support DROP COLUMN sup_tel;
-alter table support add address_d varchar2(20);
-ALTER TABLE support add sup_name varchar2(20);
-ALTER TABLE support add sup_date date;
-ALTER TABLE support add sup_tel varchar2(20);
-ALTER TABLE support add p_name varchar2(20);
-ALTER TABLE support add del char(1) default 'n';
-ALTER TABLE support_detail add del char(1) default 'n';
-
-create table options( — 옵션
-    opt_code varchar2(10) primary key, — 옵션코드
-    opt_name varchar2(20), — 옵션명
-    opt_price number, — 옵션 가격
-    p_no number references project(p_no) — 프로젝트번호
+    m_no number references member(m_no), -- 후원한 회원번호
+    sup_address varchar2(100), -- 배송지
+    address_d varchar2(100), -- 상세주소
+    sup_name varchar2(20), -- 후원자 이름
+    sup_date date -- 후원날짜
+    sup_tel varchar2(20), -- 후원자 번호
+    p_no number references project(p_no), -- 프로젝트번호
+    del char(1), -- 후원 취소여부
+    total_price varchar2(20) -- 주문금액
 );
 
-create table support_detail( — 후원내역
-    supd_no number primary key, — 후원내역번호
-    count number, — 후원내역 수량
-    opt_code varchar2(10) references options(opt_code), — 후원내역의 옵션코드
-    sup_no number references support(sup_no) — 후원내역의 후원번호
-);
-
-create sequence seq_member
-	start with 1
-	increment by 1
-	nomaxvalue
-	nominvalue
-	nocycle
-	nocache;
-	
-drop table support_detail;
-drop table options;
-create table options( -- 옵션
-    opt_code number primary key, -- 옵션코드
-    opt_name varchar2(20), -- 옵션명
+create table options( -- 옵션 테이블
+    opt_code varchar2(10) primary key, -- 옵션코드
+    opt_name varchar2(40), -- 옵션명
     opt_price number, -- 옵션 가격
-    p_no number references project(p_no) -- 프로젝트번호
-);
-create table support_detail( -- 후원내역
-    supd_no number primary key, -- 후원내역번호
-    count number, -- 후원내역 수량
-    opt_code number references options(opt_code), -- 후원내역의 옵션코드
-    sup_no number references support(sup_no) -- 후원내역의 후원번호
+    p_no number references project(p_no), -- 프로젝트번호
+    opt_del varchar2(5) -- 옵션 삭제여부
 );
 
+create table support_detail( -- 후원내역 테이블
+    supd_no number primary key, -- 후원내역번호
+   	supd_cnt number, -- 후원내역 수량
+    opt_code varchar2(10) references options(opt_code), -- 후원테이블의 옵션코드
+    sup_no number references support(sup_no), -- 후원테이블의 후원번호
+    del char(1), -- 후원내역 삭제여부
+    oc_price varchar2(20) -- 옵션 항목 하나의 총 가격(optionXcount _ price)
+);
