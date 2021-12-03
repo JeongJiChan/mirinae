@@ -3,12 +3,12 @@ create table member ( -- 회원 테이블
     m_id varchar2(20), -- 아이디
     m_pass varchar2(20), -- 비밀번호
     m_nick varchar2(20), -- 닉네임
-    m_email varchar2(20), -- 이메일
+    m_email varchar2(40), -- 이메일
     m_name varchar2(20), -- 이름
     tel varchar2(20), -- 전화번호
     birth date, -- 생년월일
     address varchar2(200), -- 주소
-    address_d varchar2(20), -- 상세주소
+    address_d varchar2(100), -- 상세주소
     reg_date date, -- 가입일
     del char(1) -- 탈퇴여부
 );
@@ -81,7 +81,7 @@ create table support( -- 후원 테이블
     sup_date date -- 후원날짜
     sup_tel varchar2(20), -- 후원자 번호
     p_no number references project(p_no), -- 프로젝트번호
-    del char(1), -- 후원 취소여부
+    del char(1) default 'n', -- 후원 취소여부
     total_price varchar2(20) -- 주문금액
 );
 
@@ -90,7 +90,7 @@ create table options( -- 옵션 테이블
     opt_name varchar2(40), -- 옵션명
     opt_price number, -- 옵션 가격
     p_no number references project(p_no), -- 프로젝트번호
-    opt_del varchar2(5) -- 옵션 삭제여부
+    opt_del varchar2(5) default 'n' -- 옵션 삭제여부
 );
 
 create table support_detail( -- 후원내역 테이블
@@ -98,6 +98,6 @@ create table support_detail( -- 후원내역 테이블
    	supd_cnt number, -- 후원내역 수량
     opt_code varchar2(10) references options(opt_code), -- 후원테이블의 옵션코드
     sup_no number references support(sup_no), -- 후원테이블의 후원번호
-    del char(1), -- 후원내역 삭제여부
+    del char(1) default 'n', -- 후원내역 삭제여부
     oc_price varchar2(20) -- 옵션 항목 하나의 총 가격(optionXcount _ price)
 );

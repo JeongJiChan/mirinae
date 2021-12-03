@@ -55,6 +55,9 @@
 				alert(msg);
 				$(".star").attr("src", imgSrc);
 			});
+		}else if(${not empty admin_id}){
+			alert("관리자 아이디로는 마이픽이 불가능 합니다.");
+			return false;
 		}else {
 			alert('로그인 후 이용해주세요.');
 			location.href="/mirinae/views/member/loginForm.sun";
@@ -63,6 +66,10 @@
 	} 
 	
 	function chk1() {
+			if(${not empty admin_id}){
+				alert("관리자 아이디로는 후원을 할 수 없습니다.");
+				return false;
+			}
 	 		if(${empty id}){
 	 			alert("로그인 후 이용해주세요.");
 	 			location.href="/mirinae/views/member/loginForm.sun";
@@ -72,6 +79,7 @@
 	 			alert("옵션을 선택해주세요");
 	 			return false;
 	 		}
+
 	}
 	 	
  	function del() {
@@ -134,6 +142,7 @@
 <body>
 <form action="/mirinae/views/support/sup_form.chan" method="post" name="frm" onsubmit="return chk1()">
 <input type="hidden" name="p_no" value="${project.p_no }">
+<input type="hidden" name="per" value="${project.cur_money/project.goal_money * 100 }">
 <div align="center" style="margin-top: 50px; margin-left: 60px;">
 <div class="proform">
 <table id="picture_table">
@@ -163,13 +172,13 @@
 				</th><td style="text-align: center; width: 100px;">${opt.opt_name }</td>
 			<th style="text-align: center; width: 180px;">가격  : <fmt:formatNumber value="${opt.opt_price }" pattern="#,###" />원</th>
 			<td>수량 : <input type="number" name="supd_cnt" class="${opt.opt_code }" disabled="disabled" required="required" min="1">
-			<div id="total" style="display:inline;"><div id="${opt.opt_code }" style="display:inline;"></div><b>원</b></div><br>
+			<div id="total" style="display:inline;"><div id="${opt.opt_code }" style="display:inline; margin-left: 30px;"></div><b>원</b></div><br>
 			</td></tr>
 	</c:forEach>
 	</table>
 </div>
 	<table style="float: left; width: 660px; margin-top: 10px; margin-bottom: 20px;">
-	<tr><th class="topTable">총 금액</th><th style="width: 200px;" class="underline"><div id="totalview" style="display:inline;">원</div></th><td><input type="submit" value="후원하기" 
+	<tr><th class="topTable">총 금액</th><th style="width: 200px;" class="underline"><div id="totalview" style="display:inline; margin-left: 50px;">원</div></th><td><input type="submit" value="후원하기" 
 				class="btn btn-primary" >
 	<c:if test="${project.m_id == id || not empty admin_id }">
 		<input type="button" onclick="update()" value="수정" class="btn btn-warning">

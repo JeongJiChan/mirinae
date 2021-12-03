@@ -13,10 +13,4 @@
 	<insert id="insert_price" parameterType="int">
 		update project set cur_money = cur_money + #{total_price} where p_no=#{p_no}
 	</insert>
-	<update id="delete" parameterType="int">
-		update support_detail set del='y' where sup_no=#{sup_no}
-	</update>
-	<update id="p_del" parameterType="int">
-		update project set cur_money = cur_money - #{total_price} where p_no=#{p_no}
-	</update>
 </mapper>

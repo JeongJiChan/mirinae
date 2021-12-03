@@ -60,7 +60,7 @@
 					<tr><th colspan="4" style="text-align: center;"><h2>삭제된 게시물 입니다.</h2></th></tr>
 				</c:if>
 				<c:if test="${no_del == 'n' }">
-				<tr><th class="labeling underlinewhite titleheight">제목</th><td colspan="3" class="leftpadding underlineblack">${notice.no_title }</td></tr>
+				<tr><th class="labeling underlinewhite titleheight">제목</th><td class="leftpadding underlineblack">${notice.no_title }</td><td></td><td></td></tr>
 	 			<tr><th class="labeling underlinewhite writeheight">작성자</th><td class="leftpadding underlineblack">${writer }</td>
 	 			<td class="labelingdate">작성일 : ${notice.no_date }</td>
 	 			<td class="labeling underlinewhite">조회수 : ${notice.no_view }</td></tr>

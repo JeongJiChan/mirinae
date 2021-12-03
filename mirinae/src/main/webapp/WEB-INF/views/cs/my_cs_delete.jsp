@@ -8,13 +8,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:if test="${result == 1}">
+	<c:if test="${result >= 1}">
 		<script type="text/javascript">
 			alert("삭제 완료");
 			location.href="my_cs_list.kwon?pageNum=${pageNum}";
 		</script>
 	</c:if>
-	<c:if test="${result != 1 }">
+	<c:if test="${result < 1 }">
 		<script type="text/javascript">
 			alert("오류 발생");
 			history.go(-1);
