@@ -55,6 +55,14 @@
 	.carousel-caption .h3 { mix-blend-mode: difference; }
 	.fin_pro { font-size: 30px; font-weight: bold; margin-left: 21%; margin-bottom: 10px; }
 	h4 { display: inline; color: #3498db; margin-right: 20px; }
+	.d { width: 100%; height: 100%; position: absolute; top: 0px; 
+		background: linear-gradient(
+            to left,
+            rgba(20, 20, 20, 0) 60%,
+            rgba(20, 20, 20, 0.25) 70%,
+            rgba(20, 20, 20, 0.5) 80%,
+            rgba(20, 20, 20, 0.75) 90%,
+            rgba(20, 20, 20, 1) 100%);}
 </style>
 </head>
 <body>
@@ -109,124 +117,156 @@
 						<c:if test="${4 < count }">	
 							<div class="item active">
 								<img src="/mirinae/p_images/${hot_p_no1 }.jpg" alt="First slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${hot_p_no1}'">
+								<div class="d">
 								<div class="carousel-caption d-none d-md-block">
 							        <h3 class="h3">HOT 1</h3>
 							        <p class="p">${hot_p_name1 }</p>
 						    	</div>
+						    	</div>
 							</div>
 							<div class="item">
 								<img src="/mirinae/p_images/${hot_p_no2 }.jpg" alt="Second slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${hot_p_no2}'">
+								<div class="d">
 								<div class="carousel-caption d-none d-md-block">
-							        <h3>HOT 2</h3>
-							        <p>${hot_p_name2 }</p>
+							        <h3 class="h3">HOT 2</h3>
+							        <p class="p">${hot_p_name2 }</p>
+						    	</div>
 						    	</div>
 							</div>
 							<div class="item">
 								<img src="/mirinae/p_images/${hot_p_no3 }.jpg" alt="Third slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${hot_p_no3}'">
+								<div class="d">
 								<div class="carousel-caption d-none d-md-block">
-							        <h3>HOT 3</h3>
-							        <p>${hot_p_name3 }</p>
+							        <h3 class="h3">HOT 3</h3>
+							        <p class="p">${hot_p_name3 }</p>
+						    	</div>
 						    	</div>
 							</div>
 							<div class="item">
 								<img src="/mirinae/p_images/${hot_p_no4 }.jpg" alt="Fourth slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${hot_p_no4}'">
+								<div class="d">
 								<div class="carousel-caption d-none d-md-block">
-							        <h3>HOT 4</h3>
-							        <p>${hot_p_name4 }</p>
+							        <h3 class="h3">HOT 4</h3>
+							        <p class="p">${hot_p_name4 }</p>
+						    	</div>
 						    	</div>
 							</div>
 							<div class="item">
 								<img src="/mirinae/p_images/${hot_p_no5 }.jpg" alt="Fifth slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${hot_p_no5}'">
+								<div class="d">
 								<div class="carousel-caption d-none d-md-block">
-							        <h3>HOT 5</h3>
-							        <p>${hot_p_name5 }</p>
+							        <h3 class="h3">HOT 5</h3>
+							        <p class="p">${hot_p_name5 }</p>
+						    	</div>
 						    	</div>
 							</div>
 						</c:if>
 						<c:if test="${4 == count }">	
 							<div class="item active">
 								<img src="/mirinae/p_images/${hot_p_no1 }.jpg" alt="First slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${hot_p_no1}'">
+								<div class="d">
 								<div class="carousel-caption d-none d-md-block">
 							        <h3 class="h3">HOT 1</h3>
 							        <p class="p">${hot_p_name1 }</p>
 						    	</div>
+						    	</div>
 							</div>
 							<div class="item">
 								<img src="/mirinae/p_images/${hot_p_no2 }.jpg" alt="Second slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${hot_p_no2}'">
+								<div class="d">
 								<div class="carousel-caption d-none d-md-block">
-							        <h3>HOT 2</h3>
-							        <p>${hot_p_name2 }</p>
+							        <h3 class="h3">HOT 2</h3>
+							        <p class="p">${hot_p_name2 }</p>
+						    	</div>
 						    	</div>
 							</div>
 							<div class="item">
 								<img src="/mirinae/p_images/${hot_p_no3 }.jpg" alt="Third slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${hot_p_no3}'">
+								<div class="d">
 								<div class="carousel-caption d-none d-md-block">
-							        <h3>HOT 3</h3>
-							        <p>${hot_p_name3 }</p>
+							        <h3 class="h3">HOT 3</h3>
+							        <p class="p">${hot_p_name3 }</p>
+						    	</div>
 						    	</div>
 							</div>
 							<div class="item">
 								<img src="/mirinae/p_images/${hot_p_no4 }.jpg" alt="Third slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${hot_p_no4}'">
+								<div class="d">
 								<div class="carousel-caption d-none d-md-block">
-							        <h3>HOT 4</h3>
-							        <p>${hot_p_name4 }</p>
+							        <h3 class="h3">HOT 4</h3>
+							        <p class="p">${hot_p_name4 }</p>
+						    	</div>
 						    	</div>
 							</div>
 						</c:if>
 						<c:if test="${3 == count }">	
 							<div class="item active">
 								<img src="/mirinae/p_images/${hot_p_no1 }.jpg" alt="First slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${hot_p_no1}'">
+								<div class="d">
 								<div class="carousel-caption d-none d-md-block">
 							        <h3 class="h3">HOT 1</h3>
 							        <p class="p">${hot_p_name1 }</p>
 						    	</div>
+						    	</div>
 							</div>
 							<div class="item">
 								<img src="/mirinae/p_images/${hot_p_no2 }.jpg" alt="Second slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${hot_p_no2}'">
+								<div class="d">
 								<div class="carousel-caption d-none d-md-block">
-							        <h3>HOT 2</h3>
-							        <p>${hot_p_name2 }</p>
+							        <h3 class="h3">HOT 2</h3>
+							        <p class="p">${hot_p_name2 }</p>
+						    	</div>
 						    	</div>
 							</div>
 							<div class="item">
 								<img src="/mirinae/p_images/${hot_p_no3 }.jpg" alt="Third slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${hot_p_no3}'">
+								<div class="d">
 								<div class="carousel-caption d-none d-md-block">
-							        <h3>HOT 3</h3>
-							        <p>${hot_p_name3 }</p>
+							        <h3 class="h3">HOT 3</h3>
+							        <p class="p">${hot_p_name3 }</p>
+						    	</div>
 						    	</div>
 							</div>
 						</c:if>
 						<c:if test="${2 == count }">	
 							<div class="item active">
 								<img src="/mirinae/p_images/${hot_p_no1 }.jpg" alt="First slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${hot_p_no1}'">
+								<div class="d">
 								<div class="carousel-caption d-none d-md-block">
 							        <h3 class="h3">HOT 1</h3>
 							        <p class="p">${hot_p_name1 }</p>
 						    	</div>
+						    	</div>
 							</div>
 							<div class="item">
 								<img src="/mirinae/p_images/${hot_p_no2 }.jpg" alt="Second slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${hot_p_no2}'">
+								<div class="d">
 								<div class="carousel-caption d-none d-md-block">
-							        <h3>HOT 2</h3>
-							        <p>${hot_p_name2 }</p>
+							        <h3 class="h3">HOT 2</h3>
+							        <p class="p">${hot_p_name2 }</p>
+						    	</div>
 						    	</div>
 							</div>
 						</c:if>
 						<c:if test="${1 == count }">	
 							<div class="item active">
 								<img src="/mirinae/p_images/${hot_p_no1 }.jpg" alt="First slide" onclick="location.href='/mirinae/views/project/p_view.kim?p_no=${hot_p_no1}'">
+								<div class="d">
 								<div class="carousel-caption d-none d-md-block">
 							        <h3 class="h3">HOT 1</h3>
 							        <p class="p">${hot_p_name1 }</p>
+						    	</div>
 						    	</div>
 							</div>							
 						</c:if>
 						<c:if test="${0 == count }">	
 							<div class="item active">
 								<img src="/mirinae/images/logo3.gif" alt="First slide">
+								<div class="d">
 								<div class="carousel-caption d-none d-md-block">
 							        <h3 class="h3"></h3>
 							        <p class="p"></p>
+						    	</div>
 						    	</div>
 							</div>							
 						</c:if>
