@@ -14,7 +14,7 @@
 	  border-color: #f39c12;
 	}
 	table { margin: 2%;}
-	#table { width: 30%; float: left; table-layout: fixed;}
+	#table { width: 28%; float: left; table-layout: fixed;}
 	#image { width: 100%; height: 290px; border-radius: 1px;
 			 border-collapse: collapse;
  			 border-radius: 10px;
