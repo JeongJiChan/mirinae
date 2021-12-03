@@ -8,6 +8,11 @@ alter table support add (sup_name varchar2(20), oc_price number);
 delete from support_detail;
 delete from support;
 delete from cs;
+delete from support_detail;
+delete from support; 
+delete from options;
+delete from project;
+delete from member;
 select * from member;
 select * from admin;
 select * from SUPPORT;
@@ -52,15 +57,18 @@ ALTER TABLE support MODIFY(p_no VARCHAR2(200));
 update support set p_no = 1 where p_no='test';
 ALTER TABLE member MODIFY(address_d VARCHAR2(100));
 ALTER TABLE support MODIFY(address_d VARCHAR2(100));
-delete from support_detail;
-delete from support;
-delete from options;
-delete from project;
 
 alter table project add m_id varchar2(20);
 alter table options add opt_del varchar2(5);
 alter table project modify p_name varchar2(40);
 alter table options modify opt_name varchar2(40);
+
+drop table mypick;
+create table mypick( 
+    my_no number primary key,
+    m_no number references member(m_no), 
+    p_no number references project(p_no)
+);
 
 create table Member ( -- 회원
     m_no number primary key, -- 회원번호
