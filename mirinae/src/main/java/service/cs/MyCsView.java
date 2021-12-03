@@ -21,6 +21,11 @@ public class MyCsView implements CommandProcess {
 		int pageNum = Integer.parseInt(request.getParameter("pageNum"));
 		CsDao cd = CsDao.getInstance();
 		
+		MemberDao md = MemberDao.getInstance();
+		String id = (String) session.getAttribute("id");
+		Member member = md.select(id);
+		String m_name = member.getM_name();
+		
 		
 		// 조회수 카운트
 		cd.readcountUpdate(cs_no);
@@ -28,6 +33,7 @@ public class MyCsView implements CommandProcess {
 		// 데이터 가져오기
 		Cs cs = cd.select(cs_no);
 
+		request.setAttribute("m_name", m_name);
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("cs_no", cs_no);
 		request.setAttribute("cs", cs);

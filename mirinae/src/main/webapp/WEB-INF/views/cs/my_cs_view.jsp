@@ -46,8 +46,7 @@ table { margin-top: 40px;}
 </head>
 <body>
 	<div class="caption">
-		<h1 class="bottommargin"
-			style="font-size: 56px; line-height: 1.4em; text-align: center;">Customer Service</h1>
+		<h1 class="bottommargin" style="font-size: 56px; line-height: 1.4em; text-align: center;">${m_name }님의 문의내역</h1>
 	</div>
 <table align="center" width="800px;">
 				<tr><th class="labeling underlinewhite titleheight">제목</th><td colspan="3" class="leftpadding underlineblack">${cs.cs_title }</td></tr>
