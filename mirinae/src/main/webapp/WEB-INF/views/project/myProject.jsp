@@ -25,7 +25,9 @@
 	h4 { display: inline; color: #3498db; }
 	.underline {border-bottom: 1px solid #2c3e50; }
 	h3 { margin-left: 5px; margin-top: 10px; margin-bottom: 0px; }
-	
+	.bdate { font-size: 17pt; color: #3498db;}
+	.timeimg{width: 20px; height: 20px; margin-bottom: 5px;}
+	.endpro {font-size: 16pt; color: red; }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
@@ -43,7 +45,23 @@
 			<a href="p_view.kim?p_no=${pro.p_no }">
 			<img id="image" src="/mirinae/p_images/${pro.p_no }.jpg" onerror="this.src='/mirinae/p_images/ximg.jpg'">
 			</a></th></tr>
-			<tr><td colspan="2"><h3>${pro.p_name }</h3></td></tr>	
+			<tr><td colspan="2"><h3  style="display: inline;">${pro.p_name }</h3>
+							<c:if test="${pro.p_date >= 0 }">
+								<div style="display: inline; float: right;">
+								<img class="timeimg" alt="" src="/mirinae/p_images/timeicon.png">
+								<span>시작</span><span class="bdate"> ${pro.p_date }</span><span>일 전</span></div>
+							</c:if>
+							<c:if test="${pro.b_date >= 0 && pro.p_date < 0}">
+								<div style="display: inline; float: right;">
+								<img class="timeimg" alt="" src="/mirinae/p_images/timeicon.png">
+								<span>종료</span><span class="bdate"> ${pro.b_date }</span><span>일 전</span></div>
+							</c:if>
+							<c:if test="${pro.b_date < 0 }">
+								<div style="display: inline; float: right;"><span class="endpro">마감</span></div>
+							</c:if>
+			
+			
+			</td></tr>	
 			<tr><td colspan="2" class="underline">
 				<c:if test="${pro.cate_code == 100 }">의류</c:if>
 				<c:if test="${pro.cate_code == 200 }">가전</c:if>

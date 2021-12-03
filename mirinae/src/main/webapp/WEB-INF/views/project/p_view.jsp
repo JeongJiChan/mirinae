@@ -45,6 +45,27 @@
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
+	//현재 시간 yyyymmdd 로 구해서 int로 형변환
+	var date = new Date();
+	var year = date.getYear() +1900;
+	var month = date.getMonth() + 1;
+	var day = date.getDate();
+	if(month < 10){
+		month = "0"+month;
+	}
+	if(day < 10){
+		day = "0"+day;	
+	}
+	var finishdate = year+""+month+""+day;
+	finishdate = parseInt(finishdate);
+	
+	var s_date = '${project.s_date}';
+	s_date = s_date.replaceAll("-","");
+	s_date = parseInt(s_date);
+	
+	var e_date = '${project.e_date}';
+	e_date = e_date.replaceAll("-","");
+	e_date = parseInt(e_date);
 
 	var data =0;
 	function sessionChk(p_no) {
@@ -74,6 +95,14 @@
 	 			alert("로그인 후 이용해주세요.");
 	 			location.href="/mirinae/views/member/loginForm.sun";
 				return false;
+	 		}
+	 		if(finishdate < s_date ){
+	 			alert("아직 후원 예정인 프로젝트 입니다.");
+	 			return false;
+	 		}
+	 		if(finishdate > e_date ){
+	 			alert("마감된 프로젝트 입니다.");
+	 			return false;
 	 		}
 	 		if(data == 0){
 	 			alert("옵션을 선택해주세요");
@@ -143,6 +172,8 @@
 <form action="/mirinae/views/support/sup_form.chan" method="post" name="frm" onsubmit="return chk1()">
 <input type="hidden" name="p_no" value="${project.p_no }">
 <input type="hidden" name="per" value="${project.cur_money/project.goal_money * 100 }">
+<input type="hidden" name="s_date" value="${project.s_date }">
+<input type="hidden" name="e_date" value="${project.e_date }">
 <div align="center" style="margin-top: 50px; margin-left: 60px;">
 <div class="proform">
 <table id="picture_table">
@@ -161,7 +192,13 @@
 	<tr><th class="topTable">프로젝트 기간</th><td colspan="4" class="leftpa underline">${project.s_date } ~ ${project.e_date }</td></tr>	
 	<tr><th class="topTable">목표 금액</th><td colspan="4" class="leftpa underline"><fmt:formatNumber value="${project.goal_money }" pattern="#,###" />원</td></tr>
 	<tr><th class="topTable">현재 모인 금액</th><td colspan="4" class="leftpa underline"><fmt:formatNumber value="${project.cur_money }" pattern="#,###" />원</td></tr>	
-	<tr><th class="topTable"> 달성률</th><td colspan="4" class="leftpa"><fmt:formatNumber value="${project.cur_money/project.goal_money * 100 }" pattern="0.00"/>%</td></tr>
+	<tr><th class="topTable"> 달성률</th><td colspan="4">
+	<div class="progress">
+  		<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:${project.cur_money/project.goal_money * 100 }%;">
+  			<fmt:formatNumber value="${project.cur_money/project.goal_money * 100 }" pattern="0.00"/>%
+  		</div>
+	</div>
+<%-- 	 <div><fmt:formatNumber value="${project.cur_money/project.goal_money * 100 }" pattern="0.00"/>%</div></td></tr> --%>
 	<tr><th colspan="5" class="topTablex">옵션 구매하기</th></tr>	
 	</table>
 <div style="display: inline; float: left; width: 660px; height: 90px; overflow-y:auto;overflow-x:hidden; border-bottom: 1px solid black;">
@@ -178,8 +215,11 @@
 	</table>
 </div>
 	<table style="float: left; width: 660px; margin-top: 10px; margin-bottom: 20px;">
-	<tr><th class="topTable">총 금액</th><th style="width: 200px;" class="underline"><div id="totalview" style="display:inline; margin-left: 50px;">원</div></th><td><input type="submit" value="후원하기" 
-				class="btn btn-primary" >
+	<tr><th class="topTable">총 금액</th><th style="width: 200px;" class="underline"><div id="totalview" style="display:inline; margin-left: 50px;">원</div></th>
+	<td>
+	<c:if test="${project.m_id != sessionScope.id }">
+	<input type="submit" value="후원하기" class="btn btn-primary" >
+	</c:if>
 	<c:if test="${project.m_id == id || not empty admin_id }">
 		<input type="button" onclick="update()" value="수정" class="btn btn-warning">
 	</c:if>

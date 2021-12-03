@@ -42,7 +42,6 @@ public class ProView implements CommandProcess {
 			imgSrc = "/mirinae/images/star-empty.png";
 		}
 		
-		
 		request.setAttribute("imgSrc", imgSrc);
 		request.setAttribute("mypick", mypick);
 		request.setAttribute("project", project);

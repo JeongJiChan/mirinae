@@ -16,6 +16,8 @@ public class Project {
     private Date reg_date;
     private int cur_money;
     private String m_id;
+    private int b_date;
+    private int p_date;
 	public int getP_no() {
 		return p_no;
 	}
@@ -94,12 +96,25 @@ public class Project {
 	public void setM_id(String m_id) {
 		this.m_id = m_id;
 	}
+	
+	public int getB_date() {
+		return b_date;
+	}
+	public void setB_date(int b_date) {
+		this.b_date = b_date;
+	}
+	public int getP_date() {
+		return p_date;
+	}
+	public void setP_date(int p_date) {
+		this.p_date = p_date;
+	}
 	@Override
 	public String toString() {
 		return "Project [p_no=" + p_no + ", cate_code=" + cate_code + ", p_name=" + p_name + ", p_content=" + p_content
 				+ ", p_writer=" + p_writer + ", s_date=" + s_date + ", e_date=" + e_date + ", goal_money=" + goal_money
 				+ ", p_view=" + p_view + ", p_del=" + p_del + ", reg_date=" + reg_date + ", cur_money=" + cur_money
-				+ ", m_id=" + m_id + "]";
+				+ ", m_id=" + m_id + ", b_date=" + b_date +", p_date=" + p_date +"]";
 	}
     
 

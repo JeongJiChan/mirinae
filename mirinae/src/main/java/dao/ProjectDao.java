@@ -90,9 +90,6 @@ public class ProjectDao {
 		return (int) session.selectOne("projectns.getTotal2");
 	}
 	
-	public List<Project> my_projectList(String id) {
-		return (List<Project>)session.selectList("projectns.myprojectList", id);
-	}
 	public int idSearch(String id) {
 		return (int) session.selectOne("projectns.idSearch", id);
 	}
@@ -102,4 +99,12 @@ public class ProjectDao {
 	public int finishing_select(int rn) {
 		return (int) session.selectOne("projectns.finishingselect", rn);
 	}
+	public List<Project> my_projectList(int startRow, int endRow, String id) {
+		HashMap<String, Object> pro = new HashMap<>();
+		pro.put("startRow", startRow);
+		pro.put("endRow", endRow);
+		pro.put("id", id);
+	    return (List<Project>)session.selectList("projectns.myprojectList", pro);
+	}
+
 }
