@@ -31,7 +31,6 @@ public class ProjectDao {
 		}
 	}
 	public int insert(Project project) {
-		System.out.println(project);
 		int result = session.insert("projectns.insert",project);
 		session.commit();
 		return result;
@@ -90,9 +89,6 @@ public class ProjectDao {
 		return (int) session.selectOne("projectns.getTotal2");
 	}
 	
-	public List<Project> my_projectList(String id) {
-		return (List<Project>)session.selectList("projectns.myprojectList", id);
-	}
 	public int idSearch(String id) {
 		return (int) session.selectOne("projectns.idSearch", id);
 	}
@@ -102,4 +98,15 @@ public class ProjectDao {
 	public int finishing_select(int rn) {
 		return (int) session.selectOne("projectns.finishingselect", rn);
 	}
+	public List<Project> my_projectList(int startRow, int endRow, String id) {
+		HashMap<String, Object> pro = new HashMap<>();
+		pro.put("startRow", startRow);
+		pro.put("endRow", endRow);
+		pro.put("id", id);
+	    return (List<Project>)session.selectList("projectns.myprojectList", pro);
+	}
+	public int getTotal3(String search) {
+		return (int) session.selectOne("projectns.getTotal3",search);
+	}
+
 }

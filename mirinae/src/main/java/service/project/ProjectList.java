@@ -39,7 +39,6 @@ public class ProjectList implements CommandProcess {
 		if(endPage > totalPage){
 			endPage = totalPage;
 		}
-		
 		request.setAttribute("number", number);
 		request.setAttribute("PAGE_PER_BLOCK", PAGE_PER_BLOCK);
 		request.setAttribute("startPage", startPage);

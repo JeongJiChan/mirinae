@@ -16,6 +16,7 @@ public class HomeSearch implements CommandProcess {
 		final int ROW_PER_PAGE = 9; //한페이지당 9개
 		final int PAGE_PER_BLOCK = 5; // 한블럭당 5개의 페이지
 		String pageNum = request.getParameter("pageNum");
+		String search = request.getParameter("search");
 		if(pageNum == null || pageNum.equals("")){
 			pageNum = "1";
 		}
@@ -25,9 +26,8 @@ public class HomeSearch implements CommandProcess {
 		//끝번호 	시작번호 + 페이지당개수 - 1			
 		int endRow = startRow + ROW_PER_PAGE - 1;
 		ProjectDao pd = ProjectDao.getInstance();
-		int total = pd.getTotal2();  
+		int total = pd.getTotal3(search);  
 		int number = total - startRow + 1;
-		String search = request.getParameter("search");
 		List<Project> project = pd.list2(startRow,endRow,search);  
 //		(double) 나눗셈 결과를 실수로 바꾸기 위해 사용 적지 않으면 소숫점 이하가 사라진다.
 		int totalPage = (int)Math.ceil((double)total/ROW_PER_PAGE); //총 페이지
@@ -40,6 +40,7 @@ public class HomeSearch implements CommandProcess {
 			endPage = totalPage;
 		}
 		
+		request.setAttribute("search", search);
 		request.setAttribute("number", number);
 		request.setAttribute("PAGE_PER_BLOCK", PAGE_PER_BLOCK);
 		request.setAttribute("startPage", startPage);
