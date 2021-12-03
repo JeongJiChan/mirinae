@@ -24,9 +24,9 @@
 		project where p_del = 'n' order by p_no desc)a) p where rn between #{startRow} and #{endRow} 
 	</select>
 	<select id="list2" resultType="project">
- 		select * from (select rowNum rn,a.* from (select * from project where p_del = 'n' and 
- 			(p_name like '%'||#{search}||'%' or p_content like '%'||#{search}||'%') order by p_no desc)a) 
- 				where rn between #{startRow} and #{endRow} 
+ 		select p.*, ceil(e_date - sysdate) b_date, ceil(s_date - sysdate) p_date from (select rowNum rn,a.* from (select * from project where  
+ 			(p_name like '%'||#{search}||'%' or p_content like '%'||#{search}||'%')and p_del = 'n' order by p_no desc)a) 
+ 				p where rn between #{startRow} and #{endRow} 
 	</select>
 	<select id="catelist" resultType="project">
  		select p.*, ceil(e_date - sysdate) b_date, ceil(s_date - sysdate) p_date from (select rowNum rn,a.* from (select * from
@@ -83,5 +83,9 @@
 	<select id="myprojectList" resultType="project">
  		select p.*, ceil(e_date - sysdate) b_date, ceil(s_date - sysdate) p_date from (select rowNum rn,a.* from (select * from
 		project where m_id = #{id} and p_del = 'n' order by p_no desc)a) p where rn between #{startRow} and #{endRow} 
+	</select>
+	<select id="getTotal3" resultType="integer" parameterType="string">
+		select count(*) from project where  
+ 			(p_name like '%'||#{search}||'%' or p_content like '%'||#{search}||'%')and p_del = 'n'
 	</select>
 </mapper>

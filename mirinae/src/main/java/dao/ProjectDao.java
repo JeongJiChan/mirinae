@@ -31,7 +31,6 @@ public class ProjectDao {
 		}
 	}
 	public int insert(Project project) {
-		System.out.println(project);
 		int result = session.insert("projectns.insert",project);
 		session.commit();
 		return result;
@@ -105,6 +104,9 @@ public class ProjectDao {
 		pro.put("endRow", endRow);
 		pro.put("id", id);
 	    return (List<Project>)session.selectList("projectns.myprojectList", pro);
+	}
+	public int getTotal3(String search) {
+		return (int) session.selectOne("projectns.getTotal3",search);
 	}
 
 }

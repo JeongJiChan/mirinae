@@ -47,12 +47,12 @@
 			</a></th></tr>
 			<tr><td colspan="2"><h3 style="display: inline;">${pro.p_name }</h3>	
 							
-							<c:if test="${pro.p_date >= 0 }">
+							<c:if test="${pro.p_date > 0 }">
 								<div style="display: inline; float: right;">
 								<img class="timeimg" alt="" src="/mirinae/p_images/timeicon.png">
 								<span>시작</span><span class="bdate"> ${pro.p_date }</span><span>일 전</span></div>
 							</c:if>
-							<c:if test="${pro.b_date >= 0 && pro.p_date < 0}">
+							<c:if test="${pro.b_date >= 0 && pro.p_date <= 0}">
 								<div style="display: inline; float: right;">
 								<img class="timeimg" alt="" src="/mirinae/p_images/timeicon.png">
 								<span>종료</span><span class="bdate"> ${pro.b_date }</span><span>일 전</span></div>
