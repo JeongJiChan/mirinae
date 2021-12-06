@@ -92,20 +92,19 @@
 	var year = date.getYear() +1900;
 	var month = date.getMonth() + 1;
 	var day = date.getDate();
+	if(month < 10){
+		month = "0"+month;
+	}
+	if(day < 10){
+		day = "0"+day;	
+	}
 	var finishdate = year+""+month+""+day;
 	finishdate = parseInt(finishdate);
 	// 시작일을 위한 변수
 	var s_date;
-	
-	window.onload = function() {
-		if(${empty id && empty admin_id}){
-			alert("로그인 후 이용해주세요.");
-			location.href="/mirinae/views/member/loginForm.sun";
-		}
-	}
 	var name_arr = [];
 	var price_arr = [];
-
+	
 	//제약조건
 	function chk() {
 		if(frm.category.value == "카테고리를 선택하세요"){
@@ -270,9 +269,12 @@
 <table id="project_table">
 	<tr><th class="topTable">카테고리</th><td><select id="category" name="category" class="form-selectcate">
 								<option>카테고리를 선택하세요</option>
-								<option value="100">의류</option>
-								<option value="200">가전</option>
-								<option value="300">기타</option></select></td></tr>
+								<option value="100">가전</option>
+								<option value="200">반려동물</option>
+								<option value="300">뷰티</option>
+								<option value="400">푸드</option>
+								<option value="500">패션</option>
+								<option value="600">기타</option></select></td></tr>
 								
 	<tr><th class="topTable">프로젝트 이름</th><td><input type="text" name="name" required="required" autofocus="autofocus"
 													class="form-controllogin" value="${project.p_name }"></td></tr>

@@ -275,9 +275,13 @@
 <table id="project_table">
 	<tr><th class="topTable">카테고리</th><td><select id="category" name="category" class="form-selectcate">
 								<option>카테고리를 선택하세요</option>
-								<option value="100">의류</option>
-								<option value="200">가전</option>
-								<option value="300">기타</option></select></td></tr>
+								<option value="100">가전</option>
+								<option value="200">반려동물</option>
+								<option value="300">뷰티</option>
+								<option value="400">푸드</option>
+								<option value="500">패션</option>
+								<option value="600">기타</option>
+								</select></td></tr>
 								
 	<tr><th class="topTable">프로젝트 이름</th><td><input type="text" name="name" required="required" autofocus="autofocus"
 													class="form-controllogin"></td></tr>
