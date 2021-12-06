@@ -21,7 +21,6 @@ public class Delete implements CommandProcess {
 			result = md.delete(id);
 			session.invalidate();
 		}
-		System.out.println(result);
 		request.setAttribute("result", result);
 		return "/member/delete";
 	}

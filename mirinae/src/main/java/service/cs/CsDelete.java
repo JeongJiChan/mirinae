@@ -13,7 +13,6 @@ public class CsDelete implements CommandProcess {
 		String pageNum = request.getParameter("pageNum");
 		CsDao cd = CsDao.getInstance();
 		int result = cd.delete(cs_ref);
-		System.out.println();
 		request.setAttribute("result", result);
 		request.setAttribute("pageNum", pageNum);
 		return "cs/cs_delete";

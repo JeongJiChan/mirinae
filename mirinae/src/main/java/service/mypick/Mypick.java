@@ -13,7 +13,6 @@ public class Mypick implements CommandProcess{
 		String id = (String)session.getAttribute("id");
 		int p_no = Integer.parseInt(request.getParameter("p_no"));
 		
-		System.out.println("p_no = "+p_no);
 		// 마이픽 조회
 		MypickDao md = MypickDao.getInstance();
 		int mypick=0;
