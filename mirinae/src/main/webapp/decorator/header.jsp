@@ -56,8 +56,8 @@
        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="" aria-haspopup="true" aria-expanded="false">게시판</a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="/mirinae/views/notice/notice_list.la">공지사항</a>
-            <a class="dropdown-item" href="/mirinae/views/cs/cs_list.kwon">고객문의</a>
+            <a class="dropdown-item" href="/mirinae/views/notice/notice_list.la"><b>공지사항</b></a>
+            <a class="dropdown-item" href="/mirinae/views/cs/cs_list.kwon"><b>고객문의</b></a>
           </div>
         </li>
         <c:if test="${empty id && empty admin_id}">
