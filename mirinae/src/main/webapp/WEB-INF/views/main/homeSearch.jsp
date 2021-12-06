@@ -63,9 +63,12 @@
 							
 							</td></tr>	
 			<tr><td colspan="2" class="underline">
-				<c:if test="${pro.cate_code == 100 }">의류</c:if>
-				<c:if test="${pro.cate_code == 200 }">가전</c:if>
-				<c:if test="${pro.cate_code == 300 }">기타</c:if>
+				<c:if test="${pro.cate_code == 100 }">가전</c:if>
+				<c:if test="${pro.cate_code == 200 }">반려동물</c:if>
+				<c:if test="${pro.cate_code == 300 }">뷰티</c:if>
+				<c:if test="${pro.cate_code == 400 }">푸드</c:if>
+				<c:if test="${pro.cate_code == 500 }">패션</c:if>
+				<c:if test="${pro.cate_code == 600 }">기타</c:if>
 			</td></tr>
 			<tr><th colspan="2"><h4 style="margin-right: 20px;"><fmt:formatNumber value="${pro.cur_money/pro.goal_money * 100 }" pattern="0.00"/>%</h4>
 							<fmt:formatNumber value="${pro.goal_money }" pattern="#,###" />원 		

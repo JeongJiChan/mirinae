@@ -181,9 +181,12 @@
 </table>
 <table id="project_table">
 	<tr><th class="topTable">카테고리</th><td class="leftpa underline">
-	<c:if test="${project.cate_code == 100 }">	의류	</c:if>
-	<c:if test="${project.cate_code == 200 }">	가전	</c:if>
-	<c:if test="${project.cate_code == 300 }">	기타	</c:if>
+	<c:if test="${project.cate_code == 100 }">	가전	</c:if>
+	<c:if test="${project.cate_code == 200 }">	반려동물	</c:if>
+	<c:if test="${project.cate_code == 300 }">	뷰티	</c:if>
+	<c:if test="${project.cate_code == 400 }">	푸드	</c:if>
+	<c:if test="${project.cate_code == 500 }">	패션	</c:if>
+	<c:if test="${project.cate_code == 600 }">	기타	</c:if>
 	</td><th class="topTable">조회수</th><td class="leftpa underline">${project.p_view }</td>
 	<td>	<!-- 마이픽 버튼 -->
 	<img onclick="sessionChk(${project.p_no })" alt="마이픽" src="${imgSrc}" class="star" style="float: left;"></td></tr>
@@ -198,7 +201,6 @@
   			<fmt:formatNumber value="${project.cur_money/project.goal_money * 100 }" pattern="0.00"/>%
   		</div>
 	</div>
-<%-- 	 <div><fmt:formatNumber value="${project.cur_money/project.goal_money * 100 }" pattern="0.00"/>%</div></td></tr> --%>
 	<tr><th colspan="5" class="topTablex">옵션 구매하기</th></tr>	
 	</table>
 <div style="display: inline; float: left; width: 660px; height: 90px; overflow-y:auto;overflow-x:hidden; border-bottom: 1px solid black;">
