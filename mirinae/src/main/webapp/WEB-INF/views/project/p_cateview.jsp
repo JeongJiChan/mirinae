@@ -21,10 +21,10 @@
 	  background-color: #f39c12;
 	  border-color: #f39c12;
 	}
-	#prolist { margin-left: 13%; margin-right: 10%;}
+	#prolist { margin-left: 20%; margin-right: 20%;}
 	h4 { display: inline; color: #3498db; }
 	.underline {border-bottom: 1px solid #2c3e50; }
-	h3 { margin-left: 5px; margin-top: 10px; margin-bottom: 0px; }
+	.proname { margin-left: 5px; margin-top: 10px; margin-bottom: 0px; font-size: 23px}
 	.bdate { font-size: 17pt; color: #3498db;}
 	.timeimg{width: 20px; height: 20px; margin-bottom: 5px;}
 	.endpro {font-size: 16pt; color: red; }	
@@ -45,7 +45,7 @@
 			<a href="p_view.kim?p_no=${pro.p_no }">
 			<img id="image" src="/mirinae/p_images/${pro.p_no }.jpg" onerror="this.src='/mirinae/p_images/ximg.jpg'">
 			</a></th></tr>
-			<tr><td colspan="2"><h3 style="display: inline;">${pro.p_name }</h3>
+			<tr><td colspan="2"><div class="proname" style="display: inline;"><b>${pro.p_name }</b></div>
 			
 							<c:if test="${pro.p_date > 0 }">
 								<div style="display: inline; float: right;">

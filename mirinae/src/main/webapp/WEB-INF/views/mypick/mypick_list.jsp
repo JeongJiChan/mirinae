@@ -21,10 +21,10 @@
 	  background-color: #f39c12;
 	  border-color: #f39c12;
 	}
-	#prolist { margin-left: 13%; margin-right: 10%;}
+	#prolist { margin-left: 20%; margin-right: 20%;}
 	h4 { display: inline; color: #3498db; }
 	.underline {border-bottom: 1px solid #2c3e50; }
-	h3 { margin-left: 5px; margin-top: 10px; margin-bottom: 0px; }
+	.proname { margin-left: 5px; margin-top: 10px; margin-bottom: 0px; font-size: 23px}
 	
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -45,7 +45,7 @@
 			<a href="/mirinae/views/project/p_view.kim?p_no=${list.p_no }">
 			<img id="image" src="/mirinae/p_images/${list.p_no }.jpg" onerror="this.src='/mirinae/p_images/ximg.jpg'">
 			</a></th></tr>
-			<tr><td colspan="2"><h3>${list.p_name }</h3></td></tr>	
+			<tr><td colspan="2"><div class="proname" style="display: inline;"><b>${list.p_name }</b></div>	</td></tr>	
 			<tr><td colspan="2" class="underline">
 				<c:if test="${list.cate_code == 100 }">의류</c:if>
 				<c:if test="${list.cate_code == 200 }">가전</c:if>
