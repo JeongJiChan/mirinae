@@ -9,16 +9,16 @@ drop table notice;
 drop table admin;
 drop table member cascade constraints;
 
-select from member;
-select from admin;
-select from notice;
-select from cs;
-select from project;
-select from category;
-select from mypick;
-select from support;
-select from options;
-select from support_detail;
+select * from member;
+select * from admin;
+select * from notice;
+select * from cs;
+select * from project;
+select * from category;
+select * from mypick;
+select * from support;
+select * from options;
+select * from support_detail;
 
 insert into admin values (1, 'master', '1234', 'master');
 
